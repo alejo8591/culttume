@@ -12,3 +12,7 @@ logs
 results
 
 npm-debug.log
+# Node.JS Modules
+node_modules
+# Index MacOSX
+.DS_Store
