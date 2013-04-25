@@ -1,4 +1,4 @@
 culttume
 ========
 
-VPM for culttu.me
+VPM for culttume
