@@ -9,7 +9,5 @@ app.configure ->
 culttume = require './controllers/culttume'
 
 app.get '/list', culttume.list
-
 app.listen 3000
-
 console.log "Listen 3000"
