@@ -1,38 +1,22 @@
 (function() {
-  var app, express, http, mongoose, path, routes;
+  var app, culttume, express;
 
   express = require('express');
-
-  http = require('http');
-
-  path = require('path');
-
-  routes = require('./routes/culttume');
-
-  mongoose = require('mongoose');
 
   app = express();
 
   app.configure(function() {
-    app.set('port', process.env.PORT || 7575);
-    app.set('views', __dirname + '/views');
-    app.set('view engine', 'jade');
-    app.use(express.logger('dev'));
-    app.use(express.favicon());
     app.use(express.bodyParser());
     app.use(express.methodOverride());
-    app.use(app.router);
-    return app.use(express["static"](path.join(__dirname, 'public')));
+    return app.use(app.router);
   });
 
-  app.configure('development', function() {
-    return app.use(express.errorHandler());
-  });
+  culttume = require('./controllers/culttume');
 
-  app.get('/', routes.index);
+  app.get('/list', culttume.list);
 
-  http.createServer(app).listen(app.get('port'), function() {
-    return console.log("Listening " + app.get('port'));
-  });
+  app.listen(3000);
+
+  console.log("Listen 3000");
 
 }).call(this);
