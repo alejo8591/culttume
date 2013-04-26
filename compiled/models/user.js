@@ -13,7 +13,7 @@
 
   UserSchema.add({
     registerId: ObjectId,
-    options: {
+    services: {
       type: String,
       lowercase: true,
       required: true

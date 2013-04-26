@@ -1,5 +1,6 @@
 mongoose = require 'mongoose'
-db = mongoose.createConnection 'localhost', 'culttume', 27017
+db = mongoose.connect 'localhost', 'culttume', 27017
+
 userSchema = require '../models/user'
 User = db.model 'User', userSchema
 
