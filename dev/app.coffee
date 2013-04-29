@@ -1,11 +1,16 @@
+# requirements libraries
 express  = require('express')
 app      = express()
 http     = require('http')
+# server `http`
 server   = http.createServer(app)
+# including the server socket.io and Express project
 io       = require('socket.io').listen server
+# use librarie `path`
 path     = require 'path'
+# build objetc with `culttume` -> `controllers`
 culttume = require './controllers/culttume'
-
+# config Express
 app.configure ->
 	app.set 'port', process.env.PORT || 3030
 	app.set 'views', __dirname + '/views'
@@ -16,20 +21,22 @@ app.configure ->
 	app.use express.methodOverride()
 	app.use(express.static(__dirname + '/public'))
 	app.use app.router
-
+# enviroment for developers
 app.configure 'development', ->
 	app.use express.errorHandler()
-
+# routes and paths for app
 app.get '/', culttume.index
 app.post '/register', culttume.register
 app.get '/list', culttume.list
 
-io.sockets.on "connection", (socket) ->
-  socket.emit "news",
-    hello: "world"
+clicks = 0
 
-  socket.on "my other event", (data) ->
-    console.log data
+io.sockets.on 'connection', (socket) ->
+	socket.emit 'conected', respond:'conected'
+	# other option
+	socket.on 'click', ->
+		clicks++
+		socket.emit 'pulseCount', clicks
 
 server.listen(app.get('port'), ->
 	console.log 'Express server listen on port', app.get 'port')

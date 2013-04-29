@@ -1,5 +1,5 @@
 (function() {
-  var app, culttume, express, http, io, path, server;
+  var app, clicks, culttume, express, http, io, path, server;
 
   express = require('express');
 
@@ -37,12 +37,15 @@
 
   app.get('/list', culttume.list);
 
-  io.sockets.on("connection", function(socket) {
-    socket.emit("news", {
-      hello: "world"
+  clicks = 0;
+
+  io.sockets.on('connection', function(socket) {
+    socket.emit('conected', {
+      respond: 'conected'
     });
-    return socket.on("my other event", function(data) {
-      return console.log(data);
+    return socket.on('click', function() {
+      clicks++;
+      return socket.emit('pulseCount', clicks);
     });
   });
 
