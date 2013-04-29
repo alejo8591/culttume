@@ -12,7 +12,8 @@
       return console.log(data);
     });
     $('#button').click(function() {
-      return socket.emit('click');
+      console.log($('#email').val());
+      return socket.emit('click', $('#email').val());
     });
     socket.on('pulseCount', function(clicks) {
       console.log('Clicks: ' + clicks);

@@ -26,7 +26,7 @@ app.configure 'development', ->
 	app.use express.errorHandler()
 # routes and paths for app
 app.get '/', culttume.index
-app.post '/register', culttume.register
+# app.post '/register', culttume.register
 app.get '/list', culttume.list
 
 clicks = 0
@@ -34,7 +34,8 @@ clicks = 0
 io.sockets.on 'connection', (socket) ->
 	socket.emit 'conected', respond:'conected'
 	# other option
-	socket.on 'click', ->
+	socket.on 'click', (email)->
+		culttume.register(email)
 		clicks++
 		socket.emit 'pulseCount', clicks
 

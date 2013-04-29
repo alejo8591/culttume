@@ -10,7 +10,8 @@ $(document).ready ->
 			console.log data
 
 	$('#button').click ->
-		socket.emit 'click'
+		console.log $('#email').val()
+		socket.emit 'click', $('#email').val() 
 
 	socket.on 'pulseCount', (clicks) ->
 		console.log 'Clicks: ' + clicks

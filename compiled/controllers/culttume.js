@@ -15,21 +15,18 @@
     });
   };
 
-  exports.register = function(req, res) {
+  exports.register = function(user) {
     var users;
 
     users = new User({
-      email: req.body.email.toLowerCase()
+      email: user.toLowerCase()
     });
-    users.save(function(err) {
+    return users.save(function(err) {
       if (!err) {
         return console.log("created");
       } else {
         return console.log(err);
       }
-    });
-    return res.render('index', {
-      title: 'Gracias ya casi terminamos'
     });
   };
 

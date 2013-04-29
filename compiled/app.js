@@ -33,8 +33,6 @@
 
   app.get('/', culttume.index);
 
-  app.post('/register', culttume.register);
-
   app.get('/list', culttume.list);
 
   clicks = 0;
@@ -43,7 +41,8 @@
     socket.emit('conected', {
       respond: 'conected'
     });
-    return socket.on('click', function() {
+    return socket.on('click', function(email) {
+      culttume.register(email);
       clicks++;
       return socket.emit('pulseCount', clicks);
     });
