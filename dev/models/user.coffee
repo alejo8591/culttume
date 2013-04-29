@@ -3,39 +3,41 @@ Schema = mongoose.Schema
 ObjectId = Schema.ObjectId
 UserSchema = new Schema()
 
-console.log UserSchema
-
 UserSchema.add(
 	registerId: ObjectId
-	services: 
-		type: String
-		lowercase: true
-		required: true
 	email:
 		type: String
+		lowercase: true  
+		required: true 
+		unique: true
+	name:
+		type: String
+		#required: true
+	codeRegister:
+		type: String
 		lowercase: true
-		unique: true  
-		required: true
+		#required: true
+		unique: true
+	services: 
+		type: [String]
+		lowercase: true
+		#required: true
 	genre:
 		type: String
 		lowercase: true
-		required: true
+		#required: true
 	know: 
 		type: String
 		lowercase: true
-		required: true
+		#required: true
 	age:
 		type: Number
 		min: 18
 		max: 75
-		required: true
+		#required: true
 	date:
 		type: Date 
 		default: Date.now
-	name:
-		type: String
-		default: 'Anon'
-		required: true
 )
 
 module.exports = mongoose.model  'User', UserSchema

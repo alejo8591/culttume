@@ -9,45 +9,42 @@
 
   UserSchema = new Schema();
 
-  console.log(UserSchema);
-
   UserSchema.add({
     registerId: ObjectId,
-    services: {
-      type: String,
-      lowercase: true,
-      required: true
-    },
     email: {
       type: String,
       lowercase: true,
-      unique: true,
-      required: true
+      required: true,
+      unique: true
+    },
+    name: {
+      type: String
+    },
+    codeRegister: {
+      type: String,
+      lowercase: true,
+      unique: true
+    },
+    services: {
+      type: [String],
+      lowercase: true
     },
     genre: {
       type: String,
-      lowercase: true,
-      required: true
+      lowercase: true
     },
     know: {
       type: String,
-      lowercase: true,
-      required: true
+      lowercase: true
     },
     age: {
       type: Number,
       min: 18,
-      max: 75,
-      required: true
+      max: 75
     },
     date: {
       type: Date,
       "default": Date.now
-    },
-    name: {
-      type: String,
-      "default": 'Anon',
-      required: true
     }
   });
 
