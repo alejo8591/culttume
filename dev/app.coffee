@@ -37,7 +37,6 @@ io.sockets.on 'connection', (socket) ->
 		socket.emit 'pulseCount'
 
 	socket.on 'otherClick',->
-		
 		culttume.user.findOne email: 'laui@rot.co', (err, users) ->
 			handleError(err) if err
 			socket.emit 'returnList', user: users

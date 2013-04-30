@@ -3,8 +3,13 @@
   , "author": "Alejandro Romero" 
   , "version": "0.5.0"
   , "dependencies": {
-      "express"     : ""
-    , "jade"        : ""
-    , "mongoose"    : ""
+      "express"     : "3.2.1"
+    , "jade"        : "0.30.0"
+    , "mongoose"    : "3.6.8"
+    , "nodemailer" 	: "0.4.1"
+    ,"grunt-cli"	: "0.1.7"
+    , "grunt"		: "0.4.1"
+    , "grunt-contrib-coffee": "0.7.0"
+    , "grunt-contrib-jade"	: "0.5.0"
   }
 }

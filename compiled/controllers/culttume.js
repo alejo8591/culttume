@@ -1,5 +1,5 @@
 (function() {
-  var User, db, mongoose, userSchema;
+  var User, db, mail, mongoose, userSchema;
 
   mongoose = require('mongoose');
 
@@ -8,6 +8,8 @@
   userSchema = require('../models/user');
 
   User = db.model('User', userSchema);
+
+  mail = require('../lib/sendmail');
 
   exports.index = function(req, res) {
     return res.render('index', {
@@ -23,7 +25,8 @@
     });
     return users.save(function(err) {
       if (!err) {
-        return console.log('created');
+        console.log('created');
+        return mail.sendmail();
       } else {
         return console.log(err);
       }

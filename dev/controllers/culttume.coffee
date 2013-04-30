@@ -4,6 +4,8 @@ db = mongoose.connect 'localhost', 'culttume', 27017
 userSchema = require '../models/user'
 User = db.model 'User', userSchema
 
+mail = require '../lib/sendmail'
+
 exports.index = (req, res) ->
 	res.render 'index', title: 'culttume'
 
@@ -13,13 +15,12 @@ exports.register = (user) ->
 	users.save (err)->
 		unless err
 			console.log 'created'
+			mail.sendmail()
 		else
 			console.log err
 
 exports.lists = (req, res) ->
 	User.find (err, users) ->
 		res.send users
-
-	# res.render 'index', title: 'Gracias ya casi terminamos'
 
 exports.user = User

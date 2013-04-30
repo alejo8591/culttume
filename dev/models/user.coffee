@@ -7,9 +7,9 @@ UserSchema.add(
 	registerId: ObjectId
 	email:
 		type: String
+		unique: true
 		lowercase: true  
 		required: true 
-		unique: true
 	name:
 		type: String
 		#required: true

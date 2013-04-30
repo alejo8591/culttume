@@ -6,11 +6,11 @@
     socket.on('connection', function(data) {
       return console.log(data);
     });
-    $('#button').click(function() {
+    $('#register').click(function() {
       console.log($('#email').val());
       return socket.emit('click', $('#email').val());
     });
-    $('#button1').click(function() {
+    $('#consult').click(function() {
       return socket.emit('otherClick');
     });
     socket.on('returnList', function(list) {

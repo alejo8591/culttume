@@ -9,7 +9,8 @@ module.exports = (grunt)->
 					'compiled/app.js':'dev/app.coffee'
 					'compiled/models/user.js':'dev/models/user.coffee'
 					'compiled/controllers/culttume.js':'dev/controllers/culttume.coffee'
-					'compiled/public/javascripts/socket_test.js':'dev/public/javascripts/socket_test.coffee'
+					'compiled/public/javascripts/culttume.js':'dev/public/javascripts/culttume.coffee'
+					'compiled/lib/sendmail.js':'dev/lib/sendmail.coffee' 
 
 		# compiled jade templates files
 		jade:

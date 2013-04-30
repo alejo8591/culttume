@@ -4,11 +4,11 @@ $(document).ready ->
 	socket.on 'connection', (data) ->
 			console.log data
 
-	$('#button').click ->
+	$('#register').click ->
 		console.log $('#email').val()
 		socket.emit 'click', $('#email').val() 
 
-	$('#button1').click ->
+	$('#consult').click ->
 		socket.emit 'otherClick'
 
 	socket.on 'returnList', (list) ->
