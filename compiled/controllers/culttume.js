@@ -23,18 +23,19 @@
     });
     return users.save(function(err) {
       if (!err) {
-        return console.log("created");
+        return console.log('created');
       } else {
         return console.log(err);
       }
     });
   };
 
-  exports.list = function(req, res) {
+  exports.lists = function(req, res) {
     return User.find(function(err, users) {
-      console.log(users);
       return res.send(users);
     });
   };
+
+  exports.user = User;
 
 }).call(this);

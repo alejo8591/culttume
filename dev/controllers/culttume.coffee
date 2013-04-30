@@ -12,13 +12,14 @@ exports.register = (user) ->
 	users = new User({email: user.toLowerCase()})
 	users.save (err)->
 		unless err
-			console.log "created"
+			console.log 'created'
 		else
 			console.log err
 
+exports.lists = (req, res) ->
+	User.find (err, users) ->
+		res.send users
+
 	# res.render 'index', title: 'Gracias ya casi terminamos'
 
-exports.list = (req, res) ->
-	User.find (err, users) ->
-		console.log users
-		res.send users
+exports.user = User

@@ -19,7 +19,7 @@ app.configure ->
 	app.use express.logger('dev')
 	app.use express.bodyParser()
 	app.use express.methodOverride()
-	app.use(express.static(__dirname + '/public'))
+	app.use(express.static __dirname + '/public')
 	app.use app.router
 # enviroment for developers
 app.configure 'development', ->
@@ -27,17 +27,20 @@ app.configure 'development', ->
 # routes and paths for app
 app.get '/', culttume.index
 # app.post '/register', culttume.register
-app.get '/list', culttume.list
-
-clicks = 0
+app.get '/lists', culttume.lists
 
 io.sockets.on 'connection', (socket) ->
 	socket.emit 'conected', respond:'conected'
 	# other option
 	socket.on 'click', (email)->
 		culttume.register(email)
-		clicks++
-		socket.emit 'pulseCount', clicks
+		socket.emit 'pulseCount'
+
+	socket.on 'otherClick',->
+		
+		culttume.user.findOne email: 'laui@rot.co', (err, users) ->
+			handleError(err) if err
+			socket.emit 'returnList', user: users
 
 server.listen(app.get('port'), ->
 	console.log 'Express server listen on port', app.get 'port')

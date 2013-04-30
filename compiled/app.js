@@ -1,5 +1,5 @@
 (function() {
-  var app, clicks, culttume, express, http, io, path, server;
+  var app, culttume, express, http, io, path, server;
 
   express = require('express');
 
@@ -33,18 +33,27 @@
 
   app.get('/', culttume.index);
 
-  app.get('/list', culttume.list);
-
-  clicks = 0;
+  app.get('/lists', culttume.lists);
 
   io.sockets.on('connection', function(socket) {
     socket.emit('conected', {
       respond: 'conected'
     });
-    return socket.on('click', function(email) {
+    socket.on('click', function(email) {
       culttume.register(email);
-      clicks++;
-      return socket.emit('pulseCount', clicks);
+      return socket.emit('pulseCount');
+    });
+    return socket.on('otherClick', function() {
+      return culttume.user.findOne({
+        email: 'laui@rot.co'
+      }, function(err, users) {
+        if (err) {
+          handleError(err);
+        }
+        return socket.emit('returnList', {
+          user: users
+        });
+      });
     });
   });
 

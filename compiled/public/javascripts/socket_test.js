@@ -1,27 +1,28 @@
 (function() {
   $(document).ready(function() {
-    var socket, toggle;
+    var socket;
 
     socket = io.connect('http://localhost');
-    toggle = function() {
-      $('#disconected').toggleClass('hide');
-      return $('#connected').toggleClass('hide');
-    };
-    socket.on('conected', function(data) {
-      toggle();
+    socket.on('connection', function(data) {
       return console.log(data);
     });
     $('#button').click(function() {
       console.log($('#email').val());
       return socket.emit('click', $('#email').val());
     });
-    socket.on('pulseCount', function(clicks) {
-      console.log('Clicks: ' + clicks);
-      return $('#connected').append('<h2>Has pulsado ' + clicks + ' veces');
+    $('#button1').click(function() {
+      return socket.emit('otherClick');
+    });
+    socket.on('returnList', function(list) {
+      console.log(list);
+      return $('#results').append('<h2>' + list.user.email);
+    });
+    socket.on('pulseCount', function() {
+      console.log('email created');
+      return $('#results').append('<h2>Gracias por tu registro</h2>');
     });
     return socket.on('disconnect', function() {
-      console.log('Disconnect');
-      return toggle();
+      return console.log('Disconnect');
     });
   });
 

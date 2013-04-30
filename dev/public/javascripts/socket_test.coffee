@@ -1,22 +1,24 @@
 $(document).ready ->
 	socket = io.connect('http://localhost')
 
-	toggle =  ->
-		$('#disconected').toggleClass 'hide'
-		$('#connected').toggleClass 'hide'
-
-	socket.on 'conected', (data) ->
-			toggle()
+	socket.on 'connection', (data) ->
 			console.log data
 
 	$('#button').click ->
 		console.log $('#email').val()
 		socket.emit 'click', $('#email').val() 
 
-	socket.on 'pulseCount', (clicks) ->
-		console.log 'Clicks: ' + clicks
-		$('#connected').append '<h2>Has pulsado ' + clicks + ' veces'
+	$('#button1').click ->
+		socket.emit 'otherClick'
+
+	socket.on 'returnList', (list) ->
+		console.log list
+		$('#results').append '<h2>' + list.user.email
+
+
+	socket.on 'pulseCount', ->
+		console.log 'email created'
+		$('#results').append '<h2>Gracias por tu registro</h2>'
 
 	socket.on 'disconnect', ->
 		console.log 'Disconnect'
-		toggle()
