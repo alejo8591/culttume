@@ -37,9 +37,9 @@ io.sockets.on 'connection', (socket) ->
 		socket.emit 'pulseCount'
 
 	socket.on 'otherClick',->
-		culttume.user.findOne email: 'laui@rot.co', (err, users) ->
+		culttume.user.find (err, users) ->
 			handleError(err) if err
 			socket.emit 'returnList', user: users
-
+# Run Server 'hack the planet'
 server.listen(app.get('port'), ->
 	console.log 'Express server listen on port', app.get 'port')

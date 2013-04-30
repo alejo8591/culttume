@@ -44,9 +44,7 @@
       return socket.emit('pulseCount');
     });
     return socket.on('otherClick', function() {
-      return culttume.user.findOne({
-        email: 'laui@rot.co'
-      }, function(err, users) {
+      return culttume.user.find(function(err, users) {
         if (err) {
           handleError(err);
         }

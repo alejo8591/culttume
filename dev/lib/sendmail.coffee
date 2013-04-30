@@ -1,6 +1,7 @@
 nodemailer = require 'nodemailer'
 
-exports.sendmail= ->
+exports.sendmail= (emailPersonal)->
+	# Create a SMTP transport object
 	transport = nodemailer.createTransport "SMTP", 
 				service : 'Gmail'
 				auth    :
@@ -9,16 +10,17 @@ exports.sendmail= ->
 
 	console.log 'SMTP configured'
 
-
+	# Message object
 	message = 
+		#sender info
 		from : '"culttu.me" <culttu.me@gmail.com>'
-
-		to: '"manuel pachon" <manuel.pachon@gmail.com>'
-
+		# Comma separated list of recipients
+		to   : emailPersonal 
+		# Subject of the message
 		subject: '¡Bienvenido a culttume!'
 
 		text: 'Plaintext'
-
+		# An array of alternatives
 		alternatives: [
 		    contentType		: "text/x-web-markdown"
 		    contents		: "**markdown** alternative"
@@ -30,6 +32,7 @@ exports.sendmail= ->
 
 	console.log 'sending Mail'
 
+	# sender email
 	transports =  transport.sendMail message, (error) ->
 	  	if error
 	  		console.log "Error ocurred"

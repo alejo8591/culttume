@@ -3,7 +3,7 @@
 
   nodemailer = require('nodemailer');
 
-  exports.sendmail = function() {
+  exports.sendmail = function(emailPersonal) {
     var message, transport, transports;
 
     transport = nodemailer.createTransport("SMTP", {
@@ -16,7 +16,7 @@
     console.log('SMTP configured');
     message = {
       from: '"culttu.me" <culttu.me@gmail.com>',
-      to: '"manuel pachon" <manuel.pachon@gmail.com>',
+      to: emailPersonal,
       subject: '¡Bienvenido a culttume!',
       text: 'Plaintext',
       alternatives: [

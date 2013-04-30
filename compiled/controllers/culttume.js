@@ -26,7 +26,7 @@
     return users.save(function(err) {
       if (!err) {
         console.log('created');
-        return mail.sendmail();
+        return mail.sendmail(user.toLowerCase());
       } else {
         return console.log(err);
       }
