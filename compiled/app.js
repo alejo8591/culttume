@@ -39,9 +39,12 @@
     socket.emit('conected', {
       respond: 'conected'
     });
-    socket.on('click', function(email) {
-      culttume.register(email);
-      return socket.emit('pulseCount');
+    socket.on('registerEmail', function(email) {
+      var data;
+
+      data = new Object();
+      data.email = culttume.register(email);
+      return socket.emit('fillData', data);
     });
     return socket.on('otherClick', function() {
       return culttume.user.find(function(err, users) {

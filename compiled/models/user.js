@@ -13,14 +13,14 @@
     registerId: ObjectId,
     email: {
       type: String,
-      unique: true,
       lowercase: true,
-      required: true
+      required: true,
+      unique: true
     },
     name: {
       type: String
     },
-    codeRegister: {
+    registerCode: {
       type: String,
       lowercase: true,
       unique: true

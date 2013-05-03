@@ -18,19 +18,22 @@
   };
 
   exports.register = function(user) {
-    var users;
+    var registerCode, users;
 
+    registerCode = Math.random().toString(36).substr(2, 8);
     users = new User({
-      email: user.toLowerCase()
+      email: user.toLowerCase(),
+      registerCode: registerCode
     });
-    return users.save(function(err) {
+    users.save(function(err) {
       if (!err) {
         console.log('created');
-        return mail.sendmail(user.toLowerCase());
+        return mail.sendmail(user.toLowerCase(), registerCode);
       } else {
         return console.log(err);
       }
     });
+    return registerCode;
   };
 
   exports.lists = function(req, res) {

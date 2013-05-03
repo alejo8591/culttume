@@ -14,13 +14,15 @@ exports.index = (req, res) ->
 # register user and emit email
 exports.register = (user) ->
 	# object User
-	users = new User({email: user.toLowerCase()})
+	registerCode = Math.random().toString(36).substr 2, 8
+	users = new User({email: user.toLowerCase(), registerCode: registerCode})
 	users.save (err)->
 		unless err
 			console.log 'created'
-			mail.sendmail(user.toLowerCase())
+			mail.sendmail(user.toLowerCase(), registerCode)
 		else
 			console.log err
+	return registerCode
 
 #list of users
 exports.lists = (req, res) ->

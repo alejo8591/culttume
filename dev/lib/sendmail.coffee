@@ -1,6 +1,8 @@
 nodemailer = require 'nodemailer'
-
-exports.sendmail= (emailPersonal)->
+###
+	
+###
+exports.sendmail= (emailPersonal, registerCode)->
 	# Create a SMTP transport object
 	transport = nodemailer.createTransport "SMTP", 
 				service : 'Gmail'
@@ -27,7 +29,7 @@ exports.sendmail= (emailPersonal)->
 		  	,
 		    contentType		: "text/html; charset=utf-8"
 		    contentEncoding: "7bit"
-		    contents		: "<h1>Gracias por pertencer a culttume!</h1><h2>Confirma si te llego el correo ;)</h2>"
+		    contents		: "<h2>Genial!. Ya estás inscrit@.</h2>" + registerCode + "<p>Pronto podrás tener acceso a nuestras opciones... mientras tanto, te invitamos a seguirnos en nuestras redes sociales y a enviarnos tus sugerencias. Escríbenos a culttu.me@gmail.com, te aseguramos que respondemos absolutamente todos los mensajes.</p><ul><li>Fan page: fb.com/culttu.me</li><li>Twitter: @culttume</li><li>Blog: culttume.blogspot.com</li></ul><p><strong>El equipo de culttu.me</strong></p>"
 	  	]
 
 	console.log 'sending Mail'
@@ -39,4 +41,3 @@ exports.sendmail= (emailPersonal)->
 	  		console.log error.message
 	  		return
 	  	console.log 'message Sent'
-

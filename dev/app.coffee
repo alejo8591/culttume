@@ -31,10 +31,11 @@ app.get '/lists', culttume.lists
 
 io.sockets.on 'connection', (socket) ->
 	socket.emit 'conected', respond:'conected'
-	# other option
-	socket.on 'click', (email)->
-		culttume.register(email)
-		socket.emit 'pulseCount'
+	# register email socket emit
+	socket.on 'registerEmail', (email)->
+		data = new Object()
+		data.email = culttume.register(email)
+		socket.emit 'fillData', data
 
 	socket.on 'otherClick',->
 		culttume.user.find (err, users) ->

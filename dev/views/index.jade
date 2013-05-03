@@ -1,8 +1,40 @@
 extends layout
 
 block content
-	form(id="holala")
-		div#results
-		input(type='text', name='email', placeholder='ingresa tu correo', id='email')
-		input(type='button', value='enviar')#register
-		input(type='button', value='lista')#consult
+	div(id='content', class="five columns")
+		form(id="registerEmail")
+			div#results
+			div#enterEmail
+				input(type='text', name='email', placeholder='ingresa tu correo', id='email', class='required', data-reveal-id="exampleModal")
+				a(id='register', class='radius success button', data-reveal-id="moreData", id="") Regsitrarme!
+
+			// input(type='button', value='Registrarme!', class='radius success button', data-reveal-id="exampleModal")#register
+			input(type='button', value='lista', class='radius button')#consult
+		
+	div(id='moreData', class='reveal-modal')
+		span Bienvenido a culttu.me: ya Casi terminamos ;)
+		div(class='row')
+			div(class='twelve columns')
+				form(class='custom', id='allInfo')
+					fieldset
+						legend Selecciona tu Perfil en culttu.me
+
+						label ¿Como te enteraste de culttu.me?
+						select(id='askAbout')
+							option(selected) Escoge una opción
+							option Twitter
+							option Facebook
+							option Google
+							option Bing
+							option Yahoo!
+							option ¡Por un Amigo!
+
+						label Selecciona tu Perfil
+						select(id='profile')
+							option(selected) Escoge uno
+							option Artista Visual
+							option Fan
+							option Patrocinador
+
+						div(id='dataInfo')
+
