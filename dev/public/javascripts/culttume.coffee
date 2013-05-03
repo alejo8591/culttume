@@ -5,21 +5,29 @@ $(document).ready ->
 	socket.on 'connection', (data) ->
 			console.log data
 	# initial validation email
-	$('#registerEmail').validate
-		rules:
-			email:
-				email: true
-				required: true
-		# Alternative message
-		messages:
-			email: "ingresa un email valido"
-	# remove items that prevent validation
-	$('#registerEmail').removeAttr 'novalidate'
+	$('input#email').verimail(
+		denyTempEmailDomains : true
+		messageElement: 'p#status-message'
+	)
+
+	$('input#email').on 'change', (event) ->
+		if $('input#email').val().length > 10
+			$('#register').removeClass('radius alert button')
+			.addClass('radius success button')
+			.attr('data-reveal-id', 'moreData')
+			.text('Enviar')
+		else
+			$('#register').removeClass('radius success button')
+			.addClass('radius button alert')
+			.removeAttr('data-reveal-id')
+			.text('¡Ya casi te puedes Registrar!')
+
 	#confirm validation email
 	$('#register').on 'click', (event) ->
 		# validation null and ""
 		email = $('#email').val()
-		if email isnt "" and email isnt `undefined`
+		console.log email.length
+		if email isnt "" and email isnt `undefined` is email.length > 10
 			$('#enterEmail').removeClass 'error'
 			$('#errorEmail').remove()
 			$('#email').removeClass 'error'
@@ -45,7 +53,7 @@ $(document).ready ->
 	socket.on 'disconnect', ->
 		console.log 'Disconnect'
 	# depending load profile form
-	$('#profile').on "change", (event) ->
+	$('#profile').on 'change', (event) ->
 		$('#dataInfoDetail').remove()
 		$('legend').remove()
 		profile = $(this).val()
@@ -62,7 +70,7 @@ $(document).ready ->
 			$('fieldset').append('<legend>No seleccionaste Perfil</legend>')
 			$('#dataInfo').append('<div id="dataInfoDetail"><span>¡No seleccionaste opción valida!</span></div>')
 
-		$('#sendAllInfo').on "click", (event) ->
+		$('#sendAllInfo').on 'click', (event) ->
 			data = new Object()
 			console.log $('#name').val()
 			console.log $('#checkbox1').is(':checked')

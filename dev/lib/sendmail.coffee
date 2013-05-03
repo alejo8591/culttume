@@ -4,7 +4,7 @@ nodemailer = require 'nodemailer'
 ###
 exports.sendmail= (emailPersonal, registerCode)->
 	# Create a SMTP transport object
-	transport = nodemailer.createTransport "SMTP", 
+	transport = nodemailer.createTransport 'SMTP', 
 				service : 'Gmail'
 				auth    :
 					user: "culttu.me@gmail.com"

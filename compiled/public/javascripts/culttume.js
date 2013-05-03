@@ -6,23 +6,23 @@
     socket.on('connection', function(data) {
       return console.log(data);
     });
-    $('#registerEmail').validate({
-      rules: {
-        email: {
-          email: true,
-          required: true
-        }
-      },
-      messages: {
-        email: "ingresa un email valido"
+    $('input#email').verimail({
+      denyTempEmailDomains: true,
+      messageElement: 'p#status-message'
+    });
+    $('input#email').on('change', function(event) {
+      if ($('input#email').val().length > 10) {
+        return $('#register').removeClass('radius alert button').addClass('radius success button').attr('data-reveal-id', 'moreData').text('Enviar');
+      } else {
+        return $('#register').removeClass('radius success button').addClass('radius button alert').removeAttr('data-reveal-id').text('¡Ya casi te puedes Registrar!');
       }
     });
-    $('#registerEmail').removeAttr('novalidate');
     $('#register').on('click', function(event) {
-      var email;
+      var email, _ref;
 
       email = $('#email').val();
-      if (email !== "" && email !== undefined) {
+      console.log(email.length);
+      if (email !== "" && ((email !== undefined && undefined === (_ref = email.length)) && _ref > 10)) {
         $('#enterEmail').removeClass('error');
         $('#errorEmail').remove();
         $('#email').removeClass('error');
@@ -48,7 +48,7 @@
     socket.on('disconnect', function() {
       return console.log('Disconnect');
     });
-    return $('#profile').on("change", function(event) {
+    return $('#profile').on('change', function(event) {
       var profile;
 
       $('#dataInfoDetail').remove();
@@ -67,7 +67,7 @@
         $('fieldset').append('<legend>No seleccionaste Perfil</legend>');
         $('#dataInfo').append('<div id="dataInfoDetail"><span>¡No seleccionaste opción valida!</span></div>');
       }
-      return $('#sendAllInfo').on("click", function(event) {
+      return $('#sendAllInfo').on('click', function(event) {
         var data;
 
         data = new Object();

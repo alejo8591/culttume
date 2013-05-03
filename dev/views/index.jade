@@ -4,12 +4,13 @@ block content
 	div(id='content', class="five columns")
 		form(id="registerEmail")
 			div#results
+				p#status-message
 			div#enterEmail
 				input(type='text', name='email', placeholder='ingresa tu correo', id='email', class='required', data-reveal-id="exampleModal")
-			a(id='register', class='radius success button', data-reveal-id="moreData") Regsitrarme!
+			// data-reveal-id="moreData"
+			a(id='register', class='radius alert button') ¡Ya casi te puedes Registrar!
 
 			// input(type='button', value='Registrarme!', class='radius success button', data-reveal-id="exampleModal")#register
-			input(type='button', value='lista', class='radius button')#consult
 		
 	div(id='moreData', class='reveal-modal')
 		span Bienvenido a culttu.me: ya Casi terminamos ;)
