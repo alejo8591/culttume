@@ -26,16 +26,16 @@ $(document).ready ->
 	$('#register').on 'click', (event) ->
 		# validation null and ""
 		email = $('#email').val()
-		console.log email.length
-		if email isnt "" and email isnt `undefined` is email.length > 10
+		console.log $('#status-message').text()
+		if email isnt "" and email isnt `undefined` and email.length > 10
 			$('#enterEmail').removeClass 'error'
 			$('#errorEmail').remove()
 			$('#email').removeClass 'error'
 			socket.emit 'registerEmail', $('#email').val() 
 		else
-			$('#enterEmail').addClass 'error'
 			$('#email').addClass 'error'
-			$('#enterEmail').append '<small class="error" id="errorEmail">Correo invalido</small>'
+			$('#enterEmail').addClass('error')
+			.append '<small class="error" id="errorEmail">Correo invalido</small>'
 
 	$('#consult').click ->
 		socket.emit 'otherClick'

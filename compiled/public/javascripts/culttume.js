@@ -18,19 +18,18 @@
       }
     });
     $('#register').on('click', function(event) {
-      var email, _ref;
+      var email;
 
       email = $('#email').val();
-      console.log(email.length);
-      if (email !== "" && ((email !== undefined && undefined === (_ref = email.length)) && _ref > 10)) {
+      console.log($('#status-message').text());
+      if (email !== "" && email !== undefined && email.length > 10) {
         $('#enterEmail').removeClass('error');
         $('#errorEmail').remove();
         $('#email').removeClass('error');
         return socket.emit('registerEmail', $('#email').val());
       } else {
-        $('#enterEmail').addClass('error');
         $('#email').addClass('error');
-        return $('#enterEmail').append('<small class="error" id="errorEmail">Correo invalido</small>');
+        return $('#enterEmail').addClass('error').append('<small class="error" id="errorEmail">Correo invalido</small>');
       }
     });
     $('#consult').click(function() {

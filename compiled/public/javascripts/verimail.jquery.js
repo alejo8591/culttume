@@ -35,7 +35,7 @@ var Verimail = Comfirm.AlphaMail.Verimail = function(options){
         // Deny users from using a temp email domain (e.g. mailinator.com)
         denyTempEmailDomains: false,
         // Language to use (currently supported, [en, sv])
-        language: 'en',
+        language: 'es',
         // Determines whether or not messages are in HTML or just Plain Text
         richTextMessages: true,
         // Distance function (leave empty for default: levenshtein)
@@ -106,6 +106,14 @@ Verimail.Language = {
         domainBlocked: "Domänen <span class='domain'>%s</span> är inte tillåten",
         invalidFormat: "Ogiltig e-postadress",
         empty: "E-postadressen är tom"
+    },
+     es: {
+        success: "Email correcto!",
+        typo: "Tal vez quisiste decir <span class='suggestion'>%s</span>?",
+        invalidTld: "Top level domain <span class='tld'>%s</span> Tal vez no existe",
+        domainBlocked: "Dominio <span class='domain'>%s</span> no es apropiado!",
+        invalidFormat: "No es un formato correcto de email",
+        empty: "¡Email vacio!"
     }
 };
 
