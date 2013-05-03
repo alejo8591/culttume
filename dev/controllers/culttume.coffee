@@ -22,7 +22,7 @@ exports.register = (user) ->
 			mail.sendmail(user.toLowerCase(), registerCode)
 		else
 			console.log err
-	return registerCode
+	return user.toLowerCase()
 
 #list of users
 exports.lists = (req, res) ->

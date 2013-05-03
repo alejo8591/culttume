@@ -33,7 +33,7 @@
         return console.log(err);
       }
     });
-    return registerCode;
+    return user.toLowerCase();
   };
 
   exports.lists = function(req, res) {
