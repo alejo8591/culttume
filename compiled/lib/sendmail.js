@@ -21,7 +21,7 @@
     message = {
       from: '"culttu.me" <culttu.me@gmail.com>',
       to: emailPersonal,
-      subject: '¡Bienvenido a culttume!',
+      subject: 'Bienvenido a culttume',
       text: 'Plaintext',
       alternatives: [
         {

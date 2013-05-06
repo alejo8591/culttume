@@ -14,7 +14,7 @@
       if ($('input#email').val().length > 10) {
         return $('#register').removeClass('radius alert button').addClass('radius success button').attr('data-reveal-id', 'moreData').text('Enviar');
       } else {
-        return $('#register').removeClass('radius success button').addClass('radius button alert').removeAttr('data-reveal-id').text('¡Ya casi te puedes Registrar!');
+        return $('#register').removeClass('radius success button').addClass('radius button alert').removeAttr('data-reveal-id').text('¡Registrate!');
       }
     });
     $('#register').on('click', function(event) {
@@ -22,31 +22,33 @@
 
       email = $('#email').val();
       verification = new Comfirm.AlphaMail.Verimail();
-      console.log(verification);
       verification.verify(email, function(status, message, suggestion) {
-        console.log(status);
         if (status < 0) {
-          if (suggestion) {
-            return console.log("Did you mean " + suggestion + "?");
-          }
+          console.log(status);
+          $('#email').addClass('error');
+          return $('#enterEmail').addClass('error').append('<small class="error" id="errorEmail">Correo invalido</small>');
         } else {
-          console.log(suggestion);
-          if (suggestion) {
-            return console.log("Did you mean " + suggestion + "?");
-          }
+          console.log(status);
+          $('#enterEmail').removeClass('error');
+          $('#errorEmail').remove();
+          $('#email').removeClass('error');
+          return socket.emit('registerEmail', $('#email').val());
         }
       });
-      console.log($('#status-message').text());
-      if (email !== "" && email !== undefined && email.length > 10) {
-        $('#enterEmail').removeClass('error');
-        $('#errorEmail').remove();
-        $('#email').removeClass('error');
-        return socket.emit('registerEmail', $('#email').val());
-      } else {
-        $('#email').addClass('error');
-        return $('#enterEmail').addClass('error').append('<small class="error" id="errorEmail">Correo invalido</small>');
-      }
+      return console.log($('#status-message').text());
     });
+    /*	
+    		if email isnt "" and email isnt `undefined` and email.length > 10
+    			$('#enterEmail').removeClass 'error'
+    			$('#errorEmail').remove()
+    			$('#email').removeClass 'error'
+    			socket.emit 'registerEmail', $('#email').val() 
+    		else
+    			$('#email').addClass 'error'
+    			$('#enterEmail').addClass('error')
+    			.append '<small class="error" id="errorEmail">Correo invalido</small>'
+    */
+
     $('#consult').click(function() {
       return socket.emit('otherClick');
     });

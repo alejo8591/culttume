@@ -21,40 +21,29 @@ $(document).ready ->
 			$('#register').removeClass('radius success button')
 			.addClass('radius button alert')
 			.removeAttr('data-reveal-id')
-			.text('¡Ya casi te puedes Registrar!')
+			.text('¡Registrate!')
 	
 	# confirm validation email
 	$('#register').on 'click', (event) ->
 		# validation null and ""
 		email = $('#email').val()
-
 		verification = new Comfirm.AlphaMail.Verimail()
-		console.log verification
-
+		# final validation
 		verification.verify(email, (status, message,suggestion)->
-			console.log status
 			if status < 0
-				if suggestion 
-					console.log "Did you mean " + suggestion + "?"
+				console.log status
+				$('#email').addClass 'error'
+				$('#enterEmail').addClass('error')
+				.append '<small class="error" id="errorEmail">Correo invalido</small>' 
 			else
-				console.log suggestion
-				if suggestion
-					console.log "Did you mean " + suggestion + "?"
+				console.log status
+				$('#enterEmail').removeClass 'error'
+				$('#errorEmail').remove()
+				$('#email').removeClass 'error'
+				socket.emit 'registerEmail', $('#email').val()
 		)
  
-		console.log $('#status-message').text()
-
-		if email isnt "" and email isnt `undefined` and email.length > 10
-			$('#enterEmail').removeClass 'error'
-			$('#errorEmail').remove()
-			$('#email').removeClass 'error'
-			socket.emit 'registerEmail', $('#email').val() 
-		else
-			$('#email').addClass 'error'
-			$('#enterEmail').addClass('error')
-			.append '<small class="error" id="errorEmail">Correo invalido</small>'
-
-	$('#consult').click ->
+ 	$('#consult').click ->
 		socket.emit 'otherClick'
 
 	socket.on 'returnList', (list) ->
