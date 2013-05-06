@@ -10,6 +10,7 @@ $(document).ready ->
 		messageElement: 'p#status-message'
 	)
 
+	# Validation email
 	$('input#email').on 'change', (event) ->
 		if $('input#email').val().length > 10
 			$('#register').removeClass('radius alert button')
@@ -21,12 +22,28 @@ $(document).ready ->
 			.addClass('radius button alert')
 			.removeAttr('data-reveal-id')
 			.text('¡Ya casi te puedes Registrar!')
-
-	#confirm validation email
+	
+	# confirm validation email
 	$('#register').on 'click', (event) ->
 		# validation null and ""
 		email = $('#email').val()
+
+		verification = new Comfirm.AlphaMail.Verimail()
+		console.log verification
+
+		verification.verify(email, (status, message,suggestion)->
+			console.log status
+			if status < 0
+				if suggestion 
+					console.log "Did you mean " + suggestion + "?"
+			else
+				console.log suggestion
+				if suggestion
+					console.log "Did you mean " + suggestion + "?"
+		)
+ 
 		console.log $('#status-message').text()
+
 		if email isnt "" and email isnt `undefined` and email.length > 10
 			$('#enterEmail').removeClass 'error'
 			$('#errorEmail').remove()
@@ -68,7 +85,7 @@ $(document).ready ->
 			$('#dataInfo').append('<div id="dataInfoDetail"><label for="name">Nombre de la Empresa</label><input id="name" type="text" name="name" placeholder="Razon Social"><label for="city">Ciudad</label><input type="text" name="city" placeholder="Ciudad de contacto" id="city"><label>NIT o Documento</label><input type="text" name="nit" placeholder="Sin puntos, ni comas"><label>Telefono</label><input id="name" type="text" name="phoneNumber" placeholder="Digitos más indicativo"><h5>Escoge las opciones que te interesan:</h5><label for="checkbox1"><input type="checkbox" id="checkbox1" style="display: none;"><span class="custom checkbox"></span> Cómo patrocinar un concurso</label><label for="checkbox2"><input type="checkbox" id="checkbox2" style="display: none;"><span class="custom checkbox"></span> Cómo crear concurso de promoción comercial</label><label for="checkbox3"><input type="checkbox" id="checkbox3" style="display: none;"><span class="custom checkbox"></span> Publicidad para marcas y empresas</label><label for="checkbox4"><input type="checkbox" id="checkbox4" style="display: none;"><span class="custom checkbox"></span> Acceso a concursos</label><label for="checkbox5"><input type="checkbox" id="checkbox5" style="display: none;"><span class="custom checkbox"></span> Acceso a información de Artistas</label><label for="checkbox6"><input type="checkbox" id="checkbox6" style="display: none;"><span class="custom checkbox"></span> Acceso a ranking de artistas</label><label for="checkbox7"><input type="checkbox" id="checkbox7" style="display: none;"><span class="custom checkbox"></span> Publicar oferta de trabajo freelance</label><br /><label>Ingresa el código que llego a tu correo electrónico</label><input type="text" name="registerCode" placeholder="Código alfanumérico de 8 digitos"><br /><small>Al enviar esta información, Acepto los términos y condiciones de culttu.me</small><br /><a id="sendAllInfo" class="radius success button">Enviar!</a></div>')
 		else
 			$('fieldset').append('<legend>No seleccionaste Perfil</legend>')
-			$('#dataInfo').append('<div id="dataInfoDetail"><span>¡No seleccionaste opción valida!</span></div>')
+			$('#dataInfo').append('<div id="dataInfoDetail"><span>¡No seleccionaste una opción valida!</span></div>')
 
 		$('#sendAllInfo').on 'click', (event) ->
 			data = new Object()

@@ -19,7 +19,7 @@ exports.sendmail= (emailPersonal, registerCode)->
 		# Comma separated list of recipients
 		to   : emailPersonal 
 		# Subject of the message
-		subject: '¡Bienvenido a culttume!'
+		subject: 'Bienvenido a culttume'
 
 		text: 'Plaintext'
 		# An array of alternatives
