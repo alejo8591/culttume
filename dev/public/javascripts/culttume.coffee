@@ -31,26 +31,16 @@ $(document).ready ->
 		# final validation
 		verification.verify(email, (status, message,suggestion)->
 			if status < 0
-				console.log status
 				$('#email').addClass 'error'
 				$('#enterEmail').addClass('error')
 				.append '<small class="error" id="errorEmail">Correo invalido</small>' 
 			else
-				console.log status
 				$('#enterEmail').removeClass 'error'
 				$('#errorEmail').remove()
 				$('#email').removeClass 'error'
 				socket.emit 'registerEmail', $('#email').val()
 		)
  
- 	$('#consult').click ->
-		socket.emit 'otherClick'
-
-	socket.on 'returnList', (list) ->
-		console.log list
-		$('#results').append '<h2>' + list.user.email
-
-
 	socket.on 'fillData', (data) ->
 		console.log 'email created'
 		console.log data

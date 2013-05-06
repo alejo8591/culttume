@@ -33,14 +33,15 @@ io.sockets.on 'connection', (socket) ->
 	socket.emit 'conected', respond:'conected'
 	# register email socket emit
 	socket.on 'registerEmail', (email)->
-		data = new Object()
+		data = {}
 		data.email = culttume.register(email)
 		socket.emit 'fillData', data
-
+###
 	socket.on 'otherClick',->
 		culttume.user.find (err, users) ->
 			handleError(err) if err
 			socket.emit 'returnList', user: users
+###
 # Run Server 'hack the planet'
 server.listen(app.get('port'), ->
 	console.log 'Express server listen on port', app.get 'port')

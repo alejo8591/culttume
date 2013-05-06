@@ -39,24 +39,22 @@
     socket.emit('conected', {
       respond: 'conected'
     });
-    socket.on('registerEmail', function(email) {
+    return socket.on('registerEmail', function(email) {
       var data;
 
-      data = new Object();
+      data = {};
       data.email = culttume.register(email);
       return socket.emit('fillData', data);
     });
-    return socket.on('otherClick', function() {
-      return culttume.user.find(function(err, users) {
-        if (err) {
-          handleError(err);
-        }
-        return socket.emit('returnList', {
-          user: users
-        });
-      });
-    });
   });
+
+  /*
+  	socket.on 'otherClick',->
+  		culttume.user.find (err, users) ->
+  			handleError(err) if err
+  			socket.emit 'returnList', user: users
+  */
+
 
   server.listen(app.get('port'), function() {
     return console.log('Express server listen on port', app.get('port'));

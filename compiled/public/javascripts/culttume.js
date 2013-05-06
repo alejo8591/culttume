@@ -22,39 +22,17 @@
 
       email = $('#email').val();
       verification = new Comfirm.AlphaMail.Verimail();
-      verification.verify(email, function(status, message, suggestion) {
+      return verification.verify(email, function(status, message, suggestion) {
         if (status < 0) {
-          console.log(status);
           $('#email').addClass('error');
           return $('#enterEmail').addClass('error').append('<small class="error" id="errorEmail">Correo invalido</small>');
         } else {
-          console.log(status);
           $('#enterEmail').removeClass('error');
           $('#errorEmail').remove();
           $('#email').removeClass('error');
           return socket.emit('registerEmail', $('#email').val());
         }
       });
-      return console.log($('#status-message').text());
-    });
-    /*	
-    		if email isnt "" and email isnt `undefined` and email.length > 10
-    			$('#enterEmail').removeClass 'error'
-    			$('#errorEmail').remove()
-    			$('#email').removeClass 'error'
-    			socket.emit 'registerEmail', $('#email').val() 
-    		else
-    			$('#email').addClass 'error'
-    			$('#enterEmail').addClass('error')
-    			.append '<small class="error" id="errorEmail">Correo invalido</small>'
-    */
-
-    $('#consult').click(function() {
-      return socket.emit('otherClick');
-    });
-    socket.on('returnList', function(list) {
-      console.log(list);
-      return $('#results').append('<h2>' + list.user.email);
     });
     socket.on('fillData', function(data) {
       console.log('email created');

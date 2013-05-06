@@ -1,5 +1,5 @@
 (function() {
-  var User, db, mail, mongoose, userSchema;
+  var User, db, mail, mongoose, status, userSchema;
 
   mongoose = require('mongoose');
 
@@ -10,6 +10,12 @@
   User = db.model('User', userSchema);
 
   mail = require('../lib/sendmail');
+
+  status = {
+    emailCreatedSuccefully: 1,
+    emailDuplicate: 11000,
+    updateCorrectly: 2
+  };
 
   exports.index = function(req, res) {
     return res.render('index', {
