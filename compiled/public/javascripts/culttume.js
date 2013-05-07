@@ -35,9 +35,15 @@
       });
     });
     socket.on('fillData', function(data) {
-      console.log('email created');
       console.log(data);
-      return $('#results').append('<h3>Gracias ' + data.email + ' por tu registro</h3>');
+      if (data.status === 1) {
+        $('#wrongEmail').remove();
+        $('#results').append('<h3>Gracias ' + data + ' por tu registro</h3>');
+        return $('#moreData').reveal();
+      } else {
+        $('#moreData').remove();
+        return $('#wrongEmail').reveal();
+      }
     });
     socket.on('disconnect', function() {
       return console.log('Disconnect');

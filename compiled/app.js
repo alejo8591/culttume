@@ -40,11 +40,9 @@
       respond: 'conected'
     });
     return socket.on('registerEmail', function(email) {
-      var data;
-
-      data = {};
-      data.email = culttume.register(email);
-      return socket.emit('fillData', data);
+      return socket.emit('fillData', function() {
+        return culttume.register(email);
+      });
     });
   });
 

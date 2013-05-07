@@ -4,6 +4,7 @@ $(document).ready ->
 	# Ok ready!
 	socket.on 'connection', (data) ->
 			console.log data
+
 	# initial validation email
 	$('input#email').verimail(
 		denyTempEmailDomains : true
@@ -42,12 +43,19 @@ $(document).ready ->
 		)
  
 	socket.on 'fillData', (data) ->
-		console.log 'email created'
 		console.log data
-		$('#results').append '<h3>Gracias ' + data.email + ' por tu registro</h3>'
+		if data.status is 1
+			$('#wrongEmail').remove()
+			$('#results').append '<h3>Gracias ' + data + ' por tu registro</h3>'
+			$('#moreData').reveal()
+		else
+			$('#moreData').remove()
+			$('#wrongEmail').reveal()
 
+	# Socket for disconnect for the app
 	socket.on 'disconnect', ->
 		console.log 'Disconnect'
+
 	# depending load profile form
 	$('#profile').on 'change', (event) ->
 		$('#dataInfoDetail').remove()

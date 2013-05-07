@@ -6,12 +6,13 @@ block content
 			div#results
 				p#status-message
 			div#enterEmail
-				input(type='text', name='email', placeholder='ingresa tu correo', id='email', class='required', data-reveal-id="exampleModal")
-			// data-reveal-id="moreData"
+				input(type='text', name='email', placeholder='ingresa tu correo', id='email', class='required')
 			a(id='register', class='radius alert button') ¡Registrate!
-
-			// input(type='button', value='Registrarme!', class='radius success button', data-reveal-id="exampleModal")#register
 		
+	div(id='wrongEmail', class='reveal-modal')
+		span ¡Bienvenido a culttu.me!
+		span Tu cuenta de correo 
+
 	div(id='moreData', class='reveal-modal')
 		span Bienvenido a culttu.me: ya Casi terminamos ;)
 		div(class='row')

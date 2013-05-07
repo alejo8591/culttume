@@ -26,20 +26,31 @@
   exports.register = function(user) {
     var registerCode, users;
 
+    this.data = {};
     registerCode = Math.random().toString(36).substr(2, 8);
     users = new User({
       email: user.toLowerCase(),
       registerCode: registerCode
     });
-    users.save(function(err) {
+    return users.save(function(err) {
       if (!err) {
         console.log('created');
-        return mail.sendmail(user.toLowerCase(), registerCode);
+        mail.sendmail(user.toLowerCase(), registerCode);
+        this.data = {
+          email: user,
+          status: status.emailCreatedSuccefully
+        };
+        console.log(this.data);
       } else {
-        return console.log(err);
+        this.data = {
+          email: user,
+          status: status.emailDuplicate
+        };
+        console.log(this.data);
       }
+      console.log(this.data);
+      return this.data;
     });
-    return user.toLowerCase();
   };
 
   exports.lists = function(req, res) {
