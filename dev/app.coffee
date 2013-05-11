@@ -33,8 +33,8 @@ io.sockets.on 'connection', (socket) ->
 	socket.emit 'conected', respond:'conected'
 	# register email socket emit
 	socket.on 'registerEmail', (email)->
-		socket.emit 'fillData', ()->
-			culttume.register(email)
+		console.log culttume.register(email)
+		socket.emit 'fillData', culttume.register(email)
 ###
 	socket.on 'otherClick',->
 		culttume.user.find (err, users) ->

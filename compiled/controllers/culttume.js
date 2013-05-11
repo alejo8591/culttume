@@ -1,5 +1,5 @@
 (function() {
-  var User, db, mail, mongoose, status, userSchema;
+  var User, db, mail, mongoose, statusRegister, userSchema;
 
   mongoose = require('mongoose');
 
@@ -11,7 +11,7 @@
 
   mail = require('../lib/sendmail');
 
-  status = {
+  statusRegister = {
     emailCreatedSuccefully: 1,
     emailDuplicate: 11000,
     updateCorrectly: 2
@@ -24,33 +24,29 @@
   };
 
   exports.register = function(user) {
-    var registerCode, users;
+    var data, registerCode, users;
 
-    this.data = {};
+    data = {};
     registerCode = Math.random().toString(36).substr(2, 8);
     users = new User({
       email: user.toLowerCase(),
       registerCode: registerCode
     });
-    return users.save(function(err) {
+    users.save(function(err) {
       if (!err) {
+        console.log(statusRegister);
         console.log('created');
         mail.sendmail(user.toLowerCase(), registerCode);
-        this.data = {
-          email: user,
-          status: status.emailCreatedSuccefully
-        };
-        console.log(this.data);
+        return data.statusReg = statusRegister.emailCreatedSuccefully;
       } else {
-        this.data = {
-          email: user,
-          status: status.emailDuplicate
-        };
-        console.log(this.data);
+        console.log(statusRegister);
+        console.log(err);
+        return data.statusReg = statusRegister.emailDuplicate;
       }
-      console.log(this.data);
-      return this.data;
     });
+    data.email = user;
+    console.log(data);
+    return data;
   };
 
   exports.lists = function(req, res) {

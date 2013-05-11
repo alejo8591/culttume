@@ -7,7 +7,7 @@ User = db.model 'User', userSchema
 # import `sendmail` librarie
 mail = require '../lib/sendmail'
 # posible status for response
-status = 
+statusRegister = 
 	emailCreatedSuccefully : 1
 	emailDuplicate  : 11000
 	updateCorrectly : 2
@@ -18,28 +18,25 @@ exports.index = (req, res) ->
 
 # register user and emit email
 exports.register = (user) ->
-	@data = {}
+	data = {}
 	# object User
 	registerCode = Math.random().toString(36).substr 2, 8
 	users = new User({email: user.toLowerCase(), registerCode: registerCode})
 	users.save (err)->
 		unless err
+			console.log statusRegister
 			console.log 'created'
 			mail.sendmail(user.toLowerCase(), registerCode)
-			@data = 
-				email: user
-				status: status.emailCreatedSuccefully
-			
-			console.log @data
+			data.statusReg = statusRegister.emailCreatedSuccefully
 		else
-			@data = 
-				email : user
-				status : status.emailDuplicate
-			
-			console.log @data
+			console.log statusRegister
+			console.log err
+			data.statusReg = statusRegister.emailDuplicate
 
-		console.log @data
-		return @data 
+	data.email = user
+	console.log data
+
+	return data
 
 # list of users
 exports.lists = (req, res) ->
