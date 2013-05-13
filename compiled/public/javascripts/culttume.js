@@ -35,7 +35,7 @@
       });
     });
     socket.on('fillData', function(data) {
-      console.log(data);
+      console.log(data.status);
       if (data.status === 1) {
         $('#wrongEmail').remove();
         $('#results').append('<h3>Gracias ' + data + ' por tu registro</h3>');

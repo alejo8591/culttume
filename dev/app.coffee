@@ -10,6 +10,11 @@ io       = require('socket.io').listen server
 path     = require 'path'
 # build objetc with `culttume` -> `controllers`
 culttume = require './controllers/culttume'
+#import moongose objects
+# Model for schema `User`
+User = culttume.user
+# import `sendmail` librarie
+mail = require './lib/sendmail'
 # config Express
 app.configure ->
 	app.set 'port', process.env.PORT || 3030
@@ -33,14 +38,17 @@ io.sockets.on 'connection', (socket) ->
 	socket.emit 'conected', respond:'conected'
 	# register email socket emit
 	socket.on 'registerEmail', (email)->
-		console.log culttume.register(email)
-		socket.emit 'fillData', culttume.register(email)
-###
-	socket.on 'otherClick',->
-		culttume.user.find (err, users) ->
-			handleError(err) if err
-			socket.emit 'returnList', user: users
-###
+		# object User
+		registerCode = Math.random().toString(36).substr 2, 8
+		users = new User({email: email.toLowerCase(), registerCode: registerCode})
+		users.save (err)->
+			unless err
+				console.log 'created'
+				# mail.sendmail(user.toLowerCase(), registerCode)
+				socket.emit 'fillData', {email:users.email, status:1}
+			else
+				socket.emit 'fillData', {email:users.email, status:11000}
+				console.log err
 # Run Server 'hack the planet'
 server.listen(app.get('port'), ->
 	console.log 'Express server listen on port', app.get 'port')

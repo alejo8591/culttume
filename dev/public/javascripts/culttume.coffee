@@ -43,10 +43,10 @@ $(document).ready ->
 		)
  
 	socket.on 'fillData', (data) ->
-		console.log data
+		console.log data.status
 		if data.status is 1
 			$('#wrongEmail').remove()
-			$('#results').append '<h3>Gracias ' + data + ' por tu registro</h3>'
+			$('#results').append '<h3>Gracias ' + data.email + ' por tu registro</h3>'
 			$('#moreData').reveal()
 		else
 			$('#moreData').remove()

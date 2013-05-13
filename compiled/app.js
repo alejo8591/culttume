@@ -1,5 +1,5 @@
 (function() {
-  var app, culttume, express, http, io, path, server;
+  var User, app, culttume, express, http, io, mail, path, server;
 
   express = require('express');
 
@@ -14,6 +14,10 @@
   path = require('path');
 
   culttume = require('./controllers/culttume');
+
+  User = culttume.user;
+
+  mail = require('./lib/sendmail');
 
   app.configure(function() {
     app.set('port', process.env.PORT || 3030);
@@ -40,18 +44,30 @@
       respond: 'conected'
     });
     return socket.on('registerEmail', function(email) {
-      console.log(culttume.register(email));
-      return socket.emit('fillData', culttume.register(email));
+      var registerCode, users;
+
+      registerCode = Math.random().toString(36).substr(2, 8);
+      users = new User({
+        email: email.toLowerCase(),
+        registerCode: registerCode
+      });
+      return users.save(function(err) {
+        if (!err) {
+          console.log('created');
+          return socket.emit('fillData', {
+            email: users.email,
+            status: 1
+          });
+        } else {
+          socket.emit('fillData', {
+            email: users.email,
+            status: 11000
+          });
+          return console.log(err);
+        }
+      });
     });
   });
-
-  /*
-  	socket.on 'otherClick',->
-  		culttume.user.find (err, users) ->
-  			handleError(err) if err
-  			socket.emit 'returnList', user: users
-  */
-
 
   server.listen(app.get('port'), function() {
     return console.log('Express server listen on port', app.get('port'));

@@ -23,32 +23,6 @@
     });
   };
 
-  exports.register = function(user) {
-    var data, registerCode, users;
-
-    data = {};
-    registerCode = Math.random().toString(36).substr(2, 8);
-    users = new User({
-      email: user.toLowerCase(),
-      registerCode: registerCode
-    });
-    users.save(function(err) {
-      if (!err) {
-        console.log(statusRegister);
-        console.log('created');
-        mail.sendmail(user.toLowerCase(), registerCode);
-        return data.statusReg = statusRegister.emailCreatedSuccefully;
-      } else {
-        console.log(statusRegister);
-        console.log(err);
-        return data.statusReg = statusRegister.emailDuplicate;
-      }
-    });
-    data.email = user;
-    console.log(data);
-    return data;
-  };
-
   exports.lists = function(req, res) {
     return User.find(function(err, users) {
       return res.send(users);

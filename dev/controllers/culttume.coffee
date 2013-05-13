@@ -16,28 +16,6 @@ statusRegister =
 exports.index = (req, res) ->
 	res.render 'index', title: 'culttume'
 
-# register user and emit email
-exports.register = (user) ->
-	data = {}
-	# object User
-	registerCode = Math.random().toString(36).substr 2, 8
-	users = new User({email: user.toLowerCase(), registerCode: registerCode})
-	users.save (err)->
-		unless err
-			console.log statusRegister
-			console.log 'created'
-			mail.sendmail(user.toLowerCase(), registerCode)
-			data.statusReg = statusRegister.emailCreatedSuccefully
-		else
-			console.log statusRegister
-			console.log err
-			data.statusReg = statusRegister.emailDuplicate
-
-	data.email = user
-	console.log data
-
-	return data
-
 # list of users
 exports.lists = (req, res) ->
 	User.find (err, users) ->
