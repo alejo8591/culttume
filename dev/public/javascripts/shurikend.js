@@ -1,4 +1,3 @@
-
 /*
   Inspired in jquery-cookie
   jquery-cookie: jquery-cookie.coffee

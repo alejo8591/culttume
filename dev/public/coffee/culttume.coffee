@@ -12,18 +12,19 @@ $(document).ready ->
 	)
 
 	# Validation email
-	$('input#email').on 'change', (event) ->
-		if $('input#email').val().length > 10
-			$('#register').removeClass('radius alert button')
-			.addClass('radius success button')
-			.attr('data-reveal-id', 'moreData')
-			.text('Enviar')
-		else
-			$('#register').removeClass('radius success button')
-			.addClass('radius button alert')
-			.removeAttr('data-reveal-id')
-			.text('¡Registrate!')
-	
+	###
+		$('input#email').on 'change', (event) ->
+			if $('input#email').val().length > 10
+				$('#register').removeClass('radius alert button')
+				.addClass('radius success button')
+				.attr('data-reveal-id', 'moreData')
+				.text('Enviar')
+			else
+				$('#register').removeClass('radius success button')
+				.addClass('radius button alert')
+				.removeAttr('data-reveal-id')
+				.text('¡Registrate!')
+	###
 	# confirm validation email
 	$('#register').on 'click', (event) ->
 		# validation null and ""
@@ -33,7 +34,7 @@ $(document).ready ->
 		verification.verify(email, (status, message,suggestion)->
 			if status < 0
 				$('#email').addClass 'error'
-				$('#enterEmail').addClass('error')
+				# $('#enterEmail').addClass('error')
 				.append '<small class="error" id="errorEmail">Correo invalido</small>' 
 			else
 				$('#enterEmail').removeClass 'error'

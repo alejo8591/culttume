@@ -9,7 +9,7 @@ module.exports = (grunt)->
 					'compiled/app.js':'dev/app.coffee'
 					'compiled/models/user.js':'dev/models/user.coffee'
 					'compiled/controllers/culttume.js':'dev/controllers/culttume.coffee'
-					'compiled/public/javascripts/culttume.js':'dev/public/javascripts/culttume.coffee'
+					'dev/public/javascripts/culttume.js':'dev/public/coffee/culttume.coffee'
 					'compiled/lib/sendmail.js':'dev/lib/sendmail.coffee' 
 
 		# compiled jade templates files
@@ -27,7 +27,16 @@ module.exports = (grunt)->
 			#	files:
 			#		'compiled/views/release.jade':'dev/views/index.jade'
 
+		uglify:
+			my_target:
+				files:
+					'compiled/public/javascripts/culttume.js':['dev/public/javascripts/shurikend.js',
+															   'dev/public/javascripts/verimail.jquery.js',
+															   'dev/public/javascripts/socket.io.js',
+															   'dev/public/javascripts/culttume.js']
+
 
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-jade'
-	grunt.registerTask 'default', ['coffee', 'jade']
+	grunt.loadNpmTasks 'grunt-contrib-uglify'
+	grunt.registerTask 'default', ['coffee', 'jade', 'uglify']

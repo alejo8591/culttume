@@ -1,40 +1,47 @@
 extends layout
 
 block content
-	div(id='content', class="five columns")
-		form(id="registerEmail")
-			div#results
-				p#status-message
-			div#enterEmail
-				input(type='text', name='email', placeholder='ingresa tu correo', id='email', class='required')
-			a(id='register', class='radius alert button') ¡Registrate!
-		
-	div(id='wrongEmail', class='reveal-modal')
-		span ¡Bienvenido a culttu.me!
-		span Tu cuenta de correo 
+	div(class='row collapse')
+			div(class='three three-mobile columns centered')
+				img(src='./img/logo.png', alt='logo culttume')
 
-	div(id='moreData', class='reveal-modal')
-		span Bienvenido a culttu.me: ya Casi terminamos ;)
-		div(class='row')
-			div(class='twelve columns')
-				form(id='allInfo',class='custom')
-					fieldset
-						legend Selecciona tu Perfil en culttu.me
-						label ¿Como te enteraste de culttu.me?
-						select(id='askAbout')
-							option(selected) Escoge una opción
-							option Twitter
-							option Facebook
-							option Google
-							option Bing
-							option Yahoo!
-							option ¡Por un Amig@!
-						label Selecciona tu Perfil
-						select(id='profile')
-							option(selected) Escoge uno
-							option Artista Visual
-							option Fan
-							option Patrocinador
+		div(class='row collapse')
+			div(class='five three-mobile columns centered')
+				form(id='registerEmail')
+					div#results
+						p#status-message
+					div(id='enterEmail')
+						div(class='eight three-mobile columns')
+							input(type='text', name='email', placeholder='ingresa tu correo', id='email', class='required')
+						div(class='four three-mobile columns')
+							a(id='register', class='normal button expand postfix') Enviar
+			
+		div(id='wrongEmail', class='reveal-modal')
+			span ¡Bienvenido a culttu.me!
+			span Tu cuenta de correo 
 
-						div(id='dataInfo')
+		div(id='moreData', class='reveal-modal')
+			span Bienvenido a culttu.me: ya Casi terminamos ;)
+			div(class='row')
+				div(class='twelve columns')
+					form(id='allInfo',class='custom')
+						fieldset
+							legend Selecciona tu Perfil en culttu.me
+							label ¿Como te enteraste de culttu.me?
+							select(id='askAbout')
+								option(selected) Escoge una opción
+								option Twitter
+								option Facebook
+								option Google
+								option Bing
+								option Yahoo!
+								option ¡Por un Amig@!
+							label Selecciona tu Perfil
+							select(id='profile')
+								option(selected) Escoge uno
+								option Artista Visual
+								option Fan
+								option Patrocinador
+
+							div(id='dataInfo')
 
