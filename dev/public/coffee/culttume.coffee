@@ -1,4 +1,12 @@
 $(document).ready ->
+	$('ol').hide()
+	$(window).load(()->
+		$('#firstTip').joyride
+			nextButton : false
+			tipAnimation: 'fade'
+			tipAnimationFadeSpeed:300
+			timer: 3000
+	)
 	# hack the planet with Socket!
 	socket = io.connect('http://localhost')
 	# Ok ready!

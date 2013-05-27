@@ -2,6 +2,15 @@
   $(document).ready(function() {
     var socket;
 
+    $('ol').hide();
+    $(window).load(function() {
+      return $('#firstTip').joyride({
+        nextButton: false,
+        tipAnimation: 'fade',
+        tipAnimationFadeSpeed: 300,
+        timer: 3000
+      });
+    });
     socket = io.connect('http://localhost');
     socket.on('connection', function(data) {
       return console.log(data);

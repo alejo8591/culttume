@@ -35,8 +35,14 @@ module.exports = (grunt)->
 															   'dev/public/javascripts/socket.io.js',
 															   'dev/public/javascripts/culttume.js']
 
+		cssmin:
+			my_target:
+				src: 'dev/public/css/shurikend.css'
+				dest: 'compiled/public/css/shurikend.css'
+
 
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-jade'
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
-	grunt.registerTask 'default', ['coffee', 'jade', 'uglify']
+	grunt.loadNpmTasks 'grunt-css'
+	grunt.registerTask 'default', ['coffee', 'jade', 'uglify', 'cssmin']
