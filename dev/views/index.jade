@@ -1,52 +1,82 @@
 extends layout
 
 block content
+	br
+	br
 	div(class='row collapse')
-			div(class='three three-mobile columns centered')
-				img(src='./img/logo.png', alt='logo culttume')
+		div(class='two columns offset-by-two')
+			img(src='./img/artists/1a.jpg')
+		div(class='four columns')
+			img(src='./img/logo.png', alt='logo culttume')
+		div(class='two columns pull-two')
+			img(src='./img/artists/1f.jpg')
+	div(class='row collapse')
+		div(class='two columns offset-by-one')
+			img(src='./img/artists/3a.jpg')
+		div(class='five columns')
+			h5(class="no-marg-top subheader") "Uniendo arte visual, marcas y fans, en una experiencia social de promoción y visibilización"
+		div(class='two columns pull-two')
+			img(src='./img/artists/4a.jpg')
 
+	div(class='row collapse')
+		div(class='five columns centered')
+			form(id='registerEmail')
+				div#results
+					p#status-message
+				div(id='enterEmail')
+					div(class='eight columns')
+						input(type='text', name='email', placeholder='ingresa tu correo', id='email', class='required')
+					div(class='four columns')
+						a(id='register', class='normal button expand postfix') Enviar
+	footer
 		div(class='row collapse')
-			div(class='five three-mobile columns centered')
-				form(id='registerEmail')
-					div#results
-						p#status-message
-					div(id='enterEmail')
-						div(class='eight three-mobile columns')
-							input(type='text', name='email', placeholder='ingresa tu correo', id='email', class='required')
-						div(class='four three-mobile columns')
-							a(id='register', class='normal button expand postfix') Enviar
-			
+			div(class='twelve columns')
+				div(class='one columns offset-by-one')
+					img(src='./img/footer/1.png')
+				div(class='two columns')
+					img(src='./img/footer/2.png')
+				div(class='one columns')
+					img(src='./img/footer/3.png')
+				div(class='two columns')
+					img(src='./img/footer/4.png')
+				div(class='one columns')
+					img(src='./img/footer/5.png')
+				div(class='two columns')
+					img(src='./img/footer/6.png')
+				div(class='two columns offset-by-one')
+					img(src='./img/footer/7.png')
 
-		ol(id='firstTip')
-			li(data-id='email', class='custom')
-				h6 ¡Registra tu correo!
-				p no pierdas la oportunidad de empezar a ganar puntos...
 
-		div(id='wrongEmail', class='reveal-modal')
-			span ¡Bienvenido a culttu.me! 
-			br
-			span Tu cuenta de correo ya esta inscrita
+	ol(id='firstTip')
+		li(data-id='email', class='custom')
+			h6 ¡Registra tu correo!
+			p no pierdas la oportunidad de empezar a ganar puntos...
 
-		div(id='moreData', class='reveal-modal')
-			span Bienvenido a culttu.me: ya Casi terminamos ;)
-			div(class='row')
-				div(class='twelve columns')
-					form(id='allInfo',class='custom')
-						fieldset
-							legend Selecciona tu Perfil en culttu.me
-							label ¿Como te enteraste de culttu.me?
-							select(id='askAbout')
-								option(selected) Escoge una opción
-								option Twitter
-								option Facebook
-								option Google
-								option Bing
-								option Yahoo!
-								option ¡Por un Amig@!
-							label Selecciona tu Perfil
-							select(id='profile')
-								option(selected) Escoge uno
-								option Artista Visual
-								option Fan
-								option Patrocinador
-							div(id='dataInfo')
+	div(id='wrongEmail', class='reveal-modal')
+		span ¡Bienvenido a culttu.me! 
+		br
+		span Tu cuenta de correo ya esta inscrita
+
+	div(id='moreData', class='reveal-modal')
+		span Bienvenido a culttu.me: ya Casi terminamos ;)
+		div(class='row')
+			div(class='twelve columns')
+				form(id='allInfo',class='custom')
+					fieldset
+						legend Selecciona tu Perfil en culttu.me
+						label ¿Como te enteraste de culttu.me?
+						select(id='askAbout')
+							option(selected) Escoge una opción
+							option Twitter
+							option Facebook
+							option Google
+							option Bing
+							option Yahoo!
+							option ¡Por un Amig@!
+						label Selecciona tu Perfil
+						select(id='profile')
+							option(selected) Escoge uno
+							option Artista Visual
+							option Fan
+							option Patrocinador
+						div(id='dataInfo')

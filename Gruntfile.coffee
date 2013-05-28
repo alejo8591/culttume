@@ -30,7 +30,8 @@ module.exports = (grunt)->
 		uglify:
 			my_target:
 				files:
-					'compiled/public/javascripts/culttume.js':['dev/public/javascripts/shurikend.js',
+					'compiled/public/javascripts/culttume.js':['dev/public/javascripts/modernizr.js',
+															   'dev/public/javascripts/shurikend.js',
 															   'dev/public/javascripts/verimail.jquery.js',
 															   'dev/public/javascripts/socket.io.js',
 															   'dev/public/javascripts/culttume.js']
@@ -40,9 +41,10 @@ module.exports = (grunt)->
 				src: 'dev/public/css/shurikend.css'
 				dest: 'compiled/public/css/shurikend.css'
 
-
+	# Load modules for gruntjs
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-jade'
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
 	grunt.loadNpmTasks 'grunt-css'
+	# Load all Task
 	grunt.registerTask 'default', ['coffee', 'jade', 'uglify', 'cssmin']
