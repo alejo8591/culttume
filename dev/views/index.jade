@@ -1,37 +1,45 @@
 extends layout
 
 block content
-	br
-	br
 	div(class='row collapse')
-		div(class='two columns offset-by-two')
-			img(src='./img/artists/1a.jpg')
-		div(class='four columns')
-			img(src='./img/logo.png', alt='logo culttume')
-		div(class='two columns pull-two')
-			img(src='./img/artists/1f.jpg')
-	div(class='row collapse')
-		div(class='two columns offset-by-one')
-			img(src='./img/artists/3a.jpg')
-		div(class='five columns')
-			h5(class="no-marg-top subheader") "Uniendo arte visual, marcas y fans, en una experiencia social de promoción y visibilización"
-		div(class='two columns pull-two')
-			img(src='./img/artists/4a.jpg')
+		div(class='six columns')
+			section(id='leftCulttume')
+				div(class='twelve columns')
+					img(src='./img/logo.png', alt='logo culttume')
+				div(class='ten columns')
+					h5(class="no-marg-top subheader") "Uniendo arte visual, marcas y fans, en una experiencia social de promoción y visibilización"
+				div(class='twelve columns')
+					form(id='registerEmail')
+						div#results
+							p#status-message
+						div(id='enterEmail')
+							div(class='eight columns')
+								input(type='text', name='email', placeholder='ingresa tu correo', id='email', class='required')
+							div(class='four columns')
+								a(id='register', class='normal button expand postfix') Enviar
 
-	div(class='row collapse')
-		div(class='five columns centered')
-			form(id='registerEmail')
-				div#results
-					p#status-message
-				div(id='enterEmail')
-					div(class='eight columns')
-						input(type='text', name='email', placeholder='ingresa tu correo', id='email', class='required')
-					div(class='four columns')
-						a(id='register', class='normal button expand postfix') Enviar
-	footer
+		div(class='six columns')
+			section(id='rightCulttume')
+				ul(id='imgs')
+					li
+						img(src='./img/artists/1.jpg')
+					li
+						img(src='./img/artists/2.jpg')
+					li
+						img(src='./img/artists/4.jpg')
+					li
+						img(src='./img/artists/5.jpg')
+					li
+						img(src='./img/artists/6.jpg')
+					li
+						img(src='./img/artists/7.jpg')
+
+	footer(id='footerCulttume')
 		div(class='row collapse')
 			div(class='twelve columns')
-				div(class='one columns offset-by-one')
+				hr(class='lineFooterCulttume')
+			div(class='twelve columns')
+				div(class='one columns')
 					img(src='./img/footer/1.png')
 				div(class='two columns')
 					img(src='./img/footer/2.png')
@@ -41,9 +49,9 @@ block content
 					img(src='./img/footer/4.png')
 				div(class='one columns')
 					img(src='./img/footer/5.png')
-				div(class='two columns')
+				div(class='three columns')
 					img(src='./img/footer/6.png')
-				div(class='two columns offset-by-one')
+				div(class='two columns')
 					img(src='./img/footer/7.png')
 
 

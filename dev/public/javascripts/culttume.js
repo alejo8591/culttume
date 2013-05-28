@@ -2,6 +2,16 @@
   $(document).ready(function() {
     var socket;
 
+    $('#imgs li').wookmark({
+      align: 'center',
+      autoResize: true,
+      container: $('#rightCulttume'),
+      itemWidth: 0,
+      offset: 2,
+      resizeDelay: 50,
+      flexibleWidth: 0,
+      onLayoutChanged: void 0
+    });
     $('ol').hide();
     $(window).load(function() {
       return $('#firstTip').joyride({

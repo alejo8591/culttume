@@ -1,4 +1,15 @@
 $(document).ready ->
+	$('#imgs li').wookmark( 
+		align: 'center'
+		autoResize: true
+		container: $('#rightCulttume')
+		itemWidth: 0
+		offset: 2
+		resizeDelay: 50
+		flexibleWidth: 0
+		onLayoutChanged: undefined
+  	)
+
 	$('ol').hide()
 	$(window).load(()->
 		$('#firstTip').joyride
