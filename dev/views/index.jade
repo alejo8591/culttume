@@ -1,38 +1,43 @@
 extends layout
 
 block content
-	div(class='row collapse')
-		div(class='six columns')
-			section(id='leftCulttume')
-				div(class='twelve columns')
-					img(src='./img/logo.png', alt='logo culttume')
-				div(class='ten columns')
-					h5(class="no-marg-top subheader") "Uniendo arte visual, marcas y fans, en una experiencia social de promoción y visibilización"
-				div(class='twelve columns')
-					form(id='registerEmail')
-						div#results
-							p#status-message
-						div(id='enterEmail')
-							div(class='eight columns')
-								input(type='text', name='email', placeholder='ingresa tu correo', id='email', class='required')
-							div(class='four columns')
-								a(id='register', class='normal button expand postfix') Enviar
+	div(class='row collapse', id='container')
+		div(class='twelve columns')
+			div(class='two columns')
+				section(id='leftCulttume')
+					div(class='twelve columns', id='imageBox1')
+						img(src='../img/artists/8.jpg', alt='logo culttume')
+					div(class='twelve columns', id='imageBox2')
+						img(src='./img/artists/2.jpg', alt='logo culttume')
+					div(class='twelve columns', id='imageBox3')
+						img(src='./img/artists/3.jpg', alt='logo culttume')
 
-		div(class='six columns')
-			section(id='rightCulttume')
-				ul(id='imgs')
-					li
-						img(src='./img/artists/8.jpg')
-					li
-						img(src='./img/artists/2.jpg')
-					li
-						img(src='./img/artists/3.jpg')
-					li
-						img(src='./img/artists/4.jpg')
-					li
-						img(src='./img/artists/5.jpg')
-					li
-						img(src='./img/artists/9.jpg')
+			div(class='five columns push-two')
+				section(id='centerCulttume')
+					div(class='twelve columns')
+						img(src='./img/logo.png', alt='logo culttume')
+					div(class='ten columns')
+						h5(class="no-marg-top subheader") "La experiencia social y divertida de seguir tu arte o artista"
+					div(class='twelve columns')
+						form(id='registerEmail')
+							div#results
+								p#status-message
+							div(id='enterEmail')
+								div(class='eight columns')
+									input(type='text', name='email', placeholder='ingresa tu correo', id='email', class='required')
+								div(class='four columns')
+									a(id='register', class='normal button expand postfix') Enviar
+
+			div(class='two columns offset-by-one')
+				section(id='rightCulttume')
+					div(class='twelve columns', id='imageBox4')
+						img(src='../img/artists/4.jpg', alt='logo culttume')
+					div(class='twelve columns', id='imageBox5')
+						img(src='./img/artists/5.jpg', alt='logo culttume')
+					div(class='twelve columns', id='imageBox6')
+						img(src='./img/artists/9.jpg', alt='logo culttume')
+					div(class='twelve columns', id='imageBox7')
+						img(src='./img/artists/1.jpg', alt='logo culttume')				
 
 	footer(id='footerCulttume')
 		div(class='row collapse')

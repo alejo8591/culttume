@@ -9,7 +9,7 @@ $(document).ready ->
 		flexibleWidth: 0
 		onLayoutChanged: undefined
   	)
-
+	# <ol> hide
 	$('ol').hide()
 	$(window).load(()->
 		$('#firstTip').joyride
@@ -29,7 +29,6 @@ $(document).ready ->
 		denyTempEmailDomains : true
 		messageElement: 'p#status-message'
 	)
-
 	# Validation email
 	###
 		$('input#email').on 'change', (event) ->
@@ -61,7 +60,7 @@ $(document).ready ->
 				$('#email').removeClass 'error'
 				socket.emit 'registerEmail', $('#email').val()
 		)
- 
+	# 
 	socket.on 'fillData', (data) ->
 		console.log data.status
 		if data.status is 1
