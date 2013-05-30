@@ -33,6 +33,7 @@ module.exports = (grunt)->
 															   'dev/public/javascripts/shurikend.js',
 															   'dev/public/javascripts/verimail.jquery.js',
 															   'dev/public/javascripts/socket.io.js',
+															   'dev/public/javascripts/jquery.stepy.js',
 															   'dev/public/javascripts/culttume.js']
 
 		cssmin:

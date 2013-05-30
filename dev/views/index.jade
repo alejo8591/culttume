@@ -17,7 +17,7 @@ block content
 					div(class='twelve columns')
 						img(src='./img/logo.png', alt='logo culttume')
 					div(class='ten columns')
-						h5(class="no-marg-top subheader") "La experiencia social y divertida de seguir tu arte o artista"
+						h5(class="no-marg-top subheader") "La experiencia social y divertida de seguir tu arte o artistas"
 					div(class='twelve columns')
 						form(id='registerEmail')
 							div#results
@@ -71,11 +71,10 @@ block content
 		span Tu cuenta de correo ya esta inscrita
 
 	div(id='moreData', class='reveal-modal')
-		span Bienvenido a culttu.me: ya Casi terminamos ;)
 		div(class='row')
 			div(class='twelve columns')
 				form(id='allInfo',class='custom')
-					fieldset
+					fieldset(title='Paso 1')
 						legend Selecciona tu Perfil en culttu.me
 						label ¿Como te enteraste de culttu.me?
 						select(id='askAbout')
@@ -90,6 +89,13 @@ block content
 						select(id='profile')
 							option(selected) Escoge uno
 							option Artista Visual
-							option Fan
-							option Patrocinador
+							option Fan o Seguidor
+							// option Patrocinador
+						label Ingresa el código que se envio a tu correo
+						input(type='text',name='registerCode', placeholder='8 caracteres', id='registerCode', class='required')
+					fieldset(title='Paso 2')
+						legend Algunos Datos más
 						div(id='dataInfo')
+					fieldset(title='Paso 3')
+						legend ¡Ya casi terminamos!
+						div(id='dataValidation')
