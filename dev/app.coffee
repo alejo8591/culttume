@@ -15,6 +15,12 @@ culttume = require './controllers/culttume'
 User = culttume.user
 # import `sendmail` librarie
 mail = require './lib/sendmail'
+statusRegister = 
+	emailCreatedSuccefully : 1
+	emailDuplicate      : 11000
+	updateCorrectly     : 2
+	verificationCodeOk  : 3
+	verificationCodeFail: 4
 # config Express
 app.configure ->
 	app.set 'port', process.env.PORT || 3030
@@ -40,15 +46,36 @@ io.sockets.on 'connection', (socket) ->
 	socket.on 'registerEmail', (email)->
 		# object User
 		registerCode = Math.random().toString(36).substr 2, 8
-		users = new User({email: email.toLowerCase(), registerCode: registerCode})
+		users = new User(
+			email: email.toLowerCase() 
+			registerCode: registerCode
+			useRegistrationCode: 0
+		)
 		users.save (err)->
 			unless err
 				console.log 'created'
 				# mail.sendmail(user.toLowerCase(), registerCode)
-				socket.emit 'fillData', {email:users.email, status:1}
+				socket.emit 'fillData', 
+				email:users.email 
+				status:statusRegister.emailCreatedSuccefully
 			else
-				socket.emit 'fillData', {email:users.email, status:11000}
+				socket.emit 'fillData', 
+				email:users.email 
+				status:statusRegister.emailDuplicate
 				console.log err
+
+	# Verification code
+	socket.on 'verificationCode', (code) ->
+		User.findOne(
+			'registerCode':code,
+			'useRegistrationCode':0
+			'email',
+			(err, user) ->
+				if user is null
+					socket.emit 'receiveDataProfile', status:statusRegister.verificationCodeFail
+				else
+					socket.emit 'receiveDataProfile', status:statusRegister.verificationCodeOk	
+		)
 # Run Server 'hack the planet'
 server.listen(app.get('port'), ->
 	console.log 'Express server listen on port', app.get 'port')

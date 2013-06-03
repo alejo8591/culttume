@@ -25,6 +25,9 @@
       lowercase: true,
       unique: true
     },
+    useRegistrationCode: {
+      type: Number
+    },
     services: {
       type: [String],
       lowercase: true

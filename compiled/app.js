@@ -1,5 +1,5 @@
 (function() {
-  var User, app, culttume, express, http, io, mail, path, server;
+  var User, app, culttume, express, http, io, mail, path, server, statusRegister;
 
   express = require('express');
 
@@ -18,6 +18,14 @@
   User = culttume.user;
 
   mail = require('./lib/sendmail');
+
+  statusRegister = {
+    emailCreatedSuccefully: 1,
+    emailDuplicate: 11000,
+    updateCorrectly: 2,
+    verificationCodeOk: 3,
+    verificationCodeFail: 4
+  };
 
   app.configure(function() {
     app.set('port', process.env.PORT || 3030);
@@ -43,27 +51,44 @@
     socket.emit('conected', {
       respond: 'conected'
     });
-    return socket.on('registerEmail', function(email) {
+    socket.on('registerEmail', function(email) {
       var registerCode, users;
 
       registerCode = Math.random().toString(36).substr(2, 8);
       users = new User({
         email: email.toLowerCase(),
-        registerCode: registerCode
+        registerCode: registerCode,
+        useRegistrationCode: 0
       });
       return users.save(function(err) {
         if (!err) {
           console.log('created');
           return socket.emit('fillData', {
             email: users.email,
-            status: 1
+            status: statusRegister.emailCreatedSuccefully
           });
         } else {
           socket.emit('fillData', {
             email: users.email,
-            status: 11000
+            status: statusRegister.emailDuplicate
           });
           return console.log(err);
+        }
+      });
+    });
+    return socket.on('verificationCode', function(code) {
+      return User.findOne({
+        'registerCode': code,
+        'useRegistrationCode': 0
+      }, 'email', function(err, user) {
+        if (user === null) {
+          return socket.emit('receiveDataProfile', {
+            status: statusRegister.verificationCodeFail
+          });
+        } else {
+          return socket.emit('receiveDataProfile', {
+            status: statusRegister.verificationCodeOk
+          });
         }
       });
     });

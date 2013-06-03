@@ -18,6 +18,8 @@ UserSchema.add(
 		lowercase: true
 		#required: true
 		unique: true
+	useRegistrationCode:
+		type: Number
 	services: 
 		type: [String]
 		lowercase: true

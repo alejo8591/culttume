@@ -31,6 +31,7 @@ module.exports = (grunt)->
 				files:
 					'compiled/public/javascripts/culttume.js':['dev/public/javascripts/modernizr.js',
 															   'dev/public/javascripts/shurikend.js',
+															   'dev/public/javascripts/jquery.validate.js',
 															   'dev/public/javascripts/verimail.jquery.js',
 															   'dev/public/javascripts/socket.io.js',
 															   'dev/public/javascripts/jquery.stepy.js',
