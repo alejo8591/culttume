@@ -137,7 +137,7 @@ $(document).ready ->
 			data.genre = selectOption.val()
 			if $('#profile').val() is 'Artista Visual'
 				_i = 1
-				# services
+				# services for artist
 				while _i < 13
 						check = '#checkbox' + _i
 						if $(check).is(':checked') is true
@@ -146,7 +146,7 @@ $(document).ready ->
 
 			else if $('#profile').val() is 'Fan o Seguidor'
 				_i = 1
-				# services
+				# services for fans or followers
 				while _i < 7
 						check = '#checkbox' + _i
 						if $(check).is(':checked') is true
@@ -156,7 +156,7 @@ $(document).ready ->
 
 			if data.services.length > 0 and data.profile isnt 'Escoge una opción' and data.askAbout isnt 'Escoge una opción' and data.name isnt "" and data.name.length >= 5 and data.city isnt "" and data.city.length >= 3 and data.age isnt "" and data.age.length > 1 and data.age.length < 3 and data.genre isnt 'Selecciona tu Genero'
 				socket.emit 'receiveAllDataProfile', data
-				alert 'El correo es ' + $('#email').val()
+				$('#congratulation').reveal()
 			else
 				alert 'revisa algunos datos estan mal'
 

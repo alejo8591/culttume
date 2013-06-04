@@ -149,7 +149,7 @@
         }
         if (data.services.length > 0 && data.profile !== 'Escoge una opción' && data.askAbout !== 'Escoge una opción' && data.name !== "" && data.name.length >= 5 && data.city !== "" && data.city.length >= 3 && data.age !== "" && data.age.length > 1 && data.age.length < 3 && data.genre !== 'Selecciona tu Genero') {
           socket.emit('receiveAllDataProfile', data);
-          alert('El correo es ' + $('#email').val());
+          $('#congratulation').reveal();
         } else {
           alert('revisa algunos datos estan mal');
         }

@@ -88,7 +88,8 @@ io.sockets.on 'connection', (socket) ->
 			genre:	data.genre
 			know:	data.askAbout
 			age:	parseInt(data.age)
-			services:data.services,
+			services:data.services
+			points: 200,
 			{upsert : true},
 			(err, user)->
 				unless err

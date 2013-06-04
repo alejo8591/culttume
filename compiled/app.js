@@ -104,7 +104,8 @@
         genre: data.genre,
         know: data.askAbout,
         age: parseInt(data.age),
-        services: data.services
+        services: data.services,
+        points: 200
       }, {
         upsert: true
       }, function(err, user) {

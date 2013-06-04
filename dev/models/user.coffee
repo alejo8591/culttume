@@ -43,6 +43,8 @@ UserSchema.add(
 	city:
 		type: String
 		lowercase: true
+	points:
+		type: Number
 	date:
 		type: Date 
 		default: Date.now
