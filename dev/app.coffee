@@ -15,6 +15,7 @@ culttume = require './controllers/culttume'
 User = culttume.user
 # import `sendmail` librarie
 mail = require './lib/sendmail'
+# status code register
 statusRegister = 
 	emailCreatedSuccefully : 1
 	emailDuplicate      : 11000
@@ -54,7 +55,7 @@ io.sockets.on 'connection', (socket) ->
 		users.save (err)->
 			unless err
 				#send email for user
-				mail.sendmail(user.toLowerCase(), registerCode)
+				mail.sendmail(users.email, registerCode)
 				socket.emit 'fillData', 
 					email:users.email 
 					status:statusRegister.emailCreatedSuccefully

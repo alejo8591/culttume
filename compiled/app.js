@@ -62,7 +62,7 @@
       });
       return users.save(function(err) {
         if (!err) {
-          mail.sendmail(user.toLowerCase(), registerCode);
+          mail.sendmail(users.email, registerCode);
           return socket.emit('fillData', {
             email: users.email,
             status: statusRegister.emailCreatedSuccefully
