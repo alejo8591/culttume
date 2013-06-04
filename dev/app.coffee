@@ -93,7 +93,9 @@ io.sockets.on 'connection', (socket) ->
 			{upsert : true},
 			(err, user)->
 				unless err
-					console.log 'update correct' 
+					socket.emit 'congratulationDetail', 
+						name : data.name
+						email: data.email 
 				else
 					console.log 'error update'
 			)

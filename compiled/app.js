@@ -110,7 +110,10 @@
         upsert: true
       }, function(err, user) {
         if (!err) {
-          return console.log('update correct');
+          return socket.emit('congratulationDetail', {
+            name: data.name,
+            email: data.email
+          });
         } else {
           return console.log('error update');
         }

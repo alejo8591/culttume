@@ -24,7 +24,7 @@ $(document).ready ->
 	socket = io.connect('http://192.168.1.106')
 	# Ok ready!
 	socket.on 'connection', (data) ->
-			console.log data
+		console.log data
 
 	# initial validation email
 	$('input#email').verimail(
@@ -153,10 +153,25 @@ $(document).ready ->
 							data.services.push(_i) 
 						_i++
 
-
 			if data.services.length > 0 and data.profile isnt 'Escoge una opción' and data.askAbout isnt 'Escoge una opción' and data.name isnt "" and data.name.length >= 5 and data.city isnt "" and data.city.length >= 3 and data.age isnt "" and data.age.length > 1 and data.age.length < 3 and data.genre isnt 'Selecciona tu Genero'
 				socket.emit 'receiveAllDataProfile', data
-				$('#congratulation').reveal()
+				socket.on 'congratulationDetail', (congrat) ->
+					$('#congratulationDetail').append(
+						'<div class="ten centered columns">'+
+						'<span>'+congrat.name+'</span><span class="subheader"> Bienvenido a culttu.me</span>'+
+						'</div>'+
+						'<div class="twelve columns">'+
+						'<hr class="lineFooterCulttume"></div>'+
+						'<p class="subheader"> Recuerda que te enviaremos información y novedades'+
+						' al correo electrónico:</p>'+
+						'<div class="alert-box success">'+
+						congrat.email+'</div><br />'+
+						'<p class="subheader">Adicional ganas <span class="radius label"> 200 Puntos</span> que podras canjear por premios'+
+						'y todas las cosas que más te gustan de tu artista favorito</p>'+
+						'<div class="three columns centered">'+
+						'<img src="./img/modal/cup.png" /></div>'
+					)
+					$('#congratulation').reveal()
 			else
 				alert 'revisa algunos datos estan mal'
 
