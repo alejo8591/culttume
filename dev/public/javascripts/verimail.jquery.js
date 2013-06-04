@@ -35,7 +35,7 @@ var Verimail = Comfirm.AlphaMail.Verimail = function(options){
         // Deny users from using a temp email domain (e.g. mailinator.com)
         denyTempEmailDomains: false,
         // Language to use (currently supported, [en, sv])
-        language: 'en',
+        language: 'es',
         // Determines whether or not messages are in HTML or just Plain Text
         richTextMessages: true,
         // Distance function (leave empty for default: levenshtein)
@@ -50,13 +50,13 @@ var Verimail = Comfirm.AlphaMail.Verimail = function(options){
     }
 
     // Set the language, default to english if non-existing
-    this.setLanguage(this.options.language, 'en');
+    this.setLanguage(this.options.language, 'es');
 
     // Temporary..
     this.Service = {};
     this.Service.verify = function(email, onStatusUpdate){
         //setTimeout(1000 * 3, function(){
-            onStatusUpdate(Verimail.Status.CorrectSyntax, "It looks OK!");
+            onStatusUpdate(Verimail.Status.CorrectSyntax, "¡Ya te puedes Registrar!");
         //});
     };
 };
@@ -106,6 +106,14 @@ Verimail.Language = {
         domainBlocked: "Domänen <span class='domain'>%s</span> är inte tillåten",
         invalidFormat: "Ogiltig e-postadress",
         empty: "E-postadressen är tom"
+    },
+    es: {
+        success: "¡Ya te puedes Registrar!",
+        typo: "Tu email puede ser <span class='suggestion'>%s</span>?",
+        invalidTld: "Dominio de nivel superior <span class='tld'>%s</span> no Existe!",
+        domainBlocked: "El dominio <span class='blocked'>%s</span> no está permitido",
+        invalidFormat: "El email no tiene un formato correcto!",
+        empty: "¡No colocaste email!"
     }
 };
 
