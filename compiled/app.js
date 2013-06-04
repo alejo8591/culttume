@@ -62,17 +62,16 @@
       });
       return users.save(function(err) {
         if (!err) {
-          console.log('created');
+          mail.sendmail(user.toLowerCase(), registerCode);
           return socket.emit('fillData', {
             email: users.email,
             status: statusRegister.emailCreatedSuccefully
           });
         } else {
-          socket.emit('fillData', {
+          return socket.emit('fillData', {
             email: users.email,
             status: statusRegister.emailDuplicate
           });
-          return console.log(err);
         }
       });
     });

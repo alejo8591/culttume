@@ -162,11 +162,11 @@ $(document).ready ->
 						'</div>'+
 						'<div class="twelve columns">'+
 						'<hr class="lineFooterCulttume"></div>'+
-						'<p class="subheader"> Recuerda que te enviaremos información y novedades'+
+						'<p> Recuerda que te enviaremos información y novedades'+
 						' al correo electrónico:</p>'+
 						'<div class="alert-box success">'+
 						congrat.email+'</div><br />'+
-						'<p class="subheader">Adicional ganas <span class="radius label"> 200 Puntos</span> que podras canjear por premios'+
+						'<p>Adicional ganas <span class="radius label"> 200 Puntos</span> que podras canjear por premios'+
 						'y todas las cosas que más te gustan de tu artista favorito</p>'+
 						'<div class="three columns centered">'+
 						'<img src="./img/modal/cup.png" /></div>'

@@ -53,16 +53,15 @@ io.sockets.on 'connection', (socket) ->
 		)
 		users.save (err)->
 			unless err
-				console.log 'created'
-				# mail.sendmail(user.toLowerCase(), registerCode)
+				#send email for user
+				mail.sendmail(user.toLowerCase(), registerCode)
 				socket.emit 'fillData', 
-				email:users.email 
-				status:statusRegister.emailCreatedSuccefully
+					email:users.email 
+					status:statusRegister.emailCreatedSuccefully
 			else
 				socket.emit 'fillData', 
-				email:users.email 
-				status:statusRegister.emailDuplicate
-				console.log err
+					email:users.email 
+					status:statusRegister.emailDuplicate
 
 	# Verification code
 	socket.on 'verificationCode', (data) ->
