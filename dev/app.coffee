@@ -65,10 +65,11 @@ io.sockets.on 'connection', (socket) ->
 				console.log err
 
 	# Verification code
-	socket.on 'verificationCode', (code) ->
+	socket.on 'verificationCode', (data) ->
 		User.findOne(
-			'registerCode':code,
-			'useRegistrationCode':0
+			'email': data.email
+			'registerCode':data.code
+			'useRegistrationCode':0,
 			'email',
 			(err, user) ->
 				if user is null
@@ -76,6 +77,25 @@ io.sockets.on 'connection', (socket) ->
 				else
 					socket.emit 'receiveDataProfile', status:statusRegister.verificationCodeOk	
 		)
+
+	# Received all info
+	socket.on 'receiveAllDataProfile', (data)->
+		User.update(email:data.email,
+			name:	data.name
+			profile: data.profile
+			city:	 data.city
+			useRegistrationCode:1
+			genre:	data.genre
+			know:	data.askAbout
+			age:	parseInt(data.age)
+			services:data.services,
+			{upsert : true},
+			(err, user)->
+				unless err
+					console.log 'update correct' 
+				else
+					console.log 'error update'
+			)
 # Run Server 'hack the planet'
 server.listen(app.get('port'), ->
 	console.log 'Express server listen on port', app.get 'port')

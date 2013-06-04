@@ -76,9 +76,10 @@
         }
       });
     });
-    return socket.on('verificationCode', function(code) {
+    socket.on('verificationCode', function(data) {
       return User.findOne({
-        'registerCode': code,
+        'email': data.email,
+        'registerCode': data.code,
         'useRegistrationCode': 0
       }, 'email', function(err, user) {
         if (user === null) {
@@ -89,6 +90,28 @@
           return socket.emit('receiveDataProfile', {
             status: statusRegister.verificationCodeOk
           });
+        }
+      });
+    });
+    return socket.on('receiveAllDataProfile', function(data) {
+      return User.update({
+        email: data.email
+      }, {
+        name: data.name,
+        profile: data.profile,
+        city: data.city,
+        useRegistrationCode: 1,
+        genre: data.genre,
+        know: data.askAbout,
+        age: parseInt(data.age),
+        services: data.services
+      }, {
+        upsert: true
+      }, function(err, user) {
+        if (!err) {
+          return console.log('update correct');
+        } else {
+          return console.log('error update');
         }
       });
     });

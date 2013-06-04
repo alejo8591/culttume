@@ -9123,4 +9123,9 @@ header p {
     .button-next:hover,
     .stepy-navigator input[type="submit"]:hover { 
       border-color: #BBB; color: #B07 }
-
+    /* this class is defined by the developer */
+    .stepy-finish input[type="submit"] { 
+      font-size: inherit; 
+      height: 45px; 
+      margin-top: 10px; 
+      width: 120px }

@@ -45,6 +45,14 @@
       min: 18,
       max: 75
     },
+    profile: {
+      type: String,
+      lowercase: true
+    },
+    city: {
+      type: String,
+      lowercase: true
+    },
     date: {
       type: Date,
       "default": Date.now
