@@ -94,6 +94,7 @@ $(document).ready ->
 										  		  '<div class="custom dropdown"><a href="#" class="current">Selecciona tu genero</a>'+
 										  		  '<a href="#" class="selector"></a><ul><li>Selecciona tu genero</li>'+
 										  		  '<li>Femenino</li><li>Masculino</li></ul></div></div>')
+							
 							progressBar 50, $('#progressBar')
 						else 
 							$('#dataInfo').empty()
@@ -181,6 +182,8 @@ $(document).ready ->
 								  	      '<label for="checkbox6"><input type="checkbox" id="checkbox6" style="display: none;">'+
 								  	      '<span class="custom checkbox"></span> Ganar premios</label>'+
 								  	      '<br /><small>Al enviar esta información, Acepto los términos y condiciones de culttu.me</small></div>')
+					
+					progressBar 80, $('#progressBar')
 				
 				else if $('#profile').val() is 'Patrocinador' and $('#askAbout').val() isnt 'Escoge una opción'
 					$('#dataValidation').empty()
