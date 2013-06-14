@@ -1,6 +1,57 @@
 extends layout
 
 block content
+	ol(id='firstTip')
+		li(data-id='email', class='custom')
+			h6 ¡Registra tu correo!
+			p no pierdas la oportunidad de empezar a ganar puntos...
+
+	div(id='wrongEmail', class='reveal-modal')
+		span ¡Bienvenido a culttu.me! 
+		br
+		span Tu cuenta de correo ya esta inscrita
+
+	div(id='moreData', class='reveal-modal')
+		div(class='row')
+			div(class='twelve columns')
+				h5 Porcentaje de completitud del registro
+			div(class='twelve columns')
+				div(id="progressBar")
+					div
+			div(class='twelve columns')
+				form(id='allInfo',class='custom')
+					fieldset(title='Paso 1')
+						legend Selecciona tu Perfil en culttu.me
+						label ¿Como te enteraste de culttu.me?
+						select(id='askAbout')
+							option(selected) Escoge una opción
+							option Twitter
+							option Facebook
+							option Google
+							option Bing
+							option Yahoo!
+							option ¡Por un Amig@!
+						label Selecciona tu Perfil
+						select(id='profile')
+							option(selected) Escoge uno
+							option Artista Visual
+							option Fan o Seguidor
+							// option Patrocinador
+						label Ingresa el código que se envio a tu correo
+						input(type='text',name='registerCode', placeholder='8 caracteres', id='registerCode', class='required')
+					fieldset(title='Paso 2')
+						legend Algunos Datos más
+						div(id='dataInfo')
+					fieldset(title='Paso 3')
+						legend ¡Ya casi terminamos!
+						div(id='dataValidation')
+					input(class="stepy-finish", type="submit", value="Finalizar!")
+
+	div(id='congratulation', class='reveal-modal')
+		div(class='row')
+			div(class='twelve columns')
+				div(id='congratulationDetail')
+
 	div(class='row collapse', id='container')
 		div(class='twelve columns')
 			div(class='two columns')
@@ -58,50 +109,3 @@ block content
 					img(src='./img/footer/6.png')
 				div(class='two columns')
 					img(src='./img/footer/7.png')
-
-
-	ol(id='firstTip')
-		li(data-id='email', class='custom')
-			h6 ¡Registra tu correo!
-			p no pierdas la oportunidad de empezar a ganar puntos...
-
-	div(id='wrongEmail', class='reveal-modal')
-		span ¡Bienvenido a culttu.me! 
-		br
-		span Tu cuenta de correo ya esta inscrita
-
-	div(id='moreData', class='reveal-modal')
-		div(class='row')
-			div(class='twelve columns')
-				form(id='allInfo',class='custom')
-					fieldset(title='Paso 1')
-						legend Selecciona tu Perfil en culttu.me
-						label ¿Como te enteraste de culttu.me?
-						select(id='askAbout')
-							option(selected) Escoge una opción
-							option Twitter
-							option Facebook
-							option Google
-							option Bing
-							option Yahoo!
-							option ¡Por un Amig@!
-						label Selecciona tu Perfil
-						select(id='profile')
-							option(selected) Escoge uno
-							option Artista Visual
-							option Fan o Seguidor
-							// option Patrocinador
-						label Ingresa el código que se envio a tu correo
-						input(type='text',name='registerCode', placeholder='8 caracteres', id='registerCode', class='required')
-					fieldset(title='Paso 2')
-						legend Algunos Datos más
-						div(id='dataInfo')
-					fieldset(title='Paso 3')
-						legend ¡Ya casi terminamos!
-						div(id='dataValidation')
-					input(class="stepy-finish", type="submit", value="Finalizar!")
-
-	div(id='congratulation', class='reveal-modal')
-		div(class='row')
-			div(class='twelve columns')
-				div(id='congratulationDetail')

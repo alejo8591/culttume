@@ -53,7 +53,6 @@
     });
     socket.on('registerEmail', function(email) {
       var registerCode, users;
-
       registerCode = Math.random().toString(36).substr(2, 8);
       users = new User({
         email: email.toLowerCase(),
@@ -62,7 +61,6 @@
       });
       return users.save(function(err) {
         if (!err) {
-          mail.sendmail(users.email, registerCode);
           return socket.emit('fillData', {
             email: users.email,
             status: statusRegister.emailCreatedSuccefully

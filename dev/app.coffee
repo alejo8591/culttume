@@ -54,8 +54,8 @@ io.sockets.on 'connection', (socket) ->
 		)
 		users.save (err)->
 			unless err
-				#send email for user
-				mail.sendmail(users.email, registerCode)
+				# send email for user
+				#mail.sendmail(users.email, registerCode)
 				socket.emit 'fillData', 
 					email:users.email 
 					status:statusRegister.emailCreatedSuccefully

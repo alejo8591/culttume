@@ -9129,3 +9129,20 @@ header p {
       height: 45px; 
       margin-top: 10px; 
       width: 120px }
+
+/* Progress Bar */
+#progressBar {
+    width: 400px;
+    height: 22px;
+    border: 2px solid #F8F8F8;
+    background-color: #ffffff;
+}
+
+#progressBar div {
+    height: 100%;
+    color: #fff;
+    text-align: right;
+    line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+    width: 0;
+    background-color: #154DAD;
+}
