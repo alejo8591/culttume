@@ -49,6 +49,10 @@
       type: String,
       lowercase: true
     },
+    country: {
+      type: String,
+      lowercase: true
+    },
     city: {
       type: String,
       lowercase: true

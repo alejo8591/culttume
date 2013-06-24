@@ -53,6 +53,7 @@
     });
     socket.on('registerEmail', function(email) {
       var registerCode, users;
+
       registerCode = Math.random().toString(36).substr(2, 8);
       users = new User({
         email: email.toLowerCase(),
@@ -96,6 +97,7 @@
       }, {
         name: data.name,
         profile: data.profile,
+        country: data.country,
         city: data.city,
         useRegistrationCode: 1,
         genre: data.genre,

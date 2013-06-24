@@ -83,6 +83,7 @@ io.sockets.on 'connection', (socket) ->
 		User.update(email:data.email,
 			name:	data.name
 			profile: data.profile
+			country: data.country
 			city:	 data.city
 			useRegistrationCode:1
 			genre:	data.genre

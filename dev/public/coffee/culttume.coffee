@@ -84,18 +84,41 @@ $(document).ready ->
 					socket.on 'receiveDataProfile', (dataCode)->
 						if dataCode.status is 3
 							$('#dataInfo').empty()
-										  .append('<div id="dataInfoDetail"><label for="name">Nombre Completo</label>'+
-										  		  '<input id="name" type="text" name="name" placeholder="Nombres Apellidos">'+
-										  		  '<label for="city">Ciudad</label><input type="text" name="city" placeholder="Ciudad donde vives" id="city">'+
-										  		  '<label>Edad</label><input type="text" name="age" placeholder="Mayor de 18 años" id="age">'+
-										  		  '<label>Genero</label><select id="genre" style="display: none;">'+
-										  		  '<option selected>Selecciona tu Genero</option>'+
-										  		  '<option>Femenino</option><option>Masculino</option></select>'+
-										  		  '<div class="custom dropdown"><a href="#" class="current">Selecciona tu genero</a>'+
-										  		  '<a href="#" class="selector"></a><ul><li>Selecciona tu genero</li>'+
-										  		  '<li>Femenino</li><li>Masculino</li></ul></div></div>')
+										  .append('<div id="dataInfoDetail"><label>Pais</label><select id="country" style="display: none;">'+
+											  	  '<option selected>Pais</option>'+
+											  	  '<option>Colombia</option><option>Panamá</option></select>'+
+											  	  '<div class="custom dropdown"><a href="#" class="current">Selecciona tu Pais</a>'+
+												  '<a href="#" class="selector"></a><ul><li>Selecciona tu Pais</li>'+
+										  		  '<li>Colombia</li><li>Panamá</li></ul></div></div>')
+
+							progressBar 35, $('#progressBar')
+
+							$('#country').change(()->
+								$('#dataInfo').append('<label for="name">Nombre Completo</label>'+
+													  '<input id="name" type="text" name="name" placeholder="Nombres Apellidos">'+
+											  		  '<label for="city">Ciudad</label><input type="text" name="city" placeholder="Ciudad donde vives" id="city">'+
+											  		  '<label>Edad</label><input type="text" name="age" placeholder="Mayor de 18 años" id="age">'+
+											  		  '<label>Genero</label><select id="genre" style="display: none;">'+
+											  		  '<option selected>Selecciona tu Genero</option>'+
+											  		  '<option>Femenino</option><option>Masculino</option></select>'+
+											  		  '<div class="custom dropdown"><a href="#" class="current">Selecciona tu genero</a>'+
+											  		  '<a href="#" class="selector"></a><ul><li>Selecciona tu genero</li>'+
+											  		  '<li>Femenino</li><li>Masculino</li></ul></div></div>')
+							)
+							###
+								$('#dataInfo').empty()
+											  .append('<div id="dataInfoDetail"><label for="name">Nombre Completo</label>'+
+											  		  '<input id="name" type="text" name="name" placeholder="Nombres Apellidos">'+
+											  		  '<label for="city">Ciudad</label><input type="text" name="city" placeholder="Ciudad donde vives" id="city">'+
+											  		  '<label>Edad</label><input type="text" name="age" placeholder="Mayor de 18 años" id="age">'+
+											  		  '<label>Genero</label><select id="genre" style="display: none;">'+
+											  		  '<option selected>Selecciona tu Genero</option>'+
+											  		  '<option>Femenino</option><option>Masculino</option></select>'+
+											  		  '<div class="custom dropdown"><a href="#" class="current">Selecciona tu genero</a>'+
+											  		  '<a href="#" class="selector"></a><ul><li>Selecciona tu genero</li>'+
+											  		  '<li>Femenino</li><li>Masculino</li></ul></div></div>')
+							###
 							
-							progressBar 50, $('#progressBar')
 						else 
 							$('#dataInfo').empty()
 										  .append('<h3>Este código no existe, verifica tu correo electrónico</h3>')
@@ -195,11 +218,14 @@ $(document).ready ->
 				console.log 'paso 1'
 
 		finish: ()->
+			# acquiring data for form
 			data = {}
 			data.services = []
 			data.profile = $('#profile').val() 
 			data.askAbout = $('#askAbout').val()
 			data.name = $('#name').val()
+			country = $('#country').find('option:selected')
+			data.country = country.val()
 			data.city = $('#city').val() 
 			data.age = $('#age').val()
 			data.email =  $('#email').val()
@@ -225,6 +251,7 @@ $(document).ready ->
 						_i++
 
 			if data.services.length > 0 and data.profile isnt 'Escoge una opción' and data.askAbout isnt 'Escoge una opción' and data.name isnt "" and data.name.length >= 5 and data.city isnt "" and data.city.length >= 3 and data.age isnt "" and data.age.length > 1 and data.age.length < 3 and data.genre isnt 'Selecciona tu Genero'
+				# send info for server
 				socket.emit 'receiveAllDataProfile', data
 				socket.on 'congratulationDetail', (congrat) ->
 					$('#congratulationDetail').append(

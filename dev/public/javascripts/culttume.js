@@ -14,6 +14,7 @@
     */
 
     var socket;
+
     $('ol').hide();
     $(window).load(function() {
       return $('#firstTip').joyride({
@@ -33,6 +34,7 @@
     });
     $('#register').on('click', function(event) {
       var email, verification;
+
       email = $('#email').val();
       verification = new Comfirm.AlphaMail.Verimail();
       return verification.verify(email, function(status, message, suggestion) {
@@ -78,8 +80,25 @@
             });
             return socket.on('receiveDataProfile', function(dataCode) {
               if (dataCode.status === 3) {
-                $('#dataInfo').empty().append('<div id="dataInfoDetail"><label for="name">Nombre Completo</label>' + '<input id="name" type="text" name="name" placeholder="Nombres Apellidos">' + '<label for="city">Ciudad</label><input type="text" name="city" placeholder="Ciudad donde vives" id="city">' + '<label>Edad</label><input type="text" name="age" placeholder="Mayor de 18 años" id="age">' + '<label>Genero</label><select id="genre" style="display: none;">' + '<option selected>Selecciona tu Genero</option>' + '<option>Femenino</option><option>Masculino</option></select>' + '<div class="custom dropdown"><a href="#" class="current">Selecciona tu genero</a>' + '<a href="#" class="selector"></a><ul><li>Selecciona tu genero</li>' + '<li>Femenino</li><li>Masculino</li></ul></div></div>');
-                return progressBar(50, $('#progressBar'));
+                $('#dataInfo').empty().append('<div id="dataInfoDetail"><label>Pais</label><select id="country" style="display: none;">' + '<option selected>Pais</option>' + '<option>Colombia</option><option>Panamá</option></select>' + '<div class="custom dropdown"><a href="#" class="current">Selecciona tu Pais</a>' + '<a href="#" class="selector"></a><ul><li>Selecciona tu Pais</li>' + '<li>Colombia</li><li>Panamá</li></ul></div></div>');
+                progressBar(35, $('#progressBar'));
+                return $('#country').change(function() {
+                  return $('#dataInfo').append('<label for="name">Nombre Completo</label>' + '<input id="name" type="text" name="name" placeholder="Nombres Apellidos">' + '<label for="city">Ciudad</label><input type="text" name="city" placeholder="Ciudad donde vives" id="city">' + '<label>Edad</label><input type="text" name="age" placeholder="Mayor de 18 años" id="age">' + '<label>Genero</label><select id="genre" style="display: none;">' + '<option selected>Selecciona tu Genero</option>' + '<option>Femenino</option><option>Masculino</option></select>' + '<div class="custom dropdown"><a href="#" class="current">Selecciona tu genero</a>' + '<a href="#" class="selector"></a><ul><li>Selecciona tu genero</li>' + '<li>Femenino</li><li>Masculino</li></ul></div></div>');
+                });
+                /*
+                								$('#dataInfo').empty()
+                											  .append('<div id="dataInfoDetail"><label for="name">Nombre Completo</label>'+
+                											  		  '<input id="name" type="text" name="name" placeholder="Nombres Apellidos">'+
+                											  		  '<label for="city">Ciudad</label><input type="text" name="city" placeholder="Ciudad donde vives" id="city">'+
+                											  		  '<label>Edad</label><input type="text" name="age" placeholder="Mayor de 18 años" id="age">'+
+                											  		  '<label>Genero</label><select id="genre" style="display: none;">'+
+                											  		  '<option selected>Selecciona tu Genero</option>'+
+                											  		  '<option>Femenino</option><option>Masculino</option></select>'+
+                											  		  '<div class="custom dropdown"><a href="#" class="current">Selecciona tu genero</a>'+
+                											  		  '<a href="#" class="selector"></a><ul><li>Selecciona tu genero</li>'+
+                											  		  '<li>Femenino</li><li>Masculino</li></ul></div></div>')
+                */
+
               } else {
                 return $('#dataInfo').empty().append('<h3>Este código no existe, verifica tu correo electrónico</h3>');
               }
@@ -119,12 +138,15 @@
         }
       },
       finish: function() {
-        var check, data, selectOption, _i;
+        var check, country, data, selectOption, _i;
+
         data = {};
         data.services = [];
         data.profile = $('#profile').val();
         data.askAbout = $('#askAbout').val();
         data.name = $('#name').val();
+        country = $('#country').find('option:selected');
+        data.country = country.val();
         data.city = $('#city').val();
         data.age = $('#age').val();
         data.email = $('#email').val();
