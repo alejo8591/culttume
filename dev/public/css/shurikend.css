@@ -9097,7 +9097,7 @@ header p {
     .button-next,
     .stepy-navigator input[type="submit"] { float: right }
 
-    .button-back,
+    /* .button-back,*/
     .button-next,
     .stepy-navigator input[type="submit"] { 
       border: 1px solid #CCC; 
@@ -9119,7 +9119,7 @@ header p {
       padding: 7px 15px 24px; 
       width: 90px }
 
-    .button-back:hover,
+    /* .button-back:hover, */
     .button-next:hover,
     .stepy-navigator input[type="submit"]:hover { 
       border-color: #BBB; color: #B07 }

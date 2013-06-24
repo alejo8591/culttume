@@ -64,7 +64,7 @@
       return console.log('Disconnect');
     });
     return $('#allInfo').stepy({
-      backLabel: 'Atras',
+      backLabel: '',
       enter: true,
       description: false,
       legend: false,
@@ -73,7 +73,7 @@
       finishButton: true,
       next: function() {
         if ($('li.stepy-active div').text() === 'Paso 1') {
-          if ($('#profile').val() === 'Artista Visual' || $('#profile').val() === 'Fan o Seguidor' && $('#askAbout').val() !== 'Escoge una opción' && $('#registerCode').val() !== "" && $('#registerCode').val().length >= 8) {
+          if ($('#profile').val() === 'Artista/Creativo' || $('#profile').val() === 'Seguidor/Fan' && $('#askAbout').val() !== 'Escoge una opción' && $('#registerCode').val() !== "" && $('#registerCode').val().length >= 8) {
             socket.emit('verificationCode', {
               code: $('#registerCode').val(),
               email: $('#email').val()
@@ -95,20 +95,6 @@
                   }
                   return $('#dataInfoDetail').append('<label for="name">Nombre Completo</label>' + '<input id="name" type="text" name="name" placeholder="Nombres Apellidos">' + '<label>Edad</label>' + '<select id="age" style="display: none;">' + '<option selected>Debe ser Mayor de Edad</option>' + '<option>18</option>' + '<option>19</option>' + '<option>20</option>' + '<option>21</option>' + '<option>22</option>' + '<option>23</option>' + '<option>24</option>' + '<option>25</option>' + '<option>26</option>' + '<option>27</option>' + '<option>28</option>' + '<option>29</option>' + '<option>30</option>' + '<option>31</option>' + '<option>32</option>' + '<option>33</option>' + '<option>34</option>' + '<option>35</option>' + '<option>36</option>' + '<option>37</option>' + '<option>38</option>' + '<option>39</option>' + '<option>40</option>' + '<option>41</option>' + '<option>42</option>' + '<option>43</option>' + '<option>44</option>' + '<option>45</option>' + '<option>46</option>' + '<option>47</option>' + '<option>48</option>' + '<option>49</option>' + '<option>50</option>' + '<option>51</option>' + '<option>52</option>' + '<option>53</option>' + '<option>54</option>' + '<option>55</option>' + '<option>56</option>' + '<option>57</option>' + '<option>58</option>' + '<option>59</option>' + '<option>60</option>' + '<option>61</option>' + '<option>62</option>' + '<option>63</option>' + '<option>64</option>' + '<option>65</option>' + '<option>66</option>' + '<option>67</option>' + '<option>68</option>' + '<option>69</option>' + '<option>70</option>' + '<option>71</option>' + '<option>72</option>' + '<option>73</option>' + '<option>74</option>' + '<option>75</option>' + '<option>76</option>' + '<option>77</option>' + '<option>78</option>' + '<option>79</option>' + '<option>80</option>' + '</select>' + '<div class="custom dropdown">' + '<a href="#" class="current">Debe ser Mayor de Edad</a>' + '<a href="#" class="selector"></a>' + '<ul>' + '<li>Debe ser Mayor de Edad</li>' + '<li>18</li>' + '<li>19</li>' + '<li>20</li>' + '<li>21</li>' + '<li>22</li>' + '<li>23</li>' + '<li>24</li>' + '<li>25</li>' + '<li>26</li>' + '<li>27</li>' + '<li>28</li>' + '<li>29</li>' + '<li>30</li>' + '<li>31</li>' + '<li>32</li>' + '<li>33</li>' + '<li>34</li>' + '<li>35</li>' + '<li>36</li>' + '<li>37</li>' + '<li>38</li>' + '<li>39</li>' + '<li>40</li>' + '<li>41</li>' + '<li>42</li>' + '<li>43</li>' + '<li>44</li>' + '<li>45</li>' + '<li>46</li>' + '<li>47</li>' + '<li>48</li>' + '<li>49</li>' + '<li>50</li>' + '<li>51</li>' + '<li>52</li>' + '<li>53</li>' + '<li>54</li>' + '<li>55</li>' + '<li>56</li>' + '<li>57</li>' + '<li>58</li>' + '<li>59</li>' + '<li>60</li>' + '<li>61</li>' + '<li>62</li>' + '<li>63</li>' + '<li>64</li>' + '<li>65</li>' + '<li>66</li>' + '<li>67</li>' + '<li>68</li>' + '<li>69</li>' + '<li>70</li>' + '<li>71</li>' + '<li>72</li>' + '<li>73</li>' + '<li>74</li>' + '<li>75</li>' + '<li>76</li>' + '<li>77</li>' + '<li>78</li>' + '<li>79</li>' + '<li>80</li>' + '</ul></div>' + '<label>Genero</label>' + '<select id="genre" style="display: none;">' + '<option selected>Selecciona tu Genero</option>' + '<option>Femenino</option>' + '<option>Masculino</option>' + '</select>' + '<div class="custom dropdown">' + '<a href="#" class="current">Selecciona tu genero</a>' + '<a href="#" class="selector"></a>' + '<ul>' + '<li>Selecciona tu genero</li>' + '<li>Femenino</li>' + '<li>Masculino</li>' + '</ul></div></div>');
                 });
-                /*
-                								$('#dataInfo').empty()
-                											  .append('<div id="dataInfoDetail"><label for="name">Nombre Completo</label>'+
-                											  		  '<input id="name" type="text" name="name" placeholder="Nombres Apellidos">'+
-                											  		  '<label for="city">Ciudad</label><input type="text" name="city" placeholder="Ciudad donde vives" id="city">'+
-                											  		  '<label>Edad</label><input type="text" name="age" placeholder="Mayor de 18 años" id="age">'+
-                											  		  '<label>Genero</label><select id="genre" style="display: none;">'+
-                											  		  '<option selected>Selecciona tu Genero</option>'+
-                											  		  '<option>Femenino</option><option>Masculino</option></select>'+
-                											  		  '<div class="custom dropdown"><a href="#" class="current">Selecciona tu genero</a>'+
-                											  		  '<a href="#" class="selector"></a><ul><li>Selecciona tu genero</li>'+
-                											  		  '<li>Femenino</li><li>Masculino</li></ul></div></div>')
-                */
-
               } else {
                 return $('#dataInfo').empty().append('<h3>Este código no existe, verifica tu correo electrónico</h3>');
               }
@@ -119,10 +105,10 @@
             return $('#dataInfo').empty().append('<div id="dataInfoDetail"><span>¡No seleccionaste alguna de las opciones ya casi consigues 200 Puntos!</span></div>');
           }
         } else if ($('li.stepy-active div').text() === 'Paso 2') {
-          if ($('#profile').val() === 'Artista Visual' && $('#askAbout').val() !== 'Escoge una opción') {
+          if ($('#profile').val() === 'Artista/Creativo' && $('#askAbout').val() !== 'Escoge una opción') {
             $('#dataValidation').empty().append('<div id="dataValidationDetail"><h5>Escoge las opciones que te interesan:</h5>' + '<label for="checkbox1"><input type="checkbox" id="checkbox1" style="display: none;">' + '<span class="custom checkbox"></span> Crear perfil profesional</label>' + '<label for="checkbox2"><input type="checkbox" id="checkbox2" style="display: none;">' + '<span class="custom checkbox"></span> Sincronizar portafolios creativos (devianArt y Behance)</label>' + '<label for="checkbox3"><input type="checkbox" id="checkbox3" style="display: none;">' + '<span class="custom checkbox"></span> Compartir con mis redes sociales</label>' + '<label for="checkbox4"><input type="checkbox" id="checkbox4" style="display: none;">' + '<span class="custom checkbox"></span> Manejar mi propiedad intelectual</label>' + '<label for="checkbox5"><input type="checkbox" id="checkbox5" style="display: none;">' + '<span class="custom checkbox"></span> Mi mercadeo y comunicaciones</label>' + '<label for="checkbox6"><input type="checkbox" id="checkbox6" style="display: none;">' + '<span class="custom checkbox"></span> Usar <em>toolkit</em> para manejar mi carrera creativa</label>' + '<label for="checkbox7"><input type="checkbox" id="checkbox7" style="display: none;">' + '<span class="custom checkbox"></span> Finanzas para creativos</label>' + '<label for="checkbox8"><input type="checkbox" id="checkbox8" style="display: none;">' + '<span class="custom checkbox"></span> Vender mis servicios y obras</label>' + '<label for="checkbox9"><input type="checkbox" id="checkbox9" style="display: none;">' + '<span class="custom checkbox"></span> Solicitar asesoría especializada</label>' + '<label for="checkbox10"><input type="checkbox" id="checkbox10" style="display: none;">' + '<span class="custom checkbox"></span> Acceso a cursos online</label>' + '<label for="checkbox11"><input type="checkbox" id="checkbox11" style="display: none;">' + '<span class="custom checkbox"></span> Aplicar a ofertas</label><label for="checkbox12">' + '<input type="checkbox" id="checkbox12" style="display: none;">' + '<span class="custom checkbox"></span> Ver concursos</label>' + '<br /><small>Al enviar esta información, Acepto los términos y condiciones de culttu.me</small></div>');
             return progressBar(80, $('#progressBar'));
-          } else if ($('#profile').val() === 'Fan o Seguidor' && $('#askAbout').val() !== 'Escoge una opción') {
+          } else if ($('#profile').val() === 'Seguidor/Fan' && $('#askAbout').val() !== 'Escoge una opción') {
             $('#dataValidation').empty().append('<div id="dataValidationDetail"><h5>Escoge las opciones que te interesan:</h5>' + '<label for="checkbox1"><input type="checkbox" id="checkbox1" style="display: none;">' + '<span class="custom checkbox"></span> Crear perfil y comenzar la experiencia</label>' + '<label for="checkbox2"><input type="checkbox" id="checkbox2" style="display: none;">' + '<span class="custom checkbox"></span> Crear mi <em>“play list”</em> de artistas digitales</label>' + '<label for="checkbox3"><input type="checkbox" id="checkbox3" style="display: none;">' + '<span class="custom checkbox"></span> Actividades para fans (concursos y juegos)</label>' + '<label for="checkbox4"><input type="checkbox" id="checkbox4" style="display: none;">' + '<span class="custom checkbox"></span> Votar por mi artista favorito</label>' + '<label for="checkbox5"><input type="checkbox" id="checkbox5" style="display: none;">' + '<span class="custom checkbox"></span> Ganar puntos</label>' + '<label for="checkbox6"><input type="checkbox" id="checkbox6" style="display: none;">' + '<span class="custom checkbox"></span> Ganar premios</label>' + '<br /><small>Al enviar esta información, Acepto los términos y condiciones de culttu.me</small></div>');
             return progressBar(80, $('#progressBar'));
           } else if ($('#profile').val() === 'Patrocinador' && $('#askAbout').val() !== 'Escoge una opción') {
@@ -151,7 +137,7 @@
         data.email = $('#email').val();
         selectOption = $('#genre').find('option:selected');
         data.genre = selectOption.val();
-        if ($('#profile').val() === 'Artista Visual') {
+        if ($('#profile').val() === 'Artista/Creativo') {
           _i = 1;
           while (_i < 13) {
             check = '#checkbox' + _i;
@@ -160,7 +146,7 @@
             }
             _i++;
           }
-        } else if ($('#profile').val() === 'Fan o Seguidor') {
+        } else if ($('#profile').val() === 'Seguidor/Fan') {
           _i = 1;
           while (_i < 7) {
             check = '#checkbox' + _i;
@@ -173,7 +159,7 @@
         if (data.services.length > 0 && data.profile !== 'Escoge una opción' && data.askAbout !== 'Escoge una opción' && data.name !== "" && data.name.length >= 5 && data.city !== "" && data.city.length >= 3 && data.age !== "" && data.age.length > 1 && data.age.length < 3 && data.genre !== 'Selecciona tu Genero') {
           socket.emit('receiveAllDataProfile', data);
           socket.on('congratulationDetail', function(congrat) {
-            $('#congratulationDetail').append('<div class="ten centered columns">' + '<span>' + congrat.name + '</span><span class="subheader"> Bienvenido a culttu.me</span>' + '</div>' + '<div class="twelve columns">' + '<hr class="lineFooterCulttume"></div>' + '<p> Recuerda que te enviaremos información y novedades' + ' al correo electrónico:</p>' + '<div class="alert-box success">' + congrat.email + '</div><br />' + '<p>Adicional ganas <span class="radius label"> 200 Puntos</span> que podras canjear por premios' + 'y todas las cosas que más te gustan de tu artista favorito</p>' + '<div class="three columns centered">' + '<img src="./img/modal/cup.png" /></div>');
+            $('#congratulationDetail').append('<div class="ten centered columns">' + '<span>' + congrat.name + '</span><span class="subheader"> Bienvenido a culttu.me</span>' + '</div>' + '<div class="twelve columns">' + '<hr class="lineFooterCulttume"></div>' + '<p> Recuerda que te enviaremos información y novedades' + ' al correo electrónico:</p>' + '<div class="alert-box success">' + congrat.email + '</div><br />' + '<p>Acabas de ganar <span class="radius label"> +3 Puntos</span> en nuestro sistema, ' + 'que podrás canjear por premios sorpresa y todas las cosas que más te gustan de tus artistas ' + 'y creadores favoritos.</p>' + '<div class="three columns centered">' + '<img src="./img/modal/cup.png" /></div>');
             progressBar(100, $('#progressBar'));
             return $('#congratulation').reveal();
           });

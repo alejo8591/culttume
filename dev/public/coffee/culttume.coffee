@@ -25,7 +25,6 @@ $(document).ready ->
 	# Ok ready!
 	socket.on 'connection', (data) ->
 		console.log data
-
 	# initial validation email
 	$('input#email').verimail(
 		denyTempEmailDomains : true
@@ -66,7 +65,7 @@ $(document).ready ->
 		console.log 'Disconnect'
 	# Principal Form data
 	$('#allInfo').stepy(
-		backLabel: 'Atras'
+		backLabel: ''
 		enter: true
 		description: false
 		legend: false
@@ -76,7 +75,7 @@ $(document).ready ->
 		next: ()->
 			#first step for validation
 			if $('li.stepy-active div').text() is 'Paso 1'
-				if $('#profile').val() is 'Artista Visual' or $('#profile').val() is 'Fan o Seguidor' and $('#askAbout').val() isnt 'Escoge una opción' and $('#registerCode').val() isnt "" and $('#registerCode').val().length >= 8
+				if $('#profile').val() is 'Artista/Creativo' or $('#profile').val() is 'Seguidor/Fan' and $('#askAbout').val() isnt 'Escoge una opción' and $('#registerCode').val() isnt "" and $('#registerCode').val().length >= 8
 					socket.emit 'verificationCode', 
 										code:  $('#registerCode').val()
 										email: $('#email').val()
@@ -727,19 +726,6 @@ $(document).ready ->
 													  		  '</ul></div></div>')
 
 							)
-							###
-								$('#dataInfo').empty()
-											  .append('<div id="dataInfoDetail"><label for="name">Nombre Completo</label>'+
-											  		  '<input id="name" type="text" name="name" placeholder="Nombres Apellidos">'+
-											  		  '<label for="city">Ciudad</label><input type="text" name="city" placeholder="Ciudad donde vives" id="city">'+
-											  		  '<label>Edad</label><input type="text" name="age" placeholder="Mayor de 18 años" id="age">'+
-											  		  '<label>Genero</label><select id="genre" style="display: none;">'+
-											  		  '<option selected>Selecciona tu Genero</option>'+
-											  		  '<option>Femenino</option><option>Masculino</option></select>'+
-											  		  '<div class="custom dropdown"><a href="#" class="current">Selecciona tu genero</a>'+
-											  		  '<a href="#" class="selector"></a><ul><li>Selecciona tu genero</li>'+
-											  		  '<li>Femenino</li><li>Masculino</li></ul></div></div>')
-							###
 							
 						else 
 							$('#dataInfo').empty()
@@ -758,7 +744,7 @@ $(document).ready ->
 			# Next step
 			else if $('li.stepy-active div').text() is 'Paso 2'
 				# filter for porfile and ask about
-				if $('#profile').val() is 'Artista Visual' and $('#askAbout').val() isnt 'Escoge una opción'
+				if $('#profile').val() is 'Artista/Creativo' and $('#askAbout').val() isnt 'Escoge una opción'
 					$('#dataValidation').empty()
 								  .append('<div id="dataValidationDetail"><h5>Escoge las opciones que te interesan:</h5>'+
 								  		  '<label for="checkbox1"><input type="checkbox" id="checkbox1" style="display: none;">'+
@@ -789,7 +775,7 @@ $(document).ready ->
 					
 					progressBar 80, $('#progressBar')
 				
-				else if $('#profile').val() is 'Fan o Seguidor' and $('#askAbout').val() isnt 'Escoge una opción'
+				else if $('#profile').val() is 'Seguidor/Fan' and $('#askAbout').val() isnt 'Escoge una opción'
 					$('#dataValidation').empty()
 								  .append('<div id="dataValidationDetail"><h5>Escoge las opciones que te interesan:</h5>'+
 								  	      '<label for="checkbox1"><input type="checkbox" id="checkbox1" style="display: none;">'+
@@ -834,7 +820,7 @@ $(document).ready ->
 			# select genre data
 			selectOption = $('#genre').find('option:selected')
 			data.genre = selectOption.val()
-			if $('#profile').val() is 'Artista Visual'
+			if $('#profile').val() is 'Artista/Creativo'
 				_i = 1
 				# services for artist
 				while _i < 13
@@ -843,7 +829,7 @@ $(document).ready ->
 							data.services.push(_i) 
 						_i++
 
-			else if $('#profile').val() is 'Fan o Seguidor'
+			else if $('#profile').val() is 'Seguidor/Fan'
 				_i = 1
 				# services for fans or followers
 				while _i < 7
@@ -866,8 +852,9 @@ $(document).ready ->
 						' al correo electrónico:</p>'+
 						'<div class="alert-box success">'+
 						congrat.email+'</div><br />'+
-						'<p>Adicional ganas <span class="radius label"> 200 Puntos</span> que podras canjear por premios'+
-						'y todas las cosas que más te gustan de tu artista favorito</p>'+
+						'<p>Acabas de ganar <span class="radius label"> +3 Puntos</span> en nuestro sistema, '+
+						'que podrás canjear por premios sorpresa y todas las cosas que más te gustan de tus artistas '+
+						'y creadores favoritos.</p>'+
 						'<div class="three columns centered">'+
 						'<img src="./img/modal/cup.png" /></div>'
 					)

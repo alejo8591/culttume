@@ -3,8 +3,7 @@ extends layout
 block content
 	ol(id='firstTip')
 		li(data-id='email', class='custom')
-			h6 ¡Registra tu correo!
-			p no pierdas la oportunidad de empezar a ganar puntos...
+			h5 ¡Regístrate es Fácil!
 
 	div(id='wrongEmail', class='reveal-modal')
 		span ¡Bienvenido a culttu.me! 
@@ -14,7 +13,7 @@ block content
 	div(id='moreData', class='reveal-modal')
 		div(class='row')
 			div(class='twelve columns')
-				h5 Porcentaje de completitud del registro
+				h5 Estado de Avance
 			div(class='twelve columns')
 				div(id="progressBar")
 					div
@@ -34,8 +33,8 @@ block content
 						label Selecciona tu Perfil
 						select(id='profile')
 							option(selected) Escoge uno
-							option Artista Visual
-							option Fan o Seguidor
+							option Artista/Creativo 
+							option Seguidor/Fan
 							// option Patrocinador
 						label Ingresa el código que se envio a tu correo
 						input(type='text',name='registerCode', placeholder='8 caracteres', id='registerCode', class='required')

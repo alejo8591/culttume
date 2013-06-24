@@ -108,12 +108,12 @@ Verimail.Language = {
         empty: "E-postadressen är tom"
     },
     es: {
-        success: "¡Ya te puedes Registrar!",
+        success: "¡Email válido, ahora si!",
         typo: "Tu email puede ser <span class='suggestion'>%s</span>?",
         invalidTld: "Dominio de nivel superior <span class='tld'>%s</span> no Existe!",
         domainBlocked: "El dominio <span class='blocked'>%s</span> no está permitido",
-        invalidFormat: "El email no tiene un formato correcto!",
-        empty: "¡No colocaste email!"
+        invalidFormat: "Confirma el formato de tu email!",
+        empty: "¡Escribe un email válido!"
     }
 };
 
