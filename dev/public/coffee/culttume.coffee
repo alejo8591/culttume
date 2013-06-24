@@ -30,7 +30,15 @@ $(document).ready ->
 		denyTempEmailDomains : true
 		messageElement: 'p#status-message'
 	)
-
+	# hide tooltip
+	$('input#email').on(
+		click: ()->
+			$('div.joyride-tip-guide.custom').remove()
+		mouseenter: ()->
+			$('div.joyride-tip-guide.custom').remove()
+		mouseleave: ()->
+			$('div.joyride-tip-guide.custom').remove()
+	)
 	# confirm validation email
 	$('#register').on 'click', (event) ->
 		# validation null and ""
@@ -859,6 +867,11 @@ $(document).ready ->
 						'<img src="./img/modal/cup.png" /></div>'
 					)
 					progressBar 100, $('#progressBar')
+					$('#registrationForm').empty()
+										  .append('<h4>Gracias</h4>'+
+										  		  '<h3>' + congrat.name + '</h3>' +
+										  		  '<h3>' + congrat.email + '</h3>' +
+										  		  '<p>Ahora ayúdanos a darnos a conocer entre tus amigos y redes sociales</p>')
 					$('#congratulation').reveal()
 			else
 				alert 'revisa algunos datos estan mal'

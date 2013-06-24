@@ -32,6 +32,17 @@
       denyTempEmailDomains: true,
       messageElement: 'p#status-message'
     });
+    $('input#email').on({
+      click: function() {
+        return $('div.joyride-tip-guide.custom').remove();
+      },
+      mouseenter: function() {
+        return $('div.joyride-tip-guide.custom').remove();
+      },
+      mouseleave: function() {
+        return $('div.joyride-tip-guide.custom').remove();
+      }
+    });
     $('#register').on('click', function(event) {
       var email, verification;
 
@@ -161,6 +172,7 @@
           socket.on('congratulationDetail', function(congrat) {
             $('#congratulationDetail').append('<div class="ten centered columns">' + '<span>' + congrat.name + '</span><span class="subheader"> Bienvenido a culttu.me</span>' + '</div>' + '<div class="twelve columns">' + '<hr class="lineFooterCulttume"></div>' + '<p> Recuerda que te enviaremos información y novedades' + ' al correo electrónico:</p>' + '<div class="alert-box success">' + congrat.email + '</div><br />' + '<p>Acabas de ganar <span class="radius label"> +3 Puntos</span> en nuestro sistema, ' + 'que podrás canjear por premios sorpresa y todas las cosas que más te gustan de tus artistas ' + 'y creadores favoritos.</p>' + '<div class="three columns centered">' + '<img src="./img/modal/cup.png" /></div>');
             progressBar(100, $('#progressBar'));
+            $('#registrationForm').empty().append('<h4>Gracias</h4>' + '<h3>' + congrat.name + '</h3>' + '<h3>' + congrat.email + '</h3>' + '<p>Ahora ayúdanos a darnos a conocer entre tus amigos y redes sociales</p>');
             return $('#congratulation').reveal();
           });
         } else {
