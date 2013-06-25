@@ -1,5 +1,4 @@
 $(document).ready ->
-	###	
 		$('#imgs li').wookmark( 
 			align: 'center'
 			autoResize: true
@@ -10,7 +9,6 @@ $(document).ready ->
 			flexibleWidth: 0
 			onLayoutChanged: undefined
 	  	)
-	###
 	# <ol> hide
 	$('ol').hide()
 	$(window).load(()->
@@ -31,13 +29,15 @@ $(document).ready ->
 		messageElement: 'p#status-message'
 	)
 	# hide tooltip
+	hideRide = ()->
+		$('div.joyride-tip-guide.custom').remove()
 	$('input#email').on(
 		click: ()->
-			$('div.joyride-tip-guide.custom').remove()
+			hideRide()
 		mouseenter: ()->
-			$('div.joyride-tip-guide.custom').remove()
+			hideRide()
 		mouseleave: ()->
-			$('div.joyride-tip-guide.custom').remove()
+			hideRide()
 	)
 	# confirm validation email
 	$('#register').on 'click', (event) ->
@@ -732,7 +732,6 @@ $(document).ready ->
 													  		  '<li>Femenino</li>'+
 													  		  '<li>Masculino</li>'+
 													  		  '</ul></div></div>')
-
 							)
 							
 						else 

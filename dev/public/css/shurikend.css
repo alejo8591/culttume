@@ -8899,7 +8899,7 @@ hr.lineFooterCulttume {
 }
 
 #container{
-  padding-top: 60px;
+  padding-top: 2px;
 }
 
 /* Rotation imgs */
@@ -8946,6 +8946,14 @@ hr.lineFooterCulttume {
    -webkit-transform: rotate(12deg);
 }
 
+
+
+#leftCulttume{
+  padding-top: 200px;
+}
+#rightCulttume{
+  padding-top: 0;
+}
 /**
  * Grid container
  */
@@ -8959,7 +8967,7 @@ hr.lineFooterCulttume {
  * Grid items
  */
 #imgs li {
-  width: 200px;
+  width: 160px;
   background-color: #ffffff;
   border: 1px solid #dedede;
   -moz-border-radius: 2px;
