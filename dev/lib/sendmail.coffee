@@ -39,9 +39,9 @@ exports.sendmail= (emailPersonal, registerCode)->
 		    				  "<li>Twitter: @culttume</li>"+
 		    				  "<li>Blog: culttume.blogspot.com</li>"+
 		    				  "<li>Youtube: culttume</li>"+
-		    				  "<p>Cúentanos todo lo que desas hacer, en nuestra plataforma como seguidor/Fan o Artista al correo: </p>"+
+		    				  "<p>Cúentanos todo lo que deseas hacer, en nuestra plataforma como: seguidor/Fan o Artista/Creativo al correo </p>"+
 		    				  "<ul><li>culttu.me@gmail.com</li></ul>"+
-		    				  "<p>te aseguramos que respondemos absolutamente todos los mensajes.</p>"+
+		    				  "<p>Te aseguramos que respondemos absolutamente todos los mensajes.</p>"+
 		    				  "<p><strong>El equipo de culttu.me</strong></p>"
 	  	]
 
