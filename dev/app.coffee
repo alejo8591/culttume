@@ -90,7 +90,7 @@ io.sockets.on 'connection', (socket) ->
 			know:	data.askAbout
 			age:	parseInt(data.age)
 			services:data.services
-			points: 200,
+			points: 100,
 			{upsert : true},
 			(err, user)->
 				unless err
