@@ -1,15 +1,43 @@
 module.exports = (grunt)->
 	grunt.initConfig
 		pkg: grunt.file.readJSON "package.json"		
-		# compiled 
+		# compiled shurikend CSS
+		compass:
+			dist:
+				options:
+					config: 'dev/shurikend/config.rb',  # css_dir = 'dev/css'
+					cssDir: 'dev/public/css/'	
+	    # compiled coffee 2 js for shurikend
 		coffee:
 			compile:
 				files:
 					'compiled/app.js':'dev/app.coffee'
 					'compiled/models/user.js':'dev/models/user.coffee'
 					'compiled/controllers/culttume.js':'dev/controllers/culttume.coffee'
+					'compiled/lib/sendmail.js':'dev/lib/sendmail.coffee'
 					'dev/public/javascripts/culttume.js':'dev/public/coffee/culttume.coffee'
-					'compiled/lib/sendmail.js':'dev/lib/sendmail.coffee' 
+					# integrated shurikend
+					'dev/public/javascripts/shurikend.js':[
+						'dev/shurikend/coffee/jquery-cookie.coffee',
+						'dev/shurikend/coffee/jquery-event-move.coffee',
+						'dev/shurikend/coffee/jquery-event-swipe.coffee',
+						'dev/shurikend/coffee/jquery-offcanvas.coffee',
+						'dev/shurikend/coffee/media-query-toggle.coffee',
+						'dev/shurikend/coffee/jquery-placeholder.coffee',
+						'dev/shurikend/coffee/alerts.coffee',
+						#'coffee/accordion.coffee', 
+						'dev/shurikend/coffee/buttons.coffee',
+						'dev/shurikend/coffee/tooltips.coffee',
+						'dev/shurikend/coffee/forms.coffee',
+						#'coffee/tabs.coffee',
+						'dev/shurikend/coffee/cursorup.coffee',
+						'dev/shurikend/coffee/modal.coffee',
+						#'coffee/topbar.coffee',
+						'dev/shurikend/coffee/nextstep.coffee',
+						#'coffee/magellan.coffee',
+						'dev/shurikend/coffee/navigation.coffee',
+						#'coffee/slide.coffee',
+						'dev/shurikend/coffee/app.coffee']
 
 		# compiled jade templates files
 		jade:
@@ -38,16 +66,17 @@ module.exports = (grunt)->
 															   'dev/public/javascripts/jquery.stepy.js',
 															   'dev/public/javascripts/progressbar.js',
 															   'dev/public/javascripts/culttume.js']
-
+		# obfuscate CSS													   	
 		cssmin:
 			my_target:
 				src: 'dev/public/css/shurikend.css'
 				dest: 'compiled/public/css/shurikend.css'
 
 	# Load modules for gruntjs
+	grunt.loadNpmTasks 'grunt-contrib-compass'
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-jade'
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
 	grunt.loadNpmTasks 'grunt-css'
 	# Load all Task
-	grunt.registerTask 'default', ['coffee', 'jade', 'uglify', 'cssmin']
+	grunt.registerTask 'default', ['compass', 'coffee', 'jade', 'uglify', 'cssmin']

@@ -11,6 +11,7 @@
 
   (function($, document, undefined_) {
     var config, decoded, pluses, raw;
+
     raw = function(s) {
       return s;
     };
@@ -20,6 +21,7 @@
     pluses = /\+/g;
     config = $.cookie = function(key, value, options) {
       var cookie, cookies, days, decode, i, l, parts, t;
+
       if (value !== undefined) {
         options = $.extend({}, config.defaults, options);
         if (value === null) {
@@ -59,7 +61,6 @@
 
 }).call(this);
 
-
 /*
   Inspired in jquery-event-move
   jquery-event-move: jquery-event-move.coffee
@@ -67,7 +68,6 @@
 
 
 (function() {
-
   (function(module) {
     if (typeof define === "function" && define.amd) {
       return define(["jquery"], module);
@@ -76,10 +76,13 @@
     }
   })(function(jQuery, undefined_) {
     var Timer, activeMouseend, activeMousemove, activeTouchend, activeTouchmove, add, addMethod, changedTouch, checkThreshold, endEvent, flagAsHandled, handled, identifiedTouch, ignoreTags, isLeftButton, mousedown, mouseend, mouseevents, mousemove, preventDefault, preventIgnoreTags, remove, removeActiveMouse, removeActiveTouch, removeMethod, removeMouse, removeTouch, requestFrame, returnFalse, returnTrue, setup, teardown, threshold, touchend, touchevents, touchmove, touchstart, trigger, triggerStart, updateEvent;
+
     Timer = function(fn) {
       var active, callback, running, trigger;
+
       trigger = function(time) {
         var active, running;
+
         if (active) {
           callback();
           requestFrame(trigger);
@@ -100,6 +103,7 @@
       };
       return this.end = function(fn) {
         var cb;
+
         cb = callback;
         if (!fn) {
           return;
@@ -135,8 +139,9 @@
     };
     identifiedTouch = function(touchList, id) {
       var i, l;
-      i = void 0;
-      l = void 0;
+
+      i = undefined_;
+      l = undefined_;
       if (touchList.identifiedTouch) {
         return touchList.identifiedTouch(id);
       }
@@ -144,6 +149,7 @@
       l = touchList.length;
       if ((function() {
         var _results;
+
         _results = [];
         while (++i < l) {
           _results.push(touchList[i].identifier === id);
@@ -155,6 +161,7 @@
     };
     changedTouch = function(e, event) {
       var touch;
+
       touch = identifiedTouch(e.changedTouches, event.identifier);
       if (!touch) {
         return;
@@ -166,7 +173,8 @@
     };
     mousedown = function(e) {
       var data;
-      data = void 0;
+
+      data = undefined_;
       if (!isLeftButton(e)) {
         return;
       }
@@ -181,6 +189,7 @@
     };
     mousemove = function(e) {
       var data;
+
       data = e.data;
       return checkThreshold(e, data, e, removeMouse);
     };
@@ -193,8 +202,9 @@
     };
     touchstart = function(e) {
       var template, touch;
-      touch = void 0;
-      template = void 0;
+
+      touch = undefined_;
+      template = undefined_;
       if (ignoreTags[e.target.tagName.toLowerCase()]) {
         return;
       }
@@ -211,6 +221,7 @@
     };
     touchmove = function(e) {
       var data, touch;
+
       data = e.data;
       touch = changedTouch(e, data);
       if (!touch) {
@@ -220,6 +231,7 @@
     };
     touchend = function(e) {
       var template, touch;
+
       template = e.data;
       touch = identifiedTouch(e.changedTouches, template.identifier);
       if (!touch) {
@@ -233,6 +245,7 @@
     };
     checkThreshold = function(e, template, touch, fn) {
       var distX, distY;
+
       distX = touch.pageX - template.startX;
       distY = touch.pageY - template.startY;
       if ((distX * distX) + (distY * distY) < (threshold * threshold)) {
@@ -249,9 +262,10 @@
     };
     triggerStart = function(e, template, touch, distX, distY, fn) {
       var node, time, touches;
+
       node = template.target;
-      touches = void 0;
-      time = void 0;
+      touches = undefined_;
+      time = undefined_;
       touches = e.targetTouches;
       time = e.timeStamp - template.timeStamp;
       template.type = "movestart";
@@ -274,12 +288,14 @@
     };
     activeMousemove = function(e) {
       var event, timer;
+
       event = e.data.event;
       timer = e.data.timer;
       return updateEvent(event, e, e.timeStamp, timer);
     };
     activeMouseend = function(e) {
       var event, timer;
+
       event = e.data.event;
       timer = e.data.timer;
       removeActiveMouse();
@@ -295,6 +311,7 @@
     };
     activeTouchmove = function(e) {
       var event, timer, touch;
+
       event = e.data.event;
       timer = e.data.timer;
       touch = changedTouch(e, event);
@@ -307,6 +324,7 @@
     };
     activeTouchend = function(e) {
       var event, timer, touch;
+
       event = e.data.event;
       timer = e.data.timer;
       touch = identifiedTouch(e.changedTouches, event.identifier);
@@ -322,6 +340,7 @@
     };
     updateEvent = function(event, touch, timeStamp, timer) {
       var time;
+
       time = timeStamp - event.timeStamp;
       event.type = "move";
       event.distX = touch.pageX - event.startX;
@@ -401,8 +420,9 @@
       remove: removeMethod,
       _default: function(e) {
         var data, template;
-        template = void 0;
-        data = void 0;
+
+        template = undefined_;
+        data = undefined_;
         if (!e._handled()) {
           return;
         }
@@ -461,10 +481,12 @@
     if (typeof Array.prototype.indexOf === "function") {
       return (function(jQuery, undefined_) {
         var l, props;
+
         props = ["changedTouches", "targetTouches"];
         l = props.length;
         if ((function() {
           var _results;
+
           _results = [];
           while (l--) {
             _results.push(jQuery.event.props.indexOf(props[l]) === -1);
@@ -479,7 +501,6 @@
 
 }).call(this);
 
-
 /*
   Inspired in jquery-event-swipe
   jquery-event-swipe: jquery-event-swipe.coffee
@@ -487,7 +508,6 @@
 
 
 (function() {
-
   (function(module) {
     if (typeof define === "function" && define.amd) {
       return define(["jquery"], module);
@@ -496,8 +516,10 @@
     }
   })(function(jQuery, undefined_) {
     var add, getData, moveend, remove, settings, trigger;
+
     moveend = function(e) {
       var event, h, w;
+
       w = undefined_;
       h = undefined_;
       event = undefined_;
@@ -538,6 +560,7 @@
     };
     getData = function(node) {
       var data;
+
       data = jQuery.data(node, "event_swipe");
       if (!data) {
         data = {
@@ -567,6 +590,7 @@
       },
       teardown: function() {
         var data;
+
         data = getData(this);
         if (--data.count > 0) {
           return;
@@ -580,7 +604,6 @@
 
 }).call(this);
 
-
 /*
   Inspired in jquery-offcanvas
   jquery-offcanvas: jquery-offcanvas.coffee
@@ -588,9 +611,9 @@
 
 
 (function() {
-
   (function(window, document, $) {
     var $selector1, $selector2, $selector3, $selector5, events;
+
     $selector1 = $("#topMenu");
     events = "click.fndtn";
     if ($selector1.length > 0) {
@@ -614,6 +637,7 @@
     if ($selector5.length > 0) {
       $("#switchPanels dd").on(events, function(e) {
         var switchToIndex, switchToPanel;
+
         e.preventDefault();
         switchToPanel = $(this).children("a").attr("href");
         switchToIndex = $(switchToPanel).index();
@@ -623,6 +647,7 @@
     }
     return $("#nav li a").on(events, function(e) {
       var $target, href;
+
       e.preventDefault();
       href = $(this).attr("href");
       $target = $(href);
@@ -634,7 +659,6 @@
 
 }).call(this);
 
-
 /*
   Inspired in foundation v.3.2
   mediaQueryToggle: mediaQueryToggle.coffee
@@ -642,10 +666,10 @@
 
 
 (function() {
-
   (function($, window) {
     "use strict";    return $.fn.MediaQueryViewer = function(options) {
       var $doc, settings;
+
       settings = $.extend(options, {
         toggleKey: 77
       });
@@ -657,6 +681,7 @@
       });
       return $doc.on("keyup.mediaQueryViewer", function(e) {
         var $mqViewer;
+
         $mqViewer = $("#fqv");
         if (e.which === settings.toggleKey) {
           if ($mqViewer.length > 0) {
@@ -671,7 +696,6 @@
 
 }).call(this);
 
-
 /*
   Inspired in jquery-placeholder
   jquery-placeholder: jquery-placeholder.coffee
@@ -679,11 +703,12 @@
 
 
 (function() {
-
   (function(window, document, $) {
     var args, clearPlaceholder, hooks, isInputSupported, isTextareaSupported, placeholder, prototype, setPlaceholder, valHooks;
+
     args = function(elem) {
       var newAttrs, rinlinejQuery;
+
       newAttrs = {};
       rinlinejQuery = /^jQuery\d+$/;
       $.each(elem.attributes, function(i, attr) {
@@ -695,6 +720,7 @@
     };
     clearPlaceholder = function(event, value) {
       var $input, input;
+
       input = this;
       $input = $(input);
       if (input.value === $input.attr("placeholder") && $input.hasClass("placeholder")) {
@@ -712,7 +738,8 @@
       }
     };
     setPlaceholder = function() {
-      var $input, $origInput, $replacement, id, input;
+      var $input, $origInput, $replacement, e, id, input;
+
       $replacement = void 0;
       input = this;
       $input = $(input);
@@ -725,7 +752,8 @@
               $replacement = $input.clone().attr({
                 type: "text"
               });
-            } catch (e) {
+            } catch (_error) {
+              e = _error;
               $replacement = $("<input>").attr($.extend(args(this), {
                 type: "text"
               }));
@@ -761,6 +789,7 @@
     } else {
       placeholder = prototype.placeholder = function() {
         var $this;
+
         $this = this;
         $this.filter((isInputSupported ? "textarea" : ":input") + "[placeholder]").not(".placeholder").bind({
           "focus.placeholder": clearPlaceholder,
@@ -773,6 +802,7 @@
       hooks = {
         get: function(element) {
           var $element;
+
           $element = $(element);
           if ($element.data("placeholder-enabled") && $element.hasClass("placeholder")) {
             return "";
@@ -782,6 +812,7 @@
         },
         set: function(element, value) {
           var $element;
+
           $element = $(element);
           if (!$element.data("placeholder-enabled")) {
             return element.value = value;
@@ -804,6 +835,7 @@
       $(function() {
         return $(document).delegate("form", "submit.placeholder", function() {
           var $inputs;
+
           $inputs = $(".placeholder", this).each(clearPlaceholder);
           return setTimeout((function() {
             return $inputs.each(setPlaceholder);
@@ -820,7 +852,6 @@
 
 }).call(this);
 
-
 /*
   Inspired in foundation v.3.2
   alerts: alerts.coffee
@@ -828,10 +859,10 @@
 
 
 (function() {
-
   (function($, window) {
     "use strict";    return $.fn.Alerts = function(options) {
       var settings;
+
       settings = $.extend({
         callback: $.noop
       }, options);
@@ -846,54 +877,6 @@
 
 }).call(this);
 
-
-/*
-  Inspired in foundation v.3.2
-  accordion: accordion.coffee
-*/
-
-
-(function() {
-
-  (function($, window, undefined_) {
-    "use strict";    return $.fn.Accordion = function(options) {
-      var hasHover;
-      hasHover = function(accordion) {
-        return accordion.hasClass("hover") && !Modernizr.touch;
-      };
-      $(document).on("mouseenter", ".accordion li", function() {
-        var flyout, p;
-        p = $(this).parent();
-        if (hasHover(p)) {
-          flyout = $(this).children(".content").first();
-          $(".content", p).not(flyout).hide().parent("li").removeClass("active");
-          return flyout.show(0, function() {
-            return flyout.parent("li").addClass("active");
-          });
-        }
-      });
-      return $(document).on("click.fndtn", ".accordion li .title", function() {
-        var flyout, li, p;
-        li = $(this).closest("li");
-        p = li.parent();
-        if (!hasHover(p)) {
-          flyout = li.children(".content").first();
-          if (li.hasClass("active")) {
-            return p.find("li").removeClass("active").end().find(".content").hide();
-          } else {
-            $(".content", p).not(flyout).hide().parent("li").removeClass("active");
-            return flyout.show(0, function() {
-              return flyout.parent("li").addClass("active");
-            });
-          }
-        }
-      });
-    };
-  })(jQuery, this);
-
-}).call(this);
-
-
 /*
   Inspired in foundation v.3.2
   buttons: buttons.coffee
@@ -901,10 +884,10 @@
 
 
 (function() {
-
   (function($, window, undefined_) {
     "use strict";    return $.fn.Buttons = function(options) {
       var $doc, closeDropdowns, config, largeButtonHeight, normalButtonHeight, resetToggles, smallButtonHeight, tinyButtonHeight;
+
       $doc = $(document);
       config = $.extend({
         dropdownAsToggle: false,
@@ -915,6 +898,7 @@
       };
       resetToggles = function(button) {
         var buttons;
+
         buttons = $(".button.dropdown").not(button);
         return buttons.add($("> span." + config.activeClass, buttons)).removeClass(config.activeClass);
       };
@@ -924,6 +908,7 @@
       $(".button.dropdown > ul", this).addClass("no-hover");
       $doc.on("click.fndtn", ".button.dropdown:not(.split), .button.dropdown.split span", function(e) {
         var $el, button, dropdown;
+
         $el = $(this);
         button = $el.closest(".button.dropdown");
         dropdown = $("> ul", button);
@@ -967,7 +952,6 @@
 
 }).call(this);
 
-
 /*
   Inspired in foundation v.3.2
   tooltips: tooltips.coffee
@@ -975,10 +959,10 @@
 
 
 (function() {
-
   (function($, window, undefined_) {
     "use strict";
     var methods, settings;
+
     settings = {
       bodyHeight: 0,
       selector: ".has-tip",
@@ -994,6 +978,7 @@
         settings.selector = (settings.targetClass ? settings.targetClass : settings.selector);
         return this.each(function() {
           var $body;
+
           $body = $("body");
           if (Modernizr.touch) {
             $body.on("click.tooltip touchstart.tooltip touchend.tooltip", settings.selector, function(e) {
@@ -1008,6 +993,7 @@
           } else {
             $body.on("mouseenter.tooltip mouseleave.tooltip", settings.selector, function(e) {
               var $this;
+
               $this = $(this);
               if (e.type === "mouseenter") {
                 return methods.showOrCreateTip($this);
@@ -1023,6 +1009,7 @@
       },
       showOrCreateTip: function($target, content) {
         var $tip;
+
         $tip = methods.getTip($target);
         if ($tip && $tip.length > 0) {
           return methods.show($target);
@@ -1032,6 +1019,7 @@
       },
       getTip: function($target) {
         var selector, tip;
+
         selector = methods.selector($target);
         tip = null;
         if (selector) {
@@ -1045,6 +1033,7 @@
       },
       selector: function($target) {
         var dataSelector, id;
+
         id = $target.attr("id");
         dataSelector = $target.data("selector");
         if (id === undefined && dataSelector === undefined) {
@@ -1059,6 +1048,7 @@
       },
       create: function($target, content) {
         var $tip, classes;
+
         $tip = $(settings.tipTemplate(methods.selector($target), $("<div>").html((content ? content : $target.attr("title"))).html()));
         classes = methods.inheritable_classes($target);
         $tip.addClass(classes).appendTo("body");
@@ -1070,6 +1060,7 @@
       },
       reposition: function(target, tip, classes) {
         var column, nub, nubHeight, nubWidth, objPos, tmp_width, width;
+
         width = undefined_;
         nub = undefined_;
         nubHeight = undefined_;
@@ -1130,6 +1121,7 @@
       },
       inheritable_classes: function(target) {
         var classes, filtered, inheritables;
+
         inheritables = ["tip-top", "tip-left", "tip-bottom", "tip-right", "tip-centered-top", "tip-centered-bottom", "noradius"].concat(settings.additionalInheritableClasses);
         classes = target.attr("class");
         filtered = (classes ? $.map(classes.split(" "), function(el, i) {
@@ -1141,17 +1133,20 @@
       },
       show: function($target) {
         var $tip;
+
         $tip = methods.getTip($target);
         methods.reposition($target, $tip, $target.attr("class"));
         return $tip.fadeIn(150);
       },
       hide: function($target) {
         var $tip;
+
         $tip = methods.getTip($target);
         return $tip.fadeOut(150);
       },
       reload: function() {
         var $self;
+
         $self = $(this);
         if ($self.data("tooltips")) {
           return $self.Tooltips("destroy").Tooltips("init");
@@ -1182,7 +1177,6 @@
 
 }).call(this);
 
-
 /*
   Inspired in foundation v.3.2
   forms: forms.coffee
@@ -1190,7 +1184,6 @@
 
 
 (function() {
-
   (function($) {
     /*
     Helper object used to quickly adjust all hidden parent element's, display and visibility properties.
@@ -1206,6 +1199,7 @@
     */
 
     var hiddenFix, refreshCustomSelect, toggleCheckbox, toggleRadio;
+
     hiddenFix = function() {
       return {
         /*
@@ -1219,10 +1213,12 @@
         hidden: null,
         adjust: function($child) {
           var _self;
+
           _self = this;
           _self.hidden = $child.parents().andSelf().filter(":hidden");
           return _self.hidden.each(function() {
             var $elem;
+
             $elem = $(this);
             _self.tmp.push($elem.attr("style"));
             return $elem.css({
@@ -1239,9 +1235,11 @@
 
         reset: function() {
           var _self;
+
           _self = this;
           _self.hidden.each(function(i) {
             var $elem, _tmp;
+
             $elem = $(this);
             _tmp = _self.tmp[i];
             if (_tmp === undefined) {
@@ -1259,8 +1257,10 @@
     jQuery.shurikend.customForms = jQuery.shurikend.customForms || {};
     $.shurikend.customForms.appendCustomMarkup = function(options) {
       var appendCustomMarkup, appendCustomSelect, defaults;
+
       appendCustomMarkup = function(idx, sel) {
         var $span, $this, type;
+
         $this = $(sel).hide();
         type = $this.attr("type");
         $span = $this.next("span.custom." + type);
@@ -1272,6 +1272,7 @@
       };
       appendCustomSelect = function(idx, sel) {
         var $currentSelect, $customList, $customSelect, $listItems, $options, $selectCurrent, $selectedOption, $selector, $this, customSelectSize, hiddenFixObj, liHtml, maxWidth;
+
         hiddenFixObj = hiddenFix();
         $this = $(sel);
         $customSelect = $this.next("div.custom.dropdown");
@@ -1336,12 +1337,14 @@
     };
     refreshCustomSelect = function($select) {
       var $customSelect, $options, maxWidth;
+
       maxWidth = 0;
       $customSelect = $select.next();
       $options = $select.find("option");
       $customSelect.find("ul").html("");
       $options.each(function() {
         var $li;
+
         $li = $("<li>" + $(this).html() + "</li>");
         return $customSelect.find("ul").append($li);
       });
@@ -1364,6 +1367,7 @@
     };
     toggleCheckbox = function($element) {
       var $input, input;
+
       $input = $element.prev();
       input = $input[0];
       if (false === $input.is(":disabled")) {
@@ -1374,6 +1378,7 @@
     };
     toggleRadio = function($element) {
       var $form, $input, input;
+
       $input = $element.prev();
       $form = $input.closest("form.custom");
       input = $input[0];
@@ -1401,6 +1406,7 @@
     });
     $(document).on("click", "form.custom label", function(event) {
       var $associatedElement, $customCheckbox, $customRadio;
+
       $associatedElement = $("#" + $(this).attr("for") + "[data-customforms!=disabled]");
       $customCheckbox = void 0;
       $customRadio = void 0;
@@ -1430,6 +1436,7 @@
     });
     $(document).on("click", "form.custom div.custom.dropdown a.current, form.custom div.custom.dropdown a.selector", function(event) {
       var $dropdown, $select, $this;
+
       $this = $(this);
       $dropdown = $this.closest("div.custom.dropdown");
       $select = $dropdown.prev();
@@ -1450,6 +1457,7 @@
     });
     $(document).on("click", "form.custom div.custom.dropdown li", function(event) {
       var $customDropdown, $select, $this, selectedIndex;
+
       $this = $(this);
       $customDropdown = $this.closest("div.custom.dropdown");
       $select = $customDropdown.prev();
@@ -1473,79 +1481,6 @@
 
 }).call(this);
 
-
-/*
-  Inspired in foundation v.3.2
-  tabs: tabs.coffee
-*/
-
-
-(function() {
-
-  (function($, window, document) {
-    "use strict";
-    var methods, settings;
-    settings = {
-      callback: $.noop,
-      deep_linking: true,
-      init: false
-    };
-    methods = {
-      init: function(options) {
-        settings = $.extend({}, settings, options);
-        return this.each(function() {
-          if (!settings.init) {
-            methods.events();
-          }
-          if (settings.deep_linking) {
-            return methods.from_hash();
-          }
-        });
-      },
-      events: function() {
-        $(document).on("click.fndtn", ".tabs a", function(e) {
-          return methods.set_tab($(this).parent("dd, li"), e);
-        });
-        return settings.init = true;
-      },
-      set_tab: function($tab, e) {
-        var $activeTab, $content, hasHash, target;
-        $activeTab = $tab.closest("dl, ul").find(".active");
-        target = $tab.children("a").attr("href");
-        hasHash = /^#/.test(target);
-        $content = $(target + "Tab");
-        if (hasHash && $content.length > 0) {
-          if (e && !settings.deep_linking) {
-            e.preventDefault();
-          }
-          $content.closest(".tabs-content").children("li").removeClass("active").hide();
-          $content.css("display", "block").addClass("active");
-        }
-        $activeTab.removeClass("active");
-        $tab.addClass("active");
-        return settings.callback();
-      },
-      from_hash: function() {
-        var $tab, hash;
-        hash = window.location.hash;
-        $tab = $("a[href=\"" + hash + "\"]");
-        return $tab.trigger("click.fndtn");
-      }
-    };
-    return $.fn.Tabs = function(method) {
-      if (methods[method]) {
-        return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-      } else if (typeof method === "object" || !method) {
-        return methods.init.apply(this, arguments);
-      } else {
-        return $.error("Method " + method + " does not exist on jQuery.Tabs");
-      }
-    };
-  })(jQuery, this, this.document);
-
-}).call(this);
-
-
 /*
   Inspired in foundation v.3.2
   magellan: magellan.coffee
@@ -1553,10 +1488,10 @@
 
 
 (function() {
-
   (function($, window) {
     "use strict";    return $.fn.Magellan = function(options) {
       var $document, $expedition, $fixedMagellan, $lastDestination, $window, defaults;
+
       $window = $(window);
       $document = $(document);
       $fixedMagellan = $("[data-magellan-expedition=fixed]");
@@ -1567,6 +1502,7 @@
       options = $.extend({}, defaults, options);
       $document.on("magellan.arrival", "[data-magellan-arrival]", function(e) {
         var $destination, $expedition, activeClass;
+
         $destination = $(this);
         $expedition = $destination.closest("[data-magellan-expedition]");
         activeClass = $expedition.attr("data-magellan-active-class") || options.activeClass;
@@ -1577,6 +1513,7 @@
       $expedition.find("[data-magellan-arrival]:first").addClass($expedition.attr("data-magellan-active-class") || options.activeClass);
       $fixedMagellan.on("magellan.update-position", function() {
         var $el;
+
         $el = $(this);
         $el.data("magellan-fixed-position", "");
         return $el.data("magellan-top-offset", "");
@@ -1586,9 +1523,11 @@
       });
       $window.on("scroll.magellan", function() {
         var windowScrollTop;
+
         windowScrollTop = $window.scrollTop();
         return $fixedMagellan.each(function() {
           var fixed_position;
+
           $expedition = $(this);
           if ($expedition.data("magellan-top-offset") === "") {
             $expedition.data("magellan-top-offset", $expedition.offset().top);
@@ -1614,11 +1553,13 @@
       if ($lastDestination.length > 0) {
         return $window.on("scroll.magellan", function(e) {
           var lastDestinationTop, scrolltopPlusHeight, windowScrollTop;
+
           windowScrollTop = $window.scrollTop();
           scrolltopPlusHeight = windowScrollTop + $window.outerHeight(true);
           lastDestinationTop = Math.ceil($lastDestination.offset().top);
           return $("[data-magellan-destination]").each(function() {
             var $destination, destination_name, topOffset;
+
             $destination = $(this);
             destination_name = $destination.attr("data-magellan-destination");
             topOffset = $destination.offset().top - windowScrollTop;
@@ -1636,7 +1577,6 @@
 
 }).call(this);
 
-
 /*
   Inspired in foundation v.3.2
   modal: modal.coffee
@@ -1644,13 +1584,14 @@
 
 
 (function() {
-
   (function($) {
     "use strict";
     var modalQueued;
+
     modalQueued = false;
     $(document).on("click", "a[data-reveal-id]", function(event) {
       var modalLocation;
+
       event.preventDefault();
       modalLocation = $(this).attr("data-reveal-id");
       return $("#" + modalLocation).reveal($(this).data());
@@ -1662,6 +1603,7 @@
 
     return $.fn.reveal = function(options) {
       var $doc, defaults;
+
       $doc = $(document);
       defaults = {
         /*
@@ -1750,8 +1692,10 @@
         */
 
         var $closeButton, closeAnimation, closeOpenModals, closeVideos, cssOpts, destroy, lockModal, locked, modal, modalBg, openAnimation, openVideos, topMeasure, topOffset, unlockModal;
+
         unlockModal = function() {
           var locked;
+
           return locked = false;
         };
         /*
@@ -1762,6 +1706,7 @@
 
         lockModal = function() {
           var locked;
+
           return locked = true;
         };
         /*
@@ -1772,6 +1717,7 @@
 
         closeOpenModals = function() {
           var $openModals;
+
           $openModals = $(".reveal-modal.open");
           if ($openModals.length === 1) {
             modalQueued = true;
@@ -1826,6 +1772,7 @@
         };
         openVideos = function() {
           var iframe, video;
+
           video = modal.find(".flex-video");
           iframe = video.find("iframe");
           if (iframe.length > 0) {
@@ -1899,6 +1846,7 @@
         };
         closeVideos = function() {
           var iframe, video;
+
           video = modal.find(".flex-video");
           iframe = video.find("iframe");
           if (iframe.length > 0) {
@@ -1966,166 +1914,6 @@
 
 }).call(this);
 
-
-/*
-  Inspired in foundation v.3.2
-  topbar: topbar.coffee
-*/
-
-
-(function() {
-
-  (function($, window) {
-    "use strict";
-    var $window, distance, methods, settings;
-    settings = {
-      index: 0,
-      initialized: false
-    };
-    methods = {
-      init: function(options) {
-        return this.each(function() {
-          var breakpoint;
-          settings = $.extend(settings, options);
-          settings.$w = $(window);
-          settings.$topbar = $("nav.top-bar");
-          settings.$section = settings.$topbar.find("section");
-          settings.$titlebar = settings.$topbar.children("ul:first");
-          breakpoint = $("<div class='top-bar-js-breakpoint'/>").appendTo("body");
-          settings.breakPoint = breakpoint.width();
-          breakpoint.remove();
-          if (!settings.initialized) {
-            methods.assemble();
-            settings.initialized = true;
-          }
-          if (!settings.height) {
-            methods.largestUL();
-          }
-          if (settings.$topbar.parent().hasClass("fixed")) {
-            $("body").css("padding-top", settings.$topbar.outerHeight());
-          }
-          $(".top-bar .toggle-topbar").off("click.fndtn").on("click.fndtn", function(e) {
-            e.preventDefault();
-            if (methods.breakpoint()) {
-              settings.$topbar.toggleClass("expanded");
-              settings.$topbar.css("min-height", "");
-            }
-            if (!settings.$topbar.hasClass("expanded")) {
-              settings.$section.css({
-                left: "0%"
-              });
-              settings.$section.find(">.name").css({
-                left: "100%"
-              });
-              settings.$section.find("li.moved").removeClass("moved");
-              return settings.index = 0;
-            }
-          });
-          $(".top-bar .has-dropdown>a").off("click.fndtn").on("click.fndtn", function(e) {
-            var $selectedLi, $this;
-            if (Modernizr.touch || methods.breakpoint()) {
-              e.preventDefault();
-            }
-            if (methods.breakpoint()) {
-              $this = $(this);
-              $selectedLi = $this.closest("li");
-              settings.index += 1;
-              $selectedLi.addClass("moved");
-              settings.$section.css({
-                left: -(100 * settings.index) + "%"
-              });
-              settings.$section.find(">.name").css({
-                left: 100 * settings.index + "%"
-              });
-              $this.siblings("ul").height(settings.height + settings.$titlebar.outerHeight(true));
-              return settings.$topbar.css("min-height", settings.height + settings.$titlebar.outerHeight(true) * 2);
-            }
-          });
-          $(window).on("resize.fndtn.topbar", function() {
-            if (!methods.breakpoint()) {
-              return settings.$topbar.css("min-height", "");
-            }
-          });
-          return $(".top-bar .has-dropdown .back").off("click.fndtn").on("click.fndtn", function(e) {
-            var $movedLi, $previousLevelUl, $this;
-            e.preventDefault();
-            $this = $(this);
-            $movedLi = $this.closest("li.moved");
-            $previousLevelUl = $movedLi.parent();
-            settings.index -= 1;
-            settings.$section.css({
-              left: -(100 * settings.index) + "%"
-            });
-            settings.$section.find(">.name").css({
-              left: 100 * settings.index + "%"
-            });
-            if (settings.index === 0) {
-              settings.$topbar.css("min-height", 0);
-            }
-            return setTimeout((function() {
-              return $movedLi.removeClass("moved");
-            }), 300);
-          });
-        });
-      },
-      breakpoint: function() {
-        return settings.$w.width() < settings.breakPoint;
-      },
-      assemble: function() {
-        settings.$section.detach();
-        settings.$section.find(".has-dropdown>a").each(function() {
-          var $dropdown, $link, $titleLi;
-          $link = $(this);
-          $dropdown = $link.siblings(".dropdown");
-          $titleLi = $("<li class=\"title back js-generated\"><h5><a href=\"#\"></a></h5></li>");
-          $titleLi.find("h5>a").html($link.html());
-          return $dropdown.prepend($titleLi);
-        });
-        return settings.$section.appendTo(settings.$topbar);
-      },
-      largestUL: function() {
-        var largest, total, uls;
-        uls = settings.$topbar.find("section ul ul");
-        largest = uls.first();
-        total = 0;
-        uls.each(function() {
-          if ($(this).children("li").length > largest.children("li").length) {
-            return largest = $(this);
-          }
-        });
-        largest.children("li").each(function() {
-          return total += $(this).outerHeight(true);
-        });
-        return settings.height = total;
-      }
-    };
-    $.fn.TopBar = function(method) {
-      if (methods[method]) {
-        return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-      } else if (typeof method === "object" || !method) {
-        return methods.init.apply(this, arguments);
-      } else {
-        return $.error("Method " + method + " does not exist on jQuery.TopBar");
-      }
-    };
-    if ($(".sticky").length > 0) {
-      distance = ($(".sticky").length ? $(".sticky").offset().top : 0);
-      $window = $(window);
-      return $window.scroll(function() {
-        if ($window.scrollTop() >= distance) {
-          return $(".sticky").addClass("fixed");
-        } else {
-          if ($window.scrollTop() < distance) {
-            return $(".sticky").removeClass("fixed");
-          }
-        }
-      });
-    }
-  })(jQuery, this);
-
-}).call(this);
-
-
 /*
   Inspired in foundation v.3.2
   joyride: joyride.coffee
@@ -2133,10 +1921,10 @@
 
 
 (function() {
-
   (function($, window, undefined_) {
     "use strict";
     var Modernizr, defaults, methods, settings;
+
     defaults = {
       version: "2.0.3",
       tipLocation: "bottom",
@@ -2238,6 +2026,7 @@
       },
       tip_template: function(opts) {
         var $blank, content;
+
         $blank = undefined_;
         content = undefined_;
         opts.tip_class = opts.tip_class || "";
@@ -2250,6 +2039,7 @@
       },
       timer_instance: function(index) {
         var txt;
+
         txt = undefined_;
         if ((index === 0 && settings.startTimerOnClick && settings.timer > 0) || settings.timer === 0) {
           txt = "";
@@ -2269,6 +2059,7 @@
       },
       create: function(opts) {
         var $tip_content, buttonText, tipClass;
+
         buttonText = opts.$li.attr("data-button") || opts.$li.attr("data-text");
         tipClass = opts.$li.attr("class");
         $tip_content = $(methods.tip_template({
@@ -2281,6 +2072,7 @@
       },
       show: function(init) {
         var $timer, ii, opts, opts_arr, opts_len, p;
+
         opts = {};
         ii = undefined_;
         opts_arr = [];
@@ -2379,6 +2171,7 @@
       },
       set_target: function() {
         var $sel, cl, id;
+
         cl = settings.$li.attr("data-class");
         id = settings.$li.attr("data-id");
         $sel = function() {
@@ -2394,6 +2187,7 @@
       },
       scroll_to: function() {
         var tipOffset, window_half;
+
         window_half = undefined_;
         tipOffset = undefined_;
         window_half = settings.$window.height() / 2;
@@ -2423,6 +2217,7 @@
       },
       pos_default: function(init) {
         var $nub, half_fold, nub_height, tip_position, toggle;
+
         half_fold = Math.ceil(settings.$window.height() / 2);
         tip_position = settings.$next_tip.offset();
         $nub = $(".joyride-nub", settings.$next_tip);
@@ -2476,6 +2271,7 @@
       },
       pos_phone: function(init) {
         var $nub, nub_height, target_height, tip_height, tip_offset, toggle;
+
         tip_height = settings.$next_tip.outerHeight();
         tip_offset = settings.$next_tip.offset();
         target_height = settings.$target.outerHeight();
@@ -2523,6 +2319,7 @@
       },
       center: function() {
         var $w;
+
         $w = settings.$window;
         settings.$next_tip.css({
           top: (($w.height() - settings.$next_tip.outerHeight()) / 2) + $w.scrollTop(),
@@ -2544,6 +2341,7 @@
       },
       corners: function(el) {
         var bottom, right, w;
+
         w = settings.$window;
         right = w.width() + w.scrollLeft();
         bottom = w.width() + w.scrollTop();
@@ -2551,9 +2349,11 @@
       },
       visible: function(hidden_corners) {
         var i;
+
         i = hidden_corners.length;
         if ((function() {
           var _results;
+
           _results = [];
           while (i--) {
             _results.push(hidden_corners[i]);
@@ -2629,871 +2429,68 @@
 
 }).call(this);
 
-
 /*
   Inspired in foundation v.3.2
-  orbit: orbit.coffee
+  navigation: navigation.coffee
 */
 
 
 (function() {
-  var Holder;
+  (function($, window, undefined_) {
+    "use strict";    return $.fn.Navigation = function(options) {
+      var lockNavBar;
 
-  (function($) {
-    "use strict";
-    var ORBIT;
-    $.fn.findFirstImage = function() {
-      return this.first().find("img").andSelf().filter("img").first();
-    };
-    ORBIT = {
-      defaults: {
-        animation: "horizontal-push",
-        animationSpeed: 600,
-        timer: true,
-        advanceSpeed: 4000,
-        pauseOnHover: false,
-        startClockOnMouseOut: false,
-        startClockOnMouseOutAfter: 1000,
-        directionalNav: true,
-        directionalNavRightText: "Right",
-        directionalNavLeftText: "Left",
-        captions: true,
-        captionAnimation: "fade",
-        captionAnimationSpeed: 600,
-        resetTimerOnClick: false,
-        bullets: false,
-        bulletThumbs: false,
-        bulletThumbLocation: "",
-        bulletThumbsHideOnSmall: true,
-        afterSlideChange: $.noop,
-        afterLoadComplete: $.noop,
-        fluid: true,
-        centerBullets: true,
-        singleCycle: false,
-        slideNumber: false,
-        stackOnSmall: false
-      },
-      activeSlide: 0,
-      numberSlides: 0,
-      orbitWidth: null,
-      orbitHeight: null,
-      locked: null,
-      timerRunning: null,
-      degrees: 0,
-      wrapperHTML: "<div class=\"orbit-wrapper\" />",
-      timerHTML: "<div class=\"timer\"><span class=\"mask\"><span class=\"rotator\"></span></span><span class=\"pause\"></span></div>",
-      captionHTML: "<div class=\"orbit-caption\"></div>",
-      directionalNavHTML: "<div class=\"slider-nav hide-for-small\"><span class=\"right\"></span><span class=\"left\"></span></div>",
-      bulletHTML: "<ul class=\"orbit-bullets\"></ul>",
-      slideNumberHTML: "<span class=\"orbit-slide-counter\"></span>",
-      init: function(element, options) {
-        var $imageSlides, imagesLoadedCount, self;
-        $imageSlides = void 0;
-        imagesLoadedCount = 0;
-        self = this;
-        this.clickTimer = $.proxy(this.clickTimer, this);
-        this.addBullet = $.proxy(this.addBullet, this);
-        this.resetAndUnlock = $.proxy(this.resetAndUnlock, this);
-        this.stopClock = $.proxy(this.stopClock, this);
-        this.startTimerAfterMouseLeave = $.proxy(this.startTimerAfterMouseLeave, this);
-        this.clearClockMouseLeaveTimer = $.proxy(this.clearClockMouseLeaveTimer, this);
-        this.rotateTimer = $.proxy(this.rotateTimer, this);
-        this.options = $.extend({}, this.defaults, options);
-        if (this.options.timer === "false") {
-          this.options.timer = false;
-        }
-        if (this.options.captions === "false") {
-          this.options.captions = false;
-        }
-        if (this.options.directionalNav === "false") {
-          this.options.directionalNav = false;
-        }
-        this.$element = $(element);
-        this.$wrapper = this.$element.wrap(this.wrapperHTML).parent();
-        this.$slides = this.$element.children("img, a, div, figure, li");
-        this.$element.on("movestart", function(e) {
-          if ((e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY)) {
-            return e.preventDefault();
-          }
-        });
-        this.$element.bind("orbit.next", function() {
-          return self.shift("next");
-        });
-        this.$element.bind("orbit.prev", function() {
-          return self.shift("prev");
-        });
-        this.$element.bind("swipeleft", function() {
-          return $(this).trigger("orbit.next");
-        });
-        this.$element.bind("swiperight", function() {
-          return $(this).trigger("orbit.prev");
-        });
-        this.$element.bind("orbit.goto", function(event, index) {
-          return self.shift(index);
-        });
-        this.$element.bind("orbit.start", function(event, index) {
-          return self.startClock();
-        });
-        this.$element.bind("orbit.stop", function(event, index) {
-          return self.stopClock();
-        });
-        $imageSlides = this.$slides.filter("img");
-        if ($imageSlides.length === 0) {
-          return this.loaded();
-        } else {
-          return $imageSlides.bind("imageready", function() {
-            imagesLoadedCount += 1;
-            if (imagesLoadedCount === $imageSlides.length) {
-              return self.loaded();
-            }
-          });
-        }
-      },
-      loaded: function() {
-        this.$element.addClass("orbit").css({
-          width: "1px",
-          height: "1px"
-        });
-        if (this.options.stackOnSmall) {
-          this.$element.addClass("orbit-stack-on-small");
-        }
-        this.$slides.addClass("orbit-slide").css({
-          opacity: 0
-        });
-        this.setDimentionsFromLargestSlide();
-        this.updateOptionsIfOnlyOneSlide();
-        this.setupFirstSlide();
-        this.notifySlideChange();
-        if (this.options.timer) {
-          this.setupTimer();
-          this.startClock();
-        }
-        if (this.options.captions) {
-          this.setupCaptions();
-        }
-        if (this.options.directionalNav) {
-          this.setupDirectionalNav();
-        }
-        if (this.options.bullets) {
-          this.setupBulletNav();
-          this.setActiveBullet();
-        }
-        this.options.afterLoadComplete.call(this);
-        return Holder.run();
-      },
-      currentSlide: function() {
-        return this.$slides.eq(this.activeSlide);
-      },
-      notifySlideChange: function() {
-        var $counter, txt;
-        if (this.options.slideNumber) {
-          txt = (this.activeSlide + 1) + " of " + this.$slides.length;
-          this.$element.trigger("orbit.change", {
-            slideIndex: this.activeSlide,
-            slideCount: this.$slides.length
-          });
-          if (this.$counter === undefined) {
-            $counter = $(this.slideNumberHTML).html(txt);
-            this.$counter = $counter;
-            return this.$wrapper.append(this.$counter);
-          } else {
-            return this.$counter.html(txt);
-          }
-        }
-      },
-      setDimentionsFromLargestSlide: function() {
-        var $fluidPlaceholder, self;
-        self = this;
-        $fluidPlaceholder = void 0;
-        self.$element.add(self.$wrapper).width(this.$slides.first().outerWidth());
-        self.$element.add(self.$wrapper).height(this.$slides.first().height());
-        self.orbitWidth = this.$slides.first().outerWidth();
-        self.orbitHeight = this.$slides.first().height();
-        $fluidPlaceholder = this.$slides.first().findFirstImage().clone();
-        this.$slides.each(function() {
-          var slide, slideHeight, slideWidth;
-          slide = $(this);
-          slideWidth = slide.outerWidth();
-          slideHeight = slide.height();
-          if (slideWidth > self.$element.outerWidth()) {
-            self.$element.add(self.$wrapper).width(slideWidth);
-            self.orbitWidth = self.$element.outerWidth();
-          }
-          if (slideHeight > self.$element.height()) {
-            self.$element.add(self.$wrapper).height(slideHeight);
-            self.orbitHeight = self.$element.height();
-            $fluidPlaceholder = $(this).findFirstImage().clone();
-          }
-          return self.numberSlides += 1;
-        });
-        if (this.options.fluid) {
-          if (typeof this.options.fluid === "string") {
-            $fluidPlaceholder = $("<img>").attr("data-src", "holder.js/" + this.options.fluid);
-          }
-          self.$element.prepend($fluidPlaceholder);
-          $fluidPlaceholder.addClass("fluid-placeholder");
-          self.$element.add(self.$wrapper).css({
-            width: "inherit"
-          });
-          self.$element.add(self.$wrapper).css({
-            height: "inherit"
-          });
-          return $(window).bind("resize", function() {
-            self.orbitWidth = self.$element.outerWidth();
-            return self.orbitHeight = self.$element.height();
-          });
-        }
-      },
-      lock: function() {
-        return this.locked = true;
-      },
-      unlock: function() {
-        return this.locked = false;
-      },
-      updateOptionsIfOnlyOneSlide: function() {
-        if (this.$slides.length === 1) {
-          this.options.directionalNav = false;
-          this.options.timer = false;
-          return this.options.bullets = false;
-        }
-      },
-      setupFirstSlide: function() {
-        var self;
-        self = this;
-        return this.$slides.first().css({
-          "z-index": 3,
-          opacity: 1
-        }).fadeIn(function() {
-          return self.$slides.css({
-            display: "block"
-          });
-        });
-      },
-      startClock: function() {
-        var self;
-        self = this;
-        if (!this.options.timer) {
-          return false;
-        }
-        if (this.$timer.is(":hidden")) {
-          return this.clock = setInterval(function() {
-            return self.$element.trigger("orbit.next");
-          }, this.options.advanceSpeed);
-        } else {
-          this.timerRunning = true;
-          this.$pause.removeClass("active");
-          return this.clock = setInterval(this.rotateTimer, this.options.advanceSpeed / 180, false);
-        }
-      },
-      rotateTimer: function(reset) {
-        var degreeCSS;
-        degreeCSS = "rotate(" + this.degrees + "deg)";
-        this.degrees += 2;
-        this.$rotator.css({
-          "-webkit-transform": degreeCSS,
-          "-moz-transform": degreeCSS,
-          "-o-transform": degreeCSS,
-          "-ms-transform": degreeCSS
-        });
-        if (reset) {
-          this.degrees = 0;
-          this.$rotator.removeClass("move");
-          this.$mask.removeClass("move");
-        }
-        if (this.degrees > 180) {
-          this.$rotator.addClass("move");
-          this.$mask.addClass("move");
-        }
-        if (this.degrees > 360) {
-          this.$rotator.removeClass("move");
-          this.$mask.removeClass("move");
-          this.degrees = 0;
-          return this.$element.trigger("orbit.next");
-        }
-      },
-      stopClock: function() {
-        if (!this.options.timer) {
-          return false;
-        } else {
-          this.timerRunning = false;
-          clearInterval(this.clock);
-          return this.$pause.addClass("active");
-        }
-      },
-      setupTimer: function() {
-        this.$timer = $(this.timerHTML);
-        this.$wrapper.append(this.$timer);
-        this.$rotator = this.$timer.find(".rotator");
-        this.$mask = this.$timer.find(".mask");
-        this.$pause = this.$timer.find(".pause");
-        this.$timer.click(this.clickTimer);
-        if (this.options.startClockOnMouseOut) {
-          this.$wrapper.mouseleave(this.startTimerAfterMouseLeave);
-          this.$wrapper.mouseenter(this.clearClockMouseLeaveTimer);
-        }
-        if (this.options.pauseOnHover) {
-          return this.$wrapper.mouseenter(this.stopClock);
-        }
-      },
-      startTimerAfterMouseLeave: function() {
-        var self;
-        self = this;
-        return this.outTimer = setTimeout(function() {
-          if (!self.timerRunning) {
-            return self.startClock();
-          }
-        }, this.options.startClockOnMouseOutAfter);
-      },
-      clearClockMouseLeaveTimer: function() {
-        return clearTimeout(this.outTimer);
-      },
-      clickTimer: function() {
-        if (!this.timerRunning) {
-          return this.startClock();
-        } else {
-          return this.stopClock();
-        }
-      },
-      setupCaptions: function() {
-        this.$caption = $(this.captionHTML);
-        this.$wrapper.append(this.$caption);
-        return this.setCaption();
-      },
-      setCaption: function() {
-        var captionHTML, captionLocation;
-        captionLocation = this.currentSlide().attr("data-caption");
-        captionHTML = void 0;
-        if (!this.options.captions) {
-          return false;
-        }
-        if (captionLocation) {
-          if ($.trim($(captionLocation).text()).length < 1) {
-            return false;
-          }
-          if (captionLocation.charAt(0) === "#") {
-            captionLocation = captionLocation.substring(1, captionLocation.length);
-          }
-          captionHTML = $("#" + captionLocation).html();
-          this.$caption.attr("id", captionLocation).html(captionHTML);
-          switch (this.options.captionAnimation) {
-            case "none":
-              return this.$caption.show();
-            case "fade":
-              return this.$caption.fadeIn(this.options.captionAnimationSpeed);
-            case "slideOpen":
-              return this.$caption.slideDown(this.options.captionAnimationSpeed);
-          }
-        } else {
-          switch (this.options.captionAnimation) {
-            case "none":
-              return this.$caption.hide();
-            case "fade":
-              return this.$caption.fadeOut(this.options.captionAnimationSpeed);
-            case "slideOpen":
-              return this.$caption.slideUp(this.options.captionAnimationSpeed);
-          }
-        }
-      },
-      setupDirectionalNav: function() {
-        var $directionalNav, self;
-        self = this;
-        $directionalNav = $(this.directionalNavHTML);
-        $directionalNav.find(".right").html(this.options.directionalNavRightText);
-        $directionalNav.find(".left").html(this.options.directionalNavLeftText);
-        this.$wrapper.append($directionalNav);
-        this.$wrapper.find(".left").click(function() {
-          self.stopClock();
-          if (self.options.resetTimerOnClick) {
-            self.rotateTimer(true);
-            self.startClock();
-          }
-          return self.$element.trigger("orbit.prev");
-        });
-        return this.$wrapper.find(".right").click(function() {
-          self.stopClock();
-          if (self.options.resetTimerOnClick) {
-            self.rotateTimer(true);
-            self.startClock();
-          }
-          return self.$element.trigger("orbit.next");
-        });
-      },
-      setupBulletNav: function() {
-        this.$bullets = $(this.bulletHTML);
-        this.$wrapper.append(this.$bullets);
-        this.$slides.each(this.addBullet);
-        this.$element.addClass("with-bullets");
-        if (this.options.centerBullets) {
-          this.$bullets.css("margin-left", -this.$bullets.outerWidth() / 2);
-        }
-        if (this.options.bulletThumbsHideOnSmall) {
-          return this.$bullets.addClass("hide-for-small");
-        }
-      },
-      addBullet: function(index, slide) {
-        var $li, position, self, thumbName;
-        position = index + 1;
-        $li = $("<li>" + position + "</li>");
-        thumbName = void 0;
-        self = this;
-        if (this.options.bulletThumbs) {
-          thumbName = $(slide).attr("data-thumb");
-          if (thumbName) {
-            $li.addClass("has-thumb").css({
-              background: "url(" + this.options.bulletThumbLocation + thumbName + ") no-repeat"
+      lockNavBar = false;
+      if (Modernizr.touch || navigator.userAgent.match(/Windows Phone/i)) {
+        $(document).on("click.fndtn touchstart.fndtn", ".nav-bar a.flyout-toggle", function(e) {
+          var flyout;
+
+          e.preventDefault();
+          flyout = $(this).siblings(".flyout").first();
+          if (lockNavBar === false) {
+            $(".nav-bar .flyout").not(flyout).slideUp(500);
+            flyout.slideToggle(500, function() {
+              return lockNavBar = false;
             });
           }
-        }
-        this.$bullets.append($li);
-        $li.data("index", index);
-        return $li.click(function() {
-          self.stopClock();
-          if (self.options.resetTimerOnClick) {
-            self.rotateTimer(true);
-            self.startClock();
-          }
-          return self.$element.trigger("orbit.goto", [$li.data("index")]);
+          return lockNavBar = true;
         });
-      },
-      setActiveBullet: function() {
-        if (!this.options.bullets) {
-          return false;
-        } else {
-          return this.$bullets.find("li").removeClass("active").eq(this.activeSlide).addClass("active");
-        }
-      },
-      resetAndUnlock: function() {
-        this.$slides.eq(this.prevActiveSlide).css({
-          "z-index": 1
-        });
-        this.unlock();
-        return this.options.afterSlideChange.call(this, this.$slides.eq(this.prevActiveSlide), this.$slides.eq(this.activeSlide));
-      },
-      shift: function(direction) {
-        var slideDirection;
-        slideDirection = direction;
-        this.prevActiveSlide = this.activeSlide;
-        if (this.prevActiveSlide === slideDirection) {
-          return false;
-        }
-        if (this.$slides.length === "1") {
-          return false;
-        }
-        if (!this.locked) {
-          this.lock();
-          if (direction === "next") {
-            this.activeSlide++;
-            if (this.activeSlide === this.numberSlides) {
-              this.activeSlide = 0;
-            }
-          } else if (direction === "prev") {
-            this.activeSlide--;
-            if (this.activeSlide < 0) {
-              this.activeSlide = this.numberSlides - 1;
-            }
-          } else {
-            this.activeSlide = direction;
-            if (this.prevActiveSlide < this.activeSlide) {
-              slideDirection = "next";
-            } else {
-              if (this.prevActiveSlide > this.activeSlide) {
-                slideDirection = "prev";
-              }
-            }
-          }
-          this.setActiveBullet();
-          this.notifySlideChange();
-          this.$slides.eq(this.prevActiveSlide).css({
-            "z-index": 2
-          });
-          if (this.options.animation === "fade") {
-            this.$slides.eq(this.activeSlide).css({
-              opacity: 0,
-              "z-index": 3
-            }).animate({
-              opacity: 1
-            }, this.options.animationSpeed, this.resetAndUnlock);
-            this.$slides.eq(this.prevActiveSlide).animate({
-              opacity: 0
-            }, this.options.animationSpeed);
-          }
-          if (this.options.animation === "horizontal-slide") {
-            if (slideDirection === "next") {
-              this.$slides.eq(this.activeSlide).css({
-                left: this.orbitWidth,
-                "z-index": 3
-              }).css("opacity", 1).animate({
-                left: 0
-              }, this.options.animationSpeed, this.resetAndUnlock);
-            }
-            if (slideDirection === "prev") {
-              this.$slides.eq(this.activeSlide).css({
-                left: -this.orbitWidth,
-                "z-index": 3
-              }).css("opacity", 1).animate({
-                left: 0
-              }, this.options.animationSpeed, this.resetAndUnlock);
-            }
-            this.$slides.eq(this.prevActiveSlide).css("opacity", 0);
-          }
-          if (this.options.animation === "vertical-slide") {
-            if (slideDirection === "prev") {
-              this.$slides.eq(this.activeSlide).css({
-                top: this.orbitHeight,
-                "z-index": 3
-              }).css("opacity", 1).animate({
-                top: 0
-              }, this.options.animationSpeed, this.resetAndUnlock);
-              this.$slides.eq(this.prevActiveSlide).css("opacity", 0);
-            }
-            if (slideDirection === "next") {
-              this.$slides.eq(this.activeSlide).css({
-                top: -this.orbitHeight,
-                "z-index": 3
-              }).css("opacity", 1).animate({
-                top: 0
-              }, this.options.animationSpeed, this.resetAndUnlock);
-            }
-            this.$slides.eq(this.prevActiveSlide).css("opacity", 0);
-          }
-          if (this.options.animation === "horizontal-push") {
-            if (slideDirection === "next") {
-              this.$slides.eq(this.activeSlide).css({
-                left: this.orbitWidth,
-                "z-index": 3
-              }).animate({
-                left: 0,
-                opacity: 1
-              }, this.options.animationSpeed, this.resetAndUnlock);
-              this.$slides.eq(this.prevActiveSlide).animate({
-                left: -this.orbitWidth
-              }, this.options.animationSpeed, "", function() {
-                return $(this).css({
-                  opacity: 0
-                });
-              });
-            }
-            if (slideDirection === "prev") {
-              this.$slides.eq(this.activeSlide).css({
-                left: -this.orbitWidth,
-                "z-index": 3
-              }).animate({
-                left: 0,
-                opacity: 1
-              }, this.options.animationSpeed, this.resetAndUnlock);
-              this.$slides.eq(this.prevActiveSlide).animate({
-                left: this.orbitWidth
-              }, this.options.animationSpeed, "", function() {
-                return $(this).css({
-                  opacity: 0
-                });
-              });
-            }
-          }
-          if (this.options.animation === "vertical-push") {
-            if (slideDirection === "next") {
-              this.$slides.eq(this.activeSlide).css({
-                top: -this.orbitHeight,
-                "z-index": 3
-              }).css("opacity", 1).animate({
-                top: 0,
-                opacity: 1
-              }, this.options.animationSpeed, this.resetAndUnlock);
-              this.$slides.eq(this.prevActiveSlide).css("opacity", 0).animate({
-                top: this.orbitHeight
-              }, this.options.animationSpeed, "");
-            }
-            if (slideDirection === "prev") {
-              this.$slides.eq(this.activeSlide).css({
-                top: this.orbitHeight,
-                "z-index": 3
-              }).css("opacity", 1).animate({
-                top: 0
-              }, this.options.animationSpeed, this.resetAndUnlock);
-              this.$slides.eq(this.prevActiveSlide).css("opacity", 0).animate({
-                top: -this.orbitHeight
-              }, this.options.animationSpeed);
-            }
-          }
-          this.setCaption();
-        }
-        if (this.activeSlide === this.$slides.length - 1 && this.options.singleCycle) {
-          return this.stopClock();
-        }
-      }
-    };
-    return $.fn.orbit = function(options) {
-      return this.each(function() {
-        var orbit;
-        orbit = $.extend({}, ORBIT);
-        return orbit.init(this, options);
-      });
-    };
-  })(jQuery);
-
-  (function($) {
-    var bindToLoad, options;
-    bindToLoad = function(element, callback) {
-      var $this;
-      $this = $(element);
-      return $this.bind("load.imageready", function() {
-        callback.apply(element, arguments);
-        return $this.unbind("load.imageready");
-      });
-    };
-    options = {};
-    return $.event.special.imageready = {
-      setup: function(data, namespaces, eventHandle) {
-        return options = data || options;
-      },
-      add: function(handleObj) {
-        var $this, src;
-        $this = $(this);
-        src = void 0;
-        if (this.nodeType === 1 && this.tagName.toLowerCase() === "img" && this.src !== "") {
-          if (options.forceLoad) {
-            src = $this.attr("src");
-            $this.attr("src", "");
-            bindToLoad(this, handleObj.handler);
-            return $this.attr("src", src);
-          } else if (this.complete || this.readyState === 4) {
-            return handleObj.handler.apply(this, arguments);
-          } else {
-            return bindToLoad(this, handleObj.handler);
-          }
-        }
-      },
-      teardown: function(namespaces) {
-        return $(this).unbind(".imageready");
-      }
-    };
-  })(jQuery);
-
-  Holder = Holder || {};
-
-  (function(app, win) {
-    var canvas, contentLoaded, ctx, draw, extend, fallback, flag, preempted, selector, settings;
-    contentLoaded = function(n, t) {
-      var a, c, e, f, h, i, l, o, r, s, u, v;
-      l = "complete";
-      s = "readystatechange";
-      u = !1;
-      h = u;
-      c = !0;
-      i = n.document;
-      a = i.documentElement;
-      e = (i.addEventListener ? "addEventListener" : "attachEvent");
-      v = (i.addEventListener ? "removeEventListener" : "detachEvent");
-      f = (i.addEventListener ? "" : "on");
-      r = function(e) {
-        return (e.type !== s || i.readyState === l) && ((e.type === "load" ? n : i)[v](f + e.type, r, u), !h && (h = !0) && t.call(n, null));
-      };
-      o = function() {
-        try {
-          a.doScroll("left");
-        } catch (n) {
-          setTimeout(o, 50);
-          return;
-        }
-        return r("poll");
-      };
-      if (i.readyState !== l) {
-        if (i.createEventObject && a.doScroll) {
-          try {
-            c = !n.frameElement;
-          } catch (_error) {}
-          c && o();
-        }
-        i[e](f + "DOMContentLoaded", r, u);
-        i[e](f + s, r, u);
-        return n[e](f + "load", r, u);
-      }
-    };
-    selector = function(a) {
-      var b, ret;
-      a = a.match(/^(\W)?(.*)/);
-      b = document["getElement" + (a[1] ? (a[1] === "#" ? "ById" : "sByClassName") : "sByTagName")](a[2]);
-      ret = [];
-      (b != null) && (b.length ? ret = b : (b.length === 0 ? ret = b : ret = [b]));
-      return ret;
-    };
-    extend = function(a, b) {
-      var c, d, e;
-      c = {};
-      for (d in a) {
-        c[d] = a[d];
-      }
-      for (e in b) {
-        c[e] = b[e];
-      }
-      return c;
-    };
-    draw = function(ctx, dimensions, template) {
-      var dimension_arr, maxFactor, minFactor, text, text_height;
-      dimension_arr = [dimensions.height, dimensions.width].sort();
-      maxFactor = Math.round(dimension_arr[1] / 16);
-      minFactor = Math.round(dimension_arr[0] / 16);
-      text_height = Math.max(template.size, maxFactor);
-      canvas.width = dimensions.width;
-      canvas.height = dimensions.height;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillStyle = template.background;
-      ctx.fillRect(0, 0, dimensions.width, dimensions.height);
-      ctx.fillStyle = template.foreground;
-      ctx.font = "bold " + text_height + "px sans-serif";
-      text = (template.text ? template.text : dimensions.width + "x" + dimensions.height);
-      if (Math.round(ctx.measureText(text).width) / dimensions.width > 1) {
-        text_height = Math.max(minFactor, template.size);
-      }
-      ctx.font = "bold " + text_height + "px sans-serif";
-      ctx.fillText(text, dimensions.width / 2, dimensions.height / 2, dimensions.width);
-      return canvas.toDataURL("image/png");
-    };
-    preempted = false;
-    fallback = false;
-    canvas = document.createElement("canvas");
-    if (!canvas.getContext) {
-      fallback = true;
-    } else {
-      if (canvas.toDataURL("image/png").indexOf("data:image/png") < 0) {
-        fallback = true;
+        return $(".nav-bar>li.has-flyout", this).addClass("is-touch");
       } else {
-        ctx = canvas.getContext("2d");
-      }
-    }
-    settings = {
-      domain: "holder.js",
-      images: "img",
-      themes: {
-        gray: {
-          background: "#eee",
-          foreground: "#aaa",
-          size: 12
-        },
-        social: {
-          background: "#3a5a97",
-          foreground: "#fff",
-          size: 12
-        },
-        industrial: {
-          background: "#434A52",
-          foreground: "#C2F200",
-          size: 12
-        }
-      }
-    };
-    app.flags = {
-      dimensions: {
-        regex: /([0-9]+)x([0-9]+)/,
-        output: function(val) {
-          var exec;
-          exec = this.regex.exec(val);
-          return {
-            width: +exec[1],
-            height: +exec[2]
-          };
-        }
-      },
-      colors: {
-        regex: /#([0-9a-f]{3,})\:#([0-9a-f]{3,})/i,
-        output: function(val) {
-          var exec;
-          exec = this.regex.exec(val);
-          return {
-            size: settings.themes.gray.size,
-            foreground: "#" + exec[2],
-            background: "#" + exec[1]
-          };
-        }
-      },
-      text: {
-        regex: /text\:(.*)/,
-        output: function(val) {
-          return this.regex.exec(val)[1];
-        }
-      }
-    };
-    for (flag in app.flags) {
-      app.flags[flag].match = function(val) {
-        return val.match(this.regex);
-      };
-    }
-    app.add_theme = function(name, theme) {
-      (name != null) && (theme != null) && (settings.themes[name] = theme);
-      return app;
-    };
-    app.add_image = function(src, el) {
-      var i, img, l, node;
-      node = selector(el);
-      if (node.length) {
-        i = 0;
-        l = node.length;
-        while (i < l) {
-          img = document.createElement("img");
-          img.setAttribute("data-src", src);
-          node[i].appendChild(img);
-          i++;
-        }
-      }
-      return app;
-    };
-    app.run = function(o) {
-      var dimensions, dimensions_caption, flags, i, images, j, l, options, render, sl, src, text, theme;
-      options = extend(settings, o);
-      images = selector(options.images);
-      preempted = true;
-      l = images.length;
-      i = 0;
-      while (i < l) {
-        theme = settings.themes.gray;
-        src = images[i].getAttribute("data-src") || images[i].getAttribute("src");
-        if (src && !!~src.indexOf(options.domain)) {
-          render = false;
-          dimensions = null;
-          text = null;
-          flags = src.substr(src.indexOf(options.domain) + options.domain.length + 1).split("/");
-          sl = flags.length;
-          j = 0;
-          while (j < sl) {
-            if (app.flags.dimensions.match(flags[j])) {
-              render = true;
-              dimensions = app.flags.dimensions.output(flags[j]);
-            } else if (app.flags.colors.match(flags[j])) {
-              theme = app.flags.colors.output(flags[j]);
-            } else if (options.themes[flags[j]]) {
-              theme = options.themes[flags[j]];
-            } else {
-              if (app.flags.text.match(flags[j])) {
-                text = app.flags.text.output(flags[j]);
+        return $(".nav-bar>li.has-flyout", this).on("mouseenter mouseleave", function(e) {
+          var flyout, hasFocus, inputs;
+
+          if (e.type === "mouseenter") {
+            $(".nav-bar").find(".flyout").hide();
+            $(this).children(".flyout").show();
+          }
+          if (e.type === "mouseleave") {
+            flyout = $(this).children(".flyout");
+            inputs = flyout.find("input");
+            hasFocus = function(inputs) {
+              var focus;
+
+              focus = undefined_;
+              if (inputs.length > 0) {
+                inputs.each(function() {
+                  if ($(this).is(":focus")) {
+                    return focus = true;
+                  }
+                });
+                return focus;
               }
-            }
-            j++;
-          }
-          if (render) {
-            images[i].setAttribute("data-src", src);
-            dimensions_caption = dimensions.width + "x" + dimensions.height;
-            images[i].setAttribute("alt", (text ? text : (theme.text ? theme.text + " [" + dimensions_caption + "]" : dimensions_caption)));
-            images[i].style.backgroundColor = theme.background;
-            theme = (text ? extend(theme, {
-              text: text
-            }) : theme);
-            if (!fallback) {
-              images[i].setAttribute("src", draw(ctx, dimensions, theme));
+              return false;
+            };
+            if (!hasFocus(inputs)) {
+              return $(this).children(".flyout").hide();
             }
           }
-        }
-        i++;
+        });
       }
-      return app;
     };
-    return contentLoaded(win, function() {
-      return preempted || app.run();
-    });
-  })(Holder, window);
+  })(jQuery, this);
 
 }).call(this);
-
 
 /*
   Inspired in foundation v.3.2
@@ -3502,10 +2499,10 @@
 
 
 (function() {
-
   (function($, window) {
     "use strict";
     var $doc, Modernizr;
+
     $doc = $(document);
     Modernizr = window.Modernizr;
     $(document).ready(function() {
@@ -3577,49 +2574,5 @@
       });
     }
   })(jQuery, this);
-
-}).call(this);
-
-(function() {
-
-  if (window.devicePixelRatio > 1) {
-    window.onload = function() {
-      var image, is_external, load, _i, _len, _ref, _results;
-      is_external = function(href) {
-        return !!(href.match(/^https?\:/i) && !href.match(document.domain));
-      };
-      _ref = document.getElementsByTagName("img");
-      _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        image = _ref[_i];
-        _results.push((load = function() {
-          var at_2x_path, extension, height, http, path, path_segments, path_without_extension, width;
-          if (!image.complete) {
-            return setTimeout(load, 5);
-          } else {
-            path = image.getAttribute("src");
-            if (is_external(path)) {
-              return;
-            }
-            width = image.offsetWidth;
-            height = image.offsetHeight;
-            path_segments = path.split('.');
-            path_without_extension = path_segments.slice(0, path_segments.length - 1).join(".");
-            extension = path_segments[path_segments.length - 1];
-            at_2x_path = "" + path_without_extension + "@2x." + extension;
-            http = new XMLHttpRequest();
-            http.open('HEAD', at_2x_path, false);
-            http.send();
-            if (http.status === 200) {
-              image.setAttribute('width', width);
-              image.setAttribute('height', height);
-              return image.setAttribute("src", at_2x_path);
-            }
-          }
-        })());
-      }
-      return _results;
-    };
-  }
 
 }).call(this);
