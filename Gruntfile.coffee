@@ -2,6 +2,7 @@ module.exports = (grunt)->
 	grunt.initConfig
 		pkg: grunt.file.readJSON "package.json"		
 		# compiled shurikend CSS
+		# The file containing the CSS is located at: dev/shurikend/sass/app/app.scss
 		compass:
 			dist:
 				options:

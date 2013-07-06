@@ -1,3 +1,10 @@
+### SASS ###
+### SASS Ignores - "Sassy CSS" http://sass-lang.com/
+*.sass-cache
+
+### Compass ###
+.sass-cache
+
 lib-cov
 *.seed
 *.log
