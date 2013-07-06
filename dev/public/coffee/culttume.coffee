@@ -73,6 +73,8 @@ $(document).ready ->
 		console.log 'Disconnect'
 	# Principal Form data
 	$('#allInfo').stepy(
+		validate : true
+		block: true
 		backLabel: ''
 		enter: true
 		description: false
@@ -91,7 +93,8 @@ $(document).ready ->
 					socket.on 'receiveDataProfile', (dataCode)->
 						if dataCode.status is 3
 							$('#dataInfo').empty()
-										  .append('<label>Pais</label><select id="country" style="display: none;">'+
+										  .append('<div class="stepy-error"></div>'+
+										  		  '<label>Pais</label><select id="country" name="country" style="display: none;">'+
 											  	  '<option selected>Pais</option>'+
 											  	  '<option>Colombia</option>'+
 											  	  '<option>Panamá</option>'+
@@ -111,7 +114,7 @@ $(document).ready ->
 								if country.val() is 'Colombia'
 									$('#dataInfoDetail').empty()
 									$('#dataInfoDetail').append('<label>Ciudad</label>'+
-														  '<select id="city" style="display: none;">'+
+														  '<select id="city" name="city" style="display: none;">'+
 												  		  '<option selected>Selecciona tu Ciudad</option>'+
 												  		  '<option>Acacías</option>'+
 												  		  '<option>Aguachica</option>'+
@@ -490,7 +493,7 @@ $(document).ready ->
 								else if country.val() is 'Panamá'
 									$('#dataInfoDetail').empty()
 									$('#dataInfoDetail').append('<label>Ciudad</label>'+
-														  '<select id="city" style="display: none;">'+
+														  '<select id="city" name="city" style="display: none;">'+
 												  		  '<option selected>Selecciona tu Ciudad</option>'+
 												  		  '<option>Aguadulce</option>'+
 												  		  '<option>Almirante</option>'+
@@ -583,7 +586,7 @@ $(document).ready ->
 								$('#dataInfoDetail').append('<label for="name">Nombre Completo</label>'+
 															  '<input id="name" type="text" name="name" placeholder="Nombres Apellidos">'+
 													  		  '<label>Edad</label>'+
-															  '<select id="age" style="display: none;">'+
+															  '<select id="age" name="age" style="display: none;">'+
 													  		  '<option selected>Debe ser Mayor de Edad</option>'+
 													  		  '<option>18</option>'+
 													  		  '<option>19</option>'+
@@ -719,7 +722,7 @@ $(document).ready ->
 													  		  '<li>80</li>'+							  		  
 													  		  '</ul></div>'+
 												  		  	  '<label>Genero</label>'+
-													  		  '<select id="genre" style="display: none;">'+
+													  		  '<select id="genre" name="genre" style="display: none;">'+
 													  		  '<option selected>Selecciona tu Genero</option>'+
 													  		  '<option>Femenino</option>'+
 													  		  '<option>Masculino</option>'+
@@ -875,5 +878,80 @@ $(document).ready ->
 			else
 				alert 'revisa algunos datos estan mal'
 
-			return false
+			return false	
 	)
+	$('#allInfo').validate(
+		errorPlacement: (error, element)->
+			$('#allInfo div.stepy-error').append(error)
+		
+		rules:
+			askAbout : 
+				selectAskAbout : true
+			profile  : 
+				selectProfile: true
+			registerCode : 
+				required: true
+				minlength: 8
+				maxlength: 8
+			country  :
+				selectCountry : true
+			city:
+				selectCity: true
+			name:
+				required: true
+				minlength: 10
+				maxlength: 64
+			genre:
+				selectGenre: true
+		message:
+			'askAbout':
+				required : 'Selecciona una opción "Como nos conoces"'
+			'profile':
+				required : 'Selecciona un perfil'
+			'registerCode' : 
+				required : 'Ingresa el código'
+			'country' : 
+				required : 'Selecciona un Pais'
+	)
+	# validate select aks About http://bit.ly/12OBDHq
+	jQuery.validator.addMethod('selectAskAbout', 
+		(value, element)-> 
+			return $('#askAbout option:selected').val() isnt 'Escoge una opción'
+
+		"Selecciona como nos conociste!"
+	)
+	# validate select Profile
+	jQuery.validator.addMethod('selectProfile',
+		(value, element)->
+			return $('#profile option:selected').val() isnt 'Escoge uno'
+		"Selecciona un Perfil"
+	)
+	# Validate select country
+	jQuery.validator.addMethod('selectCountry',
+		(value, element)->
+			return $('#country option:selected').val() isnt 'Selecciona tu Pais'
+
+		"Selecciona un Pais"
+	)
+	# Validate select city
+	jQuery.validator.addMethod('selectCity',
+		(value, element)->
+			return $('#city option:selected').val() isnt 'Selecciona tu Ciudad'
+
+		"Selecciona tu Ciudad"
+	)
+	# Validate select Age
+	jQuery.validator.addMethod('selectAge',
+		(value, element)->
+			return $('#age option:selected').val() isnt 'Debe ser Mayor de Edad'
+
+		"Selecciona una Edad"
+	)
+	# Validate select genre
+	jQuery.validator.addMethod('selectGenre',
+		(value, element)->
+			return $('#genre option:selected').val() isnt 'Selecciona tu genero'
+
+		"Selecciona tu genero"
+	)
+
