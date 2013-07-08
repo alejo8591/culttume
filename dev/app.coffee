@@ -64,10 +64,10 @@ io.sockets.on 'connection', (socket) ->
 				socket.emit 'fillData', 
 					email:users.email 
 					status:statusRegister.emailDuplicate
-					registerCode: users.registerCode
 
 	# Verification code
 	socket.on 'verificationCode', (data) ->
+		console.log data.code
 		User.findOne(
 			'email': data.email
 			'registerCode':data.code

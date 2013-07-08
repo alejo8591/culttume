@@ -1,14 +1,20 @@
 $(document).ready ->
-		$('#imgs li').wookmark( 
-			align: 'center'
-			autoResize: true
-			container: $('#rightCulttume')
-			itemWidth: 0
-			offset: 2
-			resizeDelay: 50
-			flexibleWidth: 0
-			onLayoutChanged: undefined
-	  	)
+	# hack the planet with Socket!
+	socket = io.connect('http://localhost')
+	# Ok ready!
+	socket.on 'connection', (data) ->
+		console.log data
+	# gallery images
+	$('#imgs li').wookmark( 
+		align: 'center'
+		autoResize: true
+		container: $('#rightCulttume')
+		itemWidth: 0
+		offset: 2
+		resizeDelay: 50
+		flexibleWidth: 0
+		onLayoutChanged: undefined
+  	)
 	# <ol> hide
 	$('ol').hide()
 	$(window).load(()->
@@ -18,11 +24,6 @@ $(document).ready ->
 			tipAnimationFadeSpeed:300
 			timer: 3000
 	)
-	# hack the planet with Socket!
-	socket = io.connect('http://localhost')
-	# Ok ready!
-	socket.on 'connection', (data) ->
-		console.log data
 	# initial validation email
 	$('input#email').verimail(
 		denyTempEmailDomains : true
@@ -31,6 +32,7 @@ $(document).ready ->
 	# hide tooltip
 	hideRide = ()->
 		$('div.joyride-tip-guide.custom').remove()
+	# invoque hideRide
 	$('input#email').on(
 		click: ()->
 			hideRide()
@@ -56,12 +58,28 @@ $(document).ready ->
 				$('#email').removeClass 'error'
 				socket.emit 'registerEmail', $('#email').val()
 		)
-	# 
+	# close windows in register
+	$('button#closeWindow').click(()->
+		alert 'hola culttume'
+	)
+	# Received data for server
 	socket.on 'fillData', (data) ->
+		$('#registerEmail').remove()
+		# verificate email
 		if data.status is 1
 			$('#wrongEmail').remove()
+			$('#registrationForm').append(
+				'<div class="panel radius">'+
+				'<h4 class="subheader">¡Bienvenido a culttu.me!</h4>'+
+				'<h5 class="subheader"> Tu cuenta de correo electrónico es: </h5>'+
+				'<div class="alert-box success" align="center">' + data.email + '</div>' +
+				'<h5 class="subheader"> Si cerro tu registro, continua aquí: </h5>'+
+				'<button class="button" id="closeWindow" href="javascript:void(0);">Continua con tu Registro</button>'
+			)
 			$('#results').append '<h3>Gracias ' + data.email + ' por tu registro</h3>'
+			
 			progressBar 30, $('#progressBar')
+			# add code in form `allInfo`
 			$('#msgRegisterCode').append('<label>Ingresa el siguiente código de seguridad en el campo de texto:  </label>' + 
 										 '<div class="four columns centered">' +
 										 '<div class="alert-box alert" align="center">' +
@@ -70,12 +88,16 @@ $(document).ready ->
 			$('#moreData').reveal()
 		else
 			$('#moreData').remove()
+			$('#registrationForm').append(
+				'<div class="panel radius">'+
+				'<h4 class="subheader">¡Bienvenido a culttu.me!</h4>'+
+				'<h5 class="subheader"> Tu cuenta de correo electrónico: </h5>'+
+				'<div class="alert-box success" align="center">' + data.email + '</div>' +
+				'<h5 class="subheader">Ya esta registrada te invitamos a visitar ' +
+				'nuestras cuentas de redes sociales y el blog, ¡vienen sorpresas!</h5>'
+			)
 			$('#wrongEmail').reveal()
-		return @dataEmail
 
-	# Socket for disconnect for the app
-	socket.on 'disconnect', ->
-		console.log 'Disconnect'
 	# Principal Form data
 	$('#allInfo').stepy(
 		validate : true
@@ -92,6 +114,7 @@ $(document).ready ->
 			if $('li.stepy-active div').text() is 'Paso 1'
 				$('div.stepy-error').empty()
 				if $('#profile').val() is 'Artista/Creativo' or $('#profile').val() is 'Seguidor/Fan' and $('#askAbout').val() isnt 'Escoge una opción' and $('#registerCode').val() isnt "" and $('#registerCode').val().length is 8
+					console.log $('#registerCode').val()
 					socket.emit 'verificationCode', 
 										code:  $('#registerCode').val()
 										email: $('#email').val()
@@ -904,7 +927,6 @@ $(document).ready ->
 				selectProfile: true
 			registerCode:
 				required: true 
-				# verificationRegisterCode: true
 				minlength: 8
 				maxlength: 8
 			country:
@@ -914,7 +936,7 @@ $(document).ready ->
 			name:
 				required: true
 				minlength: 10
-				maxlength: 64
+				maxlength: 32
 			age:
 				selectAge: true
 		message:
@@ -949,20 +971,22 @@ $(document).ready ->
 		"Selecciona un Perfil"
 	)
 	# validate registerCode
-	jQuery.validator.addMethod('verificationRegisterCode',
-		(value, element)->
-			@resultado = false
-			socket.emit 'validationCodeRequest', 
-									code:  $('#registerCode').val()
-									email: $('#email').val()
+	###
+		jQuery.validator.addMethod('verificationRegisterCode',
+			(value, element)->
+				@resultado = false
+				socket.emit 'validationCodeRequest', 
+										code:  $('#registerCode').val()
+										email: $('#email').val()
 
-			socket.on 'validationCodeResponse', (data)->
-				console.log  if data.status isnt 4 then false else true
-				@resultado = if data.status isnt 4 then false else true
-			console.log @resultado
-			
-		"Ingresa el código Correcto"
-	)
+				socket.on 'validationCodeResponse', (data)->
+					console.log  if data.status isnt 4 then false else true
+					@resultado = if data.status isnt 4 then false else true
+				console.log @resultado
+				
+			"Ingresa el código Correcto"
+		)
+	###
 	# Validate select country
 	jQuery.validator.addMethod('selectCountry',
 		(value, element)->
@@ -987,3 +1011,6 @@ $(document).ready ->
 			return $('#genre option:selected').val() isnt 'Selecciona tu Genero'
 		"Selecciona tu Genero"
 	)
+	# Socket for disconnect for the app
+	socket.on 'disconnect', ->
+		console.log 'Disconnect'

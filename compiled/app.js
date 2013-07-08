@@ -70,13 +70,13 @@
         } else {
           return socket.emit('fillData', {
             email: users.email,
-            status: statusRegister.emailDuplicate,
-            registerCode: users.registerCode
+            status: statusRegister.emailDuplicate
           });
         }
       });
     });
     socket.on('verificationCode', function(data) {
+      console.log(data.code);
       return User.findOne({
         'email': data.email,
         'registerCode': data.code,
