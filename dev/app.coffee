@@ -59,10 +59,12 @@ io.sockets.on 'connection', (socket) ->
 				socket.emit 'fillData', 
 					email:users.email 
 					status:statusRegister.emailCreatedSuccefully
+					registerCode: users.registerCode
 			else
 				socket.emit 'fillData', 
 					email:users.email 
 					status:statusRegister.emailDuplicate
+					registerCode: users.registerCode
 
 	# Verification code
 	socket.on 'verificationCode', (data) ->
@@ -100,6 +102,19 @@ io.sockets.on 'connection', (socket) ->
 				else
 					console.log 'error update'
 			)
+	# Validation code
+	socket.on 'validationCodeRequest', (data)->
+		User.findOne(
+			'email': data.email
+			'registerCode':data.code
+			'useRegistrationCode':0,
+			'email',
+			(err, user) ->
+				if user is null
+					socket.set 'validationCodeResponse', status:statusRegister.verificationCodeFail
+				else
+					socket.set 'validationCodeResponse', status:statusRegister.verificationCodeOk	
+		)
 # Run Server 'hack the planet'
 server.listen(app.get('port'), ->
 	console.log 'Express server listen on port', app.get 'port')

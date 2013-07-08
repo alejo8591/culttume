@@ -1,6 +1,9 @@
 extends layout
 
 block content
+	script
+		printRegisterCode = 'cama';
+
 	ol(id='firstTip')
 		li(data-id='email', class='custom')
 			h5 ¡Regístrate es Fácil!
@@ -17,8 +20,13 @@ block content
 			div(class='twelve columns')
 				div(id="progressBar")
 					div
+		div(class='row')
+			br
 			div(class='twelve columns')
-				form(id='allInfo',class='custom')
+				div(class="stepy-error")
+		div(class='row')
+			div(class='twelve columns')
+				form(id='allInfo', class='custom')
 					fieldset(title='Paso 1')
 						legend Selecciona tu Perfil en culttu.me
 						label ¿Como te enteraste de culttu.me?
@@ -36,7 +44,7 @@ block content
 							option Artista/Creativo 
 							option Seguidor/Fan
 							// option Patrocinador
-						label Ingresa el código que se envio a tu correo
+						div(id='msgRegisterCode')
 						input(type='text',name='registerCode', placeholder='8 caracteres', id='registerCode', class='required')
 					fieldset(title='Paso 2')
 						legend Algunos Datos más

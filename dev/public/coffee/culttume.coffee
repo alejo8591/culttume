@@ -62,6 +62,11 @@ $(document).ready ->
 			$('#wrongEmail').remove()
 			$('#results').append '<h3>Gracias ' + data.email + ' por tu registro</h3>'
 			progressBar 30, $('#progressBar')
+			$('#msgRegisterCode').append('<label>Ingresa el siguiente código de seguridad en el campo de texto:  </label>' + 
+										 '<div class="four columns centered">' +
+										 '<div class="alert-box alert" align="center">' +
+										 data.registerCode  + '</div></div>')
+			
 			$('#moreData').reveal()
 		else
 			$('#moreData').remove()
@@ -85,7 +90,8 @@ $(document).ready ->
 		next: ()->
 			#first step for validation
 			if $('li.stepy-active div').text() is 'Paso 1'
-				if $('#profile').val() is 'Artista/Creativo' or $('#profile').val() is 'Seguidor/Fan' and $('#askAbout').val() isnt 'Escoge una opción' and $('#registerCode').val() isnt "" and $('#registerCode').val().length >= 8
+				$('div.stepy-error').empty()
+				if $('#profile').val() is 'Artista/Creativo' or $('#profile').val() is 'Seguidor/Fan' and $('#askAbout').val() isnt 'Escoge una opción' and $('#registerCode').val() isnt "" and $('#registerCode').val().length is 8
 					socket.emit 'verificationCode', 
 										code:  $('#registerCode').val()
 										email: $('#email').val()
@@ -93,25 +99,26 @@ $(document).ready ->
 					socket.on 'receiveDataProfile', (dataCode)->
 						if dataCode.status is 3
 							$('#dataInfo').empty()
-										  .append('<div class="stepy-error"></div>'+
-										  		  '<label>Pais</label><select id="country" name="country" style="display: none;">'+
-											  	  '<option selected>Pais</option>'+
+										  .append('<label>Pais</label><select id="country" name="country" style="display: none;">'+
+											  	  '<option selected>Selecciona tu Pais</option>'+
 											  	  '<option>Colombia</option>'+
 											  	  '<option>Panamá</option>'+
 											  	  '</select>'+
 											  	  '<div class="custom dropdown">'+
 											  	  '<a href="#" class="current">Selecciona tu Pais</a>'+
-												  '<a href="#" class="selector"></a><ul><li>Selecciona tu Pais</li>'+
+												  '<a href="#" class="selector"></a>'+
+												  '<ul>'+
+												  '<li>Selecciona tu Pais</li>'+
 										  		  '<li>Colombia</li>'+
 										  		  '<li>Panamá</li>'+
 										  		  '</ul></div>'+
 										  		  '<div id="dataInfoDetail">')
 
 							progressBar 35, $('#progressBar')
-
+							# when country change; add all info
 							$('#country').change(()->
 								country = $('#country').find('option:selected')
-								if country.val() is 'Colombia'
+								if country.val() is 'Colombia' and country.val() isnt 'Selecciona tu Pais'
 									$('#dataInfoDetail').empty()
 									$('#dataInfoDetail').append('<label>Ciudad</label>'+
 														  '<select id="city" name="city" style="display: none;">'+
@@ -490,7 +497,7 @@ $(document).ready ->
 														  '<li>Zipaquirá</li>'+
 												  		  '</ul></div>')
 
-								else if country.val() is 'Panamá'
+								else if country.val() is 'Panamá' and country.val() isnt 'Selecciona tu Pais'
 									$('#dataInfoDetail').empty()
 									$('#dataInfoDetail').append('<label>Ciudad</label>'+
 														  '<select id="city" name="city" style="display: none;">'+
@@ -728,19 +735,19 @@ $(document).ready ->
 													  		  '<option>Masculino</option>'+
 													  		  '</select>'+
 													  		  '<div class="custom dropdown">'+
-													  		  '<a href="#" class="current">Selecciona tu genero</a>'+
+													  		  '<a href="#" class="current">Selecciona tu Genero</a>'+
 													  		  '<a href="#" class="selector"></a>'+
 													  		  '<ul>'+
-													  		  '<li>Selecciona tu genero</li>'+
+													  		  '<li>Selecciona tu Genero</li>'+
 													  		  '<li>Femenino</li>'+
 													  		  '<li>Masculino</li>'+
 													  		  '</ul></div></div>')
 							)
-							
+						# this code not is correct	
 						else 
-							$('#dataInfo').empty()
-										  .append('<h3>Este código no existe, verifica tu correo electrónico</h3>')
-			
+							$('div.stepy-error').empty()
+												.append('<label class="error">El código no corresponde o ya fue utilizado ponte en contacto culttu.me@gmail.com</label>')
+				# other profile
 				else if $('#profile').val() is 'Patrocinador' and $('#askAbout').val() isnt 'Escoge una opción'
 					$('#dataInfo').empty()
 								  .append('<div id="dataInfoDetail"><label for="name">Nombre de la Empresa</label>'+
@@ -749,10 +756,11 @@ $(document).ready ->
 								  		  '<label>NIT o Documento</label><input type="text" name="nit" placeholder="Sin puntos, ni comas">'+
 								  		  '<label>Telefono</label><input id="name" type="text" name="phoneNumber" placeholder="Digitos más indicativo"></div>')
 				else
-					$('#dataInfo').empty()
-					              .append('<div id="dataInfoDetail"><span>¡No seleccionaste alguna de las opciones ya casi consigues 200 Puntos!</span></div>')
+					$('div.stepy-error').empty()
+												.append('<label class="error">No seleccionaste ninguna opción</label>')
 			# Next step
 			else if $('li.stepy-active div').text() is 'Paso 2'
+				$('div.stepy-error').empty()
 				# filter for porfile and ask about
 				if $('#profile').val() is 'Artista/Creativo' and $('#askAbout').val() isnt 'Escoge una opción'
 					$('#dataValidation').empty()
@@ -848,7 +856,7 @@ $(document).ready ->
 							data.services.push(_i) 
 						_i++
 
-			if data.services.length > 0 and data.profile isnt 'Escoge una opción' and data.askAbout isnt 'Escoge una opción' and data.name isnt "" and data.name.length >= 5 and data.city isnt "" and data.city.length >= 3 and data.age isnt "" and data.age.length > 1 and data.age.length < 3 and data.genre isnt 'Selecciona tu Genero'
+			if data.services.length > 2 and data.profile isnt 'Escoge una opción' and data.askAbout isnt 'Escoge una opción' and data.name isnt "" and data.name.length >= 5 and data.city isnt "" and data.city.length >= 3 and data.age isnt "" and data.age.length > 1 and data.age.length < 3 and data.genre isnt 'Selecciona tu Genero'
 				# send info for server
 				socket.emit 'receiveAllDataProfile', data
 				socket.on 'congratulationDetail', (congrat) ->
@@ -860,9 +868,10 @@ $(document).ready ->
 						'<hr class="lineFooterCulttume"></div>'+
 						'<p> Recuerda que te enviaremos información y novedades'+
 						' al correo electrónico:</p>'+
-						'<div class="alert-box success">'+
-						congrat.email+'</div><br />'+
-						'<p>Acabas de ganar <span class="radius label"> +3 Puntos</span> en nuestro sistema, '+
+						'<div class="twelve columns">'+
+						'<div class="alert-box success" align="center">'+
+						congrat.email+'</div></div><br />'+
+						'<p>Acabas de ganar <span class="radius label"> +100 Puntos</span> en nuestro sistema, '+
 						'que podrás canjear por premios sorpresa y todas las cosas que más te gustan de tus artistas '+
 						'y creadores favoritos.</p>'+
 						'<div class="three columns centered">'+
@@ -876,48 +885,61 @@ $(document).ready ->
 										  		  '<p>Ahora ayúdanos a darnos a conocer entre tus amigos y redes sociales</p>')
 					$('#congratulation').reveal()
 			else
-				alert 'revisa algunos datos estan mal'
+				$('div.stepy-error').empty()
+									.append('<label class="error">Selecciona por lo menos tres (3) Servicios</label>')
 
 			return false	
 	)
+	# validate fields for `allInfo`
 	$('#allInfo').validate(
 		errorPlacement: (error, element)->
-			$('#allInfo div.stepy-error').append(error)
-		
+			$('div.stepy-error').empty()
+								.append(error)
 		rules:
-			askAbout : 
-				selectAskAbout : true
-			profile  : 
+			genre:
+				selectGenre: true
+			askAbout: 
+				selectAskAbout: true
+			profile: 
 				selectProfile: true
-			registerCode : 
-				required: true
+			registerCode:
+				required: true 
+				# verificationRegisterCode: true
 				minlength: 8
 				maxlength: 8
-			country  :
-				selectCountry : true
+			country:
+				selectCountry: true
 			city:
 				selectCity: true
 			name:
 				required: true
 				minlength: 10
 				maxlength: 64
-			genre:
-				selectGenre: true
+			age:
+				selectAge: true
 		message:
 			'askAbout':
 				required : 'Selecciona una opción "Como nos conoces"'
 			'profile':
 				required : 'Selecciona un perfil'
-			'registerCode' : 
+			'registerCode': 
 				required : 'Ingresa el código'
-			'country' : 
-				required : 'Selecciona un Pais'
+				verificationRegisterCode: 'Ingresa el código Correcto'
+			'country':
+				required : 'Selecciona tu Pais'
+			'city':
+				required : 'Selecciona tu Ciudad'
+			'name':
+				required : 'Verifica tu nombre'
+			'age':
+				required : 'Debes ser Mayor de Edad'
+			'genre':
+				required : 'Selecciona tu Genero'
 	)
 	# validate select aks About http://bit.ly/12OBDHq
 	jQuery.validator.addMethod('selectAskAbout', 
 		(value, element)-> 
 			return $('#askAbout option:selected').val() isnt 'Escoge una opción'
-
 		"Selecciona como nos conociste!"
 	)
 	# validate select Profile
@@ -926,32 +948,42 @@ $(document).ready ->
 			return $('#profile option:selected').val() isnt 'Escoge uno'
 		"Selecciona un Perfil"
 	)
+	# validate registerCode
+	jQuery.validator.addMethod('verificationRegisterCode',
+		(value, element)->
+			@resultado = false
+			socket.emit 'validationCodeRequest', 
+									code:  $('#registerCode').val()
+									email: $('#email').val()
+
+			socket.on 'validationCodeResponse', (data)->
+				console.log  if data.status isnt 4 then false else true
+				@resultado = if data.status isnt 4 then false else true
+			console.log @resultado
+			
+		"Ingresa el código Correcto"
+	)
 	# Validate select country
 	jQuery.validator.addMethod('selectCountry',
 		(value, element)->
 			return $('#country option:selected').val() isnt 'Selecciona tu Pais'
-
 		"Selecciona un Pais"
 	)
 	# Validate select city
 	jQuery.validator.addMethod('selectCity',
 		(value, element)->
 			return $('#city option:selected').val() isnt 'Selecciona tu Ciudad'
-
 		"Selecciona tu Ciudad"
 	)
 	# Validate select Age
 	jQuery.validator.addMethod('selectAge',
 		(value, element)->
 			return $('#age option:selected').val() isnt 'Debe ser Mayor de Edad'
-
 		"Selecciona una Edad"
 	)
 	# Validate select genre
 	jQuery.validator.addMethod('selectGenre',
 		(value, element)->
-			return $('#genre option:selected').val() isnt 'Selecciona tu genero'
-
-		"Selecciona tu genero"
+			return $('#genre option:selected').val() isnt 'Selecciona tu Genero'
+		"Selecciona tu Genero"
 	)
-

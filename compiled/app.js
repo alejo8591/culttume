@@ -64,12 +64,14 @@
         if (!err) {
           return socket.emit('fillData', {
             email: users.email,
-            status: statusRegister.emailCreatedSuccefully
+            status: statusRegister.emailCreatedSuccefully,
+            registerCode: users.registerCode
           });
         } else {
           return socket.emit('fillData', {
             email: users.email,
-            status: statusRegister.emailDuplicate
+            status: statusRegister.emailDuplicate,
+            registerCode: users.registerCode
           });
         }
       });
@@ -91,7 +93,7 @@
         }
       });
     });
-    return socket.on('receiveAllDataProfile', function(data) {
+    socket.on('receiveAllDataProfile', function(data) {
       return User.update({
         email: data.email
       }, {
@@ -115,6 +117,23 @@
           });
         } else {
           return console.log('error update');
+        }
+      });
+    });
+    return socket.on('validationCodeRequest', function(data) {
+      return User.findOne({
+        'email': data.email,
+        'registerCode': data.code,
+        'useRegistrationCode': 0
+      }, 'email', function(err, user) {
+        if (user === null) {
+          return socket.set('validationCodeResponse', {
+            status: statusRegister.verificationCodeFail
+          });
+        } else {
+          return socket.set('validationCodeResponse', {
+            status: statusRegister.verificationCodeOk
+          });
         }
       });
     });

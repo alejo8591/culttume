@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Josefin+Slab:100);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:100);
 /* The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
  * The clearfix hack is a popular way to contain 
  * floats without resorting to using presentational markup. */
@@ -448,29 +449,29 @@ abbr {
 /* Requires
    globals.css */
 /* Standard Forms ---------------------- */
-/* line 6, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 8, ../../shurikend/sass/radix/_usual.forms.scss */
 form {
   margin: 0 0 19.41641px;
 }
 
-/* line 8, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 10, ../../shurikend/sass/radix/_usual.forms.scss */
 .row form .row {
   margin: 0 -6px;
 }
-/* line 10, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 12, ../../shurikend/sass/radix/_usual.forms.scss */
 .row form .row .column, .row form .row .columns {
   padding: 0 6px;
 }
-/* line 12, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 14, ../../shurikend/sass/radix/_usual.forms.scss */
 .row form .row.collapse {
   margin: 0;
 }
-/* line 13, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 15, ../../shurikend/sass/radix/_usual.forms.scss */
 .row form .row.collapse .column, .row form .row.collapse .columns {
   padding: 0;
 }
 
-/* line 17, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 19, ../../shurikend/sass/radix/_usual.forms.scss */
 label {
   font-size: 14px;
   color: #4d4d4d;
@@ -479,18 +480,18 @@ label {
   font-weight: 500;
   margin-bottom: 3px;
 }
-/* line 25, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 27, ../../shurikend/sass/radix/_usual.forms.scss */
 label.right {
   float: none;
   text-align: right;
 }
-/* line 29, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 31, ../../shurikend/sass/radix/_usual.forms.scss */
 label.inline {
   line-height: 32px;
   margin: 0 0 12px 0;
 }
 
-/* line 34, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 36, ../../shurikend/sass/radix/_usual.forms.scss */
 .prefix, .postfix {
   display: block;
   position: relative;
@@ -503,20 +504,20 @@ label.inline {
   line-height: 31px;
 }
 
-/* line 45, ../../shurikend/sass/radix/_usual.forms.scss */
-a.button.prefix, a.button.postfix {
+/* line 47, ../../shurikend/sass/radix/_usual.forms.scss */
+a.button.prefix, a.prefix.button-next, a.button.postfix, a.postfix.button-next {
   padding-left: 0;
   padding-right: 0;
   text-align: center;
 }
 
-/* line 50, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 52, ../../shurikend/sass/radix/_usual.forms.scss */
 span.prefix, span.postfix {
   background: #f2f2f2;
   border: 1px solid #cccccc;
 }
 
-/* line 54, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 56, ../../shurikend/sass/radix/_usual.forms.scss */
 .prefix {
   left: 2px;
   -moz-border-radius-topleft: 2px;
@@ -528,7 +529,7 @@ span.prefix, span.postfix {
   overflow: hidden;
 }
 
-/* line 60, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 62, ../../shurikend/sass/radix/_usual.forms.scss */
 .postfix {
   right: 2px;
   -moz-border-radius-topright: 2px;
@@ -539,7 +540,7 @@ span.prefix, span.postfix {
   border-bottom-right-radius: 2px;
 }
 
-/* line 65, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 67, ../../shurikend/sass/radix/_usual.forms.scss */
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
   background-color: white;
   font-family: inherit;
@@ -564,33 +565,33 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   -o-transition: all 0.15s linear;
   transition: all 0.15s linear;
 }
-/* line 79, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 81, ../../shurikend/sass/radix/_usual.forms.scss */
 input[type="text"].oversize, input[type="password"].oversize, input[type="date"].oversize, input[type="datetime"].oversize, input[type="email"].oversize, input[type="number"].oversize, input[type="search"].oversize, input[type="tel"].oversize, input[type="time"].oversize, input[type="url"].oversize, textarea.oversize {
   font-size: 17px;
   padding: 4px 6px;
 }
-/* line 83, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 85, ../../shurikend/sass/radix/_usual.forms.scss */
 input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, textarea:focus {
   background: #fafafa;
   border-color: #b3b3b3;
 }
-/* line 87, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 89, ../../shurikend/sass/radix/_usual.forms.scss */
 input[type="text"][disabled], input[type="password"][disabled], input[type="date"][disabled], input[type="datetime"][disabled], input[type="email"][disabled], input[type="number"][disabled], input[type="search"][disabled], input[type="tel"][disabled], input[type="time"][disabled], input[type="url"][disabled], textarea[disabled] {
   background-color: #ddd;
 }
 
-/* line 90, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 92, ../../shurikend/sass/radix/_usual.forms.scss */
 textarea {
   height: auto;
 }
 
-/* line 92, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 94, ../../shurikend/sass/radix/_usual.forms.scss */
 select {
   width: 100%;
 }
 
 /* Fieldsets */
-/* line 95, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 97, ../../shurikend/sass/radix/_usual.forms.scss */
 fieldset {
   border: solid 1px #ddd;
   -webkit-border-radius: 3px;
@@ -601,7 +602,7 @@ fieldset {
   padding: 12px;
   margin: 18px 0;
 }
-/* line 100, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 102, ../../shurikend/sass/radix/_usual.forms.scss */
 fieldset legend {
   font-weight: bold;
   background: white;
@@ -611,24 +612,24 @@ fieldset legend {
 }
 
 /* Errors */
-/* line 109, ../../shurikend/sass/radix/_usual.forms.scss */
-.error input, input.error, .error textarea, textarea.error, .error input:focus, input.error:focus, .error textarea:focus, textarea.error:focus {
+/* line 111, ../../shurikend/sass/radix/_usual.forms.scss */
+.error input, .stepy-header li .stepy-error input, input.error, .stepy-header li input.stepy-error, .error textarea, .stepy-header li .stepy-error textarea, textarea.error, .stepy-header li textarea.stepy-error, .error input:focus, .stepy-header li .stepy-error input:focus, input.error:focus, .stepy-header li input.stepy-error:focus, .error textarea:focus, .stepy-header li .stepy-error textarea:focus, textarea.error:focus, .stepy-header li textarea.stepy-error:focus {
   border-color: #da0c05;
   background-color: rgba(218, 12, 5, 0.1);
 }
 
-/* line 114, ../../shurikend/sass/radix/_usual.forms.scss */
-.error input:focus, input.error:focus, .error textarea:focus, textarea.error:focus {
+/* line 116, ../../shurikend/sass/radix/_usual.forms.scss */
+.error input:focus, .stepy-header li .stepy-error input:focus, input.error:focus, .stepy-header li input.stepy-error:focus, .error textarea:focus, .stepy-header li .stepy-error textarea:focus, textarea.error:focus, .stepy-header li textarea.stepy-error:focus {
   outline-color: #fc807c;
 }
 
-/* line 116, ../../shurikend/sass/radix/_usual.forms.scss */
-.error label, label.error {
+/* line 118, ../../shurikend/sass/radix/_usual.forms.scss */
+.error label, .stepy-header li .stepy-error label, label.error, .stepy-header li label.stepy-error {
   color: #da0c05;
 }
 
-/* line 117, ../../shurikend/sass/radix/_usual.forms.scss */
-.error small, small.error {
+/* line 119, ../../shurikend/sass/radix/_usual.forms.scss */
+.error small, .stepy-header li .stepy-error small, small.error, .stepy-header li small.stepy-error {
   display: block;
   padding: 6px 4px;
   margin-top: -13px;
@@ -646,11 +647,11 @@ fieldset legend {
 }
 
 /* Custom Forms ---------------------- */
-/* line 132, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 134, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom {
   /* Custom input, disabled */
 }
-/* line 134, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 136, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom span.custom {
   display: inline-block;
   width: 16px;
@@ -660,7 +661,7 @@ form.custom span.custom {
   border: solid 1px #cccccc;
   background: white;
 }
-/* line 143, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 145, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom span.custom.radio {
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
@@ -668,7 +669,7 @@ form.custom span.custom.radio {
   -o-border-radius: 100px;
   border-radius: 100px;
 }
-/* line 146, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 148, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom span.custom.checkbox:before {
   content: "";
   display: block;
@@ -682,7 +683,7 @@ form.custom span.custom.checkbox:before {
   font-size: 14px;
   color: #fff;
 }
-/* line 161, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 163, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom span.custom.radio.checked:before {
   content: "";
   display: block;
@@ -698,12 +699,12 @@ form.custom span.custom.radio.checked:before {
   top: 3px;
   left: 3px;
 }
-/* line 174, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 176, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom span.custom.checkbox.checked:before {
   content: "\00d7";
   color: #222222;
 }
-/* line 179, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 181, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown {
   display: block;
   position: relative;
@@ -712,12 +713,12 @@ form.custom div.custom.dropdown {
   margin-bottom: 9px;
   margin-top: 2px;
 }
-/* line 187, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 189, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown ul {
   overflow-y: auto;
   max-height: 200px;
 }
-/* line 191, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 193, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown a.current {
   display: block;
   width: auto;
@@ -731,7 +732,7 @@ form.custom div.custom.dropdown a.current {
   background-color: white;
   white-space: nowrap;
 }
-/* line 204, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 206, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown a.selector {
   position: absolute;
   width: 27px;
@@ -741,7 +742,7 @@ form.custom div.custom.dropdown a.selector {
   top: 0;
   border: solid 1px #dddddd;
 }
-/* line 213, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 215, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown a.selector:after {
   content: "";
   display: block;
@@ -757,7 +758,7 @@ form.custom div.custom.dropdown a.selector:after {
   margin-top: -2px;
   margin-left: -5px;
 }
-/* line 224, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 226, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown:hover a.selector:after, form.custom div.custom.dropdown.open a.selector:after {
   content: "";
   display: block;
@@ -766,44 +767,44 @@ form.custom div.custom.dropdown:hover a.selector:after, form.custom div.custom.d
   border: solid 5px;
   border-color: #222222 transparent transparent transparent;
 }
-/* line 228, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 230, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown.open ul {
   display: block;
   z-index: 10;
 }
-/* line 230, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 232, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown.small {
   width: 134px !important;
 }
-/* line 231, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 233, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown.medium {
   width: 254px !important;
 }
-/* line 232, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 234, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown.large {
   width: 434px !important;
 }
-/* line 233, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 235, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown.expand {
   width: 100% !important;
 }
-/* line 235, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 237, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown.open.small ul {
   width: 134px !important;
 }
-/* line 236, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 238, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown.open.medium ul {
   width: 254px !important;
 }
-/* line 237, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 239, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown.open.large ul {
   width: 434px !important;
 }
-/* line 238, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 240, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown.open.expand ul {
   width: 100% !important;
 }
-/* line 241, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 243, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown ul {
   position: absolute;
   width: auto;
@@ -817,7 +818,7 @@ form.custom div.custom.dropdown ul {
   background: rgba(255, 255, 255, 0.95);
   border: solid 1px #cccccc;
 }
-/* line 253, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 255, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown ul li {
   color: #555555;
   font-size: 13px;
@@ -831,57 +832,57 @@ form.custom div.custom.dropdown ul li {
   white-space: nowrap;
   list-style: none;
 }
-/* line 266, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 268, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown ul li.selected {
   background: #cdebf5;
   color: black;
 }
-/* line 269, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 271, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown ul li.selected:after {
   content: "\2013";
   position: absolute;
   right: 10px;
 }
-/* line 274, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 276, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown ul li:hover {
   background-color: #cdebf5;
   color: black;
 }
-/* line 277, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 279, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown ul li:hover:after {
   content: "\2013";
   position: absolute;
   right: 10px;
   color: #a3dbec;
 }
-/* line 283, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 285, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown ul li.selected:hover {
   background: #cdebf5;
   cursor: default;
   color: black;
 }
-/* line 287, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 289, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown ul li.selected:hover:after {
   color: black;
 }
-/* line 289, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 291, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom div.custom.dropdown ul.show {
   display: block;
 }
-/* line 293, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 295, ../../shurikend/sass/radix/_usual.forms.scss */
 form.custom .custom.disabled {
   background-color: #dddddd;
 }
 
 /* Correct FF custom dropdown height */
 @-moz-document url-prefix() {
-  /* line 298, ../../shurikend/sass/radix/_usual.forms.scss */
+  /* line 300, ../../shurikend/sass/radix/_usual.forms.scss */
   form.custom div.custom.dropdown a.selector {
     height: 28px;
   }
 }
 
-/* line 300, ../../shurikend/sass/radix/_usual.forms.scss */
+/* line 302, ../../shurikend/sass/radix/_usual.forms.scss */
 .lt-ie9 form.custom div.custom.dropdown a.selector {
   height: 28px;
 }
@@ -1350,7 +1351,8 @@ img {
 
 /* Normal Buttons ---------------------- */
 /* line 3, ../../shurikend/sass/modules/_module.buttons.scss */
-.button {
+.button, .button-next,
+.stepy-navigator input[type="submit"], .stepy-finish input[type="submit"] {
   width: auto;
   background: #154dad;
   border: 1px solid #0d2f69;
@@ -1381,79 +1383,100 @@ img {
   /* Disabled ---------- */
 }
 /* line 23, ../../shurikend/sass/modules/_module.buttons.scss */
-.button:hover, .button:focus {
+.button:hover, .button-next:hover,
+.stepy-navigator input[type="submit"]:hover, .stepy-finish input[type="submit"]:hover, .button:focus, .button-next:focus,
+.stepy-navigator input[type="submit"]:focus, .stepy-finish input[type="submit"]:focus {
   color: white;
   background-color: #0f3980;
 }
 /* line 27, ../../shurikend/sass/modules/_module.buttons.scss */
-.button:active {
+.button:active, .button-next:active,
+.stepy-navigator input[type="submit"]:active, .stepy-finish input[type="submit"]:active {
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3) inset;
   -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3) inset;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3) inset;
 }
 /* line 30, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.large {
+.button.large, .large.button-next,
+.stepy-navigator input.large[type="submit"], .stepy-finish input.large[type="submit"] {
   font-size: 17px;
   padding: 15px 30px 16px;
 }
 /* line 34, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.medium {
+.button.medium, .medium.button-next,
+.stepy-navigator input.medium[type="submit"], .stepy-finish input.medium[type="submit"] {
   font-size: 14px;
 }
 /* line 36, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.small {
+.button.small, .small.button-next,
+.stepy-navigator input.small[type="submit"], .stepy-finish input.small[type="submit"] {
   font-size: 11px;
   padding: 7px 14px 8px;
 }
 /* line 40, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.tiny {
+.button.tiny, .tiny.button-next,
+.stepy-navigator input.tiny[type="submit"], .stepy-finish input.tiny[type="submit"] {
   font-size: 10px;
   padding: 5px 10px 6px;
 }
 /* line 44, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.expand {
+.button.expand, .expand.button-next,
+.stepy-navigator input.expand[type="submit"], .stepy-finish input.expand[type="submit"] {
   width: 100%;
   text-align: center;
 }
 /* line 47, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.primary {
+.button.primary, .primary.button-next,
+.stepy-navigator input.primary[type="submit"], .stepy-finish input.primary[type="submit"] {
   background-color: #154dad;
   border: 1px solid #0d2f69;
 }
 /* line 51, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.primary:hover, .button.primary:focus {
+.button.primary:hover, .primary.button-next:hover,
+.stepy-navigator input.primary[type="submit"]:hover, .stepy-finish input.primary[type="submit"]:hover, .button.primary:focus, .primary.button-next:focus,
+.stepy-navigator input.primary[type="submit"]:focus, .stepy-finish input.primary[type="submit"]:focus {
   background-color: #0f3980;
 }
 /* line 54, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.success {
+.button.success, .success.button-next,
+.stepy-navigator input.success[type="submit"], .stepy-finish input.success[type="submit"] {
   background-color: #5da322;
   border: 1px solid #396415;
 }
 /* line 58, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.success:hover, .button.success:focus {
+.button.success:hover, .success.button-next:hover,
+.stepy-navigator input.success[type="submit"]:hover, .stepy-finish input.success[type="submit"]:hover, .button.success:focus, .success.button-next:focus,
+.stepy-navigator input.success[type="submit"]:focus, .stepy-finish input.success[type="submit"]:focus {
   background-color: #457919;
 }
 /* line 62, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.alert {
+.button.alert, .alert.button-next,
+.stepy-navigator input.alert[type="submit"], .stepy-finish input.alert[type="submit"] {
   background-color: #da0c05;
   border: 1px solid #8f0803;
 }
 /* line 66, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.alert:hover, .button.alert:focus {
+.button.alert:hover, .alert.button-next:hover,
+.stepy-navigator input.alert[type="submit"]:hover, .stepy-finish input.alert[type="submit"]:hover, .button.alert:focus, .alert.button-next:focus,
+.stepy-navigator input.alert[type="submit"]:focus, .stepy-finish input.alert[type="submit"]:focus {
   background-color: #a80904;
 }
 /* line 70, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.secondary {
+.button.secondary, .secondary.button-next,
+.stepy-navigator input.secondary[type="submit"], .stepy-finish input.secondary[type="submit"] {
   background-color: #848688;
   color: black;
   border: 1px solid #5e6061;
 }
 /* line 74, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.secondary:hover, .button.secondary:focus {
+.button.secondary:hover, .secondary.button-next:hover,
+.stepy-navigator input.secondary[type="submit"]:hover, .stepy-finish input.secondary[type="submit"]:hover, .button.secondary:focus, .secondary.button-next:focus,
+.stepy-navigator input.secondary[type="submit"]:focus, .stepy-finish input.secondary[type="submit"]:focus {
   background-color: #6b6d6e;
 }
 /* line 78, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.radius {
+.button.radius, .radius.button-next,
+.stepy-navigator input.radius[type="submit"], .stepy-finish input.radius[type="submit"] {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -1461,7 +1484,8 @@ img {
   border-radius: 3px;
 }
 /* line 79, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.round {
+.button.round, .round.button-next,
+.stepy-navigator input.round[type="submit"], .stepy-finish input.round[type="submit"] {
   -webkit-border-radius: 1000px;
   -moz-border-radius: 1000px;
   -ms-border-radius: 1000px;
@@ -1469,19 +1493,23 @@ img {
   border-radius: 1000px;
 }
 /* line 82, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.full-width {
+.button.full-width, .full-width.button-next,
+.stepy-navigator input.full-width[type="submit"], .stepy-finish input.full-width[type="submit"] {
   width: 100%;
   text-align: center;
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
 /* line 87, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.left-align {
+.button.left-align, .left-align.button-next,
+.stepy-navigator input.left-align[type="submit"], .stepy-finish input.left-align[type="submit"] {
   text-align: left;
   text-indent: 12px;
 }
 /* line 92, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.disabled, .button[disabled] {
+.button.disabled, .disabled.button-next,
+.stepy-navigator input.disabled[type="submit"], .stepy-finish input.disabled[type="submit"], .button[disabled], [disabled].button-next,
+.stepy-navigator input[disabled][type="submit"], .stepy-finish input[disabled][type="submit"] {
   opacity: 0.6;
   cursor: default;
   background: #154dad;
@@ -1490,40 +1518,61 @@ img {
   box-shadow: none;
 }
 /* line 97, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.disabled:hover, .button[disabled]:hover {
+.button.disabled:hover, .disabled.button-next:hover,
+.stepy-navigator input.disabled[type="submit"]:hover, .stepy-finish input.disabled[type="submit"]:hover, .button[disabled]:hover, [disabled].button-next:hover,
+.stepy-navigator input[disabled][type="submit"]:hover, .stepy-finish input[disabled][type="submit"]:hover {
   background: #154dad;
 }
 /* line 99, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.disabled.success, .button[disabled].success {
+.button.disabled.success, .disabled.success.button-next,
+.stepy-navigator input.disabled.success[type="submit"], .stepy-finish input.disabled.success[type="submit"], .button[disabled].success, [disabled].success.button-next,
+.stepy-navigator input[disabled].success[type="submit"], .stepy-finish input[disabled].success[type="submit"] {
   background-color: #5da322;
 }
 /* line 100, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.disabled.success:hover, .button.disabled.success:focus, .button[disabled].success:hover, .button[disabled].success:focus {
+.button.disabled.success:hover, .disabled.success.button-next:hover,
+.stepy-navigator input.disabled.success[type="submit"]:hover, .stepy-finish input.disabled.success[type="submit"]:hover, .button.disabled.success:focus, .disabled.success.button-next:focus,
+.stepy-navigator input.disabled.success[type="submit"]:focus, .stepy-finish input.disabled.success[type="submit"]:focus, .button[disabled].success:hover, [disabled].success.button-next:hover,
+.stepy-navigator input[disabled].success[type="submit"]:hover, .stepy-finish input[disabled].success[type="submit"]:hover, .button[disabled].success:focus, [disabled].success.button-next:focus,
+.stepy-navigator input[disabled].success[type="submit"]:focus, .stepy-finish input[disabled].success[type="submit"]:focus {
   background-color: #5da322;
   outline: none;
 }
 /* line 104, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.disabled.alert, .button[disabled].alert {
+.button.disabled.alert, .disabled.alert.button-next,
+.stepy-navigator input.disabled.alert[type="submit"], .stepy-finish input.disabled.alert[type="submit"], .button[disabled].alert, [disabled].alert.button-next,
+.stepy-navigator input[disabled].alert[type="submit"], .stepy-finish input[disabled].alert[type="submit"] {
   background-color: #da0c05;
 }
 /* line 106, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.disabled.alert:hover, .button.disabled.alert:focus, .button[disabled].alert:hover, .button[disabled].alert:focus {
+.button.disabled.alert:hover, .disabled.alert.button-next:hover,
+.stepy-navigator input.disabled.alert[type="submit"]:hover, .stepy-finish input.disabled.alert[type="submit"]:hover, .button.disabled.alert:focus, .disabled.alert.button-next:focus,
+.stepy-navigator input.disabled.alert[type="submit"]:focus, .stepy-finish input.disabled.alert[type="submit"]:focus, .button[disabled].alert:hover, [disabled].alert.button-next:hover,
+.stepy-navigator input[disabled].alert[type="submit"]:hover, .stepy-finish input[disabled].alert[type="submit"]:hover, .button[disabled].alert:focus, [disabled].alert.button-next:focus,
+.stepy-navigator input[disabled].alert[type="submit"]:focus, .stepy-finish input[disabled].alert[type="submit"]:focus {
   background-color: #da0c05;
   outline: none;
 }
 /* line 110, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.disabled.secondary, .button[disabled].secondary {
+.button.disabled.secondary, .disabled.secondary.button-next,
+.stepy-navigator input.disabled.secondary[type="submit"], .stepy-finish input.disabled.secondary[type="submit"], .button[disabled].secondary, [disabled].secondary.button-next,
+.stepy-navigator input[disabled].secondary[type="submit"], .stepy-finish input[disabled].secondary[type="submit"] {
   background-color: #848688;
 }
 /* line 111, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
+.button.disabled.secondary:hover, .disabled.secondary.button-next:hover,
+.stepy-navigator input.disabled.secondary[type="submit"]:hover, .stepy-finish input.disabled.secondary[type="submit"]:hover, .button.disabled.secondary:focus, .disabled.secondary.button-next:focus,
+.stepy-navigator input.disabled.secondary[type="submit"]:focus, .stepy-finish input.disabled.secondary[type="submit"]:focus, .button[disabled].secondary:hover, [disabled].secondary.button-next:hover,
+.stepy-navigator input[disabled].secondary[type="submit"]:hover, .stepy-finish input[disabled].secondary[type="submit"]:hover, .button[disabled].secondary:focus, [disabled].secondary.button-next:focus,
+.stepy-navigator input[disabled].secondary[type="submit"]:focus, .stepy-finish input[disabled].secondary[type="submit"]:focus {
   background-color: #848688;
   outline: none;
 }
 
 /* Don't use native buttons on iOS */
 /* line 119, ../../shurikend/sass/modules/_module.buttons.scss */
-input[type=submit].button, button.button {
+input[type=submit].button, input[type=submit].button-next,
+.stepy-navigator input[type=submit][type="submit"], .stepy-finish input[type=submit][type="submit"], button.button, button.button-next {
   -webkit-appearance: none;
 }
 
@@ -1536,29 +1585,35 @@ input[type=submit].button, button.button {
   }
 
   /* line 127, ../../shurikend/sass/modules/_module.buttons.scss */
-  input[type="submit"].tiny.button {
+  input[type="submit"].tiny.button, input[type="submit"].tiny.button-next,
+  .stepy-navigator input[type="submit"].tiny, .stepy-finish input[type="submit"].tiny {
     padding: 3px 10px 4px;
   }
 
   /* line 129, ../../shurikend/sass/modules/_module.buttons.scss */
-  input[type="submit"].small.button {
+  input[type="submit"].small.button, input[type="submit"].small.button-next,
+  .stepy-navigator input[type="submit"].small, .stepy-finish input[type="submit"].small {
     padding: 5px 14px 6px;
   }
 
   /* line 131, ../../shurikend/sass/modules/_module.buttons.scss */
-  input[type="submit"].button, input[type=submit].medium.button {
+  input[type="submit"].button, input[type="submit"].button-next,
+  .stepy-navigator input[type="submit"], .stepy-finish input[type="submit"], input[type=submit].medium.button, input[type=submit].medium.button-next,
+  .stepy-navigator input[type=submit].medium[type="submit"], .stepy-finish input[type=submit].medium[type="submit"] {
     padding: 8px 20px 9px;
   }
 
   /* line 133, ../../shurikend/sass/modules/_module.buttons.scss */
-  input[type="submit"].large.button {
+  input[type="submit"].large.button, input[type="submit"].large.button-next,
+  .stepy-navigator input[type="submit"].large, .stepy-finish input[type="submit"].large {
     padding: 13px 30px 14px;
   }
 }
 
 /* Buttons with Dropdowns ---------------------- */
 /* line 138, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown {
+.button.dropdown, .dropdown.button-next,
+.stepy-navigator input.dropdown[type="submit"], .stepy-finish input.dropdown[type="submit"] {
   position: relative;
   padding-right: 44px;
   /* Sizes */
@@ -1567,19 +1622,23 @@ input[type=submit].button, button.button {
   /* Split Dropdown Buttons */
 }
 /* line 141, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.large {
+.button.dropdown.large, .dropdown.large.button-next,
+.stepy-navigator input.dropdown.large[type="submit"], .stepy-finish input.dropdown.large[type="submit"] {
   padding-right: 60px;
 }
 /* line 143, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.small {
+.button.dropdown.small, .dropdown.small.button-next,
+.stepy-navigator input.dropdown.small[type="submit"], .stepy-finish input.dropdown.small[type="submit"] {
   padding-right: 28px;
 }
 /* line 145, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.tiny {
+.button.dropdown.tiny, .dropdown.tiny.button-next,
+.stepy-navigator input.dropdown.tiny[type="submit"], .stepy-finish input.dropdown.tiny[type="submit"] {
   padding-right: 20px;
 }
 /* line 148, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown:after {
+.button.dropdown:after, .dropdown.button-next:after,
+.stepy-navigator input.dropdown[type="submit"]:after, .stepy-finish input.dropdown[type="submit"]:after {
   content: "";
   display: block;
   width: 0;
@@ -1592,7 +1651,8 @@ input[type=submit].button, button.button {
   margin-top: -2px;
 }
 /* line 154, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.large:after {
+.button.dropdown.large:after, .dropdown.large.button-next:after,
+.stepy-navigator input.dropdown.large[type="submit"]:after, .stepy-finish input.dropdown.large[type="submit"]:after {
   content: "";
   display: block;
   width: 0;
@@ -1603,7 +1663,8 @@ input[type=submit].button, button.button {
   right: 30px;
 }
 /* line 159, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.small:after {
+.button.dropdown.small:after, .dropdown.small.button-next:after,
+.stepy-navigator input.dropdown.small[type="submit"]:after, .stepy-finish input.dropdown.small[type="submit"]:after {
   content: "";
   display: block;
   width: 0;
@@ -1614,7 +1675,8 @@ input[type=submit].button, button.button {
   right: 14px;
 }
 /* line 164, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.tiny:after {
+.button.dropdown.tiny:after, .dropdown.tiny.button-next:after,
+.stepy-navigator input.dropdown.tiny[type="submit"]:after, .stepy-finish input.dropdown.tiny[type="submit"]:after {
   content: "";
   display: block;
   width: 0;
@@ -1625,7 +1687,8 @@ input[type=submit].button, button.button {
   right: 10px;
 }
 /* line 170, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown > ul {
+.button.dropdown > ul, .dropdown.button-next > ul,
+.stepy-navigator input.dropdown[type="submit"] > ul, .stepy-finish input.dropdown[type="submit"] > ul {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -1643,7 +1706,8 @@ input[type=submit].button, button.button {
   z-index: 40;
 }
 /* line 184, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown > ul li {
+.button.dropdown > ul li, .dropdown.button-next > ul li,
+.stepy-navigator input.dropdown[type="submit"] > ul li, .stepy-finish input.dropdown[type="submit"] > ul li {
   width: 100%;
   cursor: pointer;
   padding: 0;
@@ -1654,7 +1718,9 @@ input[type=submit].button, button.button {
   list-style: none;
 }
 /* line 194, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown > ul li a, .button.dropdown > ul li button {
+.button.dropdown > ul li a, .dropdown.button-next > ul li a,
+.stepy-navigator input.dropdown[type="submit"] > ul li a, .stepy-finish input.dropdown[type="submit"] > ul li a, .button.dropdown > ul li button, .dropdown.button-next > ul li button,
+.stepy-navigator input.dropdown[type="submit"] > ul li button, .stepy-finish input.dropdown[type="submit"] > ul li button {
   display: block;
   color: #555;
   font-size: 13px;
@@ -1663,7 +1729,8 @@ input[type=submit].button, button.button {
   text-align: left;
 }
 /* line 202, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown > ul li button {
+.button.dropdown > ul li button, .dropdown.button-next > ul li button,
+.stepy-navigator input.dropdown[type="submit"] > ul li button, .stepy-finish input.dropdown[type="submit"] > ul li button {
   width: 100%;
   border: inherit;
   background: inherit;
@@ -1672,12 +1739,15 @@ input[type=submit].button, button.button {
   -webkit-font-smoothing: antialiased;
 }
 /* line 210, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown > ul li:hover, .button.dropdown > ul li:focus {
+.button.dropdown > ul li:hover, .dropdown.button-next > ul li:hover,
+.stepy-navigator input.dropdown[type="submit"] > ul li:hover, .stepy-finish input.dropdown[type="submit"] > ul li:hover, .button.dropdown > ul li:focus, .dropdown.button-next > ul li:focus,
+.stepy-navigator input.dropdown[type="submit"] > ul li:focus, .stepy-finish input.dropdown[type="submit"] > ul li:focus {
   background-color: #b2cbf6;
   color: #222;
 }
 /* line 213, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown > ul li.divider {
+.button.dropdown > ul li.divider, .dropdown.button-next > ul li.divider,
+.stepy-navigator input.dropdown[type="submit"] > ul li.divider, .stepy-finish input.dropdown[type="submit"] > ul li.divider {
   min-height: 0;
   padding: 0;
   height: 1px;
@@ -1685,20 +1755,24 @@ input[type=submit].button, button.button {
   background: #ededed;
 }
 /* line 222, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.up > ul {
+.button.dropdown.up > ul, .dropdown.up.button-next > ul,
+.stepy-navigator input.dropdown.up[type="submit"] > ul, .stepy-finish input.dropdown.up[type="submit"] > ul {
   border-top: 1px solid #cccccc;
   border-bottom: none;
 }
 /* line 226, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown ul.no-hover.show-dropdown {
+.button.dropdown ul.no-hover.show-dropdown, .dropdown.button-next ul.no-hover.show-dropdown,
+.stepy-navigator input.dropdown[type="submit"] ul.no-hover.show-dropdown, .stepy-finish input.dropdown[type="submit"] ul.no-hover.show-dropdown {
   display: block !important;
 }
 /* line 228, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown:hover > ul.no-hover {
+.button.dropdown:hover > ul.no-hover, .dropdown.button-next:hover > ul.no-hover,
+.stepy-navigator input.dropdown[type="submit"]:hover > ul.no-hover, .stepy-finish input.dropdown[type="submit"]:hover > ul.no-hover {
   display: none;
 }
 /* line 234, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split {
+.button.dropdown.split, .dropdown.split.button-next,
+.stepy-navigator input.dropdown.split[type="submit"], .stepy-finish input.dropdown.split[type="submit"] {
   padding: 0;
   position: relative;
   /* Sizes */
@@ -1706,27 +1780,37 @@ input[type=submit].button, button.button {
   /* Colors */
 }
 /* line 238, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split:after {
+.button.dropdown.split:after, .dropdown.split.button-next:after,
+.stepy-navigator input.dropdown.split[type="submit"]:after, .stepy-finish input.dropdown.split[type="submit"]:after {
   display: none;
 }
 /* line 239, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split:hover, .button.dropdown.split:focus {
+.button.dropdown.split:hover, .dropdown.split.button-next:hover,
+.stepy-navigator input.dropdown.split[type="submit"]:hover, .stepy-finish input.dropdown.split[type="submit"]:hover, .button.dropdown.split:focus, .dropdown.split.button-next:focus,
+.stepy-navigator input.dropdown.split[type="submit"]:focus, .stepy-finish input.dropdown.split[type="submit"]:focus {
   background-color: #154dad;
 }
 /* line 240, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.alert:hover, .button.dropdown.split.alert:focus {
+.button.dropdown.split.alert:hover, .dropdown.split.alert.button-next:hover,
+.stepy-navigator input.dropdown.split.alert[type="submit"]:hover, .stepy-finish input.dropdown.split.alert[type="submit"]:hover, .button.dropdown.split.alert:focus, .dropdown.split.alert.button-next:focus,
+.stepy-navigator input.dropdown.split.alert[type="submit"]:focus, .stepy-finish input.dropdown.split.alert[type="submit"]:focus {
   background-color: #da0c05;
 }
 /* line 241, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.success:hover, .button.dropdown.split.success:focus {
+.button.dropdown.split.success:hover, .dropdown.split.success.button-next:hover,
+.stepy-navigator input.dropdown.split.success[type="submit"]:hover, .stepy-finish input.dropdown.split.success[type="submit"]:hover, .button.dropdown.split.success:focus, .dropdown.split.success.button-next:focus,
+.stepy-navigator input.dropdown.split.success[type="submit"]:focus, .stepy-finish input.dropdown.split.success[type="submit"]:focus {
   background-color: #5da322;
 }
 /* line 242, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.secondary:hover, .button.dropdown.split.secondary:focus {
+.button.dropdown.split.secondary:hover, .dropdown.split.secondary.button-next:hover,
+.stepy-navigator input.dropdown.split.secondary[type="submit"]:hover, .stepy-finish input.dropdown.split.secondary[type="submit"]:hover, .button.dropdown.split.secondary:focus, .dropdown.split.secondary.button-next:focus,
+.stepy-navigator input.dropdown.split.secondary[type="submit"]:focus, .stepy-finish input.dropdown.split.secondary[type="submit"]:focus {
   background-color: #848688;
 }
 /* line 245, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split > a {
+.button.dropdown.split > a, .dropdown.split.button-next > a,
+.stepy-navigator input.dropdown.split[type="submit"] > a, .stepy-finish input.dropdown.split[type="submit"] > a {
   color: white;
   display: block;
   padding: 10px 50px 11px 20px;
@@ -1738,32 +1822,38 @@ input[type=submit].button, button.button {
   transition: background-color 0.15s ease-in-out;
 }
 /* line 253, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split > a:hover, .button.dropdown.split > a:focus {
+.button.dropdown.split > a:hover, .dropdown.split.button-next > a:hover,
+.stepy-navigator input.dropdown.split[type="submit"] > a:hover, .stepy-finish input.dropdown.split[type="submit"] > a:hover, .button.dropdown.split > a:focus, .dropdown.split.button-next > a:focus,
+.stepy-navigator input.dropdown.split[type="submit"] > a:focus, .stepy-finish input.dropdown.split[type="submit"] > a:focus {
   background-color: #0f3980;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
 }
 /* line 257, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.large > a {
+.button.dropdown.split.large > a, .dropdown.split.large.button-next > a,
+.stepy-navigator input.dropdown.split.large[type="submit"] > a, .stepy-finish input.dropdown.split.large[type="submit"] > a {
   padding: 15px 75px 16px 30px;
   padding-left: 30px;
   padding-right: 75px;
 }
 /* line 262, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.small > a {
+.button.dropdown.split.small > a, .dropdown.split.small.button-next > a,
+.stepy-navigator input.dropdown.split.small[type="submit"] > a, .stepy-finish input.dropdown.split.small[type="submit"] > a {
   padding: 7px 35px 8px 14px;
   padding-left: 14px;
   padding-right: 35px;
 }
 /* line 267, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.tiny > a {
+.button.dropdown.split.tiny > a, .dropdown.split.tiny.button-next > a,
+.stepy-navigator input.dropdown.split.tiny[type="submit"] > a, .stepy-finish input.dropdown.split.tiny[type="submit"] > a {
   padding: 5px 25px 6px 10px;
   padding-left: 10px;
   padding-right: 25px;
 }
 /* line 273, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split > span {
+.button.dropdown.split > span, .dropdown.split.button-next > span,
+.stepy-navigator input.dropdown.split[type="submit"] > span, .stepy-finish input.dropdown.split[type="submit"] > span {
   background-color: #154dad;
   position: absolute;
   right: 0;
@@ -1780,11 +1870,14 @@ input[type=submit].button, button.button {
   transition: background-color 0.15s ease-in-out;
 }
 /* line 282, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split > span:hover, .button.dropdown.split > span:focus {
+.button.dropdown.split > span:hover, .dropdown.split.button-next > span:hover,
+.stepy-navigator input.dropdown.split[type="submit"] > span:hover, .stepy-finish input.dropdown.split[type="submit"] > span:hover, .button.dropdown.split > span:focus, .dropdown.split.button-next > span:focus,
+.stepy-navigator input.dropdown.split[type="submit"] > span:focus, .stepy-finish input.dropdown.split[type="submit"] > span:focus {
   background-color: #0f3980;
 }
 /* line 284, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split > span:after {
+.button.dropdown.split > span:after, .dropdown.split.button-next > span:after,
+.stepy-navigator input.dropdown.split[type="submit"] > span:after, .stepy-finish input.dropdown.split[type="submit"] > span:after {
   content: "";
   display: block;
   width: 0;
@@ -1798,7 +1891,8 @@ input[type=submit].button, button.button {
   margin-top: -2px;
 }
 /* line 293, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.secondary > span:after {
+.button.dropdown.split.secondary > span:after, .dropdown.split.secondary.button-next > span:after,
+.stepy-navigator input.dropdown.split.secondary[type="submit"] > span:after, .stepy-finish input.dropdown.split.secondary[type="submit"] > span:after {
   content: "";
   display: block;
   width: 0;
@@ -1807,19 +1901,23 @@ input[type=submit].button, button.button {
   border-color: black transparent transparent transparent;
 }
 /* line 296, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.large span {
+.button.dropdown.split.large span, .dropdown.split.large.button-next span,
+.stepy-navigator input.dropdown.split.large[type="submit"] span, .stepy-finish input.dropdown.split.large[type="submit"] span {
   width: 45px;
 }
 /* line 297, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.small span {
+.button.dropdown.split.small span, .dropdown.split.small.button-next span,
+.stepy-navigator input.dropdown.split.small[type="submit"] span, .stepy-finish input.dropdown.split.small[type="submit"] span {
   width: 21px;
 }
 /* line 298, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.tiny span {
+.button.dropdown.split.tiny span, .dropdown.split.tiny.button-next span,
+.stepy-navigator input.dropdown.split.tiny[type="submit"] span, .stepy-finish input.dropdown.split.tiny[type="submit"] span {
   width: 15px;
 }
 /* line 300, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.large span:after {
+.button.dropdown.split.large span:after, .dropdown.split.large.button-next span:after,
+.stepy-navigator input.dropdown.split.large[type="submit"] span:after, .stepy-finish input.dropdown.split.large[type="submit"] span:after {
   content: "";
   display: block;
   width: 0;
@@ -1830,7 +1928,8 @@ input[type=submit].button, button.button {
   margin-left: -7px;
 }
 /* line 304, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.small span:after {
+.button.dropdown.split.small span:after, .dropdown.split.small.button-next span:after,
+.stepy-navigator input.dropdown.split.small[type="submit"] span:after, .stepy-finish input.dropdown.split.small[type="submit"] span:after {
   content: "";
   display: block;
   width: 0;
@@ -1841,7 +1940,8 @@ input[type=submit].button, button.button {
   margin-left: -4px;
 }
 /* line 309, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.tiny span:after {
+.button.dropdown.split.tiny span:after, .dropdown.split.tiny.button-next span:after,
+.stepy-navigator input.dropdown.split.tiny[type="submit"] span:after, .stepy-finish input.dropdown.split.tiny[type="submit"] span:after {
   content: "";
   display: block;
   width: 0;
@@ -1852,34 +1952,50 @@ input[type=submit].button, button.button {
   margin-left: -3px;
 }
 /* line 315, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.alert > span {
+.button.dropdown.split.alert > span, .dropdown.split.alert.button-next > span,
+.stepy-navigator input.dropdown.split.alert[type="submit"] > span, .stepy-finish input.dropdown.split.alert[type="submit"] > span {
   background-color: #da0c05;
   border-left-color: #8f0803;
 }
 /* line 319, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.success > span {
+.button.dropdown.split.success > span, .dropdown.split.success.button-next > span,
+.stepy-navigator input.dropdown.split.success[type="submit"] > span, .stepy-finish input.dropdown.split.success[type="submit"] > span {
   background-color: #5da322;
   border-left-color: #396415;
 }
 /* line 323, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.secondary > span {
+.button.dropdown.split.secondary > span, .dropdown.split.secondary.button-next > span,
+.stepy-navigator input.dropdown.split.secondary[type="submit"] > span, .stepy-finish input.dropdown.split.secondary[type="submit"] > span {
   background-color: #848688;
   border-left-color: #5e6061;
 }
 /* line 327, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.secondary > a {
+.button.dropdown.split.secondary > a, .dropdown.split.secondary.button-next > a,
+.stepy-navigator input.dropdown.split.secondary[type="submit"] > a, .stepy-finish input.dropdown.split.secondary[type="submit"] > a {
   color: black;
 }
 /* line 329, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.alert > a:hover, .button.dropdown.split.alert > span:hover, .button.dropdown.split.alert > a:focus, .button.dropdown.split.alert > span:focus {
+.button.dropdown.split.alert > a:hover, .dropdown.split.alert.button-next > a:hover,
+.stepy-navigator input.dropdown.split.alert[type="submit"] > a:hover, .stepy-finish input.dropdown.split.alert[type="submit"] > a:hover, .button.dropdown.split.alert > span:hover, .dropdown.split.alert.button-next > span:hover,
+.stepy-navigator input.dropdown.split.alert[type="submit"] > span:hover, .stepy-finish input.dropdown.split.alert[type="submit"] > span:hover, .button.dropdown.split.alert > a:focus, .dropdown.split.alert.button-next > a:focus,
+.stepy-navigator input.dropdown.split.alert[type="submit"] > a:focus, .stepy-finish input.dropdown.split.alert[type="submit"] > a:focus, .button.dropdown.split.alert > span:focus, .dropdown.split.alert.button-next > span:focus,
+.stepy-navigator input.dropdown.split.alert[type="submit"] > span:focus, .stepy-finish input.dropdown.split.alert[type="submit"] > span:focus {
   background-color: #a80904;
 }
 /* line 331, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.success > a:hover, .button.dropdown.split.success > span:hover, .button.dropdown.split.success > a:focus, .button.dropdown.split.success > span:focus {
+.button.dropdown.split.success > a:hover, .dropdown.split.success.button-next > a:hover,
+.stepy-navigator input.dropdown.split.success[type="submit"] > a:hover, .stepy-finish input.dropdown.split.success[type="submit"] > a:hover, .button.dropdown.split.success > span:hover, .dropdown.split.success.button-next > span:hover,
+.stepy-navigator input.dropdown.split.success[type="submit"] > span:hover, .stepy-finish input.dropdown.split.success[type="submit"] > span:hover, .button.dropdown.split.success > a:focus, .dropdown.split.success.button-next > a:focus,
+.stepy-navigator input.dropdown.split.success[type="submit"] > a:focus, .stepy-finish input.dropdown.split.success[type="submit"] > a:focus, .button.dropdown.split.success > span:focus, .dropdown.split.success.button-next > span:focus,
+.stepy-navigator input.dropdown.split.success[type="submit"] > span:focus, .stepy-finish input.dropdown.split.success[type="submit"] > span:focus {
   background-color: #457919;
 }
 /* line 333, ../../shurikend/sass/modules/_module.buttons.scss */
-.button.dropdown.split.secondary > a:hover, .button.dropdown.split.secondary > span:hover, .button.dropdown.split.secondary > a:focus, .button.dropdown.split.secondary > span:focus {
+.button.dropdown.split.secondary > a:hover, .dropdown.split.secondary.button-next > a:hover,
+.stepy-navigator input.dropdown.split.secondary[type="submit"] > a:hover, .stepy-finish input.dropdown.split.secondary[type="submit"] > a:hover, .button.dropdown.split.secondary > span:hover, .dropdown.split.secondary.button-next > span:hover,
+.stepy-navigator input.dropdown.split.secondary[type="submit"] > span:hover, .stepy-finish input.dropdown.split.secondary[type="submit"] > span:hover, .button.dropdown.split.secondary > a:focus, .dropdown.split.secondary.button-next > a:focus,
+.stepy-navigator input.dropdown.split.secondary[type="submit"] > a:focus, .stepy-finish input.dropdown.split.secondary[type="submit"] > a:focus, .button.dropdown.split.secondary > span:focus, .dropdown.split.secondary.button-next > span:focus,
+.stepy-navigator input.dropdown.split.secondary[type="submit"] > span:focus, .stepy-finish input.dropdown.split.secondary[type="submit"] > span:focus {
   background-color: #6b6d6e;
 }
 
@@ -1911,7 +2027,11 @@ ul.button-group li:first-child {
   margin-left: 0;
 }
 /* line 354, ../../shurikend/sass/modules/_module.buttons.scss */
-ul.button-group.radius li .button, ul.button-group.radius li .button.radius, ul.button-group.radius li .button-rounded {
+ul.button-group.radius li .button, ul.button-group.radius li .button-next,
+ul.button-group.radius li .stepy-navigator input[type="submit"],
+.stepy-navigator ul.button-group.radius li input[type="submit"], ul.button-group.radius li .stepy-finish input[type="submit"], .stepy-finish ul.button-group.radius li input[type="submit"], ul.button-group.radius li .button.radius, ul.button-group.radius li .radius.button-next,
+ul.button-group.radius li .stepy-navigator input.radius[type="submit"],
+.stepy-navigator ul.button-group.radius li input.radius[type="submit"], ul.button-group.radius li .stepy-finish input.radius[type="submit"], .stepy-finish ul.button-group.radius li input.radius[type="submit"], ul.button-group.radius li .button-rounded {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -ms-border-radius: 0px;
@@ -1919,7 +2039,11 @@ ul.button-group.radius li .button, ul.button-group.radius li .button.radius, ul.
   border-radius: 0px;
 }
 /* line 356, ../../shurikend/sass/modules/_module.buttons.scss */
-ul.button-group.radius li:first-child .button, ul.button-group.radius li:first-child .button.radius {
+ul.button-group.radius li:first-child .button, ul.button-group.radius li:first-child .button-next,
+ul.button-group.radius li:first-child .stepy-navigator input[type="submit"],
+.stepy-navigator ul.button-group.radius li:first-child input[type="submit"], ul.button-group.radius li:first-child .stepy-finish input[type="submit"], .stepy-finish ul.button-group.radius li:first-child input[type="submit"], ul.button-group.radius li:first-child .button.radius, ul.button-group.radius li:first-child .radius.button-next,
+ul.button-group.radius li:first-child .stepy-navigator input.radius[type="submit"],
+.stepy-navigator ul.button-group.radius li:first-child input.radius[type="submit"], ul.button-group.radius li:first-child .stepy-finish input.radius[type="submit"], .stepy-finish ul.button-group.radius li:first-child input.radius[type="submit"] {
   -moz-border-radius-topleft: 3px;
   -webkit-border-top-left-radius: 3px;
   border-top-left-radius: 3px;
@@ -1928,7 +2052,9 @@ ul.button-group.radius li:first-child .button, ul.button-group.radius li:first-c
   border-bottom-left-radius: 3px;
 }
 /* line 360, ../../shurikend/sass/modules/_module.buttons.scss */
-ul.button-group.radius li:first-child .button.rounded {
+ul.button-group.radius li:first-child .button.rounded, ul.button-group.radius li:first-child .rounded.button-next,
+ul.button-group.radius li:first-child .stepy-navigator input.rounded[type="submit"],
+.stepy-navigator ul.button-group.radius li:first-child input.rounded[type="submit"], ul.button-group.radius li:first-child .stepy-finish input.rounded[type="submit"], .stepy-finish ul.button-group.radius li:first-child input.rounded[type="submit"] {
   -moz-border-radius-topleft: 1000px;
   -webkit-border-top-left-radius: 1000px;
   border-top-left-radius: 1000px;
@@ -1937,7 +2063,11 @@ ul.button-group.radius li:first-child .button.rounded {
   border-bottom-left-radius: 1000px;
 }
 /* line 366, ../../shurikend/sass/modules/_module.buttons.scss */
-ul.button-group.radius li:last-child .button, ul.button-group.radius li:last-child .button.radius {
+ul.button-group.radius li:last-child .button, ul.button-group.radius li:last-child .button-next,
+ul.button-group.radius li:last-child .stepy-navigator input[type="submit"],
+.stepy-navigator ul.button-group.radius li:last-child input[type="submit"], ul.button-group.radius li:last-child .stepy-finish input[type="submit"], .stepy-finish ul.button-group.radius li:last-child input[type="submit"], ul.button-group.radius li:last-child .button.radius, ul.button-group.radius li:last-child .radius.button-next,
+ul.button-group.radius li:last-child .stepy-navigator input.radius[type="submit"],
+.stepy-navigator ul.button-group.radius li:last-child input.radius[type="submit"], ul.button-group.radius li:last-child .stepy-finish input.radius[type="submit"], .stepy-finish ul.button-group.radius li:last-child input.radius[type="submit"] {
   -moz-border-radius-topright: 3px;
   -webkit-border-top-right-radius: 3px;
   border-top-right-radius: 3px;
@@ -1946,7 +2076,9 @@ ul.button-group.radius li:last-child .button, ul.button-group.radius li:last-chi
   border-bottom-right-radius: 3px;
 }
 /* line 370, ../../shurikend/sass/modules/_module.buttons.scss */
-ul.button-group.radius li:last-child .button.rounded {
+ul.button-group.radius li:last-child .button.rounded, ul.button-group.radius li:last-child .rounded.button-next,
+ul.button-group.radius li:last-child .stepy-navigator input.rounded[type="submit"],
+.stepy-navigator ul.button-group.radius li:last-child input.rounded[type="submit"], ul.button-group.radius li:last-child .stepy-finish input.rounded[type="submit"], .stepy-finish ul.button-group.radius li:last-child input.rounded[type="submit"] {
   -moz-border-radius-topright: 1000px;
   -webkit-border-top-right-radius: 1000px;
   border-top-right-radius: 1000px;
@@ -1955,7 +2087,9 @@ ul.button-group.radius li:last-child .button.rounded {
   border-bottom-right-radius: 1000px;
 }
 /* line 377, ../../shurikend/sass/modules/_module.buttons.scss */
-ul.button-group.even .button {
+ul.button-group.even .button, ul.button-group.even .button-next,
+ul.button-group.even .stepy-navigator input[type="submit"],
+.stepy-navigator ul.button-group.even input[type="submit"], ul.button-group.even .stepy-finish input[type="submit"], .stepy-finish ul.button-group.even input[type="submit"] {
   width: 100%;
 }
 /* line 378, ../../shurikend/sass/modules/_module.buttons.scss */
@@ -2496,14 +2630,20 @@ div.alert-box a.close:hover, div.alert-box a.close:focus {
   color: #fff;
 }
 /* line 166, ../../shurikend/sass/modules/_module.ui.scss */
-.panel.callout .button {
+.panel.callout .button, .panel.callout .button-next,
+.panel.callout .stepy-navigator input[type="submit"],
+.stepy-navigator .panel.callout input[type="submit"], .panel.callout .stepy-finish input[type="submit"], .stepy-finish .panel.callout input[type="submit"] {
   background: white;
   border: none;
   color: #154dad;
   text-shadow: none;
 }
 /* line 168, ../../shurikend/sass/modules/_module.ui.scss */
-.panel.callout .button:hover, .panel.callout .button:focus {
+.panel.callout .button:hover, .panel.callout .button-next:hover,
+.panel.callout .stepy-navigator input[type="submit"]:hover,
+.stepy-navigator .panel.callout input[type="submit"]:hover, .panel.callout .stepy-finish input[type="submit"]:hover, .stepy-finish .panel.callout input[type="submit"]:hover, .panel.callout .button:focus, .panel.callout .button-next:focus,
+.panel.callout .stepy-navigator input[type="submit"]:focus,
+.stepy-navigator .panel.callout input[type="submit"]:focus, .panel.callout .stepy-finish input[type="submit"]:focus, .stepy-finish .panel.callout input[type="submit"]:focus {
   background: rgba(255, 255, 255, 0.8);
 }
 /* line 172, ../../shurikend/sass/modules/_module.ui.scss */
@@ -3909,12 +4049,15 @@ table.hide-for-medium {
   /*             */
   /* Basic overrides */
   /* line 266, ../../shurikend/sass/modules/_module.mqueries.scss */
-  .button {
+  .button, .button-next,
+  .stepy-navigator input[type="submit"], .stepy-finish input[type="submit"] {
     display: block;
   }
 
   /* line 267, ../../shurikend/sass/modules/_module.mqueries.scss */
-  button.button, input[type="submit"].button, input[type="reset"].button {
+  button.button, button.button-next, input[type="submit"].button, input[type="submit"].button-next,
+  .stepy-navigator input[type="submit"], .stepy-finish input[type="submit"], input[type="reset"].button, input[type="reset"].button-next,
+  .stepy-navigator input[type="reset"][type="submit"], .stepy-finish input[type="reset"][type="submit"] {
     width: 100%;
     padding-left: 0;
     padding-right: 0;
@@ -3922,28 +4065,40 @@ table.hide-for-medium {
 
   /* Button Groups */
   /* line 270, ../../shurikend/sass/modules/_module.mqueries.scss */
-  .button-group button.button, .button-group input[type="submit"].button {
+  .button-group button.button, .button-group button.button-next, .button-group input[type="submit"].button, .button-group input[type="submit"].button-next,
+  .button-group .stepy-navigator input[type="submit"],
+  .stepy-navigator .button-group input[type="submit"], .button-group .stepy-finish input[type="submit"], .stepy-finish .button-group input[type="submit"] {
     width: auto;
     padding: 10px 20px 11px;
   }
   /* line 271, ../../shurikend/sass/modules/_module.mqueries.scss */
-  .button-group button.button.large, .button-group input[type="submit"].button.large {
+  .button-group button.button.large, .button-group button.large.button-next, .button-group input[type="submit"].button.large, .button-group input[type="submit"].large.button-next,
+  .button-group .stepy-navigator input[type="submit"].large,
+  .stepy-navigator .button-group input[type="submit"].large, .button-group .stepy-finish input[type="submit"].large, .stepy-finish .button-group input[type="submit"].large {
     padding: 15px 30px 16px;
   }
   /* line 273, ../../shurikend/sass/modules/_module.mqueries.scss */
-  .button-group button.button.medium, .button-group input[type="submit"].button.medium {
+  .button-group button.button.medium, .button-group button.medium.button-next, .button-group input[type="submit"].button.medium, .button-group input[type="submit"].medium.button-next,
+  .button-group .stepy-navigator input[type="submit"].medium,
+  .stepy-navigator .button-group input[type="submit"].medium, .button-group .stepy-finish input[type="submit"].medium, .stepy-finish .button-group input[type="submit"].medium {
     padding: 10px 20px 11px;
   }
   /* line 275, ../../shurikend/sass/modules/_module.mqueries.scss */
-  .button-group button.button.small, .button-group input[type="submit"].button.small {
+  .button-group button.button.small, .button-group button.small.button-next, .button-group input[type="submit"].button.small, .button-group input[type="submit"].small.button-next,
+  .button-group .stepy-navigator input[type="submit"].small,
+  .stepy-navigator .button-group input[type="submit"].small, .button-group .stepy-finish input[type="submit"].small, .stepy-finish .button-group input[type="submit"].small {
     padding: 7px 14px 8px;
   }
   /* line 277, ../../shurikend/sass/modules/_module.mqueries.scss */
-  .button-group button.button.tiny, .button-group input[type="submit"].button.tiny {
+  .button-group button.button.tiny, .button-group button.tiny.button-next, .button-group input[type="submit"].button.tiny, .button-group input[type="submit"].tiny.button-next,
+  .button-group .stepy-navigator input[type="submit"].tiny,
+  .stepy-navigator .button-group input[type="submit"].tiny, .button-group .stepy-finish input[type="submit"].tiny, .stepy-finish .button-group input[type="submit"].tiny {
     padding: 5px 10px 6px;
   }
   /* line 279, ../../shurikend/sass/modules/_module.mqueries.scss */
-  .button-group.even button.button, .button-group.even input[type="submit"].button {
+  .button-group.even button.button, .button-group.even button.button-next, .button-group.even input[type="submit"].button, .button-group.even input[type="submit"].button-next,
+  .button-group.even .stepy-navigator input[type="submit"],
+  .stepy-navigator .button-group.even input[type="submit"], .button-group.even .stepy-finish input[type="submit"], .stepy-finish .button-group.even input[type="submit"] {
     width: 100%;
     padding-left: 0;
     padding-right: 0;
@@ -4319,7 +4474,9 @@ table.hide-for-medium {
     width: 75%;
   }
   /* line 524, ../../shurikend/sass/modules/_module.mqueries.scss */
-  .top-bar ul > li.search form .button {
+  .top-bar ul > li.search form .button, .top-bar ul > li.search form .button-next,
+  .top-bar ul > li.search form .stepy-navigator input[type="submit"],
+  .stepy-navigator .top-bar ul > li.search form input[type="submit"], .top-bar ul > li.search form .stepy-finish input[type="submit"], .stepy-finish .top-bar ul > li.search form input[type="submit"] {
     top: -1px;
     width: 25%;
   }
@@ -4511,23 +4668,25 @@ table.hide-for-medium {
   }
 
   /* line 656, ../../shurikend/sass/modules/_module.mqueries.scss */
-  .top-bar ul li .button.small {
+  .top-bar ul li .button.small, .top-bar ul li .small.button-next,
+  .top-bar ul li .stepy-navigator input.small[type="submit"],
+  .stepy-navigator .top-bar ul li input.small[type="submit"], .top-bar ul li .stepy-finish input.small[type="submit"], .stepy-finish .top-bar ul li input.small[type="submit"] {
     margin: 0 !important;
     display: inline-block;
     width: 100%;
   }
 
   /* line 658, ../../shurikend/sass/modules/_module.mqueries.scss */
-  .top-bar ul > li.has-button a.button {
+  .top-bar ul > li.has-button a.button, .top-bar ul > li.has-button a.button-next {
     margin: 0;
   }
 }
-/* line 1, ../../shurikend/sass/app/app.scss */
+/* line 3, ../../shurikend/sass/app/app.scss */
 #leftCulttume {
   padding-top: 200px;
 }
 
-/* line 4, ../../shurikend/sass/app/app.scss */
+/* line 6, ../../shurikend/sass/app/app.scss */
 #rightCulttume {
   padding-top: 0;
 }
@@ -4535,7 +4694,7 @@ table.hide-for-medium {
 /**
  * Grid container
  */
-/* line 11, ../../shurikend/sass/app/app.scss */
+/* line 13, ../../shurikend/sass/app/app.scss */
 #imgs {
   list-style-type: none;
   position: relative;
@@ -4545,7 +4704,7 @@ table.hide-for-medium {
   * Grid items
   */
 }
-/* line 18, ../../shurikend/sass/app/app.scss */
+/* line 20, ../../shurikend/sass/app/app.scss */
 #imgs li {
   width: 170px;
   background-color: #ffffff;
@@ -4561,25 +4720,25 @@ table.hide-for-medium {
    * Some extra styles to randomize heights of grid items.
   */
 }
-/* line 29, ../../shurikend/sass/app/app.scss */
+/* line 31, ../../shurikend/sass/app/app.scss */
 #imgs li img {
   display: block;
 }
-/* line 31, ../../shurikend/sass/app/app.scss */
+/* line 33, ../../shurikend/sass/app/app.scss */
 #imgs li p {
   color: #666;
   font-size: 12px;
   margin: 7px 0 0 7px;
 }
-/* line 39, ../../shurikend/sass/app/app.scss */
+/* line 41, ../../shurikend/sass/app/app.scss */
 #imgs li ali:nth-child(3n) {
   height: 175px;
 }
-/* line 41, ../../shurikend/sass/app/app.scss */
+/* line 43, ../../shurikend/sass/app/app.scss */
 #imgs li ali:nth-child(4n-3) {
   padding-bottom: 30px;
 }
-/* line 43, ../../shurikend/sass/app/app.scss */
+/* line 45, ../../shurikend/sass/app/app.scss */
 #imgs li ali:nth-child(5n) {
   height: 250px;
 }
@@ -4588,29 +4747,29 @@ table.hide-for-medium {
  * Grid item text
  */
 /** General page styling **/
-/* line 54, ../../shurikend/sass/app/app.scss */
+/* line 56, ../../shurikend/sass/app/app.scss */
 html {
   background-color: #e9e9e9;
 }
 
-/* line 56, ../../shurikend/sass/app/app.scss */
+/* line 58, ../../shurikend/sass/app/app.scss */
 ul li {
   font-size: inherit !important;
 }
 
-/* line 58, ../../shurikend/sass/app/app.scss */
+/* line 60, ../../shurikend/sass/app/app.scss */
 #main {
   padding: 30px 0 30px 0;
 }
 
-/* line 61, ../../shurikend/sass/app/app.scss */
+/* line 63, ../../shurikend/sass/app/app.scss */
 header h1 {
   text-align: center;
   font-size: 24px;
   font-weight: normal;
   margin: 30px 0 3px 0;
 }
-/* line 68, ../../shurikend/sass/app/app.scss */
+/* line 70, ../../shurikend/sass/app/app.scss */
 header p {
   text-align: center;
   font-size: 13px;
@@ -4619,44 +4778,41 @@ header p {
 }
 
 /* stepy -------------------------------------------- */
-/* line 77, ../../shurikend/sass/app/app.scss */
+/* line 79, ../../shurikend/sass/app/app.scss */
 .stepy-header {
   list-style: none;
   padding: 0;
   width: 400px;
 }
-/* line 82, ../../shurikend/sass/app/app.scss */
+/* line 84, ../../shurikend/sass/app/app.scss */
 .stepy-header li {
   cursor: pointer;
   float: left;
   padding: 10px;
+  /* .stepy-error { background: url('../demo/img/error.png') no-repeat right top; }*/
 }
-/* line 87, ../../shurikend/sass/app/app.scss */
-.stepy-header li .stepy-error {
-  background: url("../demo/img/error.png") no-repeat right top;
-}
-/* line 89, ../../shurikend/sass/app/app.scss */
+/* line 93, ../../shurikend/sass/app/app.scss */
 .stepy-header li div {
   color: #CCC;
   font: bold 2.8em inherit;
   text-shadow: 1px 1px #F8F8F8;
 }
-/* line 95, ../../shurikend/sass/app/app.scss */
+/* line 99, ../../shurikend/sass/app/app.scss */
 .stepy-header li .stepy-active div {
   color: #369;
   cursor: auto;
 }
-/* line 101, ../../shurikend/sass/app/app.scss */
+/* line 105, ../../shurikend/sass/app/app.scss */
 .stepy-header li span {
   color: #CCC;
   font: 1.4em inherit;
 }
-/* line 107, ../../shurikend/sass/app/app.scss */
+/* line 111, ../../shurikend/sass/app/app.scss */
 .stepy-header li .stepy-active span {
   color: #BBB;
 }
 
-/* line 112, ../../shurikend/sass/app/app.scss */
+/* line 116, ../../shurikend/sass/app/app.scss */
 .stepy-step {
   border: 1px solid #BBB;
   clear: left;
@@ -4668,14 +4824,14 @@ header p {
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 123, ../../shurikend/sass/app/app.scss */
+/* line 127, ../../shurikend/sass/app/app.scss */
 .stepy-step legend {
   color: #4080BF;
   font: bold 1.8em inherit;
   letter-spacing: .7px;
   padding: 0 2px 3px;
 }
-/* line 130, ../../shurikend/sass/app/app.scss */
+/* line 134, ../../shurikend/sass/app/app.scss */
 .stepy-step label {
   color: #222;
   display: block;
@@ -4683,7 +4839,7 @@ header p {
   letter-spacing: .7px;
   margin: 10px 0 3px 1px;
 }
-/* line 138, ../../shurikend/sass/app/app.scss */
+/* line 142, ../../shurikend/sass/app/app.scss */
 .stepy-step input, .stepy-step textarea, .stepy-step select {
   border: 1px solid #999;
   border-radius: 5px;
@@ -4694,84 +4850,83 @@ header p {
   padding: 3px;
   width: 90%;
 }
-/* line 149, ../../shurikend/sass/app/app.scss */
+/* line 153, ../../shurikend/sass/app/app.scss */
 .stepy-step select {
   height: 34px;
   padding-top: 5px;
 }
-/* line 154, ../../shurikend/sass/app/app.scss */
+/* line 158, ../../shurikend/sass/app/app.scss */
 .stepy-step textarea {
   height: 100px;
 }
 
-/* line 157, ../../shurikend/sass/app/app.scss */
+/* line 161, ../../shurikend/sass/app/app.scss */
 .stepy-navigator {
   height: 33px;
   margin-top: 20px;
 }
 
-/* line 161, ../../shurikend/sass/app/app.scss */
+/* line 165, ../../shurikend/sass/app/app.scss */
 .button-back {
   float: left;
 }
 
-/* line 163, ../../shurikend/sass/app/app.scss */
+/* line 167, ../../shurikend/sass/app/app.scss */
 .button-next, .stepy-navigator input[type="submit"] {
   float: right;
 }
 
 /* .button-back,*/
-/* line 167, ../../shurikend/sass/app/app.scss */
+/* line 171, ../../shurikend/sass/app/app.scss */
 .button-next,
 .stepy-navigator input[type="submit"] {
-  border: 1px solid #CCC;
-  color: #7F0055;
+  /*
+    border: 1px solid #CCC; 
+    color: #7F0055; 
+    cursor: pointer; 
+    font: 1.2em inherit; 
+    padding: 7px 15px 8px; 
+    text-decoration: none; 
+    -khtml-border-radius: 3px; 
+    -moz-border-radius: 3px; 
+    -opera-border-radius: 3px; 
+    -webkit-border-radius: 3px; 
+    border-radius: 3px; 
+  */
   cursor: pointer;
-  font: 1.2em inherit;
-  padding: 7px 15px 8px;
-  text-decoration: none;
-  -khtml-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -opera-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
 }
 
-/* line 181, ../../shurikend/sass/app/app.scss */
+/* line 189, ../../shurikend/sass/app/app.scss */
 .stepy-navigator input[type="submit"] {
-  background-color: transparent;
-  border-color: #CCC;
+  /*
+  background-color: transparent; 
+  border-color: #CCC; 
+  margin-bottom: 0; 
+  padding: 7px 15px 24px; 
+  width: 90px;
+  */
   margin-bottom: 0;
-  padding: 7px 15px 24px;
+  padding: 6px 14px 12px;
   width: 90px;
 }
 
 /* .button-back:hover, */
-/* line 191, ../../shurikend/sass/app/app.scss */
+/* line 205, ../../shurikend/sass/app/app.scss */
 .button-next:hover,
 .stepy-navigator input[type="submit"]:hover {
-  border-color: #BBB;
-  color: #bb0077;
+  /* border-color: #BBB; color: #B07 */
 }
 
 /* this class is defined by the developer */
-/* line 193, ../../shurikend/sass/app/app.scss */
-.stepy-finish input[type="submit"] {
-  font-size: inherit;
-  height: 45px;
-  margin-top: 10px;
-  width: 120px;
-}
-
 /* Progress Bar */
-/* line 201, ../../shurikend/sass/app/app.scss */
+/* line 215, ../../shurikend/sass/app/app.scss */
 #progressBar {
   width: 400px;
   height: 22px;
   border: 2px solid #F8F8F8;
   background-color: #ffffff;
 }
-/* line 207, ../../shurikend/sass/app/app.scss */
+/* line 221, ../../shurikend/sass/app/app.scss */
 #progressBar div {
   height: 100%;
   color: #fff;

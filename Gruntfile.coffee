@@ -62,6 +62,8 @@ module.exports = (grunt)->
 															   'dev/public/javascripts/shurikend.js',
 															   'dev/public/javascripts/jquery.wookmark.js',
 															   'dev/public/javascripts/jquery.validate.js',
+															   # Add localization file for spanish http://bit.ly/1d8PfiJ
+															   'dev/public/javascripts/localization/messages_es.js',
 															   'dev/public/javascripts/verimail.jquery.js',
 															   'dev/public/javascripts/socket.io.js',
 															   'dev/public/javascripts/jquery.stepy.js',
@@ -70,7 +72,7 @@ module.exports = (grunt)->
 		# obfuscate CSS													   	
 		cssmin:
 			my_target:
-				src: 'dev/public/css/shurikend.css'
+				src: 'dev/public/css/app.css'
 				dest: 'compiled/public/css/shurikend.css'
 
 	# Load modules for gruntjs
