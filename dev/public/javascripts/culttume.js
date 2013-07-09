@@ -6,15 +6,21 @@
     socket.on('connection', function(data) {
       return console.log(data);
     });
-    $('#imgs li').wookmark({
-      align: 'center',
-      autoResize: true,
-      container: $('#rightCulttume'),
-      itemWidth: 0,
-      offset: 2,
-      resizeDelay: 50,
-      flexibleWidth: 0,
-      onLayoutChanged: void 0
+    $('#imgs').imagesLoaded(function() {
+      var handler, options;
+
+      options = {
+        align: 'center',
+        autoResize: true,
+        container: $('#rightCulttume'),
+        itemWidth: 0,
+        offset: 2,
+        resizeDelay: 2,
+        flexibleWidth: 0,
+        onLayoutChanged: void 0
+      };
+      handler = $('#imgs li');
+      return handler.wookmark(options);
     });
     $('ol').hide();
     $(window).load(function() {

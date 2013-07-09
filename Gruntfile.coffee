@@ -60,6 +60,7 @@ module.exports = (grunt)->
 				files:
 					'compiled/public/javascripts/culttume.js':['dev/public/javascripts/modernizr.js',
 															   'dev/public/javascripts/shurikend.js',
+															   'dev/public/javascripts/jquery.imagesload.js',
 															   'dev/public/javascripts/jquery.wookmark.js',
 															   'dev/public/javascripts/jquery.validate.js',
 															   # Add localization file for spanish http://bit.ly/1d8PfiJ

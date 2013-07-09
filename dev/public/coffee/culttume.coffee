@@ -4,17 +4,23 @@ $(document).ready ->
 	# Ok ready!
 	socket.on 'connection', (data) ->
 		console.log data
+	
 	# gallery images
-	$('#imgs li').wookmark( 
-		align: 'center'
-		autoResize: true
-		container: $('#rightCulttume')
-		itemWidth: 0
-		offset: 2
-		resizeDelay: 50
-		flexibleWidth: 0
-		onLayoutChanged: undefined
-  	)
+	$('#imgs').imagesLoaded(()->
+		options = 
+			align: 'center'
+			autoResize: true # This will auto-update the layout when the browser window is resized.
+			container: $('#rightCulttume') # Optional, used for some extra CSS styling
+			itemWidth: 0 # Optional, the width of a grid item
+			offset: 2 # Optional, the distance between grid items
+			resizeDelay: 2
+			flexibleWidth: 0
+			onLayoutChanged: undefined
+		# Get a reference to your grid items.
+		handler = $('#imgs li')
+		# Call the layout function.
+		handler.wookmark(options))
+
 	# <ol> hide
 	$('ol').hide()
 	$(window).load(()->
