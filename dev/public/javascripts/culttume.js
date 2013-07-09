@@ -63,7 +63,7 @@
       return alert('hola culttume');
     });
     socket.on('fillData', function(data) {
-      $('#registerEmail').remove();
+      $('#registerEmail').hide();
       if (data.status === 1) {
         $('#wrongEmail').remove();
         $('#registrationForm').append('<div class="panel radius">' + '<h4 class="subheader">¡Bienvenido a culttu.me!</h4>' + '<h5 class="subheader"> Tu cuenta de correo electrónico es: </h5>' + '<div class="alert-box success" align="center">' + data.email + '</div>' + '<h5 class="subheader"> Si cerro tu registro, continua aquí: </h5>' + '<button class="button" id="closeWindow" href="javascript:void(0);">Continua con tu Registro</button>');
@@ -180,7 +180,7 @@
           socket.on('congratulationDetail', function(congrat) {
             $('#congratulationDetail').append('<div class="ten centered columns">' + '<span>' + congrat.name + '</span><span class="subheader"> Bienvenido a culttu.me</span>' + '</div>' + '<div class="twelve columns">' + '<hr class="lineFooterCulttume"></div>' + '<p> Recuerda que te enviaremos información y novedades' + ' al correo electrónico:</p>' + '<div class="twelve columns">' + '<div class="alert-box success" align="center">' + congrat.email + '</div></div><br />' + '<p>Acabas de ganar <span class="radius label"> +100 Puntos</span> en nuestro sistema, ' + 'que podrás canjear por premios sorpresa y todas las cosas que más te gustan de tus artistas ' + 'y creadores favoritos.</p>' + '<div class="three columns centered">' + '<img src="./img/modal/cup.png" /></div>');
             progressBar(100, $('#progressBar'));
-            $('#registrationForm').empty().append('<h4>Gracias</h4>' + '<h3>' + congrat.name + '</h3>' + '<h3>' + congrat.email + '</h3>' + '<p>Ahora ayúdanos a darnos a conocer entre tus amigos y redes sociales</p>');
+            $('#registrationForm').empty().append('<div class="twelve columns clearfix">' + '<div class="panel radius">' + '<h4 class="subheader">¡Bienvenido a culttu.me!</h4>' + '<h5 class="subheader">Te registraste como: <h4 class="subheader">' + congrat.name + '</h4></h5> ' + '<h5 class="subheader"> y tu email es: <h4 class="subheader">' + congrat.email + '</h4></h5> ' + '<h5 class="subheader">Ahora ayúdanos a darnos a conocer entre tus amigos y redes sociales</h5>' + '</div></div>');
             return $('#congratulation').reveal();
           });
         } else {

@@ -64,7 +64,7 @@ $(document).ready ->
 	)
 	# Received data for server
 	socket.on 'fillData', (data) ->
-		$('#registerEmail').remove()
+		$('#registerEmail').hide()
 		# verificate email
 		if data.status is 1
 			$('#wrongEmail').remove()
@@ -902,10 +902,13 @@ $(document).ready ->
 					)
 					progressBar 100, $('#progressBar')
 					$('#registrationForm').empty()
-										  .append('<h4>Gracias</h4>'+
-										  		  '<h3>' + congrat.name + '</h3>' +
-										  		  '<h3>' + congrat.email + '</h3>' +
-										  		  '<p>Ahora ayúdanos a darnos a conocer entre tus amigos y redes sociales</p>')
+										  .append('<div class="twelve columns clearfix">'+
+										  		  '<div class="panel radius">'+
+										  		  '<h4 class="subheader">¡Bienvenido a culttu.me!</h4>'+
+										  		  '<h5 class="subheader">Te registraste como: <h4 class="subheader">' + congrat.name + '</h4></h5> ' +
+										  		  '<h5 class="subheader"> y tu email es: <h4 class="subheader">' + congrat.email + '</h4></h5> ' +
+										  		  '<h5 class="subheader">Ahora ayúdanos a darnos a conocer entre tus amigos y redes sociales</h5>'+
+										  		  '</div></div>')
 					$('#congratulation').reveal()
 			else
 				$('div.stepy-error').empty()
