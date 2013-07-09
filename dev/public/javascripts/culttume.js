@@ -72,7 +72,7 @@
         return $('#moreData').reveal();
       } else {
         $('#moreData').remove();
-        $('#registrationForm').append('<div class="panel radius">' + '<h4 class="subheader">¡Bienvenido a culttu.me!</h4>' + '<h5 class="subheader"> Tu cuenta de correo electrónico: </h5>' + '<div class="alert-box success" align="center">' + data.email + '</div>' + '<h5 class="subheader">Ya esta registrada te invitamos a visitar ' + 'nuestras cuentas de redes sociales y el blog, ¡vienen sorpresas!</h5>');
+        $('#registrationForm').empty().append('<div class="panel radius">' + '<h4 class="subheader">¡Bienvenido a culttu.me!</h4>' + '<h5 class="subheader"> Tu cuenta de correo electrónico: </h5>' + '<div class="alert-box success" align="center">' + data.email + '</div>' + '<h5 class="subheader">Ya esta registrada te invitamos a visitar ' + 'nuestras cuentas de redes sociales y el blog, ¡vienen sorpresas!</h5>');
         return $('#wrongEmail').reveal();
       }
     });
