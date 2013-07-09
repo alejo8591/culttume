@@ -4777,7 +4777,7 @@ header p {
   margin: 0;
 }
 
-/* stepy -------------------------------------------- */
+/* ---------------------- stepy -------------------------------------------- */
 /* line 79, ../../shurikend/sass/app/app.scss */
 .stepy-header {
   list-style: none;
@@ -4918,7 +4918,7 @@ header p {
 }
 
 /* this class is defined by the developer */
-/* Progress Bar */
+/* ----------------- Progress Bar ----------------------------------------- */
 /* line 215, ../../shurikend/sass/app/app.scss */
 #progressBar {
   width: 400px;
@@ -4937,7 +4937,7 @@ header p {
   background-color: #154DAD;
 }
 
-/* Colors for email validation */
+/* ----------------- Colors for email validation ------------------------------ */
 /* line 231, ../../shurikend/sass/app/app.scss */
 #errorEmail {
   color: #5da322;
@@ -4976,7 +4976,7 @@ header p {
   overflow-x: hidden;
 }
 
-/* Opacitiy images */
+/* ----------------- Opacitiy images ---------------------------------*/
 /* line 261, ../../shurikend/sass/app/app.scss */
 footer div img {
   /* IE 8 */
@@ -4991,7 +4991,7 @@ footer div img {
   opacity: 0.25;
 }
 
-/* line 277, ../../shurikend/sass/app/app.scss */
+/* line 273, ../../shurikend/sass/app/app.scss */
 footer div img:hover {
   /* IE 8 */
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
