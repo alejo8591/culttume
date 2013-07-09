@@ -4,7 +4,7 @@ $(document).ready ->
 	# Ok ready!
 	socket.on 'connection', (data) ->
 		console.log data
-	# Terms and Conditions
+	# Terms and Conditions http://bit.ly/10L9TCV
 	$('#openTermsandConditions').on('click', 
 		(event)->
 			$('#termsandConditions').reveal())

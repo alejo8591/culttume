@@ -4975,3 +4975,32 @@ header p {
   overflow: scroll;
   overflow-x: hidden;
 }
+
+/* Opacitiy images */
+/* line 261, ../../shurikend/sass/app/app.scss */
+footer div img {
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";
+  /* IE 5-7 */
+  filter: alpha(opacity=25);
+  /* Netscape */
+  -moz-opacity: 0.25;
+  /* Safari 1.x */
+  -khtml-opacity: 0.25;
+  /* Good browsers */
+  opacity: 0.25;
+}
+
+/* line 277, ../../shurikend/sass/app/app.scss */
+footer div img:hover {
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  /* IE 5-7 */
+  filter: alpha(opacity=100);
+  /* Netscape */
+  -moz-opacity: 1;
+  /* Safari 1.x */
+  -khtml-opacity: 1;
+  /* Good browsers */
+  opacity: 1;
+}
