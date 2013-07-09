@@ -4936,3 +4936,22 @@ header p {
   width: 0;
   background-color: #154DAD;
 }
+
+/* Colors for email validation */
+/* line 231, ../../shurikend/sass/app/app.scss */
+#errorEmail {
+  color: #5da322;
+}
+/* line 233, ../../shurikend/sass/app/app.scss */
+#errorEmail .error, #errorEmail .stepy-header li .stepy-error, .stepy-header li #errorEmail .stepy-error {
+  color: #da0c05;
+}
+
+/* line 237, ../../shurikend/sass/app/app.scss */
+#status-message {
+  color: #5da322;
+}
+/* line 239, ../../shurikend/sass/app/app.scss */
+#status-message span.error, #status-message .stepy-header li span.stepy-error, .stepy-header li #status-message span.stepy-error {
+  color: #da0c05;
+}

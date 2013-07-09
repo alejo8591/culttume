@@ -50,7 +50,9 @@
       verification = new Comfirm.AlphaMail.Verimail();
       return verification.verify(email, function(status, message, suggestion) {
         if (status < 0) {
-          return $('#email').addClass('error'.append('<small class="error" id="errorEmail">Correo invalido</small>'));
+          $('#status-message').find('span').remove();
+          $('input#email').removeClass('error').addClass('error');
+          return $('#status-message').append('<span class="error" id="errorEmail">Correo invalido</span>');
         } else {
           $('#enterEmail').removeClass('error');
           $('#errorEmail').remove();
@@ -59,14 +61,11 @@
         }
       });
     });
-    $('button#closeWindow').click(function() {
-      return alert('hola culttume');
-    });
     socket.on('fillData', function(data) {
       $('#registerEmail').hide();
       if (data.status === 1) {
         $('#wrongEmail').remove();
-        $('#registrationForm').append('<div class="panel radius">' + '<h4 class="subheader">¡Bienvenido a culttu.me!</h4>' + '<h5 class="subheader"> Tu cuenta de correo electrónico es: </h5>' + '<div class="alert-box success" align="center">' + data.email + '</div>' + '<h5 class="subheader"> Si cerro tu registro, continua aquí: </h5>' + '<button class="button" id="closeWindow" href="javascript:void(0);">Continua con tu Registro</button>');
+        $('#registrationForm').append('<div class="panel radius">' + '<h4 class="subheader">¡Bienvenido a culttu.me!</h4>' + '<h5 class="subheader"> Tu cuenta de correo electrónico es: </h5>' + '<div class="alert-box success" align="center">' + data.email + '</div>' + '<h5 class="subheader"> Si cerro tu registro, continua aquí: </h5>' + '<button class="button" id="closeWindow" href="javascript:void(0);">Continua con tu Registro</button>' + '</div>');
         $('#results').append('<h3>Gracias ' + data.email + ' por tu registro</h3>');
         progressBar(30, $('#progressBar'));
         $('#msgRegisterCode').append('<label>Ingresa el siguiente código de seguridad en el campo de texto:  </label>' + '<div class="four columns centered">' + '<div class="alert-box alert" align="center">' + data.registerCode + '</div></div>');
@@ -76,6 +75,10 @@
         $('#registrationForm').append('<div class="panel radius">' + '<h4 class="subheader">¡Bienvenido a culttu.me!</h4>' + '<h5 class="subheader"> Tu cuenta de correo electrónico: </h5>' + '<div class="alert-box success" align="center">' + data.email + '</div>' + '<h5 class="subheader">Ya esta registrada te invitamos a visitar ' + 'nuestras cuentas de redes sociales y el blog, ¡vienen sorpresas!</h5>');
         return $('#wrongEmail').reveal();
       }
+    });
+    $('button#closeWindow').click(function() {
+      $('#allInfo').stepy('step', 1);
+      return $('#moreData').reveal();
     });
     $('#allInfo').stepy({
       validate: true,
@@ -125,8 +128,7 @@
         } else if ($('li.stepy-active div').text() === 'Paso 2') {
           $('div.stepy-error').empty();
           if ($('#profile').val() === 'Artista/Creativo' && $('#askAbout').val() !== 'Escoge una opción') {
-            $('#dataValidation').empty().append('<div id="dataValidationDetail"><h5>Escoge las opciones que te interesan:</h5>' + '<label for="checkbox1"><input type="checkbox" id="checkbox1" style="display: none;">' + '<span class="custom checkbox"></span> Crear perfil profesional</label>' + '<label for="checkbox2"><input type="checkbox" id="checkbox2" style="display: none;">' + '<span class="custom checkbox"></span> Sincronizar portafolios creativos (devianArt y Behance)</label>' + '<label for="checkbox3"><input type="checkbox" id="checkbox3" style="display: none;">' + '<span class="custom checkbox"></span> Compartir con mis redes sociales</label>' + '<label for="checkbox4"><input type="checkbox" id="checkbox4" style="display: none;">' + '<span class="custom checkbox"></span> Manejar mi propiedad intelectual</label>' + '<label for="checkbox5"><input type="checkbox" id="checkbox5" style="display: none;">' + '<span class="custom checkbox"></span> Mi mercadeo y comunicaciones</label>' + '<label for="checkbox6"><input type="checkbox" id="checkbox6" style="display: none;">' + '<span class="custom checkbox"></span> Usar <em>toolkit</em> para manejar mi carrera creativa</label>' + '<label for="checkbox7"><input type="checkbox" id="checkbox7" style="display: none;">' + '<span class="custom checkbox"></span> Finanzas para creativos</label>' + '<label for="checkbox8"><input type="checkbox" id="checkbox8" style="display: none;">' + '<span class="custom checkbox"></span> Vender mis servicios y obras</label>' + '<label for="checkbox9"><input type="checkbox" id="checkbox9" style="display: none;">' + '<span class="custom checkbox"></span> Solicitar asesoría especializada</label>' + '<label for="checkbox10"><input type="checkbox" id="checkbox10" style="display: none;">' + '<span class="custom checkbox"></span> Acceso a cursos online</label>' + '<label for="checkbox11"><input type="checkbox" id="checkbox11" style="display: none;">' + '<span class="custom checkbox"></span> Aplicar a ofertas</label><label for="checkbox12">' + '<input type="checkbox" id="checkbox12" style="display: none;">' + '<span class="custom checkbox"></span> Ver concursos</label>' + '<br /><small>Al enviar esta información, Acepto los términos y condiciones de culttu.me</small></div>');
-            return progressBar(80, $('#progressBar'));
+            return $('#dataValidation').empty().append('<div id="dataValidationDetail"><h5>Escoge las opciones que te interesan:</h5>' + '<label for="checkbox1"><input type="checkbox" id="checkbox1" style="display: none;">' + '<span class="custom checkbox"></span> Crear perfil profesional</label>' + '<label for="checkbox2"><input type="checkbox" id="checkbox2" style="display: none;">' + '<span class="custom checkbox"></span> Sincronizar portafolios creativos (devianArt y Behance)</label>' + '<label for="checkbox3"><input type="checkbox" id="checkbox3" style="display: none;">' + '<span class="custom checkbox"></span> Compartir con mis redes sociales</label>' + '<label for="checkbox4"><input type="checkbox" id="checkbox4" style="display: none;">' + '<span class="custom checkbox"></span> Manejar mi propiedad intelectual</label>' + '<label for="checkbox5"><input type="checkbox" id="checkbox5" style="display: none;">' + '<span class="custom checkbox"></span> Mi mercadeo y comunicaciones</label>' + '<label for="checkbox6"><input type="checkbox" id="checkbox6" style="display: none;">' + '<span class="custom checkbox"></span> Usar <em>toolkit</em> para manejar mi carrera creativa</label>' + '<label for="checkbox7"><input type="checkbox" id="checkbox7" style="display: none;">' + '<span class="custom checkbox"></span> Finanzas para creativos</label>' + '<label for="checkbox8"><input type="checkbox" id="checkbox8" style="display: none;">' + '<span class="custom checkbox"></span> Vender mis servicios y obras</label>' + '<label for="checkbox9"><input type="checkbox" id="checkbox9" style="display: none;">' + '<span class="custom checkbox"></span> Solicitar asesoría especializada</label>' + '<label for="checkbox10"><input type="checkbox" id="checkbox10" style="display: none;">' + '<span class="custom checkbox"></span> Acceso a cursos online</label>' + '<label for="checkbox11"><input type="checkbox" id="checkbox11" style="display: none;">' + '<span class="custom checkbox"></span> Aplicar a ofertas</label><label for="checkbox12">' + '<input type="checkbox" id="checkbox12" style="display: none;">' + '<span class="custom checkbox"></span> Ver concursos</label>' + '<br /><small>Al enviar esta información, Acepto los términos y condiciones de culttu.me</small></div>');
           } else if ($('#profile').val() === 'Seguidor/Fan' && $('#askAbout').val() !== 'Escoge una opción') {
             $('#dataValidation').empty().append('<div id="dataValidationDetail"><h5>Escoge las opciones que te interesan:</h5>' + '<label for="checkbox1"><input type="checkbox" id="checkbox1" style="display: none;">' + '<span class="custom checkbox"></span> Crear perfil y comenzar la experiencia</label>' + '<label for="checkbox2"><input type="checkbox" id="checkbox2" style="display: none;">' + '<span class="custom checkbox"></span> Crear mi <em>“play list”</em> de artistas digitales</label>' + '<label for="checkbox3"><input type="checkbox" id="checkbox3" style="display: none;">' + '<span class="custom checkbox"></span> Actividades para fans (concursos y juegos)</label>' + '<label for="checkbox4"><input type="checkbox" id="checkbox4" style="display: none;">' + '<span class="custom checkbox"></span> Votar por mi artista favorito</label>' + '<label for="checkbox5"><input type="checkbox" id="checkbox5" style="display: none;">' + '<span class="custom checkbox"></span> Ganar puntos</label>' + '<label for="checkbox6"><input type="checkbox" id="checkbox6" style="display: none;">' + '<span class="custom checkbox"></span> Ganar premios</label>' + '<br /><small>Al enviar esta información, Acepto los términos y condiciones de culttu.me</small></div>');
             return progressBar(80, $('#progressBar'));

@@ -49,35 +49,34 @@ $(document).ready ->
 		# final validation
 		verification.verify(email, (status, message,suggestion)->
 			if status < 0
-				$('#email').addClass 'error'
-				# $('#enterEmail').addClass('error')
-				.append '<small class="error" id="errorEmail">Correo invalido</small>' 
+				$('#status-message').find('span')
+								.remove()
+				$('input#email').removeClass('error')
+					            .addClass 'error'
+		
+				$('#status-message').append '<span class="error" id="errorEmail">Correo invalido</span>' 
 			else
 				$('#enterEmail').removeClass 'error'
 				$('#errorEmail').remove()
 				$('#email').removeClass 'error'
 				socket.emit 'registerEmail', $('#email').val()
 		)
-	# close windows in register
-	$('button#closeWindow').click(()->
-		alert 'hola culttume'
-	)
 	# Received data for server
 	socket.on 'fillData', (data) ->
 		$('#registerEmail').hide()
 		# verificate email
 		if data.status is 1
 			$('#wrongEmail').remove()
-			$('#registrationForm').append(
-				'<div class="panel radius">'+
-				'<h4 class="subheader">¡Bienvenido a culttu.me!</h4>'+
-				'<h5 class="subheader"> Tu cuenta de correo electrónico es: </h5>'+
-				'<div class="alert-box success" align="center">' + data.email + '</div>' +
-				'<h5 class="subheader"> Si cerro tu registro, continua aquí: </h5>'+
-				'<button class="button" id="closeWindow" href="javascript:void(0);">Continua con tu Registro</button>'
-			)
+			$('#registrationForm').append('<div class="panel radius">'+
+										  '<h4 class="subheader">¡Bienvenido a culttu.me!</h4>'+
+										  '<h5 class="subheader"> Tu cuenta de correo electrónico es: </h5>'+
+										  '<div class="alert-box success" align="center">' + data.email + '</div>' +
+										  '<h5 class="subheader"> Si cerro tu registro, continua aquí: </h5>'+
+										  '<button class="button" id="closeWindow" href="javascript:void(0);">Continua con tu Registro</button>'+
+										  '</div>')
+			# add register code
 			$('#results').append '<h3>Gracias ' + data.email + ' por tu registro</h3>'
-			
+			# 
 			progressBar 30, $('#progressBar')
 			# add code in form `allInfo`
 			$('#msgRegisterCode').append('<label>Ingresa el siguiente código de seguridad en el campo de texto:  </label>' + 
@@ -97,6 +96,10 @@ $(document).ready ->
 				'nuestras cuentas de redes sociales y el blog, ¡vienen sorpresas!</h5>'
 			)
 			$('#wrongEmail').reveal()
+	# close windows in register
+	$('button#closeWindow').click(()->
+		$('#allInfo').stepy('step' , 1)
+		$('#moreData').reveal())
 
 	# Principal Form data
 	$('#allInfo').stepy(
@@ -814,7 +817,7 @@ $(document).ready ->
 								  		  '<span class="custom checkbox"></span> Ver concursos</label>'+
 								  		  '<br /><small>Al enviar esta información, Acepto los términos y condiciones de culttu.me</small></div>')
 					
-					progressBar 80, $('#progressBar')
+					# progressBar 80, $('#progressBar')
 				
 				else if $('#profile').val() is 'Seguidor/Fan' and $('#askAbout').val() isnt 'Escoge una opción'
 					$('#dataValidation').empty()
