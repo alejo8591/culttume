@@ -4955,3 +4955,23 @@ header p {
 #status-message span.error, #status-message .stepy-header li span.stepy-error, .stepy-header li #status-message span.stepy-error {
   color: #da0c05;
 }
+
+/* Srolling text in terms and conditions */
+/* line 244, ../../shurikend/sass/app/app.scss */
+.divToScroll {
+  background-color: #F5F5F5;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px 0 4px 0;
+  color: #3B3C3E;
+  font-size: 12px;
+  font-weight: bold;
+  left: -1px;
+  padding: 10px 7px 5px;
+}
+
+/* line 255, ../../shurikend/sass/app/app.scss */
+.divWithScroll {
+  height: 400px;
+  overflow: scroll;
+  overflow-x: hidden;
+}

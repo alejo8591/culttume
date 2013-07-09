@@ -4,7 +4,10 @@ $(document).ready ->
 	# Ok ready!
 	socket.on 'connection', (data) ->
 		console.log data
-	
+	# Terms and Conditions
+	$('#openTermsandConditions').on('click', 
+		(event)->
+			$('#termsandConditions').reveal())
 	# gallery images
 	$('#imgs').imagesLoaded(()->
 		options = 

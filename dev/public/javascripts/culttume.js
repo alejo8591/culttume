@@ -6,6 +6,9 @@
     socket.on('connection', function(data) {
       return console.log(data);
     });
+    $('#openTermsandConditions').on('click', function(event) {
+      return $('#termsandConditions').reveal();
+    });
     $('#imgs').imagesLoaded(function() {
       var handler, options;
 
