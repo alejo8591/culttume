@@ -9,6 +9,9 @@
     $('#openTermsandConditions').on('click', function(event) {
       return $('#termsandConditions').reveal();
     });
+    $('#imgs > li').each(function() {
+      return $(this).hoverdir();
+    });
     $('#imgs').imagesLoaded(function() {
       var handler, options;
 

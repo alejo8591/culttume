@@ -8,6 +8,11 @@ $(document).ready ->
 	$('#openTermsandConditions').on('click', 
 		(event)->
 			$('#termsandConditions').reveal())
+	# rollover iamges
+	$('#imgs > li').each( 
+		()->  
+			$(this).hoverdir()
+	)
 	# gallery images
 	$('#imgs').imagesLoaded(()->
 		options = 

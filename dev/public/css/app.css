@@ -20,7 +20,7 @@ html {
 /* line 10, ../../shurikend/sass/radix/_usual.globals.scss */
 body {
   background: white;
-  font-family: "Expletus Sans", Helvetica, Arial, sans-serif;
+  font-family: "Josefina Slab", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   font-size: 14px;
@@ -155,7 +155,7 @@ aside p {
 
 /* line 27, ../../shurikend/sass/radix/_usual.typography.scss */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Expletus Sans", Helvetica, Arial, sans-serif;
+  font-family: "Josefina Slab", Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-style: normal;
   color: #222222;
@@ -5003,4 +5003,33 @@ footer div img:hover {
   -khtml-opacity: 1;
   /* Good browsers */
   opacity: 1;
+}
+
+/* --------------- Rollover images -----------------------------------*/
+/* line 288, ../../shurikend/sass/app/app.scss */
+.da-thumbs li {
+  float: left;
+  margin: 5px;
+  background: #fff;
+  padding: 8px;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+/* line 297, ../../shurikend/sass/app/app.scss */
+.da-thumbs li, .da-thumbs li img {
+  display: block;
+  position: relative;
+}
+/* line 301, ../../shurikend/sass/app/app.scss */
+.da-thumbs li {
+  overflow: hidden;
+}
+/* line 303, ../../shurikend/sass/app/app.scss */
+.da-thumbs li div {
+  font-family: "Josefina Slab", Helvetica, Arial, sans-serif;
+  color: #fff;
+  position: absolute;
+  background: rgba(250, 250, 250, 0.7);
+  width: 100%;
+  height: 100%;
 }

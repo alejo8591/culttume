@@ -69,6 +69,7 @@ module.exports = (grunt)->
 															   'dev/public/javascripts/socket.io.js',
 															   'dev/public/javascripts/jquery.stepy.js',
 															   'dev/public/javascripts/progressbar.js',
+															   'dev/public/javascripts/jquery.hoverdir.js',
 															   'dev/public/javascripts/culttume.js']
 		# obfuscate CSS													   	
 		cssmin:
