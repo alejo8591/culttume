@@ -48,7 +48,7 @@ module.exports = (grunt)->
 						debug: true
 				files:
 					'compiled/views/index.jade':'dev/views/index.jade'
-		# uglify files			
+		# uglify for JS files			
 		uglify:
 			my_target:
 				files:
