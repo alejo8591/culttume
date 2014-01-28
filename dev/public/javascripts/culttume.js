@@ -1,7 +1,6 @@
 (function() {
   $(document).ready(function() {
     var hideRide, socket;
-
     socket = io.connect('http://localhost');
     socket.on('connection', function(data) {
       return console.log(data);
@@ -14,7 +13,6 @@
     });
     $('#imgs').imagesLoaded(function() {
       var handler, options;
-
       options = {
         align: 'center',
         autoResize: true,
@@ -57,7 +55,6 @@
     });
     $('#register').on('click', function(event) {
       var email, verification;
-
       email = $('#email').val();
       verification = new Comfirm.AlphaMail.Verimail();
       return verification.verify(email, function(status, message, suggestion) {
@@ -117,7 +114,6 @@
                 progressBar(35, $('#progressBar'));
                 return $('#country').change(function() {
                   var country;
-
                   country = $('#country').find('option:selected');
                   if (country.val() === 'Colombia' && country.val() !== 'Selecciona tu Pais') {
                     $('#dataInfoDetail').empty();
@@ -155,7 +151,6 @@
       },
       finish: function() {
         var age, check, city, country, data, selectOption, _i;
-
         data = {};
         data.services = [];
         data.profile = $('#profile').val();

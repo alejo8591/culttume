@@ -9,7 +9,6 @@
 
   exports.sendmail = function(emailPersonal, registerCode) {
     var message, transport, transports;
-
     transport = nodemailer.createTransport('SMTP', {
       service: 'Gmail',
       auth: {
