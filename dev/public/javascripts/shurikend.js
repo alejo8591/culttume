@@ -11,7 +11,6 @@
 
   (function($, document, undefined_) {
     var config, decoded, pluses, raw;
-
     raw = function(s) {
       return s;
     };
@@ -21,7 +20,6 @@
     pluses = /\+/g;
     config = $.cookie = function(key, value, options) {
       var cookie, cookies, days, decode, i, l, parts, t;
-
       if (value !== undefined) {
         options = $.extend({}, config.defaults, options);
         if (value === null) {
@@ -76,13 +74,10 @@
     }
   })(function(jQuery, undefined_) {
     var Timer, activeMouseend, activeMousemove, activeTouchend, activeTouchmove, add, addMethod, changedTouch, checkThreshold, endEvent, flagAsHandled, handled, identifiedTouch, ignoreTags, isLeftButton, mousedown, mouseend, mouseevents, mousemove, preventDefault, preventIgnoreTags, remove, removeActiveMouse, removeActiveTouch, removeMethod, removeMouse, removeTouch, requestFrame, returnFalse, returnTrue, setup, teardown, threshold, touchend, touchevents, touchmove, touchstart, trigger, triggerStart, updateEvent;
-
     Timer = function(fn) {
       var active, callback, running, trigger;
-
       trigger = function(time) {
         var active, running;
-
         if (active) {
           callback();
           requestFrame(trigger);
@@ -103,7 +98,6 @@
       };
       return this.end = function(fn) {
         var cb;
-
         cb = callback;
         if (!fn) {
           return;
@@ -139,7 +133,6 @@
     };
     identifiedTouch = function(touchList, id) {
       var i, l;
-
       i = undefined_;
       l = undefined_;
       if (touchList.identifiedTouch) {
@@ -149,7 +142,6 @@
       l = touchList.length;
       if ((function() {
         var _results;
-
         _results = [];
         while (++i < l) {
           _results.push(touchList[i].identifier === id);
@@ -161,7 +153,6 @@
     };
     changedTouch = function(e, event) {
       var touch;
-
       touch = identifiedTouch(e.changedTouches, event.identifier);
       if (!touch) {
         return;
@@ -173,7 +164,6 @@
     };
     mousedown = function(e) {
       var data;
-
       data = undefined_;
       if (!isLeftButton(e)) {
         return;
@@ -189,7 +179,6 @@
     };
     mousemove = function(e) {
       var data;
-
       data = e.data;
       return checkThreshold(e, data, e, removeMouse);
     };
@@ -202,7 +191,6 @@
     };
     touchstart = function(e) {
       var template, touch;
-
       touch = undefined_;
       template = undefined_;
       if (ignoreTags[e.target.tagName.toLowerCase()]) {
@@ -221,7 +209,6 @@
     };
     touchmove = function(e) {
       var data, touch;
-
       data = e.data;
       touch = changedTouch(e, data);
       if (!touch) {
@@ -231,7 +218,6 @@
     };
     touchend = function(e) {
       var template, touch;
-
       template = e.data;
       touch = identifiedTouch(e.changedTouches, template.identifier);
       if (!touch) {
@@ -245,7 +231,6 @@
     };
     checkThreshold = function(e, template, touch, fn) {
       var distX, distY;
-
       distX = touch.pageX - template.startX;
       distY = touch.pageY - template.startY;
       if ((distX * distX) + (distY * distY) < (threshold * threshold)) {
@@ -262,7 +247,6 @@
     };
     triggerStart = function(e, template, touch, distX, distY, fn) {
       var node, time, touches;
-
       node = template.target;
       touches = undefined_;
       time = undefined_;
@@ -288,14 +272,12 @@
     };
     activeMousemove = function(e) {
       var event, timer;
-
       event = e.data.event;
       timer = e.data.timer;
       return updateEvent(event, e, e.timeStamp, timer);
     };
     activeMouseend = function(e) {
       var event, timer;
-
       event = e.data.event;
       timer = e.data.timer;
       removeActiveMouse();
@@ -311,7 +293,6 @@
     };
     activeTouchmove = function(e) {
       var event, timer, touch;
-
       event = e.data.event;
       timer = e.data.timer;
       touch = changedTouch(e, event);
@@ -324,7 +305,6 @@
     };
     activeTouchend = function(e) {
       var event, timer, touch;
-
       event = e.data.event;
       timer = e.data.timer;
       touch = identifiedTouch(e.changedTouches, event.identifier);
@@ -340,7 +320,6 @@
     };
     updateEvent = function(event, touch, timeStamp, timer) {
       var time;
-
       time = timeStamp - event.timeStamp;
       event.type = "move";
       event.distX = touch.pageX - event.startX;
@@ -420,7 +399,6 @@
       remove: removeMethod,
       _default: function(e) {
         var data, template;
-
         template = undefined_;
         data = undefined_;
         if (!e._handled()) {
@@ -481,12 +459,10 @@
     if (typeof Array.prototype.indexOf === "function") {
       return (function(jQuery, undefined_) {
         var l, props;
-
         props = ["changedTouches", "targetTouches"];
         l = props.length;
         if ((function() {
           var _results;
-
           _results = [];
           while (l--) {
             _results.push(jQuery.event.props.indexOf(props[l]) === -1);
@@ -516,10 +492,8 @@
     }
   })(function(jQuery, undefined_) {
     var add, getData, moveend, remove, settings, trigger;
-
     moveend = function(e) {
       var event, h, w;
-
       w = undefined_;
       h = undefined_;
       event = undefined_;
@@ -560,7 +534,6 @@
     };
     getData = function(node) {
       var data;
-
       data = jQuery.data(node, "event_swipe");
       if (!data) {
         data = {
@@ -590,7 +563,6 @@
       },
       teardown: function() {
         var data;
-
         data = getData(this);
         if (--data.count > 0) {
           return;
@@ -613,7 +585,6 @@
 (function() {
   (function(window, document, $) {
     var $selector1, $selector2, $selector3, $selector5, events;
-
     $selector1 = $("#topMenu");
     events = "click.fndtn";
     if ($selector1.length > 0) {
@@ -637,7 +608,6 @@
     if ($selector5.length > 0) {
       $("#switchPanels dd").on(events, function(e) {
         var switchToIndex, switchToPanel;
-
         e.preventDefault();
         switchToPanel = $(this).children("a").attr("href");
         switchToIndex = $(switchToPanel).index();
@@ -647,7 +617,6 @@
     }
     return $("#nav li a").on(events, function(e) {
       var $target, href;
-
       e.preventDefault();
       href = $(this).attr("href");
       $target = $(href);
@@ -667,9 +636,9 @@
 
 (function() {
   (function($, window) {
-    "use strict";    return $.fn.MediaQueryViewer = function(options) {
+    "use strict";
+    return $.fn.MediaQueryViewer = function(options) {
       var $doc, settings;
-
       settings = $.extend(options, {
         toggleKey: 77
       });
@@ -681,7 +650,6 @@
       });
       return $doc.on("keyup.mediaQueryViewer", function(e) {
         var $mqViewer;
-
         $mqViewer = $("#fqv");
         if (e.which === settings.toggleKey) {
           if ($mqViewer.length > 0) {
@@ -705,10 +673,8 @@
 (function() {
   (function(window, document, $) {
     var args, clearPlaceholder, hooks, isInputSupported, isTextareaSupported, placeholder, prototype, setPlaceholder, valHooks;
-
     args = function(elem) {
       var newAttrs, rinlinejQuery;
-
       newAttrs = {};
       rinlinejQuery = /^jQuery\d+$/;
       $.each(elem.attributes, function(i, attr) {
@@ -720,7 +686,6 @@
     };
     clearPlaceholder = function(event, value) {
       var $input, input;
-
       input = this;
       $input = $(input);
       if (input.value === $input.attr("placeholder") && $input.hasClass("placeholder")) {
@@ -739,7 +704,6 @@
     };
     setPlaceholder = function() {
       var $input, $origInput, $replacement, e, id, input;
-
       $replacement = void 0;
       input = this;
       $input = $(input);
@@ -789,7 +753,6 @@
     } else {
       placeholder = prototype.placeholder = function() {
         var $this;
-
         $this = this;
         $this.filter((isInputSupported ? "textarea" : ":input") + "[placeholder]").not(".placeholder").bind({
           "focus.placeholder": clearPlaceholder,
@@ -802,7 +765,6 @@
       hooks = {
         get: function(element) {
           var $element;
-
           $element = $(element);
           if ($element.data("placeholder-enabled") && $element.hasClass("placeholder")) {
             return "";
@@ -812,7 +774,6 @@
         },
         set: function(element, value) {
           var $element;
-
           $element = $(element);
           if (!$element.data("placeholder-enabled")) {
             return element.value = value;
@@ -835,7 +796,6 @@
       $(function() {
         return $(document).delegate("form", "submit.placeholder", function() {
           var $inputs;
-
           $inputs = $(".placeholder", this).each(clearPlaceholder);
           return setTimeout((function() {
             return $inputs.each(setPlaceholder);
@@ -860,9 +820,9 @@
 
 (function() {
   (function($, window) {
-    "use strict";    return $.fn.Alerts = function(options) {
+    "use strict";
+    return $.fn.Alerts = function(options) {
       var settings;
-
       settings = $.extend({
         callback: $.noop
       }, options);
@@ -885,9 +845,9 @@
 
 (function() {
   (function($, window, undefined_) {
-    "use strict";    return $.fn.Buttons = function(options) {
+    "use strict";
+    return $.fn.Buttons = function(options) {
       var $doc, closeDropdowns, config, largeButtonHeight, normalButtonHeight, resetToggles, smallButtonHeight, tinyButtonHeight;
-
       $doc = $(document);
       config = $.extend({
         dropdownAsToggle: false,
@@ -898,7 +858,6 @@
       };
       resetToggles = function(button) {
         var buttons;
-
         buttons = $(".button.dropdown").not(button);
         return buttons.add($("> span." + config.activeClass, buttons)).removeClass(config.activeClass);
       };
@@ -908,7 +867,6 @@
       $(".button.dropdown > ul", this).addClass("no-hover");
       $doc.on("click.fndtn", ".button.dropdown:not(.split), .button.dropdown.split span", function(e) {
         var $el, button, dropdown;
-
         $el = $(this);
         button = $el.closest(".button.dropdown");
         dropdown = $("> ul", button);
@@ -962,7 +920,6 @@
   (function($, window, undefined_) {
     "use strict";
     var methods, settings;
-
     settings = {
       bodyHeight: 0,
       selector: ".has-tip",
@@ -978,7 +935,6 @@
         settings.selector = (settings.targetClass ? settings.targetClass : settings.selector);
         return this.each(function() {
           var $body;
-
           $body = $("body");
           if (Modernizr.touch) {
             $body.on("click.tooltip touchstart.tooltip touchend.tooltip", settings.selector, function(e) {
@@ -993,7 +949,6 @@
           } else {
             $body.on("mouseenter.tooltip mouseleave.tooltip", settings.selector, function(e) {
               var $this;
-
               $this = $(this);
               if (e.type === "mouseenter") {
                 return methods.showOrCreateTip($this);
@@ -1009,7 +964,6 @@
       },
       showOrCreateTip: function($target, content) {
         var $tip;
-
         $tip = methods.getTip($target);
         if ($tip && $tip.length > 0) {
           return methods.show($target);
@@ -1019,7 +973,6 @@
       },
       getTip: function($target) {
         var selector, tip;
-
         selector = methods.selector($target);
         tip = null;
         if (selector) {
@@ -1033,7 +986,6 @@
       },
       selector: function($target) {
         var dataSelector, id;
-
         id = $target.attr("id");
         dataSelector = $target.data("selector");
         if (id === undefined && dataSelector === undefined) {
@@ -1048,7 +1000,6 @@
       },
       create: function($target, content) {
         var $tip, classes;
-
         $tip = $(settings.tipTemplate(methods.selector($target), $("<div>").html((content ? content : $target.attr("title"))).html()));
         classes = methods.inheritable_classes($target);
         $tip.addClass(classes).appendTo("body");
@@ -1060,7 +1011,6 @@
       },
       reposition: function(target, tip, classes) {
         var column, nub, nubHeight, nubWidth, objPos, tmp_width, width;
-
         width = undefined_;
         nub = undefined_;
         nubHeight = undefined_;
@@ -1121,7 +1071,6 @@
       },
       inheritable_classes: function(target) {
         var classes, filtered, inheritables;
-
         inheritables = ["tip-top", "tip-left", "tip-bottom", "tip-right", "tip-centered-top", "tip-centered-bottom", "noradius"].concat(settings.additionalInheritableClasses);
         classes = target.attr("class");
         filtered = (classes ? $.map(classes.split(" "), function(el, i) {
@@ -1133,20 +1082,17 @@
       },
       show: function($target) {
         var $tip;
-
         $tip = methods.getTip($target);
         methods.reposition($target, $tip, $target.attr("class"));
         return $tip.fadeIn(150);
       },
       hide: function($target) {
         var $tip;
-
         $tip = methods.getTip($target);
         return $tip.fadeOut(150);
       },
       reload: function() {
         var $self;
-
         $self = $(this);
         if ($self.data("tooltips")) {
           return $self.Tooltips("destroy").Tooltips("init");
@@ -1199,7 +1145,6 @@
     */
 
     var hiddenFix, refreshCustomSelect, toggleCheckbox, toggleRadio;
-
     hiddenFix = function() {
       return {
         /*
@@ -1213,12 +1158,10 @@
         hidden: null,
         adjust: function($child) {
           var _self;
-
           _self = this;
           _self.hidden = $child.parents().andSelf().filter(":hidden");
           return _self.hidden.each(function() {
             var $elem;
-
             $elem = $(this);
             _self.tmp.push($elem.attr("style"));
             return $elem.css({
@@ -1235,11 +1178,9 @@
 
         reset: function() {
           var _self;
-
           _self = this;
           _self.hidden.each(function(i) {
             var $elem, _tmp;
-
             $elem = $(this);
             _tmp = _self.tmp[i];
             if (_tmp === undefined) {
@@ -1257,10 +1198,8 @@
     jQuery.shurikend.customForms = jQuery.shurikend.customForms || {};
     $.shurikend.customForms.appendCustomMarkup = function(options) {
       var appendCustomMarkup, appendCustomSelect, defaults;
-
       appendCustomMarkup = function(idx, sel) {
         var $span, $this, type;
-
         $this = $(sel).hide();
         type = $this.attr("type");
         $span = $this.next("span.custom." + type);
@@ -1272,7 +1211,6 @@
       };
       appendCustomSelect = function(idx, sel) {
         var $currentSelect, $customList, $customSelect, $listItems, $options, $selectCurrent, $selectedOption, $selector, $this, customSelectSize, hiddenFixObj, liHtml, maxWidth;
-
         hiddenFixObj = hiddenFix();
         $this = $(sel);
         $customSelect = $this.next("div.custom.dropdown");
@@ -1337,14 +1275,12 @@
     };
     refreshCustomSelect = function($select) {
       var $customSelect, $options, maxWidth;
-
       maxWidth = 0;
       $customSelect = $select.next();
       $options = $select.find("option");
       $customSelect.find("ul").html("");
       $options.each(function() {
         var $li;
-
         $li = $("<li>" + $(this).html() + "</li>");
         return $customSelect.find("ul").append($li);
       });
@@ -1367,7 +1303,6 @@
     };
     toggleCheckbox = function($element) {
       var $input, input;
-
       $input = $element.prev();
       input = $input[0];
       if (false === $input.is(":disabled")) {
@@ -1378,7 +1313,6 @@
     };
     toggleRadio = function($element) {
       var $form, $input, input;
-
       $input = $element.prev();
       $form = $input.closest("form.custom");
       input = $input[0];
@@ -1406,7 +1340,6 @@
     });
     $(document).on("click", "form.custom label", function(event) {
       var $associatedElement, $customCheckbox, $customRadio;
-
       $associatedElement = $("#" + $(this).attr("for") + "[data-customforms!=disabled]");
       $customCheckbox = void 0;
       $customRadio = void 0;
@@ -1436,7 +1369,6 @@
     });
     $(document).on("click", "form.custom div.custom.dropdown a.current, form.custom div.custom.dropdown a.selector", function(event) {
       var $dropdown, $select, $this;
-
       $this = $(this);
       $dropdown = $this.closest("div.custom.dropdown");
       $select = $dropdown.prev();
@@ -1457,7 +1389,6 @@
     });
     $(document).on("click", "form.custom div.custom.dropdown li", function(event) {
       var $customDropdown, $select, $this, selectedIndex;
-
       $this = $(this);
       $customDropdown = $this.closest("div.custom.dropdown");
       $select = $customDropdown.prev();
@@ -1489,9 +1420,9 @@
 
 (function() {
   (function($, window) {
-    "use strict";    return $.fn.Magellan = function(options) {
+    "use strict";
+    return $.fn.Magellan = function(options) {
       var $document, $expedition, $fixedMagellan, $lastDestination, $window, defaults;
-
       $window = $(window);
       $document = $(document);
       $fixedMagellan = $("[data-magellan-expedition=fixed]");
@@ -1502,7 +1433,6 @@
       options = $.extend({}, defaults, options);
       $document.on("magellan.arrival", "[data-magellan-arrival]", function(e) {
         var $destination, $expedition, activeClass;
-
         $destination = $(this);
         $expedition = $destination.closest("[data-magellan-expedition]");
         activeClass = $expedition.attr("data-magellan-active-class") || options.activeClass;
@@ -1513,7 +1443,6 @@
       $expedition.find("[data-magellan-arrival]:first").addClass($expedition.attr("data-magellan-active-class") || options.activeClass);
       $fixedMagellan.on("magellan.update-position", function() {
         var $el;
-
         $el = $(this);
         $el.data("magellan-fixed-position", "");
         return $el.data("magellan-top-offset", "");
@@ -1523,11 +1452,9 @@
       });
       $window.on("scroll.magellan", function() {
         var windowScrollTop;
-
         windowScrollTop = $window.scrollTop();
         return $fixedMagellan.each(function() {
           var fixed_position;
-
           $expedition = $(this);
           if ($expedition.data("magellan-top-offset") === "") {
             $expedition.data("magellan-top-offset", $expedition.offset().top);
@@ -1553,13 +1480,11 @@
       if ($lastDestination.length > 0) {
         return $window.on("scroll.magellan", function(e) {
           var lastDestinationTop, scrolltopPlusHeight, windowScrollTop;
-
           windowScrollTop = $window.scrollTop();
           scrolltopPlusHeight = windowScrollTop + $window.outerHeight(true);
           lastDestinationTop = Math.ceil($lastDestination.offset().top);
           return $("[data-magellan-destination]").each(function() {
             var $destination, destination_name, topOffset;
-
             $destination = $(this);
             destination_name = $destination.attr("data-magellan-destination");
             topOffset = $destination.offset().top - windowScrollTop;
@@ -1587,11 +1512,9 @@
   (function($) {
     "use strict";
     var modalQueued;
-
     modalQueued = false;
     $(document).on("click", "a[data-reveal-id]", function(event) {
       var modalLocation;
-
       event.preventDefault();
       modalLocation = $(this).attr("data-reveal-id");
       return $("#" + modalLocation).reveal($(this).data());
@@ -1603,7 +1526,6 @@
 
     return $.fn.reveal = function(options) {
       var $doc, defaults;
-
       $doc = $(document);
       defaults = {
         /*
@@ -1692,10 +1614,8 @@
         */
 
         var $closeButton, closeAnimation, closeOpenModals, closeVideos, cssOpts, destroy, lockModal, locked, modal, modalBg, openAnimation, openVideos, topMeasure, topOffset, unlockModal;
-
         unlockModal = function() {
           var locked;
-
           return locked = false;
         };
         /*
@@ -1706,7 +1626,6 @@
 
         lockModal = function() {
           var locked;
-
           return locked = true;
         };
         /*
@@ -1717,7 +1636,6 @@
 
         closeOpenModals = function() {
           var $openModals;
-
           $openModals = $(".reveal-modal.open");
           if ($openModals.length === 1) {
             modalQueued = true;
@@ -1772,7 +1690,6 @@
         };
         openVideos = function() {
           var iframe, video;
-
           video = modal.find(".flex-video");
           iframe = video.find("iframe");
           if (iframe.length > 0) {
@@ -1846,7 +1763,6 @@
         };
         closeVideos = function() {
           var iframe, video;
-
           video = modal.find(".flex-video");
           iframe = video.find("iframe");
           if (iframe.length > 0) {
@@ -1924,7 +1840,6 @@
   (function($, window, undefined_) {
     "use strict";
     var Modernizr, defaults, methods, settings;
-
     defaults = {
       version: "2.0.3",
       tipLocation: "bottom",
@@ -2026,7 +1941,6 @@
       },
       tip_template: function(opts) {
         var $blank, content;
-
         $blank = undefined_;
         content = undefined_;
         opts.tip_class = opts.tip_class || "";
@@ -2039,7 +1953,6 @@
       },
       timer_instance: function(index) {
         var txt;
-
         txt = undefined_;
         if ((index === 0 && settings.startTimerOnClick && settings.timer > 0) || settings.timer === 0) {
           txt = "";
@@ -2059,7 +1972,6 @@
       },
       create: function(opts) {
         var $tip_content, buttonText, tipClass;
-
         buttonText = opts.$li.attr("data-button") || opts.$li.attr("data-text");
         tipClass = opts.$li.attr("class");
         $tip_content = $(methods.tip_template({
@@ -2072,7 +1984,6 @@
       },
       show: function(init) {
         var $timer, ii, opts, opts_arr, opts_len, p;
-
         opts = {};
         ii = undefined_;
         opts_arr = [];
@@ -2171,7 +2082,6 @@
       },
       set_target: function() {
         var $sel, cl, id;
-
         cl = settings.$li.attr("data-class");
         id = settings.$li.attr("data-id");
         $sel = function() {
@@ -2187,7 +2097,6 @@
       },
       scroll_to: function() {
         var tipOffset, window_half;
-
         window_half = undefined_;
         tipOffset = undefined_;
         window_half = settings.$window.height() / 2;
@@ -2217,7 +2126,6 @@
       },
       pos_default: function(init) {
         var $nub, half_fold, nub_height, tip_position, toggle;
-
         half_fold = Math.ceil(settings.$window.height() / 2);
         tip_position = settings.$next_tip.offset();
         $nub = $(".joyride-nub", settings.$next_tip);
@@ -2271,7 +2179,6 @@
       },
       pos_phone: function(init) {
         var $nub, nub_height, target_height, tip_height, tip_offset, toggle;
-
         tip_height = settings.$next_tip.outerHeight();
         tip_offset = settings.$next_tip.offset();
         target_height = settings.$target.outerHeight();
@@ -2319,7 +2226,6 @@
       },
       center: function() {
         var $w;
-
         $w = settings.$window;
         settings.$next_tip.css({
           top: (($w.height() - settings.$next_tip.outerHeight()) / 2) + $w.scrollTop(),
@@ -2341,7 +2247,6 @@
       },
       corners: function(el) {
         var bottom, right, w;
-
         w = settings.$window;
         right = w.width() + w.scrollLeft();
         bottom = w.width() + w.scrollTop();
@@ -2349,11 +2254,9 @@
       },
       visible: function(hidden_corners) {
         var i;
-
         i = hidden_corners.length;
         if ((function() {
           var _results;
-
           _results = [];
           while (i--) {
             _results.push(hidden_corners[i]);
@@ -2437,14 +2340,13 @@
 
 (function() {
   (function($, window, undefined_) {
-    "use strict";    return $.fn.Navigation = function(options) {
+    "use strict";
+    return $.fn.Navigation = function(options) {
       var lockNavBar;
-
       lockNavBar = false;
       if (Modernizr.touch || navigator.userAgent.match(/Windows Phone/i)) {
         $(document).on("click.fndtn touchstart.fndtn", ".nav-bar a.flyout-toggle", function(e) {
           var flyout;
-
           e.preventDefault();
           flyout = $(this).siblings(".flyout").first();
           if (lockNavBar === false) {
@@ -2459,7 +2361,6 @@
       } else {
         return $(".nav-bar>li.has-flyout", this).on("mouseenter mouseleave", function(e) {
           var flyout, hasFocus, inputs;
-
           if (e.type === "mouseenter") {
             $(".nav-bar").find(".flyout").hide();
             $(this).children(".flyout").show();
@@ -2469,7 +2370,6 @@
             inputs = flyout.find("input");
             hasFocus = function(inputs) {
               var focus;
-
               focus = undefined_;
               if (inputs.length > 0) {
                 inputs.each(function() {
@@ -2502,7 +2402,6 @@
   (function($, window) {
     "use strict";
     var $doc, Modernizr;
-
     $doc = $(document);
     Modernizr = window.Modernizr;
     $(document).ready(function() {

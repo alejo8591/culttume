@@ -48,13 +48,7 @@ module.exports = (grunt)->
 						debug: true
 				files:
 					'compiled/views/index.jade':'dev/views/index.jade'
-			#release:
-			#	options:
-			#		data:
-			#			debug: false
-			#	files:
-			#		'compiled/views/release.jade':'dev/views/index.jade'
-
+		# uglify for JS files			
 		uglify:
 			my_target:
 				files:
