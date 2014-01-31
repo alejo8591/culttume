@@ -1,6 +1,6 @@
 $(document).ready ->
 	# hack the planet with Socket!
-	socket = io.connect('http://localhost')
+	socket = io.connect('http://culttu.me')
 	# Ok ready!
 	socket.on 'connection', (data) ->
 		console.log data

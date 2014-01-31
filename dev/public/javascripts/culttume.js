@@ -1,7 +1,7 @@
 (function() {
   $(document).ready(function() {
     var hideRide, socket;
-    socket = io.connect('http://localhost');
+    socket = io.connect('http://culttu.me');
     socket.on('connection', function(data) {
       return console.log(data);
     });
