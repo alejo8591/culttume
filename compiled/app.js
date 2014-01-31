@@ -28,7 +28,7 @@
   };
 
   app.configure(function() {
-    app.set('port', process.env.PORT || 80);
+    app.set('port', process.env.PORT || 3030);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
     app.use(express.favicon());
@@ -61,7 +61,6 @@
       });
       return users.save(function(err) {
         if (!err) {
-	  mail.sendmail(users.email, registerCode);
           return socket.emit('fillData', {
             email: users.email,
             status: statusRegister.emailCreatedSuccefully,
