@@ -26,3 +26,4 @@ node_modules
 
 #### Python and Django ###
 venv
+*.pyc
