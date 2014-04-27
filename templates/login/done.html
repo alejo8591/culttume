@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{% block content %}
+<h5>Hola! {{ user.first_name }} {{ user.last_name }}</h5>
+
+<h1>{{ user.first_name}} CORREO</h1>
+<ul>
+  {% for assoc in backends.associated %}
+    <li>
+      (<a href="{% url 'social:disconnect_individual' assoc.provider assoc.id %}" class="disconnect">Disconnect</a> or <a href="/logout/">logout</a>)
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}
