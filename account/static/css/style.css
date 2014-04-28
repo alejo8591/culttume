@@ -1,0 +1,936 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700);
+/* styles are imported and declared variables */
+/*General properties of the body*/
+/* line 7, ../../scss/style.scss */
+body {
+  width: 100%;
+  height: 100% !important;
+  overflow-x: hidden;
+  overflow-y: visible;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  font-size: 100%;
+}
+
+/* General properties of the Header */
+/* line 19, ../../scss/style.scss */
+header {
+  width: 100%;
+  height: 40px;
+  background: white;
+  opacity: 0.9;
+  box-shadow: 0px 3px 10px #888888;
+  z-index: 999;
+  /*properties of the div that is inside header*/
+}
+/* line 29, ../../scss/style.scss */
+header #subheader {
+  max-width: 1240px;
+  height: 40px;
+  margin: auto;
+  background: transparent;
+  overflow: visible;
+  padding: 0px;
+  /* photo that appears on the right side of the header */
+}
+/* line 39, ../../scss/style.scss */
+header #subheader .photo_user_mini {
+  float: right;
+  height: 40px;
+  margin: -5px 0 0 0;
+}
+
+/* This will be the content of the page */
+/* line 49, ../../scss/style.scss */
+#wrapper {
+  float: left;
+  min-width: 1240px;
+  max-width: 1240px;
+  height: auto;
+  background: transparent;
+  margin: 30px 10px 10px;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  line-height: 100%;
+  padding: 0px;
+}
+/* line 63, ../../scss/style.scss */
+#wrapper #subwrapper {
+  float: left;
+  width: 1060px;
+  margin: 10px 10px 10px 10px;
+}
+
+/* menu where they go from which they access any product or category */
+/* line 73, ../../scss/style.scss */
+#float-menu {
+  width: 160px;
+  height: auto;
+  position: fixed;
+  font-family: "Open Sans", sans-serif;
+  background: #E55B48;
+  margin: 10px 10px 10px 10px;
+  float: left;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -o-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+  z-index: 90;
+  position: relative;
+  top: 0px;
+  right: 0;
+  left: 0px;
+  padding: 0px;
+}
+/* line 92, ../../scss/style.scss */
+#float-menu h1 {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  font-size: 1.5rem;
+  background: #E55B48;
+  color: white;
+}
+
+/* line 101, ../../scss/style.scss */
+#section-general {
+  width: 1030px;
+  height: auto;
+  margin: 10px;
+  float: left;
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+}
+/* line 109, ../../scss/style.scss */
+#section-general .section_faqs {
+  width: 1030px;
+  border: 1px solid #eeeeee;
+}
+/* line 113, ../../scss/style.scss */
+#section-general .section_faqs h1 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.8rem;
+}
+/* line 117, ../../scss/style.scss */
+#section-general .section_faqs h2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.3rem;
+}
+/* line 121, ../../scss/style.scss */
+#section-general .section_faqs h3 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.0rem;
+}
+/* line 126, ../../scss/style.scss */
+#section-general .section_faqs .section_subfaqs {
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  background: white;
+  text-align: justify;
+}
+/* line 134, ../../scss/style.scss */
+#section-general #section-aboutme {
+  width: 239px;
+  background: white;
+  float: left;
+  margin: 5px 5px 5px 5px;
+  height: auto;
+  text-align: justify;
+  padding: 5px 5px 5px 5px;
+}
+/* line 145, ../../scss/style.scss */
+#section-general #section-aboutme .description-aboutme {
+  width: 239;
+  margin: auto;
+  font-family: "Open Sans", sans-serif;
+}
+/* line 149, ../../scss/style.scss */
+#section-general #section-aboutme .description-aboutme h1 {
+  font-size: 24px;
+  font-family: "Open Sans", sans-serif;
+}
+/* line 156, ../../scss/style.scss */
+#section-general #section-aboutme2 {
+  width: 400px;
+  background: white;
+  float: left;
+  margin: 5px 5px 5px 5px;
+  height: auto;
+  text-align: justify;
+  padding: 5px 5px 5px 5px;
+}
+/* line 168, ../../scss/style.scss */
+#section-general #section-social-profile {
+  width: 70px;
+  background: white;
+  float: left;
+  margin: 5px 5px 5px 5px;
+  height: auto;
+  text-align: justify;
+  padding: 5px 5px 5px 5px;
+}
+/* line 180, ../../scss/style.scss */
+#section-general #section-followers {
+  width: 250px;
+  float: left;
+  background: white;
+  margin: 5px 5px 5px 30px;
+  font-family: "Open Sans", sans-serif;
+}
+/* line 190, ../../scss/style.scss */
+#section-general #description-aboutme {
+  width: 239;
+  margin: auto;
+  font-family: "Open Sans", sans-serif;
+}
+/* line 194, ../../scss/style.scss */
+#section-general #description-aboutme p {
+  font-size: 0.9rem;
+  font-family: "Open Sans", sans-serif;
+}
+/* line 198, ../../scss/style.scss */
+#section-general #description-aboutme h1 {
+  font-size: 1.5rem;
+  font-family: "Open Sans", sans-serif;
+}
+/* line 204, ../../scss/style.scss */
+#section-general #section-statistics {
+  width: 1010px;
+  background: white;
+  float: left;
+  margin: 5px 5px 5px 5px;
+  height: auto;
+  text-align: justify;
+  padding: 5px 5px 5px 5px;
+  text-align: center;
+}
+
+/* line 222, ../../scss/style.scss */
+.menu ul {
+  list-style: none;
+  float: left;
+  margin: 10px 10px auto 10px;
+}
+/* line 228, ../../scss/style.scss */
+.menu ul li {
+  float: left;
+  width: 160px;
+  background: transparent;
+  padding: 5px;
+  margin: auto;
+}
+/* line 234, ../../scss/style.scss */
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+}
+/* line 241, ../../scss/style.scss */
+.menu ul li a :hover {
+  background: white;
+}
+/* line 246, ../../scss/style.scss */
+.menu ul li h2 {
+  text-align: center;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+}
+
+/*here are all the sections belonging to profile*/
+/* This section will display the list of followers */
+/* properties general footer  */
+/* line 261, ../../scss/style.scss */
+footer {
+  float: left;
+  width: 100%;
+  height: auto;
+  background: #eeeeee;
+  margin: 0px auto 0px auto;
+  /* **  ** */
+  /* ********* footer content, social, links, menu, agilapps ******** */
+}
+/* line 270, ../../scss/style.scss */
+footer .more-content .simbol-plus {
+  font-size: 1.5rem;
+  color: #e84f35;
+  margin: 0 2px;
+}
+/* line 275, ../../scss/style.scss */
+footer .more-content .simbol-plus-text {
+  font-size: 1.2rem;
+  color: #e84f35;
+  margin: 0 5px;
+}
+/* line 282, ../../scss/style.scss */
+footer .footer-content {
+  width: 100%;
+  height: auto;
+  background: white;
+  margin: 0px auto 0px auto;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -o-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+  padding: 0px;
+  /* ********* Sponsors culttume ******** */
+  /* ********* navegation general ******** */
+}
+/* line 292, ../../scss/style.scss */
+footer .footer-content .sponsors-logos {
+  width: 890px;
+  height: 310px;
+  background: white;
+  margin: 0px auto 0px auto;
+  overflow: hidden;
+  /* ********* Opacity, filter greyscale and bg sponsors ******** */
+  /* ********* Opacity and filter effect ******** */
+}
+/* line 298, ../../scss/style.scss */
+footer .footer-content .sponsors-logos .logo-sponsor {
+  display: inline-block;
+  width: 160px;
+  height: 70px;
+  margin: 0px 23px;
+}
+/* line 306, ../../scss/style.scss */
+footer .footer-content .sponsors-logos #img-presidencia {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: 0.5;
+  background: url(../img/Presidencia-160x45.png) center center no-repeat, white;
+}
+/* line 307, ../../scss/style.scss */
+footer .footer-content .sponsors-logos #img-emprendetic2 {
+  position: relative;
+  top: -80px;
+  margin-left: 50px;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: 0.5;
+  background: url(../img/EmprendeTic2-160x45.png) center center no-repeat, white;
+}
+/* line 308, ../../scss/style.scss */
+footer .footer-content .sponsors-logos #img-sena {
+  width: 60px;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: 0.5;
+  background: url(../img/SENA-160x45.png) center center no-repeat, white;
+}
+/* line 309, ../../scss/style.scss */
+footer .footer-content .sponsors-logos #img-fonade {
+  width: 100px;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: 0.5;
+  background: url(../img/Fonade-160x45.jpg) center center no-repeat, white;
+}
+/* line 310, ../../scss/style.scss */
+footer .footer-content .sponsors-logos #img-parquesoft {
+  position: relative;
+  top: -80px;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: 0.5;
+  background: url(../img/ParqueSoft-160x45.png) center center no-repeat, white;
+}
+/* line 311, ../../scss/style.scss */
+footer .footer-content .sponsors-logos #img-tecnoparque {
+  position: relative;
+  top: -80px;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: 0.5;
+  background: url(../img/Tecnoparque-160x87.png) center center no-repeat, white;
+}
+/* line 312, ../../scss/style.scss */
+footer .footer-content .sponsors-logos #img-fondo-emprender {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: 0.5;
+  background: url(../img/FondoEmprender-160x45.png) center center no-repeat, white;
+}
+/* line 313, ../../scss/style.scss */
+footer .footer-content .sponsors-logos #img-c3-d {
+  display: inline-block;
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0px 1px;
+  top: -13px;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: 0.5;
+  background: url(../img/C3+d-120x155.jpg) center no-repeat, white;
+}
+/* line 324, ../../scss/style.scss */
+footer .footer-content .sponsors-logos #img-apssco {
+  position: relative;
+  top: -70px;
+  margin: 0 20px 0 160px;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: 0.5;
+  background: url(../img/Apps.co-160x45.png) center center no-repeat, white;
+}
+/* line 325, ../../scss/style.scss */
+footer .footer-content .sponsors-logos #img-ventures {
+  position: relative;
+  top: -70px;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: 0.5;
+  background: url(../img/Ventures-160x45.png) center center no-repeat, white;
+}
+/* line 330, ../../scss/style.scss */
+footer .footer-content .sponsors-logos #img-presidencia:hover, footer .footer-content .sponsors-logos #img-emprendetic2:hover, footer .footer-content .sponsors-logos #img-sena:hover,
+footer .footer-content .sponsors-logos #img-parquesoft:hover, footer .footer-content .sponsors-logos #img-tecnoparque:hover, footer .footer-content .sponsors-logos #img-fondo-emprender:hover,
+footer .footer-content .sponsors-logos #img-apssco:hover, footer .footer-content .sponsors-logos #img-c3-d:hover, footer .footer-content .sponsors-logos #img-ventures:hover, footer .footer-content .sponsors-logos #img-fonade:hover {
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
+  opacity: 5;
+}
+/* line 336, ../../scss/style.scss */
+footer .footer-content .nav-map {
+  width: 800px;
+  height: 160px;
+  background: white;
+  margin: 0px auto 0px auto;
+  overflow: hidden;
+}
+/* line 342, ../../scss/style.scss */
+footer .footer-content .nav-map .sub-nav-map {
+  display: inline-block;
+  width: 160px;
+  height: auto;
+  margin: 1px 17.5px 0 17.5px;
+  background: white;
+}
+/* line 350, ../../scss/style.scss */
+footer .footer-content .nav-map a {
+  font-family: "Open Sans", sans-serif;
+}
+/* line 353, ../../scss/style.scss */
+footer .footer-content .nav-map li {
+  list-style-type: none;
+  font-family: "Open Sans", sans-serif;
+}
+/* line 358, ../../scss/style.scss */
+footer .footer-content .copyright {
+  background-color: #E55B48;
+  color: white;
+}
+
+/*************************************** Content general styles boxes ********************************************************/
+/*.box-content Has styles boxes and properties */
+/* line 367, ../../scss/style.scss */
+.box-content {
+  float: left;
+  width: 320px;
+  height: auto;
+  background: white;
+  margin: 5px 10px;
+  border: 1px solid #eeeeee;
+  overflow: hidden;
+  line-height: 100%;
+  font-weight: 300;
+  font-size: 100%;
+  /*the dimension of this div will be content  photos, ilustrations, animates and video*/
+  /*the characteristics of this content only will be content API soundcloud*/
+}
+/* line 381, ../../scss/style.scss */
+.box-content .header-box-content {
+  width: 320px;
+  height: 47px;
+  background: white;
+  overflow: hidden;
+}
+/* line 388, ../../scss/style.scss */
+.box-content .header-box-content .title-box-content {
+  float: left;
+  width: 258px;
+  height: 37px;
+  background: transparent;
+  margin: 0;
+  padding: 5px 5px 5px 10px;
+  font-variant: small-caps;
+  line-height: 100%;
+  font-weight: 300;
+  font-size: 100%;
+}
+/* line 402, ../../scss/style.scss */
+.box-content .header-box-content .ico-id-content {
+  float: right;
+  width: 47px;
+  height: 47px;
+  margin: 0;
+}
+/* line 412, ../../scss/style.scss */
+.box-content .header-box-content .ico-id-content .ico-id-photo, .box-content .header-box-content .ico-id-content .ico-id-music, .box-content .header-box-content .ico-id-content .ico-id-video,
+.box-content .header-box-content .ico-id-content .ico-id-animation, .box-content .header-box-content .ico-id-content .ico-id-illustration, .box-content .header-box-content .ico-id-content .ico-id-web,
+.box-content .header-box-content .ico-id-content .ico-id-password, .box-content .header-box-content .ico-id-content .ico-id-about-you,
+.box-content .header-box-content .ico-id-content .ico-id-basic-info, .box-content .header-box-content .ico-id-content .ico-id-user-photo, .box-content .header-box-content .ico-id-content .ico-id-notification {
+  width: 35px;
+  height: 35px;
+  margin: 5px auto 0 auto;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+/* line 422, ../../scss/style.scss */
+.box-content .header-box-content .ico-id-content .ico-id-photo {
+  background: url(../img/ico-photos.png);
+}
+/* line 423, ../../scss/style.scss */
+.box-content .header-box-content .ico-id-content .ico-id-music {
+  background: url(../img/ico-music.png);
+}
+/* line 424, ../../scss/style.scss */
+.box-content .header-box-content .ico-id-content .ico-id-video {
+  background: url(../img/ico-video.png);
+}
+/* line 425, ../../scss/style.scss */
+.box-content .header-box-content .ico-id-content .ico-id-animation {
+  background: url(../img/ico-animation.png);
+}
+/* line 426, ../../scss/style.scss */
+.box-content .header-box-content .ico-id-content .ico-id-illustration {
+  background: url(../img/ico-illustration.png);
+}
+/* line 427, ../../scss/style.scss */
+.box-content .header-box-content .ico-id-content .ico-id-web {
+  background: url(../img/ico-web.png);
+}
+/* line 428, ../../scss/style.scss */
+.box-content .header-box-content .ico-id-content .ico-id-password {
+  background: url(../img/ico-password.png);
+}
+/* line 429, ../../scss/style.scss */
+.box-content .header-box-content .ico-id-content .ico-id-about-you {
+  background: url(../img/ico-about-you.png);
+}
+/* line 430, ../../scss/style.scss */
+.box-content .header-box-content .ico-id-content .ico-id-basic-info {
+  background: url(../img/ico-basic-info.png);
+}
+/* line 431, ../../scss/style.scss */
+.box-content .header-box-content .ico-id-content .ico-id-user-photo {
+  background: url(../img/ico-user-photo.png);
+}
+/* line 432, ../../scss/style.scss */
+.box-content .header-box-content .ico-id-content .ico-id-notification {
+  background: url(../img/ico-notification.png);
+}
+/* line 436, ../../scss/style.scss */
+.box-content .header-box-content .subtitle-box-content {
+  float: left;
+  width: 258px;
+  height: 37px;
+  background: transparent;
+  margin: -10px 0 0 0;
+  padding: 0px 0px 0px 10px;
+  line-height: 100%;
+  font-weight: 300;
+  font-size: 11px;
+}
+/* line 450, ../../scss/style.scss */
+.box-content .line-color-grey {
+  width: 320px;
+  height: 1px;
+  background: #d6d6d6;
+}
+/* line 459, ../../scss/style.scss */
+.box-content .product-box-content {
+  width: 300px;
+  max-height: 150px;
+  min-height: 150px;
+  background: white;
+  margin: 10px auto;
+}
+/* line 469, ../../scss/style.scss */
+.box-content .music-box-content {
+  width: 300px;
+  max-height: 90px;
+  min-height: 90px;
+  background: white;
+  margin: 10px auto;
+}
+/* line 478, ../../scss/style.scss */
+.box-content .info-box-content {
+  width: 320px;
+  height: 30px;
+  background: transparent;
+  margin: 0px;
+}
+/* line 485, ../../scss/style.scss */
+.box-content .info-box-content .user-name-box-content {
+  background: #ff0000;
+}
+/* line 489, ../../scss/style.scss */
+.box-content .info-box-content .user-name-box-content .user-name-mini {
+  float: left;
+  width: 220px;
+  height: 20px;
+  background: transparent;
+  margin: 5px 0;
+  padding: 0 0 0 10px;
+  font-size: 12px;
+}
+/* line 503, ../../scss/style.scss */
+.box-content .info-box-content .ico-social .share-social {
+  float: right;
+  background: transparent;
+  width: 26px;
+  height: 26px;
+  margin: 5px 5px 0 0;
+  cursor: pointer;
+  /* social shares configuration  */
+}
+/* line 513, ../../scss/style.scss */
+.box-content .info-box-content .ico-social .share-social .share-fb {
+  width: 20px;
+  height: 20px;
+  background: url(../img/ico-fb.png), white;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+/* line 522, ../../scss/style.scss */
+.box-content .info-box-content .ico-social .share-social .share-tw {
+  width: 20px;
+  height: 20px;
+  background: url(../img/ico-tw.png), white;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+/* line 531, ../../scss/style.scss */
+.box-content .info-box-content .ico-social .share-social .share-g {
+  width: 20px;
+  height: 20px;
+  background: url(../img/ico-g.png), white;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+/* line 544, ../../scss/style.scss */
+.box-content .deleat-account {
+  width: 200px;
+  height: 2.3125rem;
+  margin: 0 20%;
+  background: transparent;
+}
+/* line 551, ../../scss/style.scss */
+.box-content .deleat-account .ico-id-deleat {
+  float: left;
+  width: 35px;
+  height: 35px;
+  margin: 0 1px 0 auto;
+  font-size: 0.875rem;
+  background: url(../img/ico-deleat.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+/* line 563, ../../scss/style.scss */
+.box-content .deleat-account .label-link {
+  float: left;
+  font-size: 1rem;
+  color: #23aae1;
+  text-align: center;
+  margin: 10px auto 0 20px;
+}
+/* line 573, ../../scss/style.scss */
+.box-content .deleat-object {
+  width: 200px;
+  height: 2.3125rem;
+  margin: 0 20%;
+  background: transparent;
+  /*  */
+  /*  */
+}
+/* line 579, ../../scss/style.scss */
+.box-content .deleat-object .ico-id-deleat {
+  float: left;
+  width: 35px;
+  height: 35px;
+  margin: 0 1px 0 auto;
+  background: url(../img/ico-deleat.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+/* line 589, ../../scss/style.scss */
+.box-content .deleat-object .label-link {
+  float: left;
+  font-size: 0.875rem;
+  color: #23aae1;
+  text-align: center;
+  margin: 10px auto 0 20px;
+}
+/* line 598, ../../scss/style.scss */
+.box-content label {
+  line-height: 100%;
+  font-weight: 300;
+  font-size: 12px;
+}
+/* line 605, ../../scss/style.scss */
+.box-content .form-setting {
+  width: 290px;
+  height: auto;
+  background: transparent;
+  margin: 10px 10px;
+}
+/* line 613, ../../scss/style.scss */
+.box-content textarea {
+  width: 220px;
+  max-height: auto;
+  min-height: 100px;
+  margin: 10px auto;
+}
+/* line 621, ../../scss/style.scss */
+.box-content .preview-photo-user {
+  width: 100px;
+  height: 100px;
+  background: white;
+  margin: 0 30px 30px;
+}
+
+/* ******************************** Content general styles boxes ************************************************************/
+/*Style register and login*/
+/* line 634, ../../scss/style.scss */
+.header-modal {
+  color: #323232;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  display: block;
+  margin-bottom: 15px;
+}
+/* line 640, ../../scss/style.scss */
+.header-modal h2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.8rem;
+}
+/* line 644, ../../scss/style.scss */
+.header-modal h3 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem;
+}
+
+/*end style register and login*/
+/* content related to the event manager */
+/* line 654, ../../scss/style.scss */
+.box-new-content {
+  float: left;
+  width: 320px;
+  height: 80px;
+  background: white;
+  margin: 5px 10px;
+  border: 1px dashed #8b8b8b;
+  overflow: hidden;
+}
+/* line 663, ../../scss/style.scss */
+.box-new-content .new-object {
+  width: 268px;
+  height: 40px;
+  background: transparent;
+  margin: 23px auto 0 auto;
+}
+/* line 668, ../../scss/style.scss */
+.box-new-content .new-object .header-box-content {
+  width: auto;
+  height: 40px;
+}
+/* line 671, ../../scss/style.scss */
+.box-new-content .new-object .header-box-content .title-box-content {
+  float: left;
+  width: 195px;
+  height: 37px;
+  background: white;
+  margin: 0;
+  padding: 7px 5px 5px 10px;
+  font-variant: small-caps;
+  line-height: 100%;
+  font-weight: 300;
+  font-size: 1.05rem;
+  color: #23aae1;
+}
+/* line 685, ../../scss/style.scss */
+.box-new-content .new-object .header-box-content .ico-id-event, .box-new-content .new-object .header-box-content .ico-id-product {
+  float: left;
+  width: 35px;
+  height: 35px;
+  margin: 0 5px 0 10px;
+  background-size: 100% 100%;
+  background-position: center center;
+}
+/* line 693, ../../scss/style.scss */
+.box-new-content .new-object .header-box-content .ico-id-event {
+  background: url(../img/ico-event.png) no-repeat;
+}
+/* line 694, ../../scss/style.scss */
+.box-new-content .new-object .header-box-content .ico-id-product {
+  background: url(../img/ico-new-event.png) no-repeat;
+}
+
+/* line 700, ../../scss/style.scss */
+.social-networks-login {
+  text-align: center;
+}
+
+/*Esto es un div de prueba*/
+/* line 708, ../../scss/style.scss */
+#cssmenu,
+#cssmenu ul,
+#cssmenu li,
+#cssmenu a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  font-weight: normal;
+  text-decoration: none;
+  line-height: 1;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  position: relative;
+}
+
+/* line 720, ../../scss/style.scss */
+#cssmenu a {
+  line-height: 1.3;
+}
+
+/* line 724, ../../scss/style.scss */
+#cssmenu {
+  width: 250px;
+}
+
+/* line 727, ../../scss/style.scss */
+#cssmenu > ul > li > a {
+  padding-right: 40px;
+  font-size: 25px;
+  font-weight: bold;
+  display: block;
+  background: #e55b48;
+  color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* line 737, ../../scss/style.scss */
+#cssmenu > ul > li > a > span {
+  background: #e55b48;
+  padding: 10px;
+  display: block;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+/* line 744, ../../scss/style.scss */
+#cssmenu > ul > li > a:hover {
+  text-decoration: none;
+}
+
+/* line 747, ../../scss/style.scss */
+#cssmenu > ul > li.active {
+  border-bottom: none;
+}
+
+/* line 750, ../../scss/style.scss */
+#cssmenu > ul > li.active > a {
+  color: #fff;
+}
+
+/* line 753, ../../scss/style.scss */
+#cssmenu > ul > li.active > a span {
+  background: #e55b48;
+}
+
+/* line 756, ../../scss/style.scss */
+#cssmenu span.cnt {
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+/* Sub menu */
+/* line 765, ../../scss/style.scss */
+#cssmenu ul ul {
+  display: none;
+}
+
+/* line 768, ../../scss/style.scss */
+#cssmenu ul ul li {
+  border: 1px solid #e0e0e0;
+  border-top: 0;
+}
+
+/* line 772, ../../scss/style.scss */
+#cssmenu ul ul a {
+  padding: 10px;
+  display: block;
+  color: #e55b48;
+  font-size: 13px;
+}
+
+/* line 778, ../../scss/style.scss */
+#cssmenu ul ul a:hover {
+  color: #e55b48;
+}
+
+/* line 781, ../../scss/style.scss */
+#cssmenu ul ul li.odd {
+  background: #ffffff;
+}
+
+/* line 784, ../../scss/style.scss */
+#cssmenu ul ul li.even {
+  background: #fff;
+}

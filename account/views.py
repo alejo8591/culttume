@@ -11,7 +11,7 @@ def home(request):
 	""" Home view, display login mechanism """
 	if request.user.is_authenticated():
 		return redirect('done')
-	return render_to_response('home.html', {
+	return render_to_response('login/home.html', {
 		'appId': getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
 		}, RequestContext(request))
 
