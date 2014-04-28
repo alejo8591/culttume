@@ -3,7 +3,7 @@ from django.template import RequestContext
 from django.shortcuts import redirect, render_to_response
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as auth_logout
-from accounts.forms import UserCreateForm
+from account.forms import UserCreateForm
 
 from social.backends.facebook import FacebookOAuth2
 
