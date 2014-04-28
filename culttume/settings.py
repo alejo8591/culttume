@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'south',
+    'analytical',
     'social.apps.django_app.default',
     'account',
 )
@@ -161,6 +162,9 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-41467616-1'
+GOOGLE_ANALYTICS_DOMAIN = 'culttu.me'
+
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     # 'social_auth.context_processors.social_auth_by_type_backends',
@@ -213,6 +217,3 @@ try:
     from culttume2.local_settings import *
 except ImportError:
     pass
-
-GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-41467616-1'
-GOOGLE_ANALYTICS_DOMAIN = 'culttu.me'
