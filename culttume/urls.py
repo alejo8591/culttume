@@ -1,4 +1,6 @@
 from django.conf.urls import patterns, include, url
+from django.conf.urls.static import static
+from culttume import settings
 
 from django.contrib import admin
 admin.autodiscover()
@@ -15,4 +17,4 @@ urlpatterns = patterns('',
     url(r'^register/$', 'account.views.register', name='register'),
     url(r'^done/$', 'account.views.done', name='done'),
     # url(r'', include('social.apps.django_app.urls', namespace='social')),
-)
+) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

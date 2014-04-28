@@ -167,6 +167,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'social.apps.django_app.context_processors.backends',
 )
 
+# http://stackoverflow.com/questions/20353880/template-dirs-is-missing-in-settings-py-django-1-6
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR,  'templates'),
+)
+
 SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.social_auth.social_details',
     'social.pipeline.social_auth.social_uid',
