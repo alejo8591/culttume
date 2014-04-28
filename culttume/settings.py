@@ -165,6 +165,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     # 'social_auth.context_processors.social_auth_by_type_backends',
     'social.apps.django_app.context_processors.backends',
+    'culttume.context_processors.google_analytics',
 )
 
 # http://stackoverflow.com/questions/20353880/template-dirs-is-missing-in-settings-py-django-1-6
@@ -212,3 +213,6 @@ try:
     from culttume2.local_settings import *
 except ImportError:
     pass
+
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-41467616-1'
+GOOGLE_ANALYTICS_DOMAIN = 'culttu.me'
