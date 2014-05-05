@@ -1,17 +1,14 @@
+# -*- coding: utf-8 -*-
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.forms import ModelForm
 
-class UserCreateForm(UserCreationForm):
-	email = forms.EmailField(required=True)
+class UserCreateForm(ModelForm):
+	username = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'special', 'placeholder' : 'Usuario para culttu.me'}))
+	email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class': 'special', 'placeholder' : '¡Tu correo Aquí!'}))
+	password = forms.CharField(label="", widget=forms.TextInput(attrs={'class':'special', 'type' : 'password', 'placeholder' : 'Contraseña'}))
 
 	class Meta:
 		model = User
-		fields = ("email", "password")
-
-	def save(self, commit = True):
-		user = super(UserCreateForm, self).save(commit=False)
-		user.email = self.cleaned_data["email"]
-		if commit:
-			user.save()
-		return user
+		fields = ('username', 'email', 'password')
+		exclude = ('last_name', 'first_name', 'last_login', 'groups', 'user_permissions', 'is_staff', 'is_superuser','is_active', 'date_joined',)
