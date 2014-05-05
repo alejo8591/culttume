@@ -1,17 +1,17 @@
 $(document).ready(function(){
 
-  $('#cssmenu > ul > li ul').each(function(index, e){
+  $('#css-menu > ul > li ul').each(function(index, e){
     var count = $(e).find('li').length;
     var content = '<span class="cnt">' + count + '</span>';
     $(e).closest('li').children('a').append(content);
   });
 
-  $('#cssmenu ul ul li:odd').addClass('odd');
-  $('#cssmenu ul ul li:even').addClass('even');
+  $('#css-menu ul ul li:odd').addClass('odd');
+  $('#css-menu ul ul li:even').addClass('even');
   
-  $('#cssmenu > ul > li > a').click(function() {
+  $('#css-menu > ul > li > a').click(function() {
 
-    $('#cssmenu li').removeClass('active');
+    $('#css-menu li').removeClass('active');
     $(this).closest('li').addClass('active'); 
 
     var checkElement = $(this).next();
@@ -22,7 +22,7 @@ $(document).ready(function(){
     }
 
     if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-      $('#cssmenu ul ul:visible').slideUp('normal');
+      $('#css-menu ul ul:visible').slideUp('normal');
       checkElement.slideDown('normal');
     }
     if($(this).closest('li').find('ul').children().length == 0) {

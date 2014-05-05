@@ -20,163 +20,87 @@
       </form>
 </div>
     
-<!-- This is the initiation of the header where the logo and the list to login or register -->
+<!-- header -->
     <header class="fixed">
 
       <nav id="sub-header" class="top-bar" data-topbar>
         <!-- Here is the logo -->
         <ul class="title-area">
+          
           <li class="name">
-            <h1><a href="#"><img src="{% static "img/ico-culttume-118x27.png"%}" alt="Culttu.me"></a></h1>
+            <!--this tag <h1>  is necessary to take the document to take the padding, if the image is superimposed and does not look good-->
+            <h1><a href="#"><img src="{% static "img/img-culttume.png" %}" alt="Culttu.me"></a>
+</h1>
           </li>
         </ul>
+
         <section class="top-bar-section">
           <div class="photo-user-mini">
             <ul class="right">
               <li class="has-form">
-                <a href="#" class="secundary" data-reveal-id="myModal" data-reveal>Iniciar Sesión</a>
+                <!--  this hyperlink refers to modal login -->
+                <a href="#" class="secundary" data-reveal-id="modal-login" data-reveal>Iniciar Sesión</a>
               </li>
               <li class="has-form">
-                <a href="#" class="button " data-reveal-id="myModal1" data-reveal>Registrate!</a>
+                <!--  this hyperlink refers to modal register -->
+                <a href="#" class="button " data-reveal-id="modal-register" data-reveal>Registrate!</a>
               </li>
             </ul>
           </div>
-        </section>
+        </section> 
+        <!-- final section  -->
       </nav>
+      <!--final nav -->
     </header>
-    <!-- Is this final header -->
+    <!--final header  -->
 
-    <!-- +++++++++++++++++++++++++++++++++++  Section for modales +++++++++++++++++++++++++++++++++++++++-->
-    
-    <!-- Is this modal of register -->
-    <div class="reveal-modal" id="myModal1" data-reveal>
-      <div >
-        <section class="header-modal"><h2>Registrate!</h2></section>
-        <hr>
-        <section class="header-modal"><h3>Usa tus redes sociales</h3></section>
-        <div class="social-networks-login">
-          <input type="submit" value="Conectarse con Facebook" class="button [tiny small large]">
-        </div>
-        <div class="social-networks-login">
-          <input type="submit" value="   Conectarse con Twitter   " class="button [tiny small large]">
-        </div>
-        <div class="social-networks-login">
-          <section class="header-modal"><h3>O</h3></section>
-            <a href="#" data-reveal-id="myModal2" data-reveal >Regístrate  con tu dirección de email</a>
-          </div>
-      </div>
-    </div>
-
-    <!-- Is this modal of login -->
-    <div class="reveal-modal" id="myModal" data-reveal>
-      <div >
-        <section class="header-modal"><h2>Inciar Sesión</h2></section>
-        <hr>
-        <section class="header-modal"><h3>Usa tus redes sociales</h3></section>
-        <div class="social-networks-login">
-          <input type="submit" value="Inicia con Facebook" class="button [tiny small large]">
-        </div>
-        <div class="social-networks-login">
-          <input type="submit" value="  Inicia con Twitter   " class="button [tiny small large]">
-        </div>  
-        <section class="header-modal"><h3>o ingresa tus datos</h3></section>
-        <form>
-          <input type="text" id="username-login" placeholder="Correo Electronico">
-          <input type="password" id="password-login" placeholder="Contraseña">
-
-
-          <div class="social-networks-login">
-            <a href="#" class="button ">Iniciar Sesión</a>
-          </div>
-          <div class="social-networks-login">
-          <a href="#" class="forgot_password" data-reveal-id="myModal3" data-reveal>¿Olvidaste tu contraseña?</a>
-        </div>
-        </form>
-      </div>
-    </div>
-
-    <div class="reveal-modal" id="myModal2" data-reveal>
-       <form >
-        <section class="header-modal"><h2>Ingresa tus datos</h2></section>
-          <hr>
-          <input type="text" id="name-register" placeholder="Nombre y Apellido">
-
-          <input type="email" id="email-register" placeholder="Correo electrónico">
-
-          <input type="password" id="password-register" placeholder="Contraseña">
-
-          <div class="social-networks-login">
-            <input id="send-updates" type="checkbox" />
-            <label for="send-updates">Al registrarme acepto terminos y condiciones de uso</label>
-          </div>
-          <div class="social-networks-login">
-            <a href="#" class="button">Registrarme</a>
-          </div>
-        </form>
-
-    </div>
-
-
-    <div class="reveal-modal" id="myModal3" data-reveal>
-       <form >
-        <section class="header-modal"><h2>Restablecer contraseña</h2></section>
-          <hr>
-          <p> Recuerda que para recuperar tu cuenta es necesario que ingreses la cuenta de correo con la que te registraste</p>
-          <input type="email" id="name-register" placeholder="Dirección de correo electrónico">
-
-          <div class="social-networks-login">
-            <a href="#" class="button">Enviar </a>
-          </div>
-        </form>
-
-    </div>
-
-
-    <!-- ++++++++++++++++++++++++++++++++ end Section for modales +++++++++++++++++++++++++++++++++++++++-->
-
-
-    <!-- +++++++++++++++++++++++++++++++++++ Wrapper ++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-    <!-- Wrapper It is the general container where the menu divs and sections -->
+    <!-- wrapper -->
     <div id="wrapper">
-      <!-- The div id float menu is where sections of the menu located on the left side -->
+      <!-- div #float-menu -->
       <div id="float-menu">
-        <div id='cssmenu'>
-        <ul>
-            <li class='active'><a href='#'><span>Explora</span></a></li>
+        <!-- Title of section -->
+        <div class="title-user-left">
+          <h2>Explora<h2/>
+        </div>
+        <!-- Menu general-->
+        <div id='css-menu'>
+          <ul>
             <li class='has-sub'><a href='#'><span>Creaciones</span></a>
                 <ul>
-                  <li><a href='#'><span>Música</span></a></li>
-                  <li><a href='#'><span>Ilustración</span></a></li>
-                  <li><a href='#'><span>Animación</span></a></li>
-                  <li><a href='#'><span>Audiovisual</span></a></li>
-                  <li><a href='#'><span>Diseño web</span></a></li>
-                  <li><a href='#'><span>Ilustración</span></a></li>
-                  <li class='last'><a href='#'><span>Fotografia</span></a></li>
+                  <li><a href='category-music.html'><span>Música</span></a></li>
+                  <li><a href='category-illustration.html'><span>Ilustración</span></a></li>
+                  <li><a href='category-animation.html'><span>Animación</span></a></li>
+                  <li><a href='category-audiovisual.html'><span>Audiovisual</span></a></li>
+                  <li><a href='category-web-design.html'><span>Diseño web</span></a></li>
+                  <li class='last'><a href='category-pictures.html'><span>Fotografia</span></a></li>
                 </ul>
             </li>
             <li class='has-sub'><a href='#'><span>Eventos</span></a>
                 <ul>
-                  <li><a href='#'><span></span></a></li>
+                  <li><a href='events.html'><span>Ver Eventos</span></a></li>
                 </ul>
             </li>
             <li class='last'><a href='#'><span>Campañas</span></a>
               <ul>
-                <li><a href='#'><span></span></a></li>
+                <li><a href='campaigns.html'><span>Ver Campañas</span></a></li>
               </ul>
             </li>
-            <li class='last'><a href='#'><span>Tiendas</span></a>
+            <li class='last'><a href='#'><span>Tienda</span></a>
               <ul>
-                <li><a href='#'><span></span></a></li>
+                <li><a href='marketplace.html'><span>productos disponibles</span></a></li>
               </ul>
             </li>
             <li class='last'><a href='#'><span>Artistas</span></a>
               <ul>
-                <li><a href='#'><span></span></a></li>
+                <li><a href='category-artist.html'><span>Ver lista de artistas</span></a></li>
               </ul>
             </li>
         </ul>
       </div>
-      </div>
+      <!-- end #css-menu -->
+    </div>
+    <!-- end #float-menu -->
+
       <!-- This div is the container that is the right and inside the boxes are events or products -->
       <div id="section-general">
 
@@ -254,7 +178,7 @@
         </div>
         <div class="line-color-grey"></div>
         <div class="product-box-content">
-          <img src="{% static "img/web_design_1.jpg" %}" alt="">
+          <img src="{% static "img/web_design_1.jpg"%}" alt="">
         </div>
         <div class="info-box-content">
           <div class="user-name-box-content">
@@ -443,11 +367,12 @@
           </div>
         </div>
         </div>
-      </div> <!-- End Section-general-->
-    </div> <!-- end Wrapper-->
-    <!-- ++++++++++++++++++++++++++++++++++++ end # Wrapper +++++++++++++++++++++++++++++++++++++++++++++-->
+      </div> 
+      <!-- End Section-general-->
+    </div> 
+    <!-- end Wrapper-->
 
-    <!-- +++++++++++++++++++++++++++++++++++++++ footer +++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--  footer -->
     <footer>
       <!--Is this div contains all the footer sections -->
       <div class="footer-content">
@@ -507,18 +432,14 @@
               <li><a href="http://on.fb.me/1m7XvpN" target="_blank">Facebook</a></li>
               <li><a href="http://bit.ly/1hI1JVK" target="_blank">Twitter</a></li>
               <li><a href="http://bit.ly/1iU97tG" target="_blank">Blog</a></li>
-              <li>&nbsp;</li>
             </ul>
           </article>
 
           <!-- the article 3 content it's about Ágilapps -->
           <article class="sub-nav-map">
             <ul>
-              <li> <h6>ÁgilApps</h6> </li>
+              <li> <h6>Ágilapps</h6> </li>
               <li><a href="http://bit.ly/1qYrpwU" target="_blank">Website</a></li>
-              <li>&nbsp;</li>
-              <li>&nbsp;</li>
-              <li>&nbsp;</li>
             </ul>
           </article>
 
@@ -536,7 +457,113 @@
         <label class="copyright postfix">Derechos reservados - Copyright © 2014 - Táctica Marketing StarUp S.A.S</label>
       </div>
     </footer>
-    <!-- ++++++++++++++++++++++++++++++ end footer ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!--  end footer -->
+    <!--  Section for modales -->
+    
+    <!-- modal of register -->
+    <div class="reveal-modal" id="modal-register" data-reveal>
+      <div>
+        <section class="header-modal"><h2>Registrate!</h2></section>
+        <hr>
+        <section class="header-modal"><h3>Usa tus redes sociales</h3></section>
+        
+        <!-- button to register with facebook -->
+        <div class="social-networks-login">
+          <input type="submit" value="Conectarse con Facebook" class="button [tiny small large]">
+        </div>
+
+        <!-- button to register with twitter  -->
+        <div class="social-networks-login">
+          <!-- spaces in the value is to leave this pin with the same size button facebook -->
+          <input type="submit" value="   Conectarse con Twitter   " class="button [tiny small large]">
+        </div>
+
+        <!-- This link redirects to modal register by email -->
+        <div class="social-networks-login">
+            <hr>
+            <a href="#" data-reveal-id="modal-register-email" data-reveal >Regístrate  con tu dirección de email</a>
+        </div>
+      </div>
+    </div>
+    <!-- end  modal register -->
+
+    <!-- Is this modal of login -->
+    <div class="reveal-modal" id="modal-login" data-reveal>
+      <div >
+        <section class="header-modal"><h2>Inciar Sesión</h2></section>
+        <hr>
+        <section class="header-modal"><h3>Usa tus redes sociales</h3></section>
+        
+        <!-- button to login with facebook -->
+        <div class="social-networks-login">
+          <input type="submit" value="Inicia con Facebook" class="button [tiny small large]">
+        </div>
+
+        <!--button to login with twitter -->
+        <div class="social-networks-login">
+          <!-- spaces in the value is to leave this pin with the same size button facebook -->
+          <input type="submit" value="  Inicia con Twitter   " class="button [tiny small large]">
+        </div>  
+        <hr>
+        <section class="header-modal"><h3>Ingresa tus datos</h3></section>
+        <!--  Is this form  login email-->
+        <form>
+          <input type="text" id="username-login" placeholder="Correo Electronico">
+          <input type="password" id="password-login" placeholder="Contraseña">
+          <!-- button for login-->
+          <div class="social-networks-login">
+            <a href="#" class="button ">Iniciar Sesión</a>
+          </div>
+
+          <div class="social-networks-login">
+            <!-- this is the link that redirects to modem password Forgot -->
+            <a href="#" class="forgot_password" data-reveal-id="recover-password" data-reveal>¿Olvidaste tu contraseña?</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--  end modal login -->
+
+    <!-- Is this modal register email-->
+    <div class="reveal-modal" id="modal-register-email" data-reveal>
+       <form >
+        <section class="header-modal"><h2>Ingresa tus datos</h2></section>
+          <hr>
+          <input type="text" id="name-register" placeholder="Nombre y Apellido">
+
+          <input type="email" id="email-register" placeholder="Correo electrónico">
+
+          <input type="password" id="password-register" placeholder="Contraseña">
+          
+          <!-- Modal terms and conditions -->
+          <div class="social-networks-login">
+            <input id="send-updates" type="checkbox" />
+            <label for="send-updates">Al registrarme acepto terminos y condiciones de uso</label>
+          </div>
+
+          <div class="social-networks-login">
+            <!-- Is this button register email-->
+            <a href="#" class="button">Registrarme</a>
+          </div>
+        </form>
+    </div>
+    <!-- end modal register email-->
+
+
+    <div class="reveal-modal" id="recover-password" data-reveal>
+       <form >
+        <section class="header-modal"><h2>Restablecer contraseña</h2></section>
+          <hr>
+          <p> Recuerda que para recuperar tu cuenta es necesario que ingreses la cuenta de correo con la que te registraste</p>
+          <input type="email" id="name-register" placeholder="Dirección de correo electrónico">
+
+          <div class="social-networks-login">
+            <a href="#" class="button">Enviar </a>
+          </div>
+        </form>
+
+    </div>
+    <!--  end section for modales -->
 
 
 {% endblock %}

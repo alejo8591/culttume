@@ -15,11 +15,11 @@ def home(request):
 		'appId': getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
 		}, RequestContext(request))
 
-def login(request):
+def sign_in(request):
 	""" Login view, for email user auth """
 	pass
 
-def register(request):
+def sign_up(request):
 	""" Register for email """
 	form = UserCreateForm()
 	if request.user.is_authenticated():
