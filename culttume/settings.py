@@ -36,11 +36,17 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djcelery',
     'south',
     'analytical',
     'social.apps.django_app.default',
     'account',
 )
+# Migrations broken in django-celery 3.0 #149 
+# https://github.com/celery/django-celery/issues/149
+SOUTH_MIGRATION_MODULES = {
+    'djcelery': 'ignore',
+}
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -217,3 +223,20 @@ try:
     from culttume2.local_settings import *
 except ImportError:
     pass
+# Import Celery
+import djcelery
+
+djcelery.setup_loader
+
+# BROKER_URL = 'amqp://ptc_user:1q2w3e@localhost:5672/myvhost'
+BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+
+# List of modules to import when celery starts.
+CELERY_IMPORTS = ("tasks",)
+# smtp settings for email
+EMAIL_HOST = 'gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'alejo8591@gmail.com'
+EMAIL_HOST_PASSWORD = '2BeM5EIc'
+EMAIL_USE_TLS = False
+DEFAULT_FROM_EMAIL = 'alejo8591@gmail.com'

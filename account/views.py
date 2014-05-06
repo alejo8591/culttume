@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render_to_response
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as auth_logout
 from account.forms import UserCreateForm
+from mailer import send_mail
 
 from social.backends.facebook import FacebookOAuth2
 
@@ -35,6 +36,7 @@ def sign_up(request):
 		form = UserCreateForm(request.POST)
 		if form.is_valid():
 			form.save()
+			send_mail('Bienvenido a Culttu.me', 'This is content email', 'alejo8591@gmail.com', ['alejo8591@gmail.com'])
 			return redirect('done')
 	return render_to_response('login/register.html', {'form': form}, RequestContext(request))
 	

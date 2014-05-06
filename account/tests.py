@@ -43,6 +43,4 @@ class CreateUser(TestCase):
 
 		self.profile1.save()
 
-		print self.profile1.twitter_user
-
 		self.assertNotEqual(self.profile1.twitter_user, '@Romero')
