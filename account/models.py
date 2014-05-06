@@ -4,14 +4,23 @@ from django.dispatch import receiver
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 
-# Create your models here.
 class UserProfile(models.Model):
+	GENDER_CHOICES = (
+		('M','Male'),
+        ('F','Female'),
+    )
 	user = models.OneToOneField(User, related_name='profile', unique=True, primary_key=True)
-	user_url = models.CharField(max_length=24, null=True)
+	slug_field = models.SlugField(max_length=64, null=True)
+	gender = models.CharField(max_length=4, choices=GENDER_CHOICES, null=True)
+	twitter_user = models.CharField(max_length=255, null=True)
+	fb_user = models.CharField(max_length=255, null=True)
+	behance_user = models.CharField(max_length=255, null=True)
+	soundcloud_user = models.CharField(max_length=255, null=True)
+	flickr_user = models.CharField(max_length=255, null=True)
+	linkedin_user = models.CharField(max_length=255, null=True)
 
 	def __unicode__(self):
-		return "%s Profile" % self.user
-
+		return "%s Perfil" % self.user
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

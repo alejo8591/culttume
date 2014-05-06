@@ -35,7 +35,7 @@ def sign_up(request):
 		form = UserCreateForm(request.POST)
 		if form.is_valid():
 			form.save()
-			return render_to_response('done')
+			return redirect('done')
 	return render_to_response('login/register.html', {'form': form}, RequestContext(request))
 	
 def logout(request):
