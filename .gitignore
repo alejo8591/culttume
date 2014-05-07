@@ -24,6 +24,13 @@ node_modules
 # Index MacOSX
 .DS_Store
 
-#### Python and Django ###
+#### Python and Django ####
 venv
 *.pyc
+
+#### Celery files ####
+celery.db
+celerybeat-schedule.db
+
+#### RabbitMQ file ####
+erl_crash.dump

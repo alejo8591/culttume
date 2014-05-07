@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as auth_logout
 from account.forms import UserCreateForm
 from mailer import send_mail
+from culttume.tasks import email_tasks
 
 from social.backends.facebook import FacebookOAuth2
 

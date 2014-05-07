@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+# Import Celery
+import djcelery
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -37,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djcelery',
+    'mailer',
     'south',
     'analytical',
     'social.apps.django_app.default',
@@ -77,7 +80,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'es-ES'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
@@ -220,23 +223,24 @@ LOGIN_ERROR_URL = '/login-error/'
 FACEBOOK_EXTENDED_PERMISSIONS = ['email']
 
 try:
-    from culttume2.local_settings import *
+    from culttume.local_settings import *
 except ImportError:
     pass
-# Import Celery
-import djcelery
-
-djcelery.setup_loader
 
 # BROKER_URL = 'amqp://ptc_user:1q2w3e@localhost:5672/myvhost'
 BROKER_URL = 'amqp://guest:guest@localhost:5672//'
 
-# List of modules to import when celery starts.
-CELERY_IMPORTS = ("tasks",)
 # smtp settings for email
-EMAIL_HOST = 'gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'alejo8591@gmail.com'
 EMAIL_HOST_PASSWORD = '2BeM5EIc'
-EMAIL_USE_TLS = False
+EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'alejo8591@gmail.com'
+
+# List of modules to import when celery starts.
+#CELERY_IMPORTS = ('tasks',)
+
+EMAIL_BACKEND = "mailer.backend.DbBackend"
+
+djcelery.setup_loader()
