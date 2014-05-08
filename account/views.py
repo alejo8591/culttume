@@ -16,11 +16,6 @@ def home(request):
 	form = UserCreateForm()
 	if request.user.is_authenticated():
 		return redirect('done')
-	elif request.method == 'POST':
-		form = UserCreateForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return redirect('done')
 	return render_to_response('login/home.html', {
 		'form' : form,
 		'appId': getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
