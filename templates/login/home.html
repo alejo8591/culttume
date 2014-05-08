@@ -486,7 +486,7 @@
     <!-- Is this modal of login -->
     <div class="reveal-modal" id="modal-login" data-reveal>
       <div >
-        <section class="header-modal"><h2>Inciar Sesión</h2></section>
+        <section class="header-modal"><h2>Iniciar Sesión</h2></section>
         <hr>
         <section class="header-modal"><h3>Usa tus redes sociales</h3></section>
         
@@ -503,19 +503,19 @@
         <hr>
         <section class="header-modal"><h3>Ingresa tus datos</h3></section>
         <!--  Is this form  login email-->
-        <form>
-          <input type="text" id="username-login" placeholder="Correo Electronico">
-          <input type="password" id="password-login" placeholder="Contraseña">
+        <form id="login-form" method="POST" action="{% url 'sign_in' %}">
+          {% csrf_token %}
+          <input type="text" name="username" id="username-login" placeholder="Correo Electronico">
+          <input type="password" name="password" id="password-login" placeholder="Contraseña">
           <!-- button for login-->
           <div class="social-networks-login">
-            <a href="#" class="button ">Iniciar Sesión</a>
+            <input type="submit" class="button " value="Iniciar Sesión" />
           </div>
-
+        </form>
           <div class="social-networks-login">
             <!-- this is the link that redirects to modem password Forgot -->
             <a href="#" class="forgot_password" data-reveal-id="recover-password" data-reveal>¿Olvidaste tu contraseña?</a>
           </div>
-        </form>
       </div>
     </div>
     <!--  end modal login -->

@@ -6,7 +6,8 @@ from django.forms import ModelForm
 class UserCreateForm(ModelForm):
 	username = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'special', 'placeholder' : 'Usuario para culttu.me'}))
 	email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class': 'special', 'placeholder' : '¡Tu correo Aquí!'}))
-	password = forms.CharField(label="", widget=forms.TextInput(attrs={'class':'special', 'type' : 'password', 'placeholder' : 'Contraseña'}))
+	#password = forms.CharField(label="", widget=forms.TextInput(attrs={'class':'special', 'type' : 'password', 'placeholder' : 'Contraseña'}))
+	password = forms.CharField(label="", widget=forms.PasswordInput(), help_text='Contraseña')
 
 	class Meta:
 		model = User
