@@ -15,6 +15,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # Import Celery
 import djcelery
 
+djcelery.setup_loader()
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -227,20 +229,18 @@ try:
 except ImportError:
     pass
 
+EMAIL_BACKEND = "mailer.backend.DbBackend"
+
 # BROKER_URL = 'amqp://ptc_user:1q2w3e@localhost:5672/myvhost'
 BROKER_URL = 'amqp://guest:guest@localhost:5672//'
 
+# List of modules to import when celery starts.
+CELERY_IMPORTS = ('culttume.tasks',)
+
 # smtp settings for email
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
 EMAIL_HOST_USER = 'alejo8591@gmail.com'
 EMAIL_HOST_PASSWORD = '2BeM5EIc'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'alejo8591@gmail.com'
-
-# List of modules to import when celery starts.
-#CELERY_IMPORTS = ('tasks',)
-
-EMAIL_BACKEND = "mailer.backend.DbBackend"
-
-djcelery.setup_loader()
