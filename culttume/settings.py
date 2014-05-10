@@ -103,71 +103,18 @@ STATIC_URL = '/static/'
 #)
 
 AUTHENTICATION_BACKENDS = (
-    'social.backends.amazon.AmazonOAuth2',
-    'social.backends.angel.AngelOAuth2',
-    'social.backends.aol.AOLOpenId',
-    'social.backends.appsfuel.AppsfuelOAuth2',
     'social.backends.behance.BehanceOAuth2',
-    'social.backends.belgiumeid.BelgiumEIDOpenId',
-    'social.backends.bitbucket.BitbucketOAuth',
-    'social.backends.box.BoxOAuth2',
-    'social.backends.coinbase.CoinbaseOAuth2',
-    'social.backends.dailymotion.DailymotionOAuth2',
     'social.backends.disqus.DisqusOAuth2',
-    'social.backends.douban.DoubanOAuth2',
-    'social.backends.dropbox.DropboxOAuth',
-    'social.backends.evernote.EvernoteSandboxOAuth',
     'social.backends.facebook.FacebookAppOAuth2',
     'social.backends.facebook.FacebookOAuth2',
-    'social.backends.fedora.FedoraOpenId',
-    'social.backends.fitbit.FitbitOAuth',
     'social.backends.flickr.FlickrOAuth',
-    'social.backends.foursquare.FoursquareOAuth2',
-    'social.backends.github.GithubOAuth2',
     'social.backends.google.GoogleOAuth',
     'social.backends.google.GoogleOAuth2',
     'social.backends.google.GoogleOpenId',
     'social.backends.google.GooglePlusAuth',
-    'social.backends.instagram.InstagramOAuth2',
-    'social.backends.jawbone.JawboneOAuth2',
-    'social.backends.linkedin.LinkedinOAuth',
-    'social.backends.linkedin.LinkedinOAuth2',
-    'social.backends.live.LiveOAuth2',
-    'social.backends.livejournal.LiveJournalOpenId',
-    'social.backends.mailru.MailruOAuth2',
-    'social.backends.mendeley.MendeleyOAuth',
-    'social.backends.mixcloud.MixcloudOAuth2',
-    'social.backends.odnoklassniki.OdnoklassnikiOAuth2',
-    'social.backends.open_id.OpenIdAuth',
-    'social.backends.openstreetmap.OpenStreetMapOAuth',
-    'social.backends.orkut.OrkutOAuth',
     'social.backends.persona.PersonaAuth',
-    'social.backends.podio.PodioOAuth2',
-    'social.backends.rdio.RdioOAuth1',
-    'social.backends.rdio.RdioOAuth2',
-    'social.backends.readability.ReadabilityOAuth',
-    'social.backends.reddit.RedditOAuth2',
-    'social.backends.runkeeper.RunKeeperOAuth2',
-    'social.backends.skyrock.SkyrockOAuth',
     'social.backends.soundcloud.SoundcloudOAuth2',
-    'social.backends.stackoverflow.StackoverflowOAuth2',
-    'social.backends.steam.SteamOpenId',
-    'social.backends.stocktwits.StocktwitsOAuth2',
-    'social.backends.stripe.StripeOAuth2',
-    'social.backends.suse.OpenSUSEOpenId',
-    'social.backends.thisismyjam.ThisIsMyJamOAuth1',
-    'social.backends.trello.TrelloOAuth',
-    'social.backends.tripit.TripItOAuth',
-    'social.backends.tumblr.TumblrOAuth',
-    'social.backends.twilio.TwilioAuth',
     'social.backends.twitter.TwitterOAuth',
-    'social.backends.vk.VKOAuth2',
-    'social.backends.weibo.WeiboOAuth2',
-    'social.backends.xing.XingOAuth',
-    'social.backends.yahoo.YahooOAuth',
-    'social.backends.yahoo.YahooOpenId',
-    'social.backends.yammer.YammerOAuth2',
-    'social.backends.yandex.YandexOAuth2',
     'social.backends.email.EmailAuth',
     'social.backends.username.UsernameAuth',
     'django.contrib.auth.backends.ModelBackend',
@@ -199,15 +146,13 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.user.create_user',
     'social.pipeline.social_auth.associate_user',
     'social.pipeline.social_auth.load_extra_data',
-    'social.pipeline.user.user_details'
+    'social.pipeline.user.user_details',
+    'account.pipeline.user_details'
 )
 AUTH_PROFILE_MODULE = 'account.UserProfile'
 
-#SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook',)
+SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook','twitter',)
 #SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
-
-SOCIAL_AUTH_FACEBOOK_KEY = '1405572559682582'
-SOCIAL_AUTH_FACEBOOK_SECRET = 'a4c9aa1d22c92c82c4580742b6b3ff4e'
 
 #SOCIAL_AUTH_GOOGLE_PLUS_KEY = 'AIzaSyBS5iaJc0xRzq7kdnSn8zi3VZ1g_ALXb3U'
 SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
@@ -216,11 +161,16 @@ SOCIAL_AUTH_STORAGE = 'social.apps.django_app.default.models.DjangoStorage'
 #    'https://www.googleapis.com/auth/drive',
 #    'https://www.googleapis.com/auth/userinfo.profile'
 #]
+SOCIAL_AUTH_FACEBOOK_KEY = '1405572559682582'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'a4c9aa1d22c92c82c4580742b6b3ff4e'
 
-LOGIN_URL = '/login/'
+SOCIAL_AUTH_TWITTER_KEY = 'PmldI0OyOIKc5Sg1lgATG7wH6'
+SOCIAL_AUTH_TWITTER_SECRET = 'OLzXbX0dvinjNH2qS42Wgh7aA4u5ar3bna11pPV7Et5EFnJxmo'
+
+LOGIN_URL = '/signin/'
 LOGIN_REDIRECT_URL = '/done/'
 URL_PATH = ''
-LOGIN_ERROR_URL = '/login-error/'
+LOGIN_ERROR_URL = '/signin-error/'
 
 FACEBOOK_EXTENDED_PERMISSIONS = ['email']
 
@@ -244,3 +194,8 @@ EMAIL_HOST_PASSWORD = '2BeM5EIc'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'alejo8591@gmail.com'
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}

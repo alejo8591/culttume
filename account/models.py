@@ -9,15 +9,17 @@ class UserProfile(models.Model):
 		('M','Masculino'),
         ('F','Femenino'),
     )
-	user         = models.OneToOneField(User, related_name='profile', unique=True, primary_key=True)
+	user         = models.OneToOneField(User, related_name='Perfil', unique=True, primary_key=True)
 	slug_field   = models.SlugField(max_length=64, null=True)
-	gender 		 = models.CharField(max_length=4, choices=GENDER_CHOICES, null=True)
-	twitter_user = models.CharField(max_length=255, null=True)
-	fb_user      = models.CharField(max_length=255, null=True)
-	behance_user = models.CharField(max_length=255, null=True)
-	soundcloud_user = models.CharField(max_length=255, null=True)
-	flickr_user   = models.CharField(max_length=255, null=True)
-	linkedin_user = models.CharField(max_length=255, null=True)
+	gender 		 = models.CharField(max_length=4, choices=GENDER_CHOICES, null=True, blank=True)
+	twitter_user = models.CharField(max_length=255, null=True, blank=True)
+	about_user   = models.TextField(null=True, blank=True)
+	dob_user     = models.DateField(auto_now=True)
+	fb_user      = models.CharField(max_length=255, null=True, blank=True)
+	behance_user = models.CharField(max_length=255, null=True, blank=True)
+	soundcloud_user = models.CharField(max_length=255, null=True, blank=True)
+	flickr_user   = models.CharField(max_length=255, null=True, blank=True)
+	linkedin_user = models.CharField(max_length=255, null=True, blank=True)
 
 	def __unicode__(self):
 		return "%s Perfil" % self.user

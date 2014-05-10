@@ -1,15 +1,469 @@
 {% extends "base.html" %}
 {% load url from future %}
+{% block head %}
+  {% load static from staticfiles %}
+    <link rel="shortcut icon" href="{% static "favicon/favicon.ico" %}">
+    <link rel="stylesheet" href="{% static "css/foundation.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700' rel='stylesheet' type='text/css'>
+
+    <script src="https://login.persona.org/include.js" type="text/javascript"></script>
+{% endblock %}
 
 {% block content %}
-<h5>Hola! {{ user.first_name }} {{ user.last_name }}</h5>
+<!-- header -->
+<header class="fixed">
 
-<h1>{{ user.first_name}} CORREO</h1>
-<ul>
-  {% for assoc in backends.associated %}
-    <li>
-      (<a href="{% url 'social:disconnect_individual' assoc.provider assoc.id %}" class="disconnect">Disconnect</a> or <a href="/logout/">logout</a>)
-    </li>
-  {% endfor %}
-</ul>
+      <nav id="sub-header" class="top-bar" data-topbar>
+        <!-- Here is the logo -->
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="#"><img src="{% static "img/img-culttume.png" %}" alt="Culttu.me"></a>
+</h1>
+          </li>
+        </ul>
+        <section class="top-bar-section">
+          <div class="photo-user-mini">
+            <ul class="right">
+              <li class="has-dropdown">
+              <a href="#"><img src="assets/img/mini-photo-user-blanc.png" alt=""></a>
+                <ul class="dropdown">
+                  <li><a href="index.html">Cerrar Sesión!</a></li>
+                  <li><a href="edit-profile.html">Editar Perfil</a></li>
+                </ul>   
+            </li>
+            </ul>
+          </div>
+        </section>
+      </nav>
+    </header>
+	<!--  end header  -->
+
+
+	<!-- wrapper -->
+	<div id="wrapper">
+
+		<div id ="float-menu">
+			<div class="photo-user-left">
+				<img src="assets/img/without-photo.png" alt="picture_profile">
+			</div>
+			<div id='css-menu'>
+        <ul>
+        	<li class='active'><a href='#'><span>Editar Perfil</span></a></li>
+        	<li class='active'><a href='#' id="update-info"><span>Guardar Cambios</span></a></li>
+        	<li class='active'><a href='#' id="cancel-update"><span>Cancelar</span></a></li>
+        </ul>
+      </div>
+		</div>
+		<div id="section-general">
+			<div class="box-content">
+				<div class="header-box-content">
+					<h3 class="title-box-content">Datos Básicos.</h3>
+					<a class="ico-id-content" href=""><div class="ico-id-basic-info"></div></a>
+					<p class="subtitle-box-content">Ingresa tus datos para actualizar.</p>
+				</div>
+				<div class="line-color-grey"></div>
+				<div class="form-setting">
+					<form>
+						<div class="row">
+							<!-- Name-->
+							<div class="small-12">
+								<div class="row">
+									<div class="small-3 columns"><label for="right-label" class="right inline">Nombre</label></div>
+									<div class="small-9 columns">
+										<input type="text" id="right-label" placeholder="Nombre y Apellidos">
+									</div>
+								</div>
+							</div>
+							<!--Username-->
+							<div class="small-12">
+								<div class="row">
+									<div class="small-3 columns"><label for="right-label" class="right inline">Username</label></div>
+									<div class="small-9 columns">
+										<input type="text" id="right-label" placeholder="Elige un nick name de tu gusto">
+									</div>
+								</div>
+							</div>
+							<!--Email-->
+							<div class="small-12">
+								<div class="row">
+									<div class="small-3 columns">
+										<label for="right-label" class="right inline">Email</label>
+									</div>
+									<div class="small-9 columns">
+										<input type="email" id="right-label" required placeholder="user@dominio.com">
+									</div>
+								</div>
+							</div>
+							<!--Country and City-->
+							<div class="small-12">
+								<div class="row">
+									<div class="small-3 columns">
+										<label for="right-label" class="right inline">Ubicación</label>
+									</div>
+									<div class="small-4 columns">
+										<select name="" id="">
+											<option value="">Pais</option>
+											<option value=""></option>
+										</select>
+									</div>
+									<div class="small-5 columns">
+										<select name="" id="">
+											<option value="">Ciudad</option>
+											<option value=""></option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<!--Language-->
+							<div class="small-12">
+								<div class="row">
+									<div class="small-3 columns">
+										<label for="right-label" class="right inline">Idioma</label>
+									</div>
+									<div class="small-9 columns">
+										<select name="" id="">
+											<option value="">Idioma</option>
+											<option value=""></option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<!--birth data-->
+							<div class="small-12">
+								<div class="row">
+									<div class="small-3 columns">
+										<label for="right-label" class="right inline">Fecha Nacimiento</label>
+									</div>
+									<div class="small-3 columns">
+										<select name="" id="">
+											<option value="">Día</option>
+											<option value=""></option>
+										</select>
+									</div>
+									<div class="small-3 columns">
+										<select name="" id="">
+											<option value="">Mes</option>
+										</select>
+									</div>
+									<div class="small-3 columns">
+										<select name="" id="">
+											<option value="">Año</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<!--sex-->
+							<div class="small-12">
+								<div class="row">
+									<div class="small-3 columns">
+										<label for="right-label" class="right inline">Genero</label>
+									</div>
+									<div class="small-9 columns">
+										<select name="" id="">
+											<option value="">No especificado</option>
+											<option value="">Femenino</option>
+											<option value="">Masculino</option>
+										</select>
+									</div>
+								</div>
+							</div>   
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<!-- Notification-->
+			<div class="box-content">
+				<div class="header-box-content">
+					<h3 class="title-box-content">Notificaciones</h3>
+					<a class="ico-id-content" href=""><div class="ico-id-notification"></div></a>
+					<p class="subtitle-box-content">Elige que información llega a tu correo.</p>
+				</div>
+				<div class="line-color-grey"></div>
+				<div class="form-setting">
+					<div class="row">
+						<div class="large-10 columns">
+							<input id="checkbox1" type="checkbox"><label for="checkbox1">Likes</label>
+							<input id="checkbox2" type="checkbox"><label for="checkbox2">Comentarios</label><br>
+							<input id="checkbox1" type="checkbox"><label for="checkbox1">Visitas</label>
+							<input id="checkbox2" type="checkbox"><label for="checkbox2">Compartidos</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- About me-->
+			<div class="box-content">
+				<div class="header-box-content">
+					<h3 class="title-box-content">Acerca de ti.</h3>
+					<a class="ico-id-content" href=""><div class="ico-id-about-you"></div></a>
+					<p class="subtitle-box-content">Cuentanos un poco de ti.</p>
+				</div>
+				<div class="line-color-grey"></div>
+				<div class="row">
+					<div class="large-12 columns">
+						<label>
+						<textarea class="textarea1" placeholder="Describete en 200 caracteres o menos"></textarea>
+						</label>
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- Password-->
+			<div class="box-content">
+				<div class="header-box-content">
+					<h3 class="title-box-content">Contraseña</h3>
+					<a class="ico-id-content" href=""><div class="ico-id-password"></div></a>
+					<p class="subtitle-box-content">Cambie regularmente su Contraseña</p>
+				</div>
+				<div class="line-color-grey"></div>
+				<div class="form-setting">
+					<form>
+						<div class="row">
+							<div class="small-12">
+							<div class="row">
+								<div class="small-3 columns"><label for="right-label" class="right inline">antigua</label></div>
+								<div class="small-9 columns">
+									<input type="password" id="right-label" required placeholder="Escribe tu clave">
+								</div>
+							</div>
+							</div>
+							<div class="small-12">
+								<div class="row">
+									<div class="small-3 columns">
+										<label for="right-label" class="right aline">nueva</label>
+									</div>
+									<div class="small-9 columns">
+										<input type="password" id="right-label" required placeholder="Escribe una nueva clave">
+									</div>
+								</div>
+							</div>
+							<div class="small-12">
+								<div class="row">
+									<div class="small-3 columns"><label for="right-label" class="right inline">confirmar</label></div>
+									<div class="small-9 columns">
+										<input type="password" id="right-label" required placeholder="Confirma tu nueva clave">
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+
+			<!-- Picture profile-->
+			<div class="box-content">
+				<div class="header-box-content">
+					<h3 class="title-box-content inline">Foto perfil</h3>
+					<a class="ico-id-content" href=""><div class="ico-id-user-photo"></div></a>
+					<p class="subtitle-box-content">Esta foto te identificará en Culttume</p>
+				</div>
+				<div class="line-color-grey"></div>
+				<div class="form-setting">
+					<div class="small-12">
+						<div class="row">
+							<div class="small-6 columns">
+								<input type="file" name="selecciona una foto">
+							</div>
+							<div class="small-5 columns prevew-photo-user">
+								vista miniatura fotografía y edición de posición
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		<!-- social networks-->
+		<div class="box-content">
+			<div class="header-box-content">
+				<h3 class="title-box-content">Redes sociales</h3>
+				<p class="subtitle-box-content">Conecta tus redes sociales a culttume</p>
+			</div>
+			<div class="line-color-grey"></div>
+			<div class="form-setting">
+				<form>
+				<!--include facebook-->
+					<div class="row collapse">
+						<div class="small-2 large-2 columns"><span class="prefix"><img src="assets/img/ico-fb.png"></span></div>
+							<div class="small-7 large-9 columns left">
+								<input type="text" placeholder="Enter your URL...">
+						</div>
+						<div class="small-1 columns left"><span class="prefix"><input type="checkbox"></span></div>
+					</div>
+				<!--include twitter-->
+					<div class="row collapse">
+						<div class="small-2 large-2 columns">
+						  <span class="prefix"><img src="assets/img/ico-tw.png"></span>
+						</div>
+						<div class="small-7 large-9 columns left">
+							<input type="text" placeholder="Enter your URL...">
+						</div>
+						<div class="small-1 columns left">
+						  <span class="prefix"><input type="checkbox"></span>
+						</div>
+					</div>
+					<!--include google-->
+					<div class="row collapse">
+						<div class="small-2 large-2 columns">
+						  <span class="prefix"><img src="assets/img/ico-g.png"></span>
+						</div>
+						<div class="small-7 large-9 columns left">
+							<input type="text" placeholder="Enter your URL...">
+						</div>
+						<div class="small-1 columns left">
+						  <span class="prefix"><input type="checkbox"></span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- Deleat Account -->
+		<div id="" class="box-content">
+			<a href="#" class="deleat-object large-8 columns" data-reveal-id="delete-account" data-reveal>
+				<label class="label-link">Eliminar Cuenta</label>
+				<div class="ico-id-deleat"></div>
+			</a>
+		</div>
+		<div class="reveal-modal" id="delete-account" data-reveal>
+      		<div >
+        	<section class="header-modal"><h2>Eliminar Cuenta</h2></section>
+        	<hr>
+        	<section class="header-modal"><p>¿Estas seguro que quieres eliminar tu cuenta?</p></section>
+        	<label for="">¿Por qué te vas?</label>
+        	<select name="" id="">
+        		<option value="">Seleccione una opción</option>
+				<option value="">No me siento seguro en culttu.me</option>
+				<option value="">No es lo que esperaba</option>
+				<option value="">Tengo otra cuenta en culttu.me</option>
+			</select>
+			<label for="">Describenos con mas detalle *</label>
+			<textarea class="textarea1" placeholder="Describete en 200 caracteres o menos"></textarea>
+			<div class="social-networks-login">
+					
+					<input type="submit" value="Eliminar cuenta" class="button [tiny small large]">
+				</div> 
+      </div>
+    </div>
+
+	</div>
+	</div>
+
+	<!-- footer -->
+    <footer>
+      <!--Is this div contains all the footer sections -->
+      <div class="footer-content">
+        <!-- In this section of the footer are the sponsor's logos -->
+        <section class="sponsors-logos">
+          <a href="http://bit.ly/1noonSk" target="_blank">
+            <article class="logo-sponsor" id="img-presidencia"></article><!-- sponsor's logo content is defined by his ID -->
+          </a>
+          <a href="http://bit.ly/1gZKGbR" target="_blank">
+            <article class="logo-sponsor" id="img-fondo-emprender"></article>
+          </a>
+          <a href="http://bit.ly/P384yf" target="_blank">
+            <article class="logo-sponsor" id="img-sena"></article>
+          </a>
+          <a href="http://bit.ly/1p6ZhMk" target="_blank">
+            <article class="logo-sponsor" id="img-fonade"></article>
+          </a>
+          <br />
+          <a href="http://bit.ly/1t5i7Dj" target="_blank">
+            <article class="logo-sponsor" id="img-emprendetic2"></article>
+          </a>
+          <a href="http://bit.ly/1iU7QTi" target="_blank">
+            <article class="logo-sponsor" id="img-parquesoft"></article>
+          </a>
+          <a href="http://bit.ly/1nooHRf" target="_blank">
+            <article class="logo-sponsor" id="img-tecnoparque"></article>
+          </a>
+          <a href="http://bit.ly/1gBr5mf" target="_blank">
+            <article id="img-c3-d"></article>
+          </a>
+          <a href="http://bit.ly/P38jJD" target="_blank">
+            <article class="logo-sponsor" id="img-apssco"></article>
+          </a>
+          <a href="http://bit.ly/1jI1LLQ" target="_blank">
+            <article class="logo-sponsor" id="img-ventures"></article>
+          </a>
+        </section> <!-- End Section logos Sponsors -->
+
+        <!-- In this section you will find the navigation map and links to other resources -->
+        <section class="nav-map">
+
+          <!-- the article 1 content it's about culttu.me website -->
+          <article class="sub-nav-map">
+            <ul>
+              <li><h6>Culttu.me</h6></li><!--  -->
+              <li><a href="http://bit.ly/1eEoCsN" target="_blank">Nosotros</a></li><!--  -->
+              <li><a href="http://bit.ly/1iU8PmG" target="_blank">Objetivos</a></li>
+              <li><a href="#" target="_blank">Servicios</a></li>
+              <li><a href="#" target="_blank">FAQs</a></li>
+            </ul>
+          </article>
+
+          <!-- the article 2 content it's about culttume's social networks -->
+          <article class="sub-nav-map">
+            <ul>
+              <li> <h6>Redes</h6> </li>
+              <li><a href="http://on.fb.me/1m7XvpN" target="_blank">Facebook</a></li>
+              <li><a href="http://bit.ly/1hI1JVK" target="_blank">Twitter</a></li>
+              <li><a href="http://bit.ly/1iU97tG" target="_blank">Blog</a></li>
+            </ul>
+          </article>
+
+          <!-- the article 3 content it's about Ágilapps -->
+          <article class="sub-nav-map">
+            <ul>
+              <li> <h6>Ágilapps</h6> </li>
+              <li><a href="http://bit.ly/1qYrpwU" target="_blank">Website</a></li>
+            </ul>
+          </article>
+
+          <!-- the article 4 content it's about legal terms and more -->
+          <article class="sub-nav-map">
+            <ul>
+              <li> <h6>Guía</h6> </li>
+              <li><a href="http://bit.ly/1qYrpwU" target="_blank">Unete a Culttu.me</a></li>
+              <li><a href="#" target="_blank">Terminos y condiciones</a></li>
+              <li><a href="#" target="_blank">Copyright</a></li>
+            </ul>
+          </article>
+        </section> <!--  end nav-map -->
+        <!-- This label it's about copyright of culttume -->
+        <label class="copyright postfix">Derechos reservados - Copyright © 2014 - Táctica Marketing StarUp S.A.S</label>
+      </div>
+    </footer>
+    <!--  end footer -->
+{% endblock %}
+
+{% block scripts %}
+
+<!--Scripts-->
+    <script src="{% static "js/vendor/jquery.js" %}"></script>
+    <script src="{% static "js/foundation/foundation.js" %}"></script>
+    <script src="{% static "js/foundation/foundation.reveal.js" %}"></script>
+    <script src="{% static "js/foundation/foundation.topbar.js" %}"></script>
+    <script src="{% static "js/vendor/jquery.leanModal.min.js" %}"></script>
+    <script src="{% static "js/vendor/modernizr.js" %}"></script>
+    <script src="{% static "js/foundation.min.js" %}"></script>
+    <script src="{% static "js/login.js" %}"></script>
+    <script>
+      $(document).foundation();
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+    <script type="text/javascript">
+    $(function(){
+      $(document).on('click', 'a.disconnect', function(e){
+        e.preventDefault();
+        $('form#disconnect-form').attr('action', $(this).attr('href')).submit();
+      });
+    });
+    </script>
 {% endblock %}

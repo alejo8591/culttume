@@ -14,8 +14,8 @@ from social.backends.facebook import FacebookOAuth2
 def home(request):
 	""" Home view, display login mechanism """
 	form = UserCreateForm()
-	if request.user.is_authenticated():
-		return redirect('done')
+	#if request.user.is_authenticated():
+		#return redirect('profile')
 	return render_to_response('login/home.html', {
 		'form' : form,
 		'appId': getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
@@ -38,12 +38,14 @@ def sign_in(request):
         # combination is valid - a User object is returned if it is.
         user = authenticate(username=username, password=password)
 
-        print user
         if user.is_active:
             # If the account is valid and active, we can log the user in.
             # We'll send the user back to the homepage.
             login(request, user)
-            return render_to_response('login/done.html', context)
+            return render_to_response('login/profile.html', {
+            	'user': request.user,
+            	'appId' : getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None) 
+            	}, context)
 
 def sign_up(request):
 	""" Register for email """
@@ -82,13 +84,17 @@ def sign_up(request):
 	        # Once hashed, we can update the user object.
 	        # send_mail('Bienvenido a Culttu.me', 'This is content email', 'alejo8591@gmail.com', ['alejo8591@gmail.com'])
 	        # return redirect('done')
-	        return render_to_response('login/done.html', context)
-	return render_to_response('login/register.html', {'form': form}, RequestContext(request))
+	        return render_to_response('login/done.html', {
+            	'user': request.user,
+            	'appId' : getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
+            	} ,context)
+	# return render_to_response('login/register.html', {'form': form}, RequestContext(request))
 	
 def logout(request):
 	""" Logout User """
 	auth_logout(request)
-	return render_to_response('home.html', {}, RequestContext(request))
+	form = UserCreateForm()
+	return render_to_response('login/home.html', {'form':form}, RequestContext(request))
 
 @login_required
 def done(request):
@@ -97,3 +103,12 @@ def done(request):
 		'user': request.user,
 		'appId' : getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
 		}, RequestContext(request))
+
+@login_required
+def profile(request):
+	""" Login complete view, displays user data """
+	return render_to_response('login/profile.html', {
+		'user': request.user,
+		'appId' : getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
+		}, RequestContext(request))
+

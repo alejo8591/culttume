@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load url from future %}
 {% block head %}
   {% load static from staticfiles %}
     <link rel="shortcut icon" href="{% static "favicon/favicon.ico" %}">
@@ -465,13 +466,13 @@
         
         <!-- button to register with facebook -->
         <div class="social-networks-login">
-          <input type="submit" value="Conectarse con Facebook" class="button [tiny small large]">
+          <a href="{% url 'social:begin' 'facebook' %}" class="button [tiny small large]">Conectarse con Facebook</a>
         </div>
 
         <!-- button to register with twitter  -->
         <div class="social-networks-login">
           <!-- spaces in the value is to leave this pin with the same size button facebook -->
-          <input type="submit" value="   Conectarse con Twitter   " class="button [tiny small large]">
+          <a href="{% url 'social:begin' 'twitter' %}" class="button [tiny small large]">Conectarse con Twitter</a>
         </div>
 
         <!-- This link redirects to modal register by email -->
