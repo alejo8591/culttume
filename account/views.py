@@ -30,22 +30,30 @@ def sign_in(request):
 	    # Gather the username and password provided by the user.
 	    # This information is obtained from the login form.
 	    username = request.POST['username']
-        password = request.POST['password']
+	    password = request.POST['password']
+	    # Use Django's machinery to attempt to see if the username/password
+	    # combination is valid - a User object is returned if it is.
+	    user = authenticate(username=username, password=password)
 
-        print username, password
+	    if user.is_active:
+	        # If the account is valid and active, we can log the user in.
+	        # We'll send the user back to the homepage.
+	        login(request, user)
+	        return render_to_response('login/home.html', {
+	        	'user': request.user,
+	        	'appId' : getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
+	        	}, context)
+	    else:
+	    	return render_to_response('login/profile.html', {
+	    		'user': request.user,
+	    		'appId' : getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
+	    		}, context)
+	else:
+		return render_to_response('login/home.html', {
+			'form' : form,
+			'appId': getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
+			}, context)
 
-        # Use Django's machinery to attempt to see if the username/password
-        # combination is valid - a User object is returned if it is.
-        user = authenticate(username=username, password=password)
-
-        if user.is_active:
-            # If the account is valid and active, we can log the user in.
-            # We'll send the user back to the homepage.
-            login(request, user)
-            return render_to_response('login/profile.html', {
-            	'user': request.user,
-            	'appId' : getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None) 
-            	}, context)
 
 def sign_up(request):
 	""" Register for email """
@@ -54,22 +62,21 @@ def sign_up(request):
 	# A boolean value for telling the template whether the registration was successful.
 	# Set to False initially. Code changes value to True when registration succeeds.
 	registered = False
-
 	if request.user.is_authenticated():
 		return redirect('done')
 	# If it's a HTTP POST, we're interested in processing form data.
 	elif request.method == 'POST':
-		# Attempt to grab information from the raw form information.
-        # Note that we make use of both UserForm and UserProfileForm.
-		form = UserCreateForm(request.POST)
-		if form.is_valid():
-		    # Save the user's form data to the database.
-		    user = form.save()
-		    # Now we hash the password with the set_password method.
-		    # Once hashed, we can update the user object.
-		    user.set_password(user.password)
-		    user.save()
-		    # Gather the username and password provided by the user.
+	    # Attempt to grab information from the raw form information.
+	    # Note that we make use of both UserForm and UserProfileForm.
+	    form = UserCreateForm(request.POST)
+	    if form.is_valid():
+	        # Save the user's form data to the database.
+	        user = form.save()
+	        # Now we hash the password with the set_password method.
+	        # Once hashed, we can update the user object.
+	        user.set_password(user.password)
+	        user.save()
+	        # Gather the username and password provided by the user.
 	        # This information is obtained from the login form.
 	        username = request.POST['username']
 	        password = request.POST['password']
@@ -85,11 +92,13 @@ def sign_up(request):
 	        # send_mail('Bienvenido a Culttu.me', 'This is content email', 'alejo8591@gmail.com', ['alejo8591@gmail.com'])
 	        # return redirect('done')
 	        return render_to_response('login/done.html', {
-            	'user': request.user,
-            	'appId' : getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
-            	} ,context)
-	# return render_to_response('login/register.html', {'form': form}, RequestContext(request))
-	
+	        	'user': request.user,
+	        	'appId' : getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)}, context)
+	    else:
+	    	return render_to_response('login/home.html', {'form' : form}, context)
+	else:
+		return render_to_response('login/home.html', {'form' : form}, context)
+ 
 def logout(request):
 	""" Logout User """
 	auth_logout(request)

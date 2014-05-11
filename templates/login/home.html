@@ -493,14 +493,14 @@
         
         <!-- button to login with facebook -->
         <div class="social-networks-login">
-          <input type="submit" value="Inicia con Facebook" class="button [tiny small large]">
+          <a href="{% url 'social:begin' 'facebook' %}" class="button [tiny small large]">Conectarse con Facebook</a>
         </div>
 
         <!--button to login with twitter -->
         <div class="social-networks-login">
           <!-- spaces in the value is to leave this pin with the same size button facebook -->
-          <input type="submit" value="  Inicia con Twitter   " class="button [tiny small large]">
-        </div>  
+          <a href="{% url 'social:begin' 'twitter' %}" class="button [tiny small large]">Conectarse con Twitter</a>
+        </div>
         <hr>
         <section class="header-modal"><h3>Ingresa tus datos</h3></section>
         <!--  Is this form  login email-->
