@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'analytical',
     'social.apps.django_app.default',
     'account',
+    'campaigns',
 )
 # Migrations broken in django-celery 3.0 #149 
 # https://github.com/celery/django-celery/issues/149
