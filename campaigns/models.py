@@ -12,7 +12,7 @@ class Campaign(models.Model):
     logo_image_url_campaign  = models.URLField(null=True, blank=True)
     description_campaign     = models.TextField(null=True, blank=True)
     # behalf of the organizer
-    owner_campaign       = models.ForeignKey(UserProfile)
+    owner_campaign       = models.ForeignKey(UserProfile, null=True, blank=True)
     name_event_organizer = models.CharField(max_length=255, null=True, blank=True)
     description_event_organizer = models.TextField(null=True, blank=True)
     social_network_campaign = models.ForeignKey('SocialNetwork')

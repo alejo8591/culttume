@@ -20,7 +20,7 @@ class Migration(SchemaMigration):
             ('logo_image_file_campaign', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
             ('logo_image_url_campaign', self.gf('django.db.models.fields.URLField')(max_length=200, null=True, blank=True)),
             ('description_campaign', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-            ('owner_campaign', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['account.UserProfile'])),
+            ('owner_campaign', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['account.UserProfile'], null=True, blank=True)),
             ('name_event_organizer', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
             ('description_event_organizer', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('social_network_campaign', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['campaigns.SocialNetwork'])),
@@ -103,7 +103,7 @@ class Migration(SchemaMigration):
             'logo_image_url_campaign': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
             'name_campaign': ('django.db.models.fields.CharField', [], {'max_length': '128', 'null': 'True'}),
             'name_event_organizer': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
-            'owner_campaign': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['account.UserProfile']"}),
+            'owner_campaign': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['account.UserProfile']", 'null': 'True', 'blank': 'True'}),
             'social_network_campaign': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['campaigns.SocialNetwork']"}),
             'ubication': ('django.db.models.fields.CharField', [], {'max_length': '128', 'null': 'True'})
         },
