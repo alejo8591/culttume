@@ -43,6 +43,8 @@ INSTALLED_APPS = (
     'django_extensions',
     'djcelery',
     'mailer',
+    'crispy_forms',
+    'crispy_forms_foundation',
     'south',
     'analytical',
     'social.apps.django_app.default',
@@ -53,6 +55,7 @@ INSTALLED_APPS = (
 # https://github.com/celery/django-celery/issues/149
 SOUTH_MIGRATION_MODULES = {
     'djcelery': 'ignore',
+    'django_extensions': 'ignore'
 }
 
 MIDDLEWARE_CLASSES = (
@@ -201,3 +204,6 @@ GRAPH_MODELS = {
   'all_applications': True,
   'group_models': True,
 }
+
+# Default layout to use with "crispy_forms"
+CRISPY_TEMPLATE_PACK = 'foundation-5'

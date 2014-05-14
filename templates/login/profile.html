@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% load url from future %}
+
+{% load crispy_forms_tags %}
+
 {% block head %}
   {% load static from staticfiles %}
     <link rel="shortcut icon" href="{% static "favicon/favicon.ico" %}">
@@ -11,6 +14,8 @@
 {% endblock %}
 
 {% block content %}
+  {% crispy form %}
+
 <!-- header  -->
 	<header class="fixed">
 

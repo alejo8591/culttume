@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.shortcuts import redirect, render_to_response
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as auth_logout
-from account.forms import UserCreateForm
+from account.forms import UserCreateForm, UserProfileForm
 from mailer import send_mail
 from culttume.tasks import email_tasks
 
@@ -116,8 +116,11 @@ def done(request):
 @login_required
 def profile(request):
 	""" Login complete view, displays user data """
+	user_profile_form = UserProfileForm()
+	context = RequestContext(request)
 	return render_to_response('login/profile.html', {
 		'user': request.user,
+		'form' : user_profile_form,
 		'appId' : getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
-		}, RequestContext(request))
+		}, context)
 
