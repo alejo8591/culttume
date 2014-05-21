@@ -17,6 +17,13 @@ class UserCreateForm(ModelForm):
 		fields = ('username', 'email', 'password')
 		exclude = ('last_name', 'first_name', 'last_login', 'groups', 'user_permissions', 'is_staff', 'is_superuser','is_active', 'date_joined',)
 
+	def __init__(self, *args, **kwargs):
+		self.helper = FormHelper()
+		self.helper.form_method = 'POST'
+		self.helper.add_input(Submit('update', 'Registarme!', css_class='button [primary success alert]'))
+
+		super(UserCreateForm, self).__init__(*args, **kwargs)
+
 
 class UserProfileForm(forms.Form):
 	"""
